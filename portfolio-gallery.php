@@ -12,7 +12,7 @@ Text Domain: portfolio-gallery
 Domain Path: /languages
 */
 
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function portfolio_gallery_load_plugin_textdomain() {
     load_plugin_textdomain( 'portfolio-gallery', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }

@@ -1,6 +1,5 @@
 /*
-    pcolorbox Core Style:
-    The following CSS is consistent between example themes and should not be altered.
+This is a fork of jQuery colorbox plugin
 */
 #pcolorbox, #pcboxOverlay, #pcboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
 #pcboxWrapper {max-width:none;}
