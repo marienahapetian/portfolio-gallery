@@ -1,10 +1,10 @@
 ﻿=== Portfolio ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/portfolio-gallery/
-Tags: Portfolio Gallery, portfolio, portfolio plugin, portfolios, album, custom fields, images gallery, gallery, thumbnails, image gallery, grid, slider, sliders, wordpress slider, wordpress slideshow, wp slider, slide, slide show, slider, slider plugin, slides, slideshow, gallery slider, galeri, galerie, responsive slider, responsive slideshow, Photo Slider, carousel, wordpress gallery, wordpress gallery plugin, banner rotator, best gallery, best gallery plugin, image album, images gallery, photo album, photo albums, photo gallery, photoset, Simple gallery, website gallery, widget gallery, wp gallery, photoalbum, view images, lightbox, image lightbox, gallery lightbox, content slider, wordpress portfolio, galleries, galleria, photography, filterable gallery, filterable portfolio, sortable portfolio, picture gallery, thumbnail, free photo gallery, free gallery, fullscreen slider, showcase, Responsive Portfolio, fullscreen gallery, video gallery, Gallery Plugin, grid gallery, photogallery, plugin gallery, responsive gallery, watermarking, add gallery, add picture, add pictures, add album, fotoalbum, image album, gallery shortcode,
+Tags: Portfolio Gallery, portfolio, portfolio plugin, portfolios, images gallery, gallery, thumbnails, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.5.3
-Stable tag: 2.0.76
+Stable tag: 2.0.77
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,9 +21,15 @@ Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, 
 
 https://www.youtube.com/watch?v=uq6Cw3ou-gM
 
-Portfolio Gallery is perfect for using for creating various within various views. Product allows adding images, videos from youtube and vimeo, descriptions and titles for each. Portfolio Gallery is rather useful whether using with various pages and posts, as well as within custom location.
+Portfolio Gallery is perfect for using for creating various within various views. Product allows adding images, videos from youtube and vimeo, descriptions and titles for each.
 
-Plugin provides you Free version to test all 7 gallery views, slider gallery options and other basic functionalities. And Pro versions, which opens more and more abilities of customization for your gallery, each gallery view has it’s own options, it depends which gallery type you decides to use. Besides that pro version allows to customize your Lightbox. Lightbox tool come with some of the gallery views, not all, but most gallery views have this wonderful ability to zoom the image.
+Portfolio Gallery is rather useful whether using with various pages and posts, as well as within custom location.
+
+Plugin provides you Free version to test all 7 gallery views, slider gallery options and other basic functionalities.
+
+And Pro versions, which opens more and more abilities of customization for your gallery, each gallery view has it’s own options, it depends which gallery type you decides to use.
+
+Besides that pro version allows to customize your Lightbox. Lightbox tool come with some of the gallery views, not all, but most gallery views have this wonderful ability to zoom the image.
 
 Plugin has unrepeatable, 7 different and very fancy views. These views will give you a chance to make your site look modern, creative, well designed and this will definitely raise a big interest in your portfolio gallery by millions of your visitors. Make your portfolio gallery fit your needs up to the most minor detail.
 
@@ -37,14 +43,18 @@ So what we have?
 *  Image + Video , demonstrated with 7 views
 *  Separate view, one of 7 views - FAQ, for questions/answers and not only
 
-You can use on different pages so if you need to create single portfolio gallery, with description, video , video player, faq, slider and content slider, it’s enough to install only portfolio gallery plugin. With nicely designed user friendly admin panel it will take you 2 minutes to create your portfolio gallery on your website. And these all things are available in Free version. It’s not over! Using our plugin, you use 4 plugins in one. How? In addition to 4 types that was said above, you should notice that among those 7 views you can find Slider view, so you get Slider Plugin.
+You can use on different pages so if you need to create single portfolio gallery, with description, video , video player, faq, slider and content slider, it’s enough to install only portfolio gallery plugin.
+
+With nicely designed user friendly admin panel it will take you 2 minutes to create your portfolio gallery on your website. And these all things are available in Free version. It’s not over
+
+Using our plugin, you use 4 plugins in one. How? In addition to 4 types that was said above, you should notice that among those 7 views you can find Slider view, so you get Slider Plugin.
 
 **Slider**
 
 Plus to the most of these view we give free lightbox tool. 
 
 So totally you get Slider, Video gallery, Image Gallery, Lightbox plugins in ONE Portfolio Gallery plugin.
-Over 580,781 our users who tried Portfolio Gallery, can prove it's great functionality and utility. 
+Over 594,125 our users who tried Portfolio Gallery, can prove it's great functionality and utility. 
 
 Plugin has prepared one more present. Saying “Portfolio Gallery” you may imagine only photos, but now you see how many things you get with it.
 
@@ -62,6 +72,7 @@ What about responsiveness. Portfolio Gallery is fully responsive plugin, which a
 Plugin is easy to insert into any part of your template and use portfolio gallery as widget.
 
 Portfolio Gallery uses 7 view options and can be customized using the General Options(pro options).
+
 Almost all kind of texts are customizable in terms of text and color. So don’t hesitate about Huge-IT Portfolio Gallery plugin. For any questions related to portfolio gallery plugin, feel free to contact our responsive support team.
 
 ###  The features
@@ -95,60 +106,59 @@ Almost all kind of texts are customizable in terms of text and color. So don’t
 
 *   **Blocks Toggle Up/Down**
 
-Quite an interesting view. All images/videos with its title and “down-arrow” are at the bottom. When you click on the arrow, smoothly opens the text to the image/video, as well as other images/videos which you add as additional to your portfolio gallery. The all images/videos of portfolio gallery project become large and open with popup. There is a button labeled «view more» at the bottom of the text, which will move to more information. Arrow-down has already become a cross which close the text back. If the pictures are under each other, the opened text moves other images/video thumbnail of the portfolio gallery project toward. Simple and compact.
+Quite an interesting view. All images/videos with its title and “down-arrow” are at the bottom. When you click on the arrow, smoothly opens the text to the image/video, as well as other images/videos which you add as additional to your portfolio gallery.
+
+The all images/videos of portfolio gallery project become large and open with popup. There is a button labeled «view more» at the bottom of the text, which will move to more information.
+
+Arrow-down has already become a cross which close the text back. If the pictures are under each other, the opened text moves other images/video thumbnail of the portfolio gallery project toward. Simple and compact.
 
 *   **Full-Height Blocks**
 
-Full-Height Blocks is a type of view demonstrating a tape of images/videos, which allows to see the text and other images/videos under the main image/video with its title. All additional images/videos become large when clicking on them, and open with popup. It has “View more” button at the bottom of the text for each portfolio gallery project.
+Full-Height Blocks is a type of view demonstrating a tape of images/videos, which allows to see the text and other images/videos under the main image/video with its title.
+
+All additional images/videos become large when clicking on them, and open with popup. It has “View more” button at the bottom of the text for each portfolio gallery project.
 
 *   **Gallery / Content-Popup**
 
-Gallery / Content-Popup is a type of view, which has the following characteristics: It opens each project from your tape increasing them as popup, with the text and other images/videos inside, next to the main image/video. Inside popup you can find the thumbnail/additional images, which you have added to each project of the gallery. There is also a button “View more” inside, which allows opening more information about the portfolio gallery project content. using right left arrows inside the popup you can slide within all gallery projects. The “cross” button in the upper right corner closes the popup going back to the gallery items.
+Gallery / Content-Popup is a type of view, which has the following characteristics: It opens each project from your tape increasing them as popup, with the text and other images/videos inside, next to the main image/video.
+
+Inside popup you can find the thumbnail/additional images, which you have added to each project of the gallery.
+
+There is also a button “View more” inside, which allows opening more information about the portfolio gallery project content.
+
+Using right left arrows inside the popup you can slide within all gallery projects. The “cross” button in the upper right corner closes the popup going back to the gallery items.
 
 *   **Full-Width Blocks**
 
-Full-Width Blocks is a type of view, which looks like portfolio gallery project which demonstrates images or videos on the left side, and title + description text on the right side. It allows to see your main image with its additional images under it and the text disposed next to the image. The title is above the text and “View more” button is at the bottom of the text. All images can be opened and enlarged with lightbox tool.
+Full-Width Blocks is a type of view, which looks like portfolio gallery project which demonstrates images or videos on the left side, and title + description text on the right side.
+
+It allows to see your main image with its additional images under it and the text disposed next to the image.
+
+The title is above the text and “View more” button is at the bottom of the text. All images can be opened and enlarged with lightbox tool.
 
 *   **FAQ Toggle Up/Down**
 
-FAQ Toggle Up/Down - FAQ Toggle view is very simple. You can see only the titles of the portfolio gallery project and down-arrow button. Clicking on down-arrow button smoothly opens the text downwards and “view more” button under it. So there are no images/videos only the text. Pressing on the cross you can close the text and go back to titles.
+FAQ Toggle Up/Down - FAQ Toggle view is very simple.
+
+You can see only the titles of the portfolio gallery project and down-arrow button.
+
+Clicking on down-arrow button smoothly opens the text downwards and “view more” button under it.
+
+So there are no images/videos only the text. Pressing on the cross you can close the text and go back to titles.
 
 *   **Content Slider**
 
-Content Slider is a type of view, which gives you an ability to see photos/videos with slider, the text is next to the image/video with the title above. Every slide is represented as one project of the portfolio gallery. Just simply press the arrows on the upper right corner and slide the content of portfolio gallery projects.
+Content Slider is a type of view, which gives you an ability to see photos/videos with slider, the text is next to the image/video with the title above.
+
+Every slide is represented as one project of the portfolio gallery.
+
+Just simply press the arrows on the upper right corner and slide the content of portfolio gallery projects.
 
 *   **Lightbox Gallery**
 
-Lightbox Gallery is a type of gallery view involves only preview of images without description text. The title comes up from the bottom of the image as you hover the mouse on it. Images and Videos become larger with the lightbox and you can slide to watch them. Pay attention, this portfolio gallery demonstrates only main image/videos of the whole project.
+Lightbox Gallery is a type of gallery view involves only preview of images without description text. The title comes up from the bottom of the image as you hover the mouse on it.
 
-
-**[Demo 1 Block Toggle Up/Down](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper)**
-
-Quite an interesting view for portfolio. All images/videos with its title and “down-arrow” are at the bottom. When you click on the arrow, smoothly opens the text to the image/video, as well as other images/videos that you have added further. The all images/videos become large and open with popup.
-
-**[Demo 2 Full Height Block](http://huge-it.com/wordpress-portfolio-gallery-demo-2-full-height-block/#plugin_demo_wrapper)**
-
-This view is a tape of images/videos let to see the text and other images/videos under the main image/video with its title. All additional images/videos become large when clicking on them, and open with popup. It has “View more” button at the bottom of the text.
-
-**[Demo 3 Gallery / Content Popup](http://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper)**
-
-This type of view has the following characteristics: It opens each photo from your tape increasing them as popup, with the text and other images/videos inside, next to the main image/video. There is also a button “View more” inside, which allows opening more information about the content. The “cross” button in the upper right corner closes the popup going back to the tape.
-
-**[Demo 4 Full-Width Block](http://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper)**
-
-This type of view looks like already opened popup. It allows to see your main image with its additional images under it and the text disposed next to the image. The title is above the text and “View more” button is at the bottom of the text. All the images opens and becomes larger with lightbox.
-
-**[Demo 5 FAQ Toggle Up/Down](http://huge-it.com/wordpress-portfolio-gallery-demo-5-faq-toggle-updown/#plugin_demo_wrapper)**
-
-FAQ Toggle view is very simple. You can see only the titles and down-arrow button. Clicking on down-arrow button smoothly opens the text downwards and “view more” button under it. So there are no images/videos only the text. Pressing on the cross you can close the text and go back to titles.
-
-**[Demo 6 Content Slider](http://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper)**
-
-This type of view gives you an ability to see photos with slider, the text is next to the image/video with the title above. Just simply press the arrows on the upper right corner and slide the content.
-
-**[Demo 7 Lightbox Gallery](http://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper)**
-
-This gallery view involves only review of images without text. The title comes up from the bottom of the image as you hover the mouse on it. Images become larger with the lightbox and you can slide to watch them.
+Images and Videos become larger with the lightbox and you can slide to watch them. Pay attention, this portfolio gallery demonstrates only main image/videos of the whole project.
 
 
 Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
@@ -332,9 +342,16 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 *  If you are pro user, then from General Options go in Image Behavior and set on "Natural". If you are free user, just try to upload more proportional images for element box.
 
 
+= How to show Title of images in Lightbox tool? =
+
+To show the title, write it in the Title field of media library and turn on "show title" from Lightbox Options.
+
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.0.77 =
+*  Added credits and attribution in the source code refering the original authors.
 
 = 2.0.76 =
 *  Some bugs fixed.
@@ -681,7 +698,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 * On the upper right hand you can identify three blocks of options.
 * Current Portfolio Gallery Options. Choose one of the options for the image display.
 * Usage. Here you will see the shortcode for the created portfolio gallery. You can add the shortcode to the page or post where you want the images or videos to be displayed. In addition you can find the shortcode icon width each post and page within its TinyMCE editor and can click on it, select the portfolio gallery and insert the shortcode.
-* Template Usage. If you want to use the portfolio gallery for a custom location with the theme, you can copy and paste the provided code.
+* Template Usage. If you want to use for a custom location with the theme, you can copy and paste the provided code.
 
 **Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery/) to add some features:**
 
