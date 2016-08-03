@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+?>
 <section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ($portfolioShowSorting == 'on') {
     echo 'sortingActive ';
 }

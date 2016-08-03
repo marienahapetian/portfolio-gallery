@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 class Portfolio_Gallery_Portfolios {
 
 	public function __construct() {
@@ -195,7 +197,7 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 
 		}
 
-		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . 'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-portfolios-list.php' );
+		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-portfolios-list.php' );
 
 	}
 
@@ -285,7 +287,7 @@ INSERT INTO
 
 			}
 		}
-		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . 'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-portfolio-images-list-html.php' );
+		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-portfolio-images-list-html.php' );
 	}
 
 	/**
@@ -321,6 +323,7 @@ INSERT INTO
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  sl_width = '" . $_POST["sl_width"] . "'  WHERE id = '" . $id . "' " );
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  sl_height = '" . $_POST["sl_height"] . "'  WHERE id = '" . $id . "' " );
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  pause_on_hover = '" . $_POST["pause_on_hover"] . "'  WHERE id = '" . $id . "' " );
+		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  autoslide = '" . $_POST["autoslide"] . "'  WHERE id = '" . $id . "' " );
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  portfolio_list_effects_s = '" . $_POST["portfolio_effects_list"] . "'  WHERE id = '" . $id . "' " );
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  sl_position = '" . $_POST["sl_position"] . "'  WHERE id = '" . $id . "' " );
 		$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  description = '" . $_POST["sl_pausetime"] . "'  WHERE id = '" . $id . "' " );
@@ -460,7 +463,7 @@ INSERT INTO
 			}
 
 		}
-		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . '\admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-video-add-html.php' );
+		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-video-add-html.php' );
 	}
 
 	/**
@@ -515,7 +518,7 @@ INSERT INTO
 		}
 		$video_id = portfolio_gallery_get_video_id_from_url_portfolio($input_edit_video_thumb);
 
-		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-video-edit-html.php' );
+		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH. DIRECTORY_SEPARATOR .'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-video-edit-html.php' );
 
 	}
 }

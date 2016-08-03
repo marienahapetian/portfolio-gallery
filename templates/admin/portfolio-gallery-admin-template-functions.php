@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 /**
  * Get Options array 
  * 
@@ -15,7 +17,7 @@ function portfolio_gallery_showStyles( $op_type = "0" ) {
 		$value                = $row->value;
 		$param_values[ $key ] = $value;
 	}
-	require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH.'admin\portfolio-gallery-admin-general-options-html.php' );
+	require( PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-general-options-html.php' );
 }
 
 /**

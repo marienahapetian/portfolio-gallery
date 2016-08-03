@@ -26,11 +26,12 @@ function Portfolio_Gallery_Content_Popup(id) {
     _this.leftButton = _this.popupList.find('.heading-navigation .left-change');
     _this.rightButton = _this.popupList.find('.heading-navigation .right-change');
     _this.playIcon = _this.popupList.find('.video-thumb .play-icon');
+    _this.imageBehaiour = _this.content.data('image-behaviour');
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
-        ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == '' ) || ( _this.optionsBlock.data('sorting-position') == '' && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
-        _this.isCentered = _this.container.data("show-center") == "on";
-    }console.log( _this.popupOverlay);
+        ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
+        _this.isCentered = _this.container.data("show-center");
+    }
     _this.documentReady = function () {
         _this.container.hugeitmicro({
             itemSelector: _this.element,
@@ -94,7 +95,9 @@ function Portfolio_Gallery_Content_Popup(id) {
                 "margin": "0px auto",
                 "overflow": "hidden"
             });
-            console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
+            setInterval(function(){
+                _this.container.hugeitmicro('reLayout');
+            });
         }
     };
 
@@ -274,8 +277,7 @@ function Portfolio_Gallery_Content_Popup(id) {
         if (new_video_id.length == 11) {
             showcontrols = "?modestbranding=1&showinfo=0&controls=1";
             prefix = "//www.youtube.com/embed/";
-        }
-        else {
+        } else {
             showcontrols = "?title=0&amp;byline=0&amp;portrait=0";
             prefix = "//player.vimeo.com/video/";
 
@@ -334,15 +336,38 @@ function Portfolio_Gallery_Content_Popup(id) {
         // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
         // use filterFn if matches value
-        filterValue = filterValue;
         _this.container.hugeitmicro({filter: filterValue});
     };
+    _this.imagesBehavior = function (){
+        _this.container.find('.portelement .image-block img').each(function(i, img) {
+                var naturalRatio = jQuery(this).prop('naturalWidth')/jQuery(this).prop('naturalHeight');
+                var defaultRatio = _this.defaultBlockWidth/_this.defaultBlockHeight;
+                if(naturalRatio<=defaultRatio){
+                        jQuery(img).css({
+                            position: "relative",
+                            width: '100%', 
+                            top: '50%',
+                            transform: 'translateY(-50%)'
+                        });
+                    }else {
+                        jQuery(img).css({
+                            position: "relative",
+                            height:'100%',
+                            left: '50%',
+                            transform: 'translateX(-50%)'
+                        });
+                    }
+	});
+    }
 
     _this.init = function () {
         _this.showCenter();
         jQuery(window).load(_this.manageLoading);
         _this.documentReady();
         _this.addEventListeners();
+        if( _this.imageBehaiour == 'natural'){
+            _this.imagesBehavior();
+        }
     };
 
     this.init();

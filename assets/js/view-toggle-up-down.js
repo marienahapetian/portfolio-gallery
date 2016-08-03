@@ -20,10 +20,11 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.dropdownable = _this.element.find('div.dropdownable');
     _this.titleBlock = _this.element.find('.title-block');
     _this.filterButton = _this.filtersBlock.find('ul li');
+    _this.imageBehaiour = _this.content.data('image-behaviour');
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
-        ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == '' ) || ( _this.optionsBlock.data('sorting-position') == '' && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
-        _this.isCentered = _this.container.data("show-center") == "on";
+        ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
+        _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
         _this.container.hugeitmicro({
@@ -88,6 +89,9 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
                 "margin": "0px auto",
                 "overflow": "hidden"
             });
+            setInterval(function(){
+                _this.container.hugeitmicro('reLayout');
+            });
             console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
         }
     };
@@ -104,7 +108,6 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
 
     };
     _this.resizeEvent = function(){
-        _this.container.hugeitmicro('reLayout');
         _this.showCenter();
     };
     _this.optionsClick = function () {
@@ -180,11 +183,36 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         _this.container.hugeitmicro({filter: filterValue});
     };
 
+    _this.imagesBehavior = function(){
+        _this.container.find('.portelement .image-block img').each(function( i, img ){
+            var naturalRatio = jQuery(this).prop('naturalWidth')/jQuery(this).prop('naturalHeight');
+            var defaultRatio = _this.defaultBlockWidth/_this.defaultBlockHeight;console.log(defaultRatio+'aaa'+naturalRatio);
+            if(naturalRatio<=defaultRatio){console.log(0);
+                jQuery(img).css({
+                    position: "absolute",
+                    width: '100%',
+                    top: '50%',
+                    transform: 'translateY(-50%)'
+                });
+            }else {console.log(1);
+                jQuery(img).css({
+                    position: "absolute",
+                    height:'100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)'
+                });
+            }
+        });
+    };
+
     _this.init = function () {
         _this.showCenter();
         jQuery(window).load(_this.manageLoading);
         _this.documentReady();
         _this.addEventListeners();
+        if( _this.imageBehaiour == 'crop'){
+            _this.imagesBehavior();
+        }
     };
 
     this.init();

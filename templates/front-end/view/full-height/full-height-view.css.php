@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 <style type="text/css">
 /***For Full Height view***/
 .portelement_<?php echo $portfolioID; ?> .play-icon.youtube-icon  {

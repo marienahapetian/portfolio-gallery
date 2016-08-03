@@ -1,4 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+$wp_nonce = $_GET['huge_it_portfolio_nonce'];
+if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
+	wp_die('Security check fail');
+}
+$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 global $wpdb;
 ?>
 <style>
@@ -83,7 +91,7 @@ global $wpdb;
 		<h2><?php echo __( 'Add Video URL From Youtube or Vimeo', 'portfolio-gallery' );?></h2>
 		<div class="control-panel">
 			<?php if (!isset($_GET['thumb_parent'])) { ?>
-				<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $_GET['id']; ?>&closepop=1" >
+				<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $_GET['id']; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&closepop=1" >
 					<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" />
 					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'><?php echo __( 'Insert Video Slide', 'portfolio-gallery' );?></button>
 					<div id="add-video-popup-options">
@@ -106,7 +114,7 @@ global $wpdb;
 					</div>
 				</form>
 			<?php } else { $thumb_parent = $_GET["thumb_parent"] //get project image's id and sent to form by get ,who addes thumb_video by $_get thumb_parent ?>
-				<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $_GET['id']; ?>&thumb_parent=<?php echo $thumb_parent ; ?>&closepop=1" >
+				<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $_GET['id']; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&thumb_parent=<?php echo $thumb_parent ; ?>&closepop=1" >
 					<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" />
 					<button class='save-slider-options button-primary huge-it-insert-video-button' id='huge-it-insert-video-button'><?php echo __( 'Insert Video Slide', 'portfolio-gallery' );?></button>
 				</form>

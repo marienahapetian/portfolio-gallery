@@ -8,7 +8,7 @@
 	<div class="right-block">
 		<div class="title-block">
                     <a href="http://huge-it.com/slider/" target="_blank">
-                        <h3>Wordpress Slider</h3>
+                        <h3>WordPress Slider</h3>
                     </a>
                 </div>
 		<div class="description-block">
@@ -33,7 +33,7 @@
 	<div class="right-block">
 		<div class="title-block">
                     <a href="http://huge-it.com/wordpress-gallery/" target="_blank">
-                        <h3>Wordpress Image Gallery</h3>
+                        <h3>WordPress Image Gallery</h3>
                     </a>
                 </div>
 		<div class="description-block">
@@ -57,7 +57,7 @@
 	<div class="right-block">
 		<div class="title-block">
                     <a href="http://huge-it.com/lightbox/" target="_blank">
-                        <h3>Wordpress Lightbox</h3>
+                        <h3>WordPress Lightbox</h3>
                     </a>
                 </div>
 		<div class="description-block">
@@ -80,7 +80,7 @@
 	<div class="right-block">
 		<div class="title-block">
                     <a href="http://huge-it.com/wordpress-video-gallery/" target="_blank">
-                        <h3>Wordpress Video Gallery</h3>
+                        <h3>WordPress Video Gallery</h3>
                     </a>
                 </div>
 		<div class="description-block">
@@ -103,7 +103,7 @@
 	<div class="right-block">
 		<div class="title-block">
                     <a href="http://huge-it.com/share-buttons/" target="_blank">
-                        <h3>Wordpress Share Buttons</h3>
+                        <h3>WordPress Share Buttons</h3>
                     </a>
                 </div>
 		<p>Social network is one of the popular places where people get information about everything in the world.
@@ -125,7 +125,7 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/google-map/" target="_blank">
-                        <h3>Wordpress Google Map</h3>
+                        <h3>WordPress Google Map</h3>
                     </a>
                 </div>
 		<p>Huge-IT Google Map. One more perfect tool from Huge-IT. Improved Google Map, where we have our special
@@ -147,7 +147,7 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/colorbox/" target="_blank">
-                        <h3>Wordpress Colorbox</h3>
+                        <h3>WordPress Colorbox</h3>
                     </a>
                 </div>
 		<p>Huge-It Colorbox is the most spellbinding plugin in WordPress that implement Lightbox-effect look of the
@@ -169,7 +169,7 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/video-player/" target="_blank">
-                        <h3>Wordpress Video Player</h3>
+                        <h3>WordPress Video Player</h3>
                     </a>
                 </div>
 		<p>Inserting video on a page is a perfect way to supplement website with media content and expand the user’s

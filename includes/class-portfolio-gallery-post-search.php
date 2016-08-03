@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 /**
  * Filter portfolio gallery
  * Not sure if it works, but to avoid conflicts with previous versions of plugin we leave this untouched

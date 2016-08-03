@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 class Portfolio_Gallery_Ajax {
 
 	public function __construct() {

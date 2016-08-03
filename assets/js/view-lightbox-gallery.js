@@ -14,13 +14,13 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
     _this.element = _this.container.find('.portelement');
     _this.defaultBlockWidth = param_obj.ht_view6_width;
     _this.optionSets = _this.optionsBlock.find('.option-set'),
-        _this.optionLinks = _this.optionSets.find('a');
+    _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
     _this.filterButton = _this.filtersBlock.find('ul li');
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
-        ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == '' ) || ( _this.optionsBlock.data('sorting-position') == '' && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
-        _this.isCentered = _this.container.data("show-center") == "on";
+        ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
+        _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
         _this.container.hugeitmicro({
@@ -56,6 +56,9 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
                     return $elem.find('.id').text();
                 }
             }
+        });
+        setInterval(function(){
+            _this.container.hugeitmicro('reLayout');
         });
     };
 

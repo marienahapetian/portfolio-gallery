@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 <style>
 /*** For Toggle-Up Down ***/
 
@@ -52,34 +57,44 @@
 
 .default-block_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> {
 	margin:0;
-	padding:0px;
-	line-height:0px;
+	padding: 0;
+	line-height: 0;
 	border-bottom:<?php echo $paramssld['ht_view0_element_border_width']; ?>px solid #<?php echo $paramssld['ht_view0_element_border_color']; ?>;
+	height:<?php echo $paramssld['ht_view0_block_height']; ?>px !important;
 }
 
-.default-block_<?php echo $portfolioID; ?> img {
-	margin:0px !important;
-	padding:0px !important;
-	max-width:none !important;
-	max-width:<?php echo $paramssld['ht_view0_block_width'];?>px !important;
-	width: 100%;
+.default-block_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> a {
+	display:block;
 	height:<?php echo $paramssld['ht_view0_block_height']; ?>px !important;
-	border-radius:0px;
+	overflow: hidden;
+	position:relative;
+}
+
+.portelement_<?php echo $portfolioID; ?> .default-block_<?php echo $portfolioID; ?> img {
+	margin: 0 !important;
+	padding: 0 !important;
+	max-width:<?php echo $paramssld['ht_view0_block_width'];?>px ;
+	max-width:none !important;
+	border-radius: 0;
+	<?php  if($paramssld['port_natural_size_toggle'] == 'resize'){ ?>
+	height: 100%;
+	width: 100%;
+	<?php }?>
 }
 
 .default-block_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> {
 	position:relative;
 	display:block;
 	height: <?php echo 20+$paramssld['ht_view0_title_font_size']-$paramssld['ht_view0_element_border_width']; ?>px;
-	padding:0px 0 0 0;
+	padding: 0 0 0 0;
 	max-width:<?php echo $paramssld['ht_view0_block_width']; ?>px !important;
 	width: 100%;
 }
 
 .default-block_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> h3 {
 	position:relative;
-	margin:0px !important;
-	padding:0px 0 0 5px !important;
+	margin: 0 !important;
+	padding: 0 0 0 5px !important;
 	max-width:<?php echo $paramssld['ht_view0_block_width']-30; ?>px !important;
 	width: 80%;
 	text-overflow: ellipsis;
@@ -117,8 +132,8 @@
 	position: absolute;
 	display:block;
 	width:<?php echo $paramssld['ht_view0_block_width']-10; ?>px !important;
-	margin:0px 5px 0 5px;
-	padding:0px;
+	margin: 0 5px 0 5px;
+	padding: 0;
 	text-align:left;
 	top:<?php echo $paramssld['ht_view0_block_height']+20+$paramssld['ht_view0_title_font_size']; ?>px;  
 	z-index:6; 
@@ -136,8 +151,8 @@
 	/*font-weight:normal;*/
 	font-size:<?php echo $paramssld['ht_view0_description_font_size']; ?>px;
 	color:#<?php echo $paramssld['ht_view0_description_color']; ?>;
-	margin:0px;
-	padding:0px;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -152,13 +167,13 @@
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .description-block_<?php echo $portfolioID; ?> strong,
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .description-block_<?php echo $portfolioID; ?> span {
 	padding:2px !important;
-	margin:0px !important;
+	margin: 0 !important;
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .description-block_<?php echo $portfolioID; ?> ul,
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .description-block_<?php echo $portfolioID; ?> li {
 	padding:2px 0 2px 5px;
-	margin:0px 0 0 8px;
+	margin: 0 0 0 8px;
 }
 
 
@@ -168,14 +183,14 @@
 	list-style:none;
 	display:table;
 	width:100%;
-	padding:0px;
+	padding: 0;
 	margin:3px 0 0 0;
 	text-align:center;
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .thumbs-list_<?php echo $portfolioID; ?> li {
 	display:inline-block;
-	margin:0px 3px 0 2px;
+	margin: 0 3px 0 2px;
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .thumbs-list_<?php echo $portfolioID; ?> li a {
@@ -191,8 +206,8 @@
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> img {
-	margin:0px !important;
-	padding:0px !important;
+	margin: 0 !important;
+	padding: 0 !important;
 	display:table-cell;
 	vertical-align:middle;
 	width:<?php echo $paramssld['ht_view0_thumbs_width']; ?>px !important;

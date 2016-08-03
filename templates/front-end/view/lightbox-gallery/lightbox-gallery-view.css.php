@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 <style>
 /***For Lifgtbox Gallery view***/
 .play-icon.youtube-icon  {
@@ -72,11 +77,11 @@
 
 .portelement_<?php echo $portfolioID; ?>:hover .title-block_<?php echo $portfolioID; ?> {bottom:0;}
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:link, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:visited {
-    position:relative;
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:link, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:visited, 
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> {
     margin:0;
     padding:0 1% 0 2%;
-    width:97%;
+    width:100%;
     text-decoration:none;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -89,7 +94,8 @@
 
 
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:hover, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:focus, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:active {
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:hover, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:focus, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:active, 
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?>:hover {
     color:#<?php echo $paramssld["ht_view6_title_font_hover_color"];?>;
     text-decoration:none;
 }

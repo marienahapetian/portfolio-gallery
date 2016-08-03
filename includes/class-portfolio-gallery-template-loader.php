@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Portfolio_Gallery_Template_Loader {
 
@@ -36,8 +38,6 @@ class Portfolio_Gallery_Template_Loader {
 		$portfolioLoadingIconype = $portfolio[0]->loading_icon_type;
 		$image_prefix            = "_huge_it_small_portfolio";
 
-
-		
 		$view =  $portfolioeffect;
 		switch ( $view ){
 			case 0:

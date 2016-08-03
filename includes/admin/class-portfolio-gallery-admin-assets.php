@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 //todo: correct urls
 class Portfolio_Gallery_Admin_Assets {
 

@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 class Portfolio_Gallery_General_Options {
 	
 	public function __construct() {
@@ -34,7 +36,7 @@ class Portfolio_Gallery_General_Options {
 			$value                = $row->value;
 			$param_values[ $key ] = $value;
 		}
-		require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-general-options-html.php' );
+		require( PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-general-options-html.php' );
 	}
 
 	/**
@@ -47,7 +49,7 @@ class Portfolio_Gallery_General_Options {
 			$params = $_POST['params'];
 			foreach ($params as $key => $value) {
 				$wpdb->update($wpdb->prefix . 'huge_itportfolio_params',
-					array('value' => $value),
+					array('value' => wp_unslash($value)),
 					array('name' => $key),
 					array('%s')
 				);

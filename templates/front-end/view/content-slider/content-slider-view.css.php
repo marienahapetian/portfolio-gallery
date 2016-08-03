@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 <style>
     /***For Content Slider view***/
 #p-main-slider_<?php echo $portfolioID; ?> .play-icon.youtube-icon  {

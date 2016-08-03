@@ -14,7 +14,7 @@ function Portfolio_Gallery_Full_Height(id) {
     _this.element = _this.container.find('.portelement');
     _this.defaultBlockHeight = param_obj.ht_view1_block_height;
     _this.defaultBlockWidth = param_obj.ht_view1_block_width;
-    _this.optionSets = _this.optionsBlock.find('.option-set'),
+    _this.optionSets = _this.optionsBlock.find('.option-set');
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
     _this.filterButton = _this.filtersBlock.find('ul li');
@@ -27,7 +27,7 @@ function Portfolio_Gallery_Full_Height(id) {
         _this.container.hugeitmicro({
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view1_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view1_element_border_width * 2
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -147,7 +147,6 @@ function Portfolio_Gallery_Full_Height(id) {
         // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
         // use filterFn if matches value
-        filterValue = filterValue;
         _this.container.hugeitmicro({filter: filterValue});
     };
 

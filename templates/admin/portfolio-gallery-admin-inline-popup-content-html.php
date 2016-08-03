@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+?>
 <style>
     #portfolio-unique-options-list label {
         width: 152px;
@@ -246,12 +251,6 @@
             <input type="checkbox" id="ht_show_sorting" <?php if ($row->ht_show_sorting == 'on') {
                 echo 'checked="checked"';
             } ?> name="ht_show_sorting" value="<?php echo $row->ht_show_sorting; ?>"/>
-        </li>
-        <li class="allowIsotope">
-            <label for="ht_show_filtering"><?php echo __('Show Category Buttons', 'portfolio-gallery'); ?></label>
-            <input type="checkbox" id="ht_show_filtering" <?php if ($row->ht_show_filtering == 'on') {
-                echo 'checked="checked"';
-            } ?> name="ht_show_filtering" value="<?php $row->ht_show_filtering; ?>"/>
         </li>
         <li style="display:none;" class="for-content-slider">
             <label for="sl_pausetime"><?php echo __('Pause time', 'portfolio-gallery'); ?></label>

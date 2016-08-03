@@ -1,6 +1,9 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 global $wpdb;
+$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 ?>
 <script language="javascript">
 	function ordering(name,as_or_desc)
@@ -40,12 +43,13 @@ global $wpdb;
 
 
 <div class="wrap">
+	<?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-free-banner.php');?>
 	<?php $path_site2 = plugins_url("../images", __FILE__); ?>
 	<div id="poststuff">
 		<div id="portfolios-list-page">
 			<form method="post"  onkeypress="doNothing()" action="admin.php?page=portfolios_huge_it_portfolio" id="admin_form" name="admin_form">
 				<h2>Huge-IT Portfolios
-					<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&task=add_cat'" class="add-new-h2" ><?php echo __( 'Add New Portfolio', 'portfolio-gallery' );?></a>
+					<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&task=add_cat&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'" class="add-new-h2" ><?php echo __( 'Add New Portfolio', 'portfolio-gallery' );?></a>
 				</h2>
 				<?php
 				$serch_value='';
@@ -148,7 +152,7 @@ global $wpdb;
 						?>
 						<tr <?php if($trcount%2==0){ echo 'class="has-background"';}?>>
 							<td><?php echo $rows[$i]->id; ?></td>
-							<td><a  href="admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=<?php echo $rows[$i]->id?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
+							<td><a  href="admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=<?php echo $rows[$i]->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 							<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
 							<td><a  href="admin.php?page=portfolios_huge_it_portfolio&task=remove_cat&id=<?php echo $rows[$i]->id?>"><?php echo __( 'Delete', 'portfolio-gallery' );?></a></td>
 						</tr>

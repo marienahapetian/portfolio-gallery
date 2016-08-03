@@ -103,7 +103,7 @@ final class Portfolio_Gallery {
 		$this->define( 'PORTFOLIO_GALLERY_VERSION', $this->version );
 		$this->define( 'PORTFOLIO_GALLERY_IMAGES_PATH', $this->plugin_path(). DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR );
 		$this->define( 'PORTFOLIO_GALLERY_IMAGES_URL', untrailingslashit($this->plugin_url() . '/assets/images/' ));
-		$this->define( 'PORTFOLIO_GALLERY_TEMPLATES_PATH', $this->plugin_path() . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR);
+		$this->define( 'PORTFOLIO_GALLERY_TEMPLATES_PATH', $this->plugin_path() . DIRECTORY_SEPARATOR . 'templates');
 		$this->define( 'PORTFOLIO_GALLERY_TEMPLATES_URL', untrailingslashit($this->plugin_url()) . '/templates/');
 	}
 
@@ -160,6 +160,7 @@ final class Portfolio_Gallery {
 			include_once( 'includes/admin/class-portfolio-gallery-portfolios.php' );
 			include_once( 'includes/admin/class-portfolio-gallery-lightbox-options.php' );
 			include_once( 'includes/admin/class-portfolio-gallery-featured-plugins.php' );
+			include_once( 'includes/admin/class-portfolio-gallery-licensing.php' );
 		}
 		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();

@@ -114,7 +114,7 @@ class Portfolio_Gallery_Shortcode {
 	 * Inline popup contents
 	 */
 	public function inline_popup_content() {
-		require PORTFOLIO_GALLERY_TEMPLATES_PATH.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-inline-popup-content-html.php';
+		require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-inline-popup-content-html.php';
 	}
 
 

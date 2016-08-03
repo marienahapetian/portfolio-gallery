@@ -1,9 +1,15 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+?>
 <section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ( $portfolioShowSorting == 'on' ) {
 	echo 'sortingActive ';
 }
 if ( $portfolioShowFiltering == 'on' ) {
 	echo 'filteringActive';
-} ?>">
+} ?>"
+         data-image-behaviour="<?php echo $paramssld['port_natural_size_toggle']; ?>">
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatToggle == 'left' && $filteringFloatToggle == 'left' ) || ( $sortingFloatToggle == 'right' && $filteringFloatToggle == 'right' ) ) { ?>
 	<div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
@@ -92,7 +98,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					echo str_replace( " ", "_", $catForFilterValue ) . " ";
 				} ?>" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
 				<div class="default-block_<?php echo $portfolioID; ?> <?php echo $lighboxable; ?>" style="<?php if( $row->name == '' && count($imgurl) < 3 && $imgurl[1] =='' && $row->description == '' && $link == '') echo "height:".$paramssld['ht_view0_block_height']."px !important;";?>">
-					<div class="image-block_<?php echo $portfolioID; ?>  add-H-relative">
+					<div class="image-block image-block_<?php echo $portfolioID; ?>  add-H-relative">
 						<?php $imgurl = explode( ";", $row->image_url ); ?>
 						<?php
 						if ( $row->image_url != ';' ) {
@@ -104,8 +110,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 									   } ?>" title="<?php echo $row->name; ?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
-										     src="<?php echo esc_url( get_image_by_sizes_and_src( $imgurl[0], array( $paramssld['ht_view0_block_width'], $paramssld['ht_view0_block_height']) ) ); ?>"
-											 />
+										     src="<?php if($paramssld['port_natural_size_toggle'] == 'resize') echo esc_url( get_image_by_sizes_and_src( $imgurl[0], array( $paramssld['ht_view0_block_width'], $paramssld['ht_view0_block_height']), false ) );
+                                                                                     else echo esc_url( $imgurl[0] );?>" />
 									</a>
 									<?php
 									break;
@@ -171,7 +177,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												<a href="<?php echo $img; ?>"
 												   class=" portfolio-group<?php echo $group_key; ?> "
 												   title="<?php huge_it_title_img_display( $img, $title ); ?>"><img
-														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'] ) ); ?>"></a>
+														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
 											case 'youtube':
@@ -234,7 +240,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												<a href="<?php echo esc_url( $img ); ?>"
 												   class=" portfolio-group<?php echo $group_key; ?> "
 												   title="<?php esc_attr( huge_it_title_img_display( $img, $title ) ); ?>"><img
-														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'] ) ); ?>"></a>
+														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
 											case 'youtube':

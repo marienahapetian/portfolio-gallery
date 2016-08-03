@@ -21,7 +21,7 @@ class Portfolio_Gallery_Admin {
 
 	/**
 	 * Instance of Portfolio_Gallery_Portfolios class
-	 * 
+	 *
 	 * @var Portfolio_Gallery_Portfolios
 	 */
 	public $portfolios = null;
@@ -32,7 +32,7 @@ class Portfolio_Gallery_Admin {
 	 * @var Portfolio_Gallery_Lightbox_Options
 	 */
 	public $lightbox_options = null;
-	
+
 	/**
 	 * Instance of Portfolio_Gallery_Featured_Plugins class
 	 *
@@ -57,8 +57,9 @@ class Portfolio_Gallery_Admin {
 		$this->portfolios = new Portfolio_Gallery_Portfolios();
 		$this->lightbox_options = new Portfolio_Gallery_Lightbox_Options();
 		$this->featured_plugins = new Portfolio_Gallery_Featured_Plugins();
+		$this->licensing = new Portfolio_Gallery_Licensing();
 	}
-		
+
 	/**
 	 * Prints Portfolio Menu
 	 */
@@ -70,6 +71,7 @@ class Portfolio_Gallery_Admin {
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Lightbox Options', 'portfolio-gallery' ), __( 'Lightbox Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_lightbox_styles', array( Portfolio_Gallery()->admin->lightbox_options,'load_page' ) );
 
 		$this->pages[] =add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Featured Plugins', 'portfolio-gallery' ), __( 'Featured Plugins', 'portfolio-gallery' ), 'delete_pages', 'huge_it__portfolio_featured_plugins', array( Portfolio_Gallery()->admin->featured_plugins,'show_page' ) );
+		$this->pages[] =add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Licensing', 'portfolio-gallery' ), __( 'Licensing', 'portfolio-gallery' ), 'delete_pages', 'huge_it__portfolio_licensing', array( Portfolio_Gallery()->admin->licensing,'show_page' ) );
 	}
 
 
@@ -94,7 +96,12 @@ INSERT INTO
 
 				foreach($rowsldcc as $key=>$rowsldccs){
 					if($last_key == $key){
-						header('Location: admin.php?page=portfolios_huge_it_portfolio&id='.$rowsldccs->id.'&task=apply');
+						$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
+						$wp_nonce = $_GET['huge_it_portfolio_nonce'];
+						if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce') && !wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
+							wp_die('Security check fail');
+						}
+						header('Location: admin.php?page=portfolios_huge_it_portfolio&id='.$rowsldccs->id.'&task=apply&huge_it_portfolio_nonce='.$portfolio_wp_nonce);
 					}
 				}
 			}

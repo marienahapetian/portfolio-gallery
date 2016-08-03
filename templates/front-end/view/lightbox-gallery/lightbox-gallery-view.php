@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+?>
 <section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ($portfolioShowSorting == 'on') {
     echo 'sortingActive ';
 }
@@ -9,32 +14,44 @@ if ($portfolioShowFiltering == 'on') {
     <div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
         <?php } ?>
         <?php if ( $portfolioShowSorting == "on" ) { ?>
-            <div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>" data-sorting-position="<?php echo $paramssld["ht_view1_sorting_float"]; ?>">
+            <div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>" data-sorting-position="<?php echo $paramssld["ht_view6_sorting_float"]; ?>">
                 <ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
-                    <li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
-                           data><?php echo $paramssld["ht_view6_sorting_name_by_default"]; ?></a></li>
-                    <li><a href="#sortBy=id"
-                           data-option-value="id"><?php echo $paramssld["ht_view6_sorting_name_by_id"]; ?></a>
-                    </li>
-                    <li><a href="#sortBy=symbol"
-                           data-option-value="symbol"><?php echo $paramssld["ht_view6_sorting_name_by_name"]; ?></a>
-                    </li>
-                    <li id="shuffle"><a
-                            href='#shuffle'><?php echo $paramssld["ht_view6_sorting_name_by_random"]; ?></a>
-                    </li>
-                </ul>
-                <ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
-                    <li><a href="#sortAscending=true" data-option-value="true"
-                           class="selected"><?php echo $paramssld["ht_view6_sorting_name_by_asc"]; ?></a>
-                    </li>
-                    <li><a href="#sortAscending=false"
-                           data-option-value="false"><?php echo $paramssld["ht_view6_sorting_name_by_desc"]; ?></a>
-                    </li>
-                </ul>
+                                        <?php if($paramssld["ht_view6_sorting_name_by_default"] != ''):?>
+					<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
+					       data><?php echo $paramssld["ht_view6_sorting_name_by_default"]; ?></a></li>
+                                        <?php endif;?>
+                                        <?php if($paramssld["ht_view6_sorting_name_by_id"] != ''):?>
+					<li><a href="#sortBy=id"
+					       data-option-value="id"><?php echo $paramssld["ht_view6_sorting_name_by_id"]; ?></a>
+					</li>
+                                        <?php endif;?>
+                                        <?php if($paramssld["ht_view6_sorting_name_by_name"] != ''):?>
+					<li><a href="#sortBy=symbol"
+					       data-option-value="symbol"><?php echo $paramssld["ht_view6_sorting_name_by_name"]; ?></a>
+					</li>
+                                        <?php endif;?>
+                                        <?php if($paramssld["ht_view6_sorting_name_by_random"] != ''):?>
+					<li id="shuffle"><a
+							href='#shuffle'><?php echo $paramssld["ht_view6_sorting_name_by_random"]; ?></a>
+					</li>
+                                        <?php endif;?>
+				</ul>
+				<ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
+                                        <?php if($paramssld["ht_view6_sorting_name_by_asc"] != ''):?>
+					<li><a href="#sortAscending=true" data-option-value="true"
+					       class="selected"><?php echo $paramssld["ht_view6_sorting_name_by_asc"]; ?></a>
+					</li>
+                                        <?php endif;?>
+                                        <?php if($paramssld["ht_view6_sorting_name_by_desc"] != ''):?>
+					<li><a href="#sortAscending=false"
+					       data-option-value="false"><?php echo $paramssld["ht_view6_sorting_name_by_desc"]; ?></a>
+					</li>
+                                        <?php endif;?>
+				</ul>
             </div>
         <?php }
         if ( $portfolioShowFiltering == "on" ) { ?>
-            <div id="huge_it_portfolio_filters_<?php echo $portfolioID; ?>" data-filtering-position="<?php echo $paramssld["ht_view1_filtering_float"]; ?>">
+            <div id="huge_it_portfolio_filters_<?php echo $portfolioID; ?>" data-filtering-position="<?php echo $paramssld["ht_view6_filtering_float"]; ?>">
                 <ul>
                     <li rel="*"><a><?php echo $paramssld["ht_view6_cat_all"]; ?></a></li>
                     <?php
@@ -87,7 +104,7 @@ if ($portfolioShowFiltering == 'on') {
                                title="<?php echo esc_attr( $row->name ); ?>">
                                 <img alt="<?php echo esc_attr( $row->name ); ?>"
                                      id="wd-cl-img<?php echo $key; ?>"
-                                     src="<?php echo esc_url( get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view6_width'] ) ); ?>"/>
+                                     src="<?php echo esc_url( get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view6_width'], false ) ); ?>"/>
                             </a>
                             <?php
 											break;
@@ -126,9 +143,15 @@ if ($portfolioShowFiltering == 'on') {
                 </div>
                 <?php if ( $row->name != "" ) { ?>
                     <div class="title-block_<?php echo $portfolioID; ?>">
+                        <?php if( $link != '' ):?>
                         <a href="<?php echo esc_url( $link ); ?>" <?php if ( $row->link_target == "on" ) {
                             echo 'target="_blank"';
-                        } ?> title="<?php echo esc_attr( $row->name ); ?>"><?php echo $row->name; ?></a>
+                        } ?> title="<?php echo esc_attr( $row->name ); ?>">
+                        <?php endif;?>
+                        <?php echo $row->name; ?>
+                        <?php if( $link != '' ):?>
+                        </a>
+                        <?php endif;?>
                     </div>
                 <?php } ?>
             </div>

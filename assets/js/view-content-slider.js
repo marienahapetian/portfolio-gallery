@@ -7,13 +7,15 @@ jQuery.each(param_obj, function (index, value) {
 function Portfolio_Gallery_Content_Slider(id) {
     var _this = this;
     _this.container = jQuery('#' + id + '.p-main-slider.liquid-slider');
-    _this.pauseHover = _this.container.data("pause-hover");
+    _this.pauseHover = _this.container.data("pause-hover")  == 'on';
+    _this.autoSlide = _this.container.data("autoslide") == 'on';
     _this.slideDuration = +_this.container.data("slide-duration");
     _this.slideInterval = +_this.container.data("slide-interval");
     _this.hasLoading = _this.container.data("show-loading") == "on";
     _this.slideEffect = this.container.data("slide-effect").split('_');
     _this.sliderOptons = {
-        autoSlide: _this.pauseHover,
+        autoSlide: _this.autoSlide,
+        pauseOnHover: _this.pauseHover,
         slideEaseDuration: _this.slideDuration,
         autoSlideInterval: _this.slideInterval,
         animateOut: _this.slideEffect[0],

@@ -1,3 +1,13 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+$wp_nonce = $_GET['huge_it_portfolio_nonce'];
+if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
+	wp_die('Security check fail');
+}
+$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
+?>
 <style>
 	html.wp-toolbar {
 		padding:0px !important;
@@ -118,36 +128,10 @@
 			jQuery("#huge_it_edit_video_input").val(prefix+new_video_id+showcontrols);
 			jQuery(".iframe-area").fadeIn(1000);
 		})
-		/*jQuery("#huge_it_add_video_input").change(function() {
-		 var showcontrols,prefix;
-		 var new_video = jQuery("#huge_it_add_video_input").val();
-		 var new_video_id= youtube_parser(new_video);
-		 if(!new_video_id)
-		 return;
-		 if(new_video_id.length == 11) {
-		 showcontrols = "?modestbranding=1&showinfo=0&controls=0";
-		 prefix = "//www.youtube.com/embed/";
-		 }
-		 else {
-		 showcontrols = "?title=0&amp;byline=0&amp;portrait=0";
-		 prefix = "//player.vimeo.com/video/";
-
-		 }
-		 var old_url =jQuery(".text-area");
-
-
-
-		 jQuery(".iframe-area").fadeOut(300);
-		 old_url.html("");
-		 jQuery(".text-area").html(new_video);
-		 jQuery(".iframe-area").attr("src",prefix+new_video_id+showcontrols);
-		 jQuery("#huge_it_edit_video_input").val(prefix+new_video_id+showcontrols);
-		 jQuery(".iframe-area").fadeIn(1000);
-		 })*/
 	});
 </script>
 <h1><?php echo __( 'Update video', 'portfolio-gallery' );?></h1>
-<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $portfolio_id;?>&id=<?php echo $id; ?>&thumb=<?php echo $thumb;?>&TB_iframe=1&closepop=1" >
+<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $portfolio_id;?>&id=<?php echo $id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&thumb=<?php echo $thumb;?>&TB_iframe=1&closepop=1" >
 	<div class="iframe-text-area">
 		<?php if($edit == '') { ?>
 			<iframe class="iframe-area" src="<?php if($video == 'youtube') { ?>//www.youtube.com/embed/<?php echo esc_attr($video_id[0]); ?>?modestbranding=1&showinfo=0&controls=0

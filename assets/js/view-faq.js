@@ -13,15 +13,15 @@ function Portfolio_Gallery_Faq(id) {
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
     _this.defaultBlockWidth = param_obj.ht_view4_block_width;
-    _this.optionSets = _this.optionsBlock.find('.option-set'),
-        _this.optionLinks = _this.optionSets.find('a');
+    _this.optionSets = _this.optionsBlock.find('.option-set');
+    _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
     _this.dropdownable = _this.element.find('div.dropdownable');
     _this.titleBlock = _this.element.find('.title-block');
     _this.filterButton = _this.filtersBlock.find('ul li');
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
-        ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == '' ) || ( _this.optionsBlock.data('sorting-position') == '' && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
+        ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
         _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
@@ -87,14 +87,16 @@ function Portfolio_Gallery_Faq(id) {
                 "margin": "0px auto",
                 "overflow": "hidden"
             });
-            console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
+            setInterval(function () {
+                _this.container.hugeitmicro('reLayout');
+            });
         }
     };
 
 
     _this.addEventListeners = function () {
         _this.optionLinks.on('click', _this.optionsClick);
-        _this.optionsBlock.find('#shuffle a').on('click',_this.randomClick);
+        _this.optionsBlock.find('#shuffle a').on('click', _this.randomClick);
         _this.titleBlock.on('click', _this.dropdownableClick);
         _this.dropdownable.on('click', _this.dropdownableClick);
         _this.filterButton.on('click', _this.filtersClick);
@@ -102,13 +104,8 @@ function Portfolio_Gallery_Faq(id) {
 
 
     };
-    _this.resizeEvent = function(){
-        //_this.container.hugeitmicro('reLayout');
+    _this.resizeEvent = function () {
         _this.showCenter();
-        setInterval(function(){
-            _this.container.hugeitmicro('reLayout');
-        });
-
     };
     _this.optionsClick = function () {
         var $this = jQuery(this);
@@ -146,26 +143,26 @@ function Portfolio_Gallery_Faq(id) {
     _this.dropdownableClick = function () {
         if (jQuery(this).parents('.portelement').hasClass("large")) {
             jQuery(this).parents('.portelement').animate({//
-                height: 45 + 2 * param_obj.ht_view4_element_border_width+"px"//pakeluc heto erevacox masi chap@
+                height: 45 + 2 * param_obj.ht_view4_element_border_width + "px"//pakeluc heto erevacox masi chap@
             }, 700, function () {
                 jQuery(this).removeClass('large');
                 _this.container.hugeitmicro('reLayout');
             });
-    
+
             jQuery(this).parents('.portelement').removeClass("active");
             return false;
         }
-    
-    
+
+
         jQuery(this).parents('.portelement').css({height: 45 + jQuery(this).parents('.portelement').find('.wd-portfolio-panel').height()});
         jQuery(this).parents('.portelement').addClass('large');
-    
+
         _this.container.hugeitmicro('reLayout');
         jQuery(this).parents('.portelement').css({height: "45px"});
-    
+
         var strheight = (jQuery(this).parents('.portelement').find('.wd-portfolio-panel').height() + 35 + 2 * param_obj.ht_view4_element_border_width);
-    
-    
+
+
         jQuery(this).parents('.portelement').animate({
             height: strheight + "px",
         }, 700, function () {

@@ -1,5 +1,11 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+?>
 <div id="p-main-slider_<?php echo $portfolioID; ?>" class="p-main-slider liquid-slider view-<?php echo $view_slug; ?>"
-     data-pause-hover="<?php echo $portfolio[0]->pause_on_hover ?>"
+     data-pause-hover="<?php echo $portfolio[0]->pause_on_hover; ?>"
+     data-autoslide="<?php echo $portfolio[0]->autoslide; ?>"
      data-slide-duration="<?php echo $portfolio[0]->param; ?>"
      data-slide-interval="<?php echo $portfolio[0]->description; ?>"
      data-slide-effect="<?php echo $portfolio[0]->sl_position; ?>"
@@ -29,7 +35,7 @@
                                    href="<?php echo esc_url($imgurl[0]); ?>"
                                    title="<?php echo esc_attr($row->name); ?>"><img
                                         alt="<?php echo esc_attr($row->name); ?>" class="main-image"
-                                        src="<?php echo esc_url(get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view5_main_image_width'])); ?>"/></a>
+                                        src="<?php echo esc_url(get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view5_main_image_width'], false ) ); ?>"/></a>
                                 <?php
                                 break;
                             case 'youtube':
@@ -76,7 +82,7 @@
                                                 <a class="portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>"
                                                    href="<?php echo esc_url($img); ?>"
                                                    title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>"><img
-                                                        src="<?php echo esc_url(get_image_by_sizes_and_src($img, array($paramssld['ht_view5_thumbs_width'],$paramssld['ht_view5_thumbs_height']))); ?>"></a>
+                                                        src="<?php echo esc_url(get_image_by_sizes_and_src( $img, array( $paramssld['ht_view5_thumbs_width'],$paramssld['ht_view5_thumbs_height'] ), true ) ); ?>"></a>
                                             </li>
                                             <?php
                                             break;
