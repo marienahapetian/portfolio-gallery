@@ -8,6 +8,7 @@ if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce') && !wp_verify_nonce($w
 	wp_die('Security check fail');
 }
 global $wpdb;
+$id = intval($_GET['id']);
 $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 
 if(isset($_GET["addslide"])){
@@ -238,7 +239,7 @@ if(isset($_GET["addslide"])){
 					}
 					?>
 					<li class="add-new">
-						<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&amp;task=add_cat&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'">+</a>
+						<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&amp;task=add_portfolio&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'">+</a>
 					</li>
 				</ul>
 			</div>
@@ -318,7 +319,7 @@ if(isset($_GET["addslide"])){
 								<input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Project / Image" />
 							</div>
 
-							<a href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $_GET['id']; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&TB_iframe=1" class="button button-primary add-video-slide thickbox"  id="slideup3s" value="iframepop">
+							<a href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&TB_iframe=1" class="button button-primary add-video-slide thickbox"  id="slideup3s" value="iframepop">
 								<span class="wp-media-buttons-icon"></span><?php echo __( 'Add Video Slide', 'portfolio-gallery' );?>
 							</a>
 						</div>
