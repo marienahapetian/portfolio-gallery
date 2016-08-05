@@ -104,7 +104,7 @@ if ($portfolioShowFiltering == 'on') {
                                        class=" portfolio-group<?php echo $group_key; ?> "
                                        title="<?php echo esc_attr($row->name); ?>">
                                         <img alt="<?php echo esc_attr($row->name); ?>" id="wd-cl-img<?php echo $key; ?>"
-                                             src="<?php echo esc_url( get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view1_block_width'], false ) ); ?>"/>
+                                             src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view1_block_width'], false ) ); ?>"/>
                                     </a>
                                     <?php
                                     break;
@@ -165,8 +165,8 @@ if ($portfolioShowFiltering == 'on') {
                                                 ?>
                                                 <a href="<?php echo esc_url($img); ?>"
                                                    class=" portfolio-group<?php echo $group_key; ?> "
-                                                   title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>"><img
-                                                        src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view1_thumbs_width'], true ) ); ?>"></a>
+                                                   title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>"><img
+                                                        src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $paramssld['ht_view1_thumbs_width'], true ) ); ?>"></a>
                                                 <?php
                                                 break;
                                             case 'youtube':
@@ -226,8 +226,8 @@ if ($portfolioShowFiltering == 'on') {
                                                 ?>
                                                 <a href="<?php echo esc_url($img); ?>"
                                                    class=" portfolio-group<?php echo $group_key; ?> "
-                                                   title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>"><img
-                                                        src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view1_thumbs_width'], true ) ); ?>"></a>
+                                                   title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>"><img
+                                                        src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $paramssld['ht_view1_thumbs_width'], true ) ); ?>"></a>
                                                 <?php
                                                 break;
                                             case 'youtube':

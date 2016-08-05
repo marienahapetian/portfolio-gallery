@@ -197,7 +197,17 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
         if ($fornewUpdate2 != 1) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'");
         }
+
+        $table_name = $wpdb->prefix . "huge_itportfolio_images";
+        $query = "SELECT id,image_url,portfolio_id FROM ".$table_name." WHERE portfolio_id=1";
+        $images_url = $wpdb->get_results($query);
+        foreach($images_url as $image_url){
+            if(strpos($image_url->image_url,'portfolio-gallery/Front_images') > -1){
+                $new_url = str_replace('portfolio-gallery/Front_images','portfolio-gallery/assets/images/Front_images',$image_url->image_url);
+                $wpdb->query($wpdb->prepare("UPDATE ".$table_name." SET image_url= %s WHERE id=%d",$new_url,$image_url->id));
+            }
+        }
     }
-    
-    
+
+
 }

@@ -104,7 +104,7 @@ if ($portfolioShowFiltering == 'on') {
                                title="<?php echo esc_attr( $row->name ); ?>">
                                 <img alt="<?php echo esc_attr( $row->name ); ?>"
                                      id="wd-cl-img<?php echo $key; ?>"
-                                     src="<?php echo esc_url( get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view6_width'], false ) ); ?>"/>
+                                     src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view6_width'], false ) ); ?>"/>
                             </a>
                             <?php
 											break;

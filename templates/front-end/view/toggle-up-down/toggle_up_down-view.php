@@ -110,7 +110,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 									   } ?>" title="<?php echo $row->name; ?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
-										     src="<?php if($paramssld['port_natural_size_toggle'] == 'resize') echo esc_url( get_image_by_sizes_and_src( $imgurl[0], array( $paramssld['ht_view0_block_width'], $paramssld['ht_view0_block_height']), false ) );
+										     src="<?php if($paramssld['port_natural_size_toggle'] == 'resize') echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array( $paramssld['ht_view0_block_width'], $paramssld['ht_view0_block_height']), false ) );
                                                                                      else echo esc_url( $imgurl[0] );?>" />
 									</a>
 									<?php
@@ -176,15 +176,15 @@ if ( $portfolioShowFiltering == 'on' ) {
 												?>
 												<a href="<?php echo $img; ?>"
 												   class=" portfolio-group<?php echo $group_key; ?> "
-												   title="<?php huge_it_title_img_display( $img, $title ); ?>"><img
-														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
+												   title="<?php portfolio_gallery_huge_it_title_img_display( $img, $title ); ?>"><img
+														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
 											case 'youtube':
 												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> "
-												   title="<?php huge_it_title_img_display( $img, $title ); ?>"
+												   title="<?php portfolio_gallery_huge_it_title_img_display( $img, $title ); ?>"
 												   style="position:relative">
 													<img
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
@@ -239,15 +239,15 @@ if ( $portfolioShowFiltering == 'on' ) {
 												?>
 												<a href="<?php echo esc_url( $img ); ?>"
 												   class=" portfolio-group<?php echo $group_key; ?> "
-												   title="<?php esc_attr( huge_it_title_img_display( $img, $title ) ); ?>"><img
-														src="<?php echo esc_url( get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
+												   title="<?php esc_attr( portfolio_gallery_huge_it_title_img_display( $img, $title ) ); ?>"><img
+														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $paramssld['ht_view0_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
 											case 'youtube':
 												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> "
-												   title="<?php esc_attr( huge_it_title_img_display( $img, $title ) ); ?>"
+												   title="<?php esc_attr( portfolio_gallery_huge_it_title_img_display( $img, $title ) ); ?>"
 												   style="position:relative">
 													<img
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">

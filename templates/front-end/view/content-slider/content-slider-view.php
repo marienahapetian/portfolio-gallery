@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                    href="<?php echo esc_url($imgurl[0]); ?>"
                                    title="<?php echo esc_attr($row->name); ?>"><img
                                         alt="<?php echo esc_attr($row->name); ?>" class="main-image"
-                                        src="<?php echo esc_url(get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view5_main_image_width'], false ) ); ?>"/></a>
+                                        src="<?php echo esc_url(portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view5_main_image_width'], false ) ); ?>"/></a>
                                 <?php
                                 break;
                             case 'youtube':
@@ -81,8 +81,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <li>
                                                 <a class="portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>"
                                                    href="<?php echo esc_url($img); ?>"
-                                                   title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>"><img
-                                                        src="<?php echo esc_url(get_image_by_sizes_and_src( $img, array( $paramssld['ht_view5_thumbs_width'],$paramssld['ht_view5_thumbs_height'] ), true ) ); ?>"></a>
+                                                   title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>"><img
+                                                        src="<?php echo esc_url(portfolio_gallery_get_image_by_sizes_and_src( $img, array( $paramssld['ht_view5_thumbs_width'],$paramssld['ht_view5_thumbs_height'] ), true ) ); ?>"></a>
                                             </li>
                                             <?php
                                             break;
@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <li>
                                                 <a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
                                                    class="huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>  add-H-relative"
-                                                   title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>">
+                                                   title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>">
                                                     <img
                                                         src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
                                                     <div

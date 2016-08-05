@@ -229,7 +229,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
 }
@@ -318,7 +318,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ($paramssld["ht_view2_show_sorting"] == 'off')
     echo "display:none;";
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 
@@ -373,7 +373,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatFullWidth == 'top' && $filteringFloatFullWidth == 'top') ||
         ($sortingFloatFullWidth == 'top' && $filteringFloatFullWidth == '') || ($sortingFloatFullWidth == '' && $filteringFloatFullWidth == 'top'))
     {echo 'width:100%;';}
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 
 }
