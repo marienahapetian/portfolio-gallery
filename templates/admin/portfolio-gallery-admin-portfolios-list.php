@@ -49,7 +49,7 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 		<div id="portfolios-list-page">
 			<form method="post"  onkeypress="doNothing()" action="admin.php?page=portfolios_huge_it_portfolio" id="admin_form" name="admin_form">
 				<h2>Huge-IT Portfolios
-					<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&task=add_cat&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'" class="add-new-h2" ><?php echo __( 'Add New Portfolio', 'portfolio-gallery' );?></a>
+					<a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&task=add_portfolio&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'" class="add-new-h2" ><?php echo __( 'Add New Portfolio', 'portfolio-gallery' );?></a>
 				</h2>
 				<?php
 				$serch_value='';

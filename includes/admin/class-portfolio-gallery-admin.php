@@ -79,7 +79,7 @@ class Portfolio_Gallery_Admin {
 		global $wpdb;
 		if(isset($_GET['task'])){
 			$task = $_GET['task'];
-			if($task == 'add_cat'){
+			if($task == 'add_portfolio'){
 				$table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
 				$sql_2 = "
 INSERT INTO 
