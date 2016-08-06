@@ -116,7 +116,7 @@ if ($portfolioShowFiltering == 'on') {
                                     ?>
                                     <li>
                                         <a href="<?php echo esc_url($img); ?>" class="group1"
-                                           title="<?php esc_attr(huge_it_title_img_display($img, $title)); ?>"><img
+                                           title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>"><img
                                                 src="<?php echo esc_attr($img); ?>"></a>
                                     </li>
                                     <?php

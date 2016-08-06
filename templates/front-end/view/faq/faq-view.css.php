@@ -172,7 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
 }
@@ -257,7 +257,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         }
 ?>
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 
@@ -312,7 +312,7 @@ if ( ! defined( 'ABSPATH' ) ) {
    if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatFaq == 'top' && $filteringFloatFaq == 'top') ||
         ($sortingFloatFaq == 'top' && $filteringFloatFaq == '') || ($sortingFloatFaq == '' && $filteringFloatFaq == 'top'))
    {echo 'width:100%;';}
-   if($portfolioShowLoading == on) echo 'opacity: 0;';
+   if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 @media screen and (max-width: 768px) {

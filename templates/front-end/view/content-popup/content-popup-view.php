@@ -99,7 +99,7 @@ if ($portfolioShowFiltering == 'on') {
                         switch (portfolio_gallery_youtube_or_vimeo_portfolio($imgurl[0])) {
                             case 'image': ?>
                                 <img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>"
-                                     src="<?php if($paramssld['port_natural_size_contentpopup'] == 'resize') echo esc_url( get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view2_element_width'], false ) ); 
+                                     src="<?php if($paramssld['port_natural_size_contentpopup'] == 'resize') echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], $paramssld['ht_view2_element_width'], false ) );
                                      else echo esc_url( $imgurl[0] );?>" />
                                 <?php
                                 break;
@@ -224,7 +224,7 @@ if ($portfolioShowFiltering == 'on') {
                                                 <a href="<?php echo esc_url( $img ); ?>"
                                                    class="img-thumb"
                                                    title="<?php echo esc_attr($row->name); ?>"><img
-                                                        src="<?php echo esc_url( get_image_by_sizes_and_src( $img, array( $paramssld['ht_view2_thumbs_width'], $paramssld['ht_view2_thumbs_height'] ), true ) ); ?>"></a>
+                                                        src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array( $paramssld['ht_view2_thumbs_width'], $paramssld['ht_view2_thumbs_height'] ), true ) ); ?>"></a>
 
                                                 <?php
                                                 break;

@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
 }
@@ -198,7 +198,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 
@@ -252,7 +252,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatLgal == 'top' && $filteringFloatLgal == 'top') ||
         ($sortingFloatLgal == 'top' && $filteringFloatLgal == '') || ($sortingFloatLgal == '' && $filteringFloatLgal == 'top'))
     {echo 'width:100%;';}
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 

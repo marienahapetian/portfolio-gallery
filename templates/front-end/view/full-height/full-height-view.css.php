@@ -208,7 +208,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 	margin-bottom: 10px;
 }

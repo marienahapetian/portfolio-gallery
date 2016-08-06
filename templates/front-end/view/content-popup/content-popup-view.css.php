@@ -468,7 +468,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
 }
@@ -555,7 +555,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 ?>
 
 <?php
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 
@@ -604,7 +604,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatPopup == 'top' && $filteringFloatPopup == 'top') ||
         ($sortingFloatPopup == 'top' && $filteringFloatPopup == '') || ($sortingFloatPopup == '' && $filteringFloatPopup == 'top'))
     {echo 'width:100%;';}
-    if($portfolioShowLoading == on) echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
 @media screen and (max-width: 768px) {

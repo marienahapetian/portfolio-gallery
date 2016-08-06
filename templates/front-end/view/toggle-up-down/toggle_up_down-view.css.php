@@ -268,7 +268,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         ?>
         
         <?php 
-            if($portfolioShowLoading == on) echo 'opacity: 0;';
+            if($portfolioShowLoading == 'on') echo 'opacity: 0;';
         ?>
         margin-bottom: 10px;
 }
@@ -355,7 +355,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     ?>
 
     <?php 
-        if($portfolioShowLoading == on) echo 'opacity: 0;';
+        if($portfolioShowLoading == 'on') echo 'opacity: 0;';
     ?>
 }
 
@@ -416,7 +416,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
        if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatToggle == 'top' && $filteringFloatToggle == 'top') ||
             ($sortingFloatToggle == 'top' && $filteringFloatToggle == '') || ($sortingFloatToggle == '' && $filteringFloatToggle == 'top'))
        {echo 'width:100%;';}    
-       if($portfolioShowLoading == on) echo 'opacity: 0;';
+       if($portfolioShowLoading == 'on') echo 'opacity: 0;';
     ?>
 }
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> #port-sort-direction{

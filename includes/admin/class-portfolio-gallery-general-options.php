@@ -27,15 +27,6 @@ class Portfolio_Gallery_General_Options {
 	 * Shows General options page
 	 */
 	public function show_page(){
-		global $wpdb;
-		$query        = "SELECT *  from " . $wpdb->prefix . "huge_itportfolio_params ";
-		$rows         = $wpdb->get_results( $query );
-		$param_values = array();
-		foreach ( $rows as $row ) {
-			$key                  = $row->name;
-			$value                = $row->value;
-			$param_values[ $key ] = $value;
-		}
 		require( PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-general-options-html.php' );
 	}
 
