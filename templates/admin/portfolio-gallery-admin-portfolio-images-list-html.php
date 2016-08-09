@@ -969,7 +969,7 @@ if (isset($_GET["addslide"])) {
                                                     <strong><?php echo __('Select Categories', 'portfolio-gallery'); ?></strong>
                                                     <em>(<?php echo __('Press Ctrl And Select multiply', 'portfolio-gallery'); ?>
                                                         )</em>
-                                                    <select id="multipleSelect" multiple="multiple">
+                                                    <select id="multipleSelect" multiple="multiple" disabled>
                                                         <?php
                                                         $huge_cat = explode(",", $rowimages->category);
                                                         foreach ($myrows as $value) {

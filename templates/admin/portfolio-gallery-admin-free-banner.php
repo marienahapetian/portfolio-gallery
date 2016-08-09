@@ -22,6 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
         <a target="_blank"  href="http://huge-it.com/wordpress-portfolio-gallery-faq//">FAQ</a>
         <a target="_blank"  href="http://huge-it.com/contact-us/">Contact Us</a>
     </div>
-    <div  class="description_text"><p>This is the LITE version of the plugin. Click "GET THE FULL VERSION" for more advanced options. We appreciate every customer.</p></div>
+    <div  class="description_text"><p>This is the Lite version of the plugin. Click "GET THE FULL VERSION" for more advanced options and customization possibilities. We appreciate your attention and cooperation.</p></div>
     <div style="clear: both;"></div>
 </div>
