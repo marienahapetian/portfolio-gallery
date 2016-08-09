@@ -7,10 +7,10 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block">
-                    <a href="http://huge-it.com/slider/" target="_blank">
-                        <h3>WordPress Slider</h3>
-                    </a>
-                </div>
+			<a href="http://huge-it.com/slider/" target="_blank">
+				<h3>WordPress Slider</h3>
+			</a>
+		</div>
 		<div class="description-block">
 			<p>Huge-IT slider is an awesome WordPress slider plugin with a lot of nice features. Just install and build
 				sliders in a few minutes.</p>
@@ -32,10 +32,10 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block">
-                    <a href="http://huge-it.com/wordpress-gallery/" target="_blank">
-                        <h3>WordPress Image Gallery</h3>
-                    </a>
-                </div>
+			<a href="http://huge-it.com/wordpress-gallery/" target="_blank">
+				<h3>WordPress Image Gallery</h3>
+			</a>
+		</div>
 		<div class="description-block">
 			<p>Huge-IT Gallery images is perfect for using for creating various galleries within various views, to
 				creating various sliders with plenty of styles, beautiful lightboxes with it’s options for any taste.
@@ -50,16 +50,37 @@
 <div class="element hugeitmicro-item">
 	<div class="left-block">
 		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><img
+					src="<?php echo plugins_url( '../../assets/images/admin_images/responsive-slider-logo.png', __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><h3>WordPress
+					Responsive Slider</h3></a></div>
+		<div class="description-block">
+			<p>The newly launched Responsive Slider from Huge-IT is the fastest loading slider for WordPress. Besides
+				being fully responsive, allowing to post unlimited slides in free version, Professional version of this
+				plugin will allow changing every corner of sliders, including buttons, arrows, bullets and more. Check
+				out the link for more details.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
 			<a href="http://huge-it.com/lightbox/" rel="content" target="_blank"><img
 					src="<?php echo plugins_url( '../../assets/images/admin_images/lightbox-logo.png', __FILE__ ); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
 		<div class="title-block">
-                    <a href="http://huge-it.com/lightbox/" target="_blank">
-                        <h3>WordPress Lightbox</h3>
-                    </a>
-                </div>
+			<a href="http://huge-it.com/lightbox/" target="_blank">
+				<h3>WordPress Lightbox</h3>
+			</a>
+		</div>
 		<div class="description-block">
 			<p>Lightbox is a perfect tool for viewing photos. It is created especially for simplification of using,
 				permits you to view larger version of images and giving an interesting design. With the help of
@@ -79,10 +100,10 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block">
-                    <a href="http://huge-it.com/wordpress-video-gallery/" target="_blank">
-                        <h3>WordPress Video Gallery</h3>
-                    </a>
-                </div>
+			<a href="http://huge-it.com/wordpress-video-gallery/" target="_blank">
+				<h3>WordPress Video Gallery</h3>
+			</a>
+		</div>
 		<div class="description-block">
 			<p>Video Gallery plugin was created and specifically designed to show your video files in unusual splendid
 				ways. It has 5 good-looking views. Each are made in different taste so that you can choose any of them,
@@ -102,10 +123,10 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block">
-                    <a href="http://huge-it.com/share-buttons/" target="_blank">
-                        <h3>WordPress Share Buttons</h3>
-                    </a>
-                </div>
+			<a href="http://huge-it.com/share-buttons/" target="_blank">
+				<h3>WordPress Share Buttons</h3>
+			</a>
+		</div>
 		<p>Social network is one of the popular places where people get information about everything in the world.
 			Adding social share buttons into your blog or website page is very necessary and useful element for
 			"socialization" of the project.</p>
@@ -125,9 +146,9 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/google-map/" target="_blank">
-                        <h3>WordPress Google Map</h3>
-                    </a>
-                </div>
+				<h3>WordPress Google Map</h3>
+			</a>
+		</div>
 		<p>Huge-IT Google Map. One more perfect tool from Huge-IT. Improved Google Map, where we have our special
 			contribution. Most simple and effective tool for rapid creation of individual Google Map in posts and
 			pages.</p>
@@ -147,9 +168,9 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/colorbox/" target="_blank">
-                        <h3>WordPress Colorbox</h3>
-                    </a>
-                </div>
+				<h3>WordPress Colorbox</h3>
+			</a>
+		</div>
 		<p>Huge-It Colorbox is the most spellbinding plugin in WordPress that implement Lightbox-effect look of the
 			images and videos (when you click on the thumbnail of the image/video it nicely opens and increases in the
 			same window with a beautiful effect).</p>
@@ -169,9 +190,9 @@
 	</div>
 	<div class="right-block">
 		<div class="title-block"><a href="http://huge-it.com/video-player/" target="_blank">
-                        <h3>WordPress Video Player</h3>
-                    </a>
-                </div>
+				<h3>WordPress Video Player</h3>
+			</a>
+		</div>
 		<p>Inserting video on a page is a perfect way to supplement website with media content and expand the user’s
 			interest in your site. Huge-IT Video Player is extremely necessary video tool for your sites, which provides
 			a wide range of different file formats.</p>
@@ -224,7 +245,8 @@
 			</a>
 		</div>
 		<div class="description-block">
-			<p>Form Builder. this is one of the most important elements of WordPress website because without it you cannot to always keep in touch with your visitors.</p>
+			<p>Form Builder. this is one of the most important elements of WordPress website because without it you
+				cannot to always keep in touch with your visitors.</p>
 		</div>
 		<div class="button-block">
 			<a href="http://huge-it.com/forms/" target="_blank">View Plugin</a>
