@@ -1182,7 +1182,7 @@ ul#portfolio-loading-icon{
 	font-weight: bold !important;
 	display:block;
 	float:left;
-	width:270px;
+	width:330px;
 	margin-left:75px;
 	font-family:'Open Sans',sans-serif;
 	font-size:14px;
@@ -1191,6 +1191,7 @@ ul#portfolio-loading-icon{
 	line-height:10px;
 	margin-top: 0;
 	padding-top: 15px;
+    position: absolute;
 }
 
 .free_version_banner .usermanual_text a,
