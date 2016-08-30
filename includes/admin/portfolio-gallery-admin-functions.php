@@ -17,8 +17,13 @@ function portfolio_gallery_popup_posts($id)
     if (isset($_GET["removeslide"])) {
         if ($_GET["removeslide"] != '') {
 
+            $removeslide = intval( $_GET['removeslider'] );
 
-            $wpdb->query("DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images  WHERE id = " . $_GET["removeslide"] . " ");
+            if( !$removeslide ){
+                return false;
+            }
+
+            $wpdb->query( $wpdb->prepare("DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images  WHERE id = %d", $removeslide ) );
 
 
         }
@@ -44,17 +49,30 @@ function portfolio_gallery_popup_posts($id)
         if ($_GET["addslide"] == 1) {
 
             $table_name = $wpdb->prefix . "huge_itportfolio_images";
-            $sql_2 = "
-INSERT INTO 
 
-`" . $table_name . "` ( `name`, `portfolio_id`, `description`, `image_url`, `sl_url`, `ordering`, `published`, `published_in_sl_width`) VALUES
-( '', '" . $row->id . "', '', '', '', 'par_TV', 2, '1' )";
-
-            $wpdb->query($sql_huge_itportfolio_images);
-
-
-            $wpdb->query($sql_2);
-
+            $wpdb->insert(
+                $table_name,
+                array(
+                    'name' => '',
+                    'portfolio_id' => $row->id,
+                    'description' => '',
+                    'image_url' => '',
+                    'sl_url' => '',
+                    'ordering' => 'par_TV',
+                    'published' => '2',
+                    'published_in_sl_width' => '1',
+                ),
+                array(
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                )
+            );
         }
     }
 
@@ -100,9 +118,6 @@ INSERT INTO
 
             if ($_POST["popupposts"] != 'none' and $_POST["popupposts"] != '') {
 
-                /*  	echo $_GET["closepop"].'sdasdasdsad';
-            echo $_POST["popupposts"].'dddddddd';*/
-
                 $popuppostsposts = explode(";", $_POST["popupposts"]);
 
                 array_pop($popuppostsposts);
@@ -121,22 +136,49 @@ INSERT INTO
                     $descnohtmlnoq1 = html_entity_decode($descnohtmlnoq);
                     $descnohtmlnoq1 = htmlentities($descnohtmlnoq1, ENT_QUOTES, "UTF-8");
 
-
-                    $sql_posts = "
-INSERT INTO 
-
-`" . $table_name . "` ( `name`, `portfolio_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`) VALUES
-( '" . $post_id_1->post_title . "', '" . $row->id . "', '" . $descnohtmlnoq1 . "', '" . $post_image . "', '" . $posturl . "', 'image', 'on', '0', '2', '1' )";
-
-
-                    $wpdb->query($sql_posts);
-
-
+                    $sql_posts = $wpdb->insert(
+                        $table_name,
+                        array(
+                            'name' => $post_id_1->post_title,
+                            'portfolio_id' => $row->id,
+                            'description' => $descnohtmlnoq1,
+                            'image_url' => $post_image,
+                            'sl_url' => $posturl,
+                            'sl_type' => 'image',
+                            'link_target' => 'on',
+                            'ordering' => '0',
+                            'published' => '2',
+                            'published_in_sl_width' => '1',
+                        ),
+                        array(
+                            '%s',
+                            '%d',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%s',
+                        )
+                    );
                 }
 
             }
             if (!($_POST["lastposts"])) {
-                $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET published = '" . $_POST["posthuge-it-description-length"] . "' WHERE id = '" . $_GET['id'] . "' ");
+                $id = intval( $_GET['id'] );
+
+                if( ! $id ){
+                    return false;
+                }
+
+                $wpdb->update(
+                    $wpdb->prefix . "huge_itportfolio_portfolios",
+                    array( 'published' => $_POST["posthuge-it-description-length"] ),
+                    array( 'id' => $id ),
+                    array( '%s' )
+                );
             }
         }
     }
@@ -162,13 +204,29 @@ INSERT INTO
             $posturl2 = htmlentities($posturl, ENT_QUOTES, "UTF-8");
 
 
-            $sql_lastposts = "INSERT INTO 
-`" . $table_name . "` ( `name`, `portfolio_id`, `description`, `image_url`, `sl_url`, `ordering`, `published`, `published_in_sl_width`) VALUES
-( '" . $posttitle . "', '" . $row->id . "', '" . $descnohtmlno3 . "', '" . $post_image . "', '" . $posturl . "', 'par_TV', 2, '1' )";
-
-            $wpdb->query($sql_huge_itportfolio_images);
-
-            $wpdb->query($sql_lastposts);
+            $wpdb->insert(
+                $table_name,
+                array(
+                    'name' => $posttitle,
+                    'portfolio_id' => $row->id,
+                    'description' => $descnohtmlno3,
+                    'image_url' => $post_image,
+                    'sl_url' => $post_image,
+                    'ordering' => par_TV,
+                    'published' => '2',
+                    'published_in_sl_width' => '1',
+                ),
+                array(
+                    '%s',
+                    '%d',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                    '%s',
+                )
+            );
         }
     }
 
@@ -292,9 +350,9 @@ function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fie
  */
 function portfolio_gallery_get_portfolio_id()
 {
-    if (isset($_GET["id"])) {
-        $id = $_GET["id"];
-    } else {
+    if ( isset($_GET["id"]){
+        $id = intval( $_GET['id'] );
+    }else{
         $id = 0;
     }
 
