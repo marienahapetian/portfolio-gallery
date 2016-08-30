@@ -131,7 +131,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             var data = {
                 action: 'portfolio_gallery_action',
                 post: 'portfolioChangeOptions',
-                id: sel
+                id: sel,
+                nonce : <?php echo wp_create_nonce('portfolio_gallery_change_options') ?>
             };
             console.log(data);
             jQuery.post("<?php echo admin_url('admin-ajax.php'); ?>", data, function (response) {
