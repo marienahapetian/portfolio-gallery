@@ -146,7 +146,6 @@ final class Portfolio_Gallery {
 		include_once( 'includes/portfolio-gallery-functions.php' );
 		include_once( 'includes/portfolio-gallery-video-function.php' );
 		include_once( 'includes/class-portfolio-gallery-install.php' );
-		include_once( 'includes/class-portfolio-gallery-template-loader.php' );
 		include_once( 'includes/class-portfolio-gallery-ajax.php' );
 		include_once( 'includes/class-portfolio-gallery-widgets.php' );
 		include_once( 'includes/class-portfolio-gallery-huge-it-portfolio-widget.php' );

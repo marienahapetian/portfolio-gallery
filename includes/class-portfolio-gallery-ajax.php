@@ -13,7 +13,17 @@ class Portfolio_Gallery_Ajax {
 		global $wpdb;
 		if ( $_POST['post'] == 'portfolioChangeOptions' ) {
 			if ( isset( $_POST['id'] ) ) {
-				$id       = $_POST['id'];
+
+			    if( !isset( $_REQUEST['nonce'] ) || !wp_verify_nonce( $_REQUEST['nonce'], 'portfolio_gallery_change_options' ) ){
+                    die( __( 'Authentication failed', 'portfolio-gallery' ) );
+                }
+
+				$id       = intval($_POST['id']);
+
+                if( !$id ){
+                    die( __( 'Not numeric id', 'portfolio-gallery' ) );
+                }
+
 				$query    = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = %d", $id );
 				$row      = $wpdb->get_row( $query );
 				$response = array(
@@ -24,7 +34,6 @@ class Portfolio_Gallery_Ajax {
 					'sl_changespeed'         => $row->param,
 					'pause_on_hover'         => $row->pause_on_hover
 				);
-				//$response = array('portfolio_effects_list' =>'$row->portfolio_list_effects_s');
 				echo json_encode( $response );
 				die();
 			}
@@ -40,8 +49,6 @@ class Portfolio_Gallery_Ajax {
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  description = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["sl_pausetime"] ), $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  pause_on_hover = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["pause_on_hover"] ), $id ) );
 				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  portfolio_list_effects_s = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["portfolio_effects_list"] ), $id ) );
-				/*$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itportfolio_portfolios SET  sl_loading_icon = '%s' WHERE id = %d ", $_POST["sl_loading_icon"], $id));
-				$wpdb->query($wpdb->prepare("UPDATE ".$wpdb->prefix."huge_itportfolio_portfolios SET  show_thumb = '%s' WHERE id = %d ", $_POST["show_thumb"], $id));/*add*/
 			}
 		}
 	}
