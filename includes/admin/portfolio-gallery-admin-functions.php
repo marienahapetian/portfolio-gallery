@@ -350,7 +350,7 @@ function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fie
  */
 function portfolio_gallery_get_portfolio_id()
 {
-    if ( isset($_GET["id"]){
+    if ( isset($_GET["id"])){
         $id = intval( $_GET['id'] );
     }else{
         $id = 0;

@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: Portfolio Gallery, portfolio, portfolio plugin, portfolios, images gallery, gallery, thumbnails, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, 
 
 == Description ==
 
-### Portfolio Gallery
+**Portfolio Gallery**
 
 * [Wordpress Portfolio Gallery](http://huge-it.com/portfolio-gallery/)
 * [Portfolio Gallery Demo](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/)
@@ -351,6 +351,10 @@ To show the title, write it in the Title field of media library and turn on "sho
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.0.11 =
+*  We have fixed a reflected cross-site scripting (XSS) vulnerability disclosed in the plugin.
+*  Minor code optimization.
 
 = 2.1.0 =
 **In the series of updates we will go through our plugins one by one and fix all technical issues with our code in order to meet the WordPress Coding Standards. These are the major updates that had been implemented to Portfolio Gallery in this new version of the plugin.**
