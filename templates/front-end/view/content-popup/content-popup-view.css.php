@@ -3,6 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
+
 <style type="text/css">
 /***For Content Popup view***/
 
@@ -149,7 +150,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> {
     position:fixed;
-    display:table;
     width:80%;
     top:7%;
     left:7%;
@@ -163,7 +163,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?>.active {display:table;}
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> li.pupup-element {
-    position:relative;
     display:none;
     width:100%;
     padding:40px 0 20px 0;
@@ -204,7 +203,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     position:relative;
     width:98%;
     height:98%;
-    padding:2% 0% 0% 2%;
+    padding:2% 0 0 2%;
 }
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> .popup-wrapper_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> {
@@ -358,8 +357,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     top: 50%;
 }
 
-
-/**/
 .pupup-element .button-block {
     position:relative;
 }
@@ -379,7 +376,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     color:#<?php echo $paramssld["ht_view2_popup_linkbutton_font_hover_color"];?>;
 }
 
-
 #huge-popup-overlay-portfolio {
     position:fixed;
     top:0;
@@ -394,12 +390,10 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 	?>
 }
 
-
 @media only screen and (max-width: 767px) {
 
     #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> {
         position:absolute;
-        left:0;
         top:0;
         width:100%;
         height:auto !important;
@@ -465,9 +459,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
         if(($sortingFloatPopup == 'left' && $filteringFloatPopup == 'left') || ($sortingFloatPopup == 'right' && $filteringFloatPopup == 'right')){
             echo 'width: 100%;';
         }
-?>
-
-<?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
@@ -526,10 +517,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     border-radius: <?php echo $paramssld["ht_view2_sortbutton_border_radius"];?>px;
 }
 
-/*#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li:hover {
-
-}*/
-
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a:hover {
     background-color: #<?php echo $paramssld["ht_view2_sortbutton_hover_background_color"];?> !important;
     color:#<?php echo $paramssld["ht_view2_sortbutton_hover_font_color"];?> !important;
@@ -539,7 +526,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
-<?php   if($filteringFloatPopup != 'top'){
+<?php if($filteringFloatPopup != 'top'){
             echo 'float:'.$filteringFloatPopup.';';
             echo  "max-width:180px;width:20%;display:inline-block;";
             if($filteringFloatPopup == 'left') echo 'margin-right: 1%;';
@@ -552,9 +539,6 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
         if(($sortingFloatPopup == 'left' && $filteringFloatPopup == 'left') || ($sortingFloatPopup == 'right' && $filteringFloatPopup == 'right')){
             echo 'width: 100%;';
         }
-?>
-
-<?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
@@ -563,10 +547,8 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     list-style-type: none;
     border-radius: <?php echo $paramssld["ht_view2_filterbutton_border_radius"];?>px;
 <?php
-    if($filteringFloatPopup == "top") { echo "float:left !important;margin: 0 8px 4px 0 !important;"; }
-    if($filteringFloatPopup == "left" || $filteringFloatPopup == "right")
-    { echo 'border-bottom: 1px solid #ccc;'; }
-    else echo "border: 1px solid #ccc;";
+    if($filteringFloatPopup == "top") echo "float:left !important;margin: 0 8px 4px 0 !important;";
+    echo $filteringFloatPopup == "left" || $filteringFloatPopup == "right" ? 'border-bottom: 1px solid #ccc;' : "border: 1px solid #ccc;";
 ?>
 }
 
@@ -604,7 +586,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     if(($portfolioShowSorting == 'off' && $portfolioShowFiltering == 'off') || ($sortingFloatPopup == 'top' && $filteringFloatPopup == 'top') ||
         ($sortingFloatPopup == 'top' && $filteringFloatPopup == '') || ($sortingFloatPopup == '' && $filteringFloatPopup == 'top'))
     {echo 'width:100%;';}
-    if($portfolioShowLoading == 'on') echo 'opacity: 0;';
+    if($portfolioShowLoading == 'on') {echo 'opacity: 0;';}
 ?>
 }
 @media screen and (max-width: 768px) {

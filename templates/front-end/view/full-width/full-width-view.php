@@ -200,7 +200,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 											<?php
 											break;
 									}
-
 								}
 								?>
 							</ul>
@@ -233,10 +232,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 					} ?>
 				</div>
 			</div>
-
 			<?php
 		}
 		?>
-
 	</div>
 </section>

@@ -210,10 +210,9 @@ final class Portfolio_Gallery {
 	/**
 	 * Portfolio Gallery Plugin Path.
 	 *
-	 * @var string
 	 * @return string
 	 */
-	public function plugin_path(){
+	public function plugin_path() {
 		return untrailingslashit( plugin_dir_path( __FILE__ ) );
 	}
 
@@ -221,8 +220,8 @@ final class Portfolio_Gallery {
 	 * Portfolio Gallery Plugin Url.
 	 * @return string
 	 */
-	public function plugin_url(){
-		return plugins_url('', __FILE__ );
+	public function plugin_url() {
+		return plugins_url( '', __FILE__ );
 	}
 }
 

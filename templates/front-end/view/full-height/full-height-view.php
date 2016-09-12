@@ -12,26 +12,26 @@ if ( $portfolioShowFiltering == 'on' ) {
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatFullHeight == 'left' && $filteringFloatFullHeight == 'left' ) || ( $sortingFloatFullHeight == 'right' && $filteringFloatFullHeight == 'right' ) ) { ?>
 	<div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
-		<?php } ?>
-		<?php if ( $portfolioShowSorting == "on" ) { ?>
+		<?php }
+		if ( $portfolioShowSorting == "on" ) { ?>
 			<div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>"
 			     data-sorting-position="<?php echo $paramssld["ht_view1_sorting_float"]; ?>">
 				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
 					<?php if ( $paramssld["ht_view1_sorting_name_by_default"] != '' ): ?>
 						<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
 						       data><?php echo $paramssld["ht_view1_sorting_name_by_default"]; ?></a></li>
-					<?php endif; ?>
-					<?php if ( $paramssld["ht_view1_sorting_name_by_id"] != '' ): ?>
+					<?php endif;
+					if ( $paramssld["ht_view1_sorting_name_by_id"] != '' ): ?>
 						<li><a href="#sortBy=id"
 						       data-option-value="id"><?php echo $paramssld["ht_view1_sorting_name_by_id"]; ?></a>
 						</li>
-					<?php endif; ?>
-					<?php if ( $paramssld["ht_view1_sorting_name_by_name"] != '' ): ?>
+					<?php endif;
+					if ( $paramssld["ht_view1_sorting_name_by_name"] != '' ): ?>
 						<li><a href="#sortBy=symbol"
 						       data-option-value="symbol"><?php echo $paramssld["ht_view1_sorting_name_by_name"]; ?></a>
 						</li>
-					<?php endif; ?>
-					<?php if ( $paramssld["ht_view1_sorting_name_by_random"] != '' ): ?>
+					<?php endif;
+					if ( $paramssld["ht_view1_sorting_name_by_random"] != '' ): ?>
 						<li id="shuffle"><a
 								href='#shuffle'><?php echo $paramssld["ht_view1_sorting_name_by_random"]; ?></a>
 						</li>
@@ -42,8 +42,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 						<li><a href="#sortAscending=true" data-option-value="true"
 						       class="selected"><?php echo $paramssld["ht_view1_sorting_name_by_asc"]; ?></a>
 						</li>
-					<?php endif; ?>
-					<?php if ( $paramssld["ht_view1_sorting_name_by_desc"] != '' ): ?>
+					<?php endif;
+					if ( $paramssld["ht_view1_sorting_name_by_desc"] != '' ): ?>
 						<li><a href="#sortAscending=false"
 						       data-option-value="false"><?php echo $paramssld["ht_view1_sorting_name_by_desc"]; ?></a>
 						</li>
@@ -247,7 +247,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
 													<div class="play-icon youtube-icon"></div>
 												</a>
-
 												<?php
 												break;
 											case 'vimeo':
@@ -281,7 +280,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 					<?php } ?>
 				</div>
 			</div>
-
 			<?php
 		}
 		?>

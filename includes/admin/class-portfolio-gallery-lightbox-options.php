@@ -5,6 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Portfolio_Gallery_Lightbox_Options {
 
+	/**
+	 * Portfolio_Gallery_Lightbox_Options constructor.
+	 */
 	public function __construct() {
 		add_action( 'portfolio_gallery_save_lightbox_options', array( $this, 'save_options' ) );
 	}
@@ -33,7 +36,7 @@ class Portfolio_Gallery_Lightbox_Options {
 
 	/**
 	 * Save Lightbox Options
-	 * //@todo: get rid of foreach
+	 * @todo: get rid of foreach
 	 */
 	public function save_options() {
 		global $wpdb;

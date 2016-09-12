@@ -13,7 +13,6 @@ class Portfolio_Gallery_Shortcode {
 		add_shortcode( 'huge_it_portfolio', array( $this, 'run_shortcode' ) );
 		add_action( 'admin_footer', array( $this, 'inline_popup_content' ) );
 		add_action( 'media_buttons_context', array( $this, 'add_editor_media_button' ) );
-
 	}
 
 	/**
@@ -24,12 +23,12 @@ class Portfolio_Gallery_Shortcode {
 	 * @return string
 	 */
 	public function run_shortcode( $attrs ) {
+		global $wpdb;
+
 		$attrs = shortcode_atts( array(
 			'id' => 'no huge_it portfolio',
-
 		), $attrs );
 
-		global $wpdb;
 		$query = $wpdb->prepare("SELECT portfolio_list_effects_s FROM ".$wpdb->prefix."huge_itportfolio_portfolios WHERE id=%d", $attrs['id']);
 		$portfolio_view = $wpdb->get_var($query);
 
@@ -73,7 +72,6 @@ class Portfolio_Gallery_Shortcode {
 				$number ++;
 			}
 		}
-		/***</title display>***/
 
 		$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = '%d' ORDER BY id ASC", $id );
 
@@ -82,6 +80,7 @@ class Portfolio_Gallery_Shortcode {
 		$paramssld = portfolio_gallery_get_general_options();
 
 		ob_start();
+
 		Portfolio_Gallery()->template_loader->load_front_end( $images, $paramssld, $portfolio, $title );
 
 		return ob_get_clean();
@@ -114,10 +113,8 @@ class Portfolio_Gallery_Shortcode {
 	 * Inline popup contents
 	 */
 	public function inline_popup_content() {
-		require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-inline-popup-content-html.php';
+		require PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-inline-popup-content-html.php';
 	}
-
-
 }
 
 new Portfolio_Gallery_Shortcode();

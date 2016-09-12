@@ -5,11 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Portfolio_Gallery_Ajax {
 
 	public function __construct() {
-		add_action( 'wp_ajax_portfolio_gallery_action', array($this,'callback') );
-		add_action( 'wp_ajax_nopriv_portfolio_gallery_action', array($this,'callback') );
+		add_action( 'wp_ajax_portfolio_gallery_action', array( $this, 'callback' ) );
+		add_action( 'wp_ajax_nopriv_portfolio_gallery_action', array( $this, 'callback' ) );
 	}
 
-	public function callback(){
+	public function callback() {
 		global $wpdb;
 		if ( $_POST['post'] == 'portfolioChangeOptions' ) {
 			if ( isset( $_POST['id'] ) ) {
@@ -18,10 +18,10 @@ class Portfolio_Gallery_Ajax {
                     die( __( 'Authentication failed', 'portfolio-gallery' ) );
                 }
 
-				$id       = intval($_POST['id']);
+				$id = intval($_POST['id']);
 
                 if( !$id ){
-                    die( __( 'Not numeric id', 'portfolio-gallery' ) );
+                    wp_die( __( 'Not numeric id', 'portfolio-gallery' ) );
                 }
 
 				$query    = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = %d", $id );
@@ -35,20 +35,27 @@ class Portfolio_Gallery_Ajax {
 					'pause_on_hover'         => $row->pause_on_hover
 				);
 				echo json_encode( $response );
-				die();
+				wp_die();
 			}
 		}
 		/**************************Options DB update****************************************/
-		if ( $_POST['post'] == 'portfolioSaveOptions' ) {
+		if ( $_POST['post'] === 'portfolioSaveOptions' ) {
 			if ( isset( $_POST["htportfolio_id"] ) ) {
-				$id = $_POST["htportfolio_id"];
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  ht_show_sorting = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["ht_show_sorting"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  ht_show_filtering = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["ht_show_filtering"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  description = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["sl_pausetime"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  param = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["sl_changespeed"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  description = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["sl_pausetime"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  pause_on_hover = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["pause_on_hover"] ), $id ) );
-				$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  portfolio_list_effects_s = '%s'  WHERE id = %d ", sanitize_text_field( $_POST["portfolio_effects_list"] ), $id ) );
+				$id = absint($_POST["htportfolio_id"]);
+
+				$wpdb->update(
+					$wpdb->prefix . "huge_itportfolio_portfolios",
+					array(
+						'ht_show_sorting' => sanitize_text_field( $_POST["ht_show_sorting"] ),
+						'ht_show_filtering' => sanitize_text_field( $_POST["ht_show_filtering"] ),
+						'description' => sanitize_text_field( $_POST["sl_pausetime"] ),
+						'param' => sanitize_text_field( $_POST["sl_changespeed"] ),
+						'pause_on_hover' => sanitize_text_field( $_POST["pause_on_hover"] ),
+						'portfolio_list_effects_s' => sanitize_text_field( $_POST["portfolio_effects_list"] ),
+					),
+					array('id' => $id),
+					array('%s', '%s', '%s', '%s', '%s', '%s')
+				);
 			}
 		}
 	}

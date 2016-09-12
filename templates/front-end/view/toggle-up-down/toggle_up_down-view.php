@@ -19,8 +19,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 			     data-sorting-position="<?php echo $paramssld["ht_view0_sorting_float"]; ?>">
 				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
                                         <?php if($paramssld["ht_view0_sorting_name_by_default"] != ''):?>
-					<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
-					       data><?php echo $paramssld["ht_view0_sorting_name_by_default"]; ?></a></li>
+					<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"><?php echo $paramssld["ht_view0_sorting_name_by_default"]; ?></a></li>
                                         <?php endif;?>
                                         <?php if($paramssld["ht_view0_sorting_name_by_id"] != ''):?>
 					<li><a href="#sortBy=id"
@@ -160,7 +159,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 				<div class="wd-portfolio-panel wd-portfolio-panel_<?php echo $portfolioID; ?>" id="panel<?php echo $key; ?>">
 					<?php 
                                         $imgurl = explode( ";", $row->image_url );
-					// array_shift($imgurl);
 					if ( $paramssld['ht_view0_show_thumbs'] == 'on' && $paramssld['ht_view0_thumbs_position'] == "before" && count( $imgurl ) != 2 ) {
 						?>
 						<div>
@@ -222,7 +220,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 						</div>
 					<?php }
 					$imgurl = explode( ";", $row->image_url );
-					//  array_shift($imgurl);
 					if ( $paramssld['ht_view0_show_thumbs'] == 'on' && $paramssld['ht_view0_thumbs_position'] == "after" && count( $imgurl ) != 2 ) {
 						?>
 						<div>

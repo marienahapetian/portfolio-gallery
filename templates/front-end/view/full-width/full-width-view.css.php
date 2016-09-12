@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 .portelement_<?php echo $portfolioID; ?> .play-icon {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -30,17 +30,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 .portelement_<?php echo $portfolioID; ?> {
     position: relative;
     width: calc(96% - <?php echo 2*$paramssld['ht_view3_element_border_width']; ?>px);
-    margin:5px 0px 5px 0px;
+    margin:5px 0 5px 0;
     padding:2%;
     clear:both;
     overflow: hidden;
     border:<?php echo $paramssld['ht_view3_element_border_width']; ?>px solid #<?php echo $paramssld['ht_view3_element_border_color']; ?>;
     background:#<?php echo $paramssld['ht_view3_element_background_color']; ?>;
 }
-
-/*.portelement_<?php echo $portfolioID; ?> > div {
-    display:table-cell;
-}*/
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> {
     padding-right: 10px;
@@ -54,8 +50,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .main-image-block_<?php echo $portfolioID; ?> img {
-    margin:0px !important;
-    padding:0px !important;
+    margin:0 !important;
+    padding:0 !important;
     width:<?php echo $paramssld['ht_view3_mainimage_width']; ?>px !important;
     height:auto;
 }
@@ -69,14 +65,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     width:<?php echo $paramssld['ht_view3_mainimage_width']; ?>px;
     height:auto;
     display:table;
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
     list-style:none;
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li {
-    margin:2px 3px 0px 2px;
-    padding:0px;
+    margin:2px 3px 0 2px;
+    padding:0;
     width:<?php echo $paramssld['ht_view3_thumbs_width']; ?>px;
     height:<?php echo $paramssld['ht_view3_thumbs_height']; ?>px;
     float:left;
@@ -89,8 +85,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li a img {
-    margin:0px !important;
-    padding:0px !important;
+    margin:0 !important;
+    padding:0 !important;
     width:<?php echo $paramssld['ht_view3_thumbs_width']; ?>px;
     height:<?php echo $paramssld['ht_view3_thumbs_height']; ?>px;
 }
@@ -120,8 +116,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .portelement_<?php echo $portfolioID; ?> div.right-block .title-block_<?php echo $portfolioID; ?> h3 {
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
     font-weight:normal;
     font-size:<?php echo $paramssld['ht_view3_title_font_size']; ?>px !important;
     line-height:<?php echo $paramssld['ht_view3_title_font_size']+4; ?>px !important;
@@ -129,8 +125,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> p,.portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?>  {
-    margin:0px;
-    padding:0px;
+    margin:0;
+    padding:0;
     font-size:<?php echo $paramssld['ht_view3_description_font_size']; ?>px;
     color:#<?php echo $paramssld['ht_view3_description_color']; ?>;
     text-align: justify;
@@ -147,13 +143,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> strong,
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> span {
     padding:2px !important;
-    margin:0px !important;
+    margin:0 !important;
 }
 
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> ul,
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> li {
-    padding:2px 0px 2px 5px;
-    margin:0px 0px 0px 8px;
+    padding:2px 0 2px 5px;
+    margin:0 0 0 8px;
 }
 
 .portelement_<?php echo $portfolioID; ?> .button-block {
@@ -177,8 +173,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     border:none;
 }
 
-
-
 @media only screen and (max-width: 767px) {
 
     .portelement_<?php echo $portfolioID; ?> > div {
@@ -188,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
 
     .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> {
-        padding-right:0px;
+        padding-right:0;
     }
 
     .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .main-image-block_<?php echo $portfolioID; ?> {
@@ -197,8 +191,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
 
     .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .main-image-block_<?php echo $portfolioID; ?> img {
-        margin:0px !important;
-        padding:0px !important;
+        margin:0 !important;
+        padding:0 !important;
         width:100% !important;
         height:auto;
     }
@@ -211,7 +205,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
-<?php   if($sortingFloatFullWidth != 'top'){
+<?php if($sortingFloatFullWidth != 'top'){
             echo 'float:'.$sortingFloatFullWidth.';margin-top:5px;';
             echo  "max-width:180px;width:20%;display:inline-block;";
             if($filteringFloatFullWidth == 'top') echo 'margin-top:45px;';
@@ -226,17 +220,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         if(($sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left') || ($sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right')){
             echo 'width: 100%;';
         }
-?>
-
-<?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
     margin-bottom: 10px;
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul {
-    margin: 0px !important;
-    padding: 0px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     list-style: none;
 <?php if($sortingFloatFullWidth == 'top') {
         echo "float:left;margin-left:1%;";
@@ -245,8 +236,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul {
-    margin: 0px !important;
-    padding: 0px !important;
+    margin: 0 !important;
+    padding: 0 !important;
     overflow: hidden;
 <?php if($filteringFloatFullWidth == 'top') {
     echo "float:left;margin-left:1%;";
@@ -263,7 +254,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li {
     border-radius: <?php echo $paramssld["ht_view3_sortbutton_border_radius"];?>px;
     list-style-type: none;
-    margin: 0px !important;
+    margin: 0 !important;
     padding: 0;
 <?php
     if($sortingFloatFullWidth == "top")
@@ -282,14 +273,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     color:#<?php echo $paramssld["ht_view3_sortbutton_font_color"];?> !important;
     text-decoration: none;
     cursor: pointer;
-    margin: 0px !important;
+    margin: 0 !important;
     display: block;
     padding:<?php echo $paramssld["ht_view3_sortbutton_border_padding"];?>px;
 }
-
-/*#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li:hover {
-
-}*/
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a:hover {
     background-color: #<?php echo $paramssld["ht_view3_sortbutton_hover_background_color"];?> !important;
@@ -300,7 +287,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
-<?php   if($filteringFloatFullWidth != 'top'){
+<?php if($filteringFloatFullWidth != 'top'){
             echo 'float:'.$filteringFloatFullWidth.';margin-top:5px;';
             echo  "max-width:180px;width:20%;display:inline-block;";
             if($filteringFloatFullWidth == 'left') echo 'margin-right: 1%;';
@@ -314,9 +301,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         if(($sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left') || ($sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right')){
             echo 'width: 100%;';
         }
-?>
-
-<?php if ($paramssld["ht_view2_show_sorting"] == 'off')
+if ($paramssld["ht_view2_show_sorting"] == 'off')
     echo "display:none;";
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>

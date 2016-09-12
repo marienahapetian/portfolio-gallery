@@ -2,14 +2,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-class Portfolio_Gallery_Install
-{
+class Portfolio_Gallery_Install {
 
     /**
      * Install Portfolio Gallery.
      */
-    public static function install()
-    {
+    public static function install() {
         if (!defined('PORTFOLIO_GALLERY_INSTALLING')) {
             define('PORTFOLIO_GALLERY_INSTALLING', true);
         }
@@ -20,8 +18,7 @@ class Portfolio_Gallery_Install
         do_action('portfolio_gallery_installed');
     }
 
-    private static function create_tables()
-    {
+    private static function create_tables() {
         global $wpdb;
 
 /// creat database tables
@@ -63,12 +60,11 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
   `autoslide` varchar(5) NOT NULL DEFAULT 'on',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-)   DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ";
+)   DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
 
         $table_name = $wpdb->prefix . "huge_itportfolio_images";
         $sql_2 = "
 INSERT INTO 
-
 `" . $table_name . "` (`id`, `name`, `portfolio_id`, `description`, `image_url`, `sl_url`, `sl_type`, `link_target`, `ordering`, `published`, `published_in_sl_width`) VALUES
 (1, 'Cutthroat & Cavalier', '1', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/1.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/1.2.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 0, 1, NULL),
 (2, 'Nespresso', '1', '<h6>Lorem Ipsum </h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><ul><li>lorem ipsum</li><li>dolor sit amet</li><li>lorem ipsum</li><li>dolor sit amet</li></ul>', '" . "https://vimeo.com/76602135" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/9.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/9.2.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'video', 'on', 1, 1, NULL),
@@ -80,14 +76,8 @@ INSERT INTO
 (8, 'The Optic', '1', '<h6>Lorem Ipsum </h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><ul><li>lorem ipsum</li><li>dolor sit amet</li><li>lorem ipsum</li><li>dolor sit amet</li></ul>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.3.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 7, 1, NULL),
 (9, 'Cone Music', '1', '<ul><li>lorem ipsumdolor sit amet</li><li>lorem ipsum dolor sit amet</li></ul><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.2.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 8, 1, NULL)";
 
-
         $table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
 
-
-        $sql_3 = "
-
-INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hover`, `portfolio_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`) VALUES
-(1, 'My First Portfolio', 375, 600, 'on', '2', '4000', '1000', 'center', 1, '300')";
 
 
         $wpdb->query($sql_huge_itportfolio_images);
@@ -97,23 +87,35 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
             $wpdb->query($sql_2);
         }
         if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itportfolio_portfolios")) {
-            $wpdb->query($sql_3);
+        	$wpdb->insert(
+        		$table_name,
+		        array(
+			        'id' => 1,
+					'name' => 'My First Portfolio',
+					'sl_height' => 375,
+					'sl_width' => 600,
+					'pause_on_hover' => 'on',
+					'portfolio_list_effects_s' => '2',
+					'description' => '4000',
+					'param' => '1000',
+					'sl_position' => 'center',
+					'ordering' => 1,
+					'published' => '300'
+		        )
+	        );
         }
-
-        global $wpdb;
 
         $imagesAllFieldsInArray = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_images", ARRAY_A);
         $forUpdate = 0;
+
         foreach ($imagesAllFieldsInArray as $portfoliosField) {
             if ($portfoliosField['Field'] == 'category') {
-                // "ka category field.<br>";
                 $forUpdate = 1;
                 $catValues = $wpdb->get_results("SELECT category FROM " . $wpdb->prefix . "huge_itportfolio_images");
                 $needToUpdate = 0;
                 foreach ($catValues as $catValue) {
                     if ($catValue->category !== '') {
                         $needToUpdate = 1;
-                        //echo "category field - y datark chi.<br>";
                     }
                 }
                 if ($needToUpdate == 0) {
@@ -130,7 +132,7 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
                 break;
             }
         }
-        if ($forUpdate == '0') {
+        if ($forUpdate) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_images ADD category text");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,My Third Category,' WHERE id='1'");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='2'");
@@ -144,6 +146,7 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 
         $productPortfolio = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
         $isUpdate = 0;
+
         foreach ($productPortfolio as $prodPortfolio) {
             if ($prodPortfolio['Field'] == 'categories' && $prodPortfolio['Type'] == 'text') {
                 $isUpdate = 1;
@@ -164,7 +167,7 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
                 break;
             }
         }
-        if ($isUpdate == '0') {
+        if ($isUpdate) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD categories text");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET categories = 'My First Category,My Second Category,My Third Category,'");
 
@@ -176,38 +179,36 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
         }
         ////////////////////////////////////////////////////////////////////////
         $portfoliosAllFieldsInArray1 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
-        $fornewUpdate1 = 0;
+        $forNewUpdate1 = 0;
         foreach ($portfoliosAllFieldsInArray1 as $portfoliosField) {
             if ($portfoliosField['Field'] == 'show_loading') {
-                $fornewUpdate1 = 1;
+                $forNewUpdate1 = 1;
             }
         }
-        if ($fornewUpdate1 != 1) {
+        if (!$forNewUpdate1) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `show_loading` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'");
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `loading_icon_type` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '1'");
         }
 
-        $portfoliosAllFieldsInArray2 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
-        $fornewUpdate2 = 0;
-        foreach ($portfoliosAllFieldsInArray2 as $portfoliosField2) {
-            if ($portfoliosField2['Field'] == 'autoslide') {
-                $fornewUpdate2 = 1;
-            }
-        }
-        if ($fornewUpdate2 != 1) {
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'");
-        }
+        $portfoliosAllFieldsInArray2 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A );
+	    $forNewUpdate2               = 0;
+	    foreach ( $portfoliosAllFieldsInArray2 as $portfoliosField2 ) {
+		    if ( $portfoliosField2['Field'] == 'autoslide' ) {
+			    $forNewUpdate2 = 1;
+		    }
+	    }
+	    if ( ! $forNewUpdate2 ) {
+		    $wpdb->query( "ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'" );
+	    }
 
-        $table_name = $wpdb->prefix . "huge_itportfolio_images";
-        $query = "SELECT id,image_url,portfolio_id FROM ".$table_name." WHERE portfolio_id=1";
-        $images_url = $wpdb->get_results($query);
-        foreach($images_url as $image_url){
-            if(strpos($image_url->image_url,'portfolio-gallery/Front_images') > -1){
-                $new_url = str_replace('portfolio-gallery/Front_images','portfolio-gallery/assets/images/Front_images',$image_url->image_url);
-                $wpdb->query($wpdb->prepare("UPDATE ".$table_name." SET image_url= %s WHERE id=%d",$new_url,$image_url->id));
-            }
-        }
+	    $table_name = $wpdb->prefix . "huge_itportfolio_images";
+	    $query      = "SELECT id,image_url,portfolio_id FROM " . $table_name . " WHERE portfolio_id=1";
+	    $images_url = $wpdb->get_results( $query );
+	    foreach ( $images_url as $image_url ) {
+		    if ( strpos( $image_url->image_url, 'portfolio-gallery/Front_images' ) > - 1 ) {
+			    $new_url = str_replace( 'portfolio-gallery/Front_images', 'portfolio-gallery/assets/images/Front_images', $image_url->image_url );
+			    $wpdb->query( $wpdb->prepare( "UPDATE " . $table_name . " SET image_url= %s WHERE id=%d", $new_url, $image_url->id ) );
+		    }
+	    }
     }
-
-
 }

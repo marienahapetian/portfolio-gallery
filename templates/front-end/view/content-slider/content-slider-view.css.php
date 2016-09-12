@@ -31,7 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 #p-main-slider_<?php echo $portfolioID; ?> {background:#<?php echo $paramssld["ht_view5_slider_background_color"];?>;}
 
 #p-main-slider_<?php echo $portfolioID; ?> div.slider-content {
-    position:relative;
     width:100%;
     padding:0 0 0 0;
     position:relative;
@@ -77,7 +76,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     list-style:none;
     display:table;
     position:relative;
-    clear:both;
     width:100%;
     margin:10px 0 0 0;
     padding:0;

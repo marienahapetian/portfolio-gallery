@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Portfolio_Gallery_Widgets
  */
-class Portfolio_Gallery_Widgets{
+class Portfolio_Gallery_Widgets {
 
 	/**
 	 * Portfolio_Gallery_Widgets constructor.
@@ -18,7 +18,7 @@ class Portfolio_Gallery_Widgets{
 	 * Register Huge-IT Portfolio Gallery Widget
 	 */
 	public function register_widget(){
-		register_widget( 'Huge_it_portfolio_Widget' );
+		register_widget( 'Huge_It_Portfolio_Widget' );
 	}
 }
 

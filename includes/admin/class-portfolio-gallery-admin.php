@@ -41,6 +41,13 @@ class Portfolio_Gallery_Admin {
 	public $featured_plugins = null;
 
 	/**
+	 * Instance of Portfolio_Gallery_Licensing class
+	 *
+	 * @var Portfolio_Gallery_Licensing $licensing
+	 */
+	public $licensing;
+
+	/**
 	 * Portfolio_Gallery_Admin constructor.
 	 */
 	public function __construct(){
@@ -75,38 +82,46 @@ class Portfolio_Gallery_Admin {
 	}
 
 
-	public function wp_loaded (){
+	public function wp_loaded() {
 		global $wpdb;
-		if(isset($_GET['task'])){
+		if (isset($_GET['task'])) {
 			$task = $_GET['task'];
-			if($task == 'add_portfolio'){
-				$table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
-				$sql_2 = "
-INSERT INTO 
+			if ($task == 'add_portfolio') {
 
-`" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `portfolio_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`, `categories`, `ht_show_sorting`, `ht_show_filtering`) VALUES
-( 'New portfolio', '375', '600', 'on', 'cubeH', '4000', '1000', 'off', '1', '300', 'My First Category,My Second Category,My Third Category,', 'off', 'off')";
-
-				$wpdb->query($sql_2);
-
-				$query="SELECT * FROM ".$wpdb->prefix."huge_itportfolio_portfolios order by id ASC";
-				$rowsldcc=$wpdb->get_results($query);
-				$last_key = key( array_slice( $rowsldcc, -1, 1, TRUE ) );
-
-
-				foreach($rowsldcc as $key=>$rowsldccs){
-					if($last_key == $key){
-						$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
-						$wp_nonce = $_GET['huge_it_portfolio_nonce'];
-						if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce') && !wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
-							wp_die('Security check fail');
-						}
-						header('Location: admin.php?page=portfolios_huge_it_portfolio&id='.$rowsldccs->id.'&task=apply&huge_it_portfolio_nonce='.$portfolio_wp_nonce);
-					}
+				if (!isset($_REQUEST['hugeit_portfolio_add_portfolio_nonce']) || !wp_verify_nonce($_REQUEST['hugeit_portfolio_add_portfolio_nonce'], 'add_new_portfolio')) {
+					wp_die('Security check failure.');
 				}
+
+				$table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
+				$wpdb->insert(
+					$table_name,
+					array(
+						'name' => 'New portfolio',
+						'sl_height' => '375',
+						'sl_width' => '600',
+						'pause_on_hover' => 'on',
+						'portfolio_list_effects_s' => 'cubeH',
+						'description' => '4000',
+						'param' => '1000',
+						'sl_position' => 'off',
+						'ordering' => '1',
+						'published' => '300',
+						'categories' => 'My First Category,My Second Category,My Third Category,',
+						'ht_show_sorting' => 'off',
+						'ht_show_filtering' => 'off',
+					)
+				);
+
+				$apply_portfolio_safe_link = wp_nonce_url(
+					'admin.php?page=portfolios_huge_it_portfolio&id=' . $wpdb->insert_id . '&task=apply',
+					'apply_portfolio_' . $wpdb->insert_id,
+					'hugeit_portfolio_apply_portfolio_nonce'
+				);
+
+				$apply_portfolio_safe_link = htmlspecialchars_decode($apply_portfolio_safe_link);
+
+				header( 'Location: ' . $apply_portfolio_safe_link );
 			}
 		}
 	}
-
 }
-

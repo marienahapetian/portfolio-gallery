@@ -2,236 +2,6 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-//@todo: prefixes
-/**
- * Insert posts
- *
- * @param $id
- *
- * @return string
- */
-function portfolio_gallery_popup_posts($id)
-{
-    global $wpdb;
-
-    if (isset($_GET["removeslide"])) {
-        if ($_GET["removeslide"] != '') {
-
-            $removeslide = intval( $_GET['removeslider'] );
-
-            if( !$removeslide ){
-                return false;
-            }
-
-            $wpdb->query( $wpdb->prepare("DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images  WHERE id = %d", $removeslide ) );
-
-
-        }
-    }
-
-    $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id= %d", $id);
-    $row = $wpdb->get_row($query);
-    if (!isset($row->portfolio_list_effects_s)) {
-        return 'id not found';
-    }
-    $images = explode(";;;", $row->portfolio_list_effects_s);
-    $par = explode('	', $row->param);
-    $count_ord = count($images);
-    $cat_row = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id!=" . $id . " and sl_width=0");
-    $cat_row = portfolio_gallery_open_cat_in_tree($cat_row);
-    $query = $wpdb->prepare("SELECT name,ordering FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE sl_width=%d  ORDER BY `ordering` ", $row->sl_width);
-    $ord_elem = $wpdb->get_results($query);
-
-    $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_images where portfolio_id = %d order by id ASC  ", $row->id);
-    $rowim = $wpdb->get_results($query);
-
-    if (isset($_GET["addslide"])) {
-        if ($_GET["addslide"] == 1) {
-
-            $table_name = $wpdb->prefix . "huge_itportfolio_images";
-
-            $wpdb->insert(
-                $table_name,
-                array(
-                    'name' => '',
-                    'portfolio_id' => $row->id,
-                    'description' => '',
-                    'image_url' => '',
-                    'sl_url' => '',
-                    'ordering' => 'par_TV',
-                    'published' => '2',
-                    'published_in_sl_width' => '1',
-                ),
-                array(
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                )
-            );
-        }
-    }
-
-
-    $query = "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios order by id ASC";
-    $rowsld = $wpdb->get_results($query);
-
-    $query = "SELECT *  from " . $wpdb->prefix . "huge_itportfolio_params ";
-
-    $rowspar = $wpdb->get_results($query);
-
-    $paramssld = array();
-    foreach ($rowspar as $rowpar) {
-        $key = $rowpar->name;
-        $value = $rowpar->value;
-        $paramssld[$key] = $value;
-    }
-
-    $query = "SELECT * FROM " . $wpdb->prefix . "posts where post_type = 'post' and post_status = 'publish' order by id ASC";
-    $rowsposts = $wpdb->get_results($query);
-
-    $categories = get_categories();
-    if (isset($_POST["iframecatid"])) {
-        $iframecatid = $_POST["iframecatid"];
-    } else {
-        $iframecatid = $categories[0]->cat_ID;
-    }
-
-    $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "term_relationships where term_taxonomy_id = %d order by object_id ASC", $iframecatid);
-    $rowsposts8 = $wpdb->get_results($query);
-
-
-    foreach ($rowsposts8 as $rowsposts13) {
-        $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC", $rowsposts13->object_id);
-        $rowsposts1 = $wpdb->get_results($query);
-
-        $postsbycat = $rowsposts1;
-
-    }
-
-    if (isset($_GET["closepop"])) {
-        if ($_GET["closepop"] == 1) {
-
-            if ($_POST["popupposts"] != 'none' and $_POST["popupposts"] != '') {
-
-                $popuppostsposts = explode(";", $_POST["popupposts"]);
-
-                array_pop($popuppostsposts);
-
-                foreach ($popuppostsposts as $popuppostsposts1) {
-                    $my_id = $popuppostsposts1;
-
-                    $post_id_1 = get_post($my_id);
-
-
-                    $post_image = wp_get_attachment_url(get_post_thumbnail_id($popuppostsposts1));
-                    $posturl = get_permalink($popuppostsposts1);
-                    $table_name = $wpdb->prefix . "huge_itportfolio_images";
-
-                    $descnohtmlnoq = strip_tags($post_id_1->post_content);
-                    $descnohtmlnoq1 = html_entity_decode($descnohtmlnoq);
-                    $descnohtmlnoq1 = htmlentities($descnohtmlnoq1, ENT_QUOTES, "UTF-8");
-
-                    $sql_posts = $wpdb->insert(
-                        $table_name,
-                        array(
-                            'name' => $post_id_1->post_title,
-                            'portfolio_id' => $row->id,
-                            'description' => $descnohtmlnoq1,
-                            'image_url' => $post_image,
-                            'sl_url' => $posturl,
-                            'sl_type' => 'image',
-                            'link_target' => 'on',
-                            'ordering' => '0',
-                            'published' => '2',
-                            'published_in_sl_width' => '1',
-                        ),
-                        array(
-                            '%s',
-                            '%d',
-                            '%s',
-                            '%s',
-                            '%s',
-                            '%s',
-                            '%s',
-                            '%s',
-                            '%s',
-                            '%s',
-                        )
-                    );
-                }
-
-            }
-            if (!($_POST["lastposts"])) {
-                $id = intval( $_GET['id'] );
-
-                if( ! $id ){
-                    return false;
-                }
-
-                $wpdb->update(
-                    $wpdb->prefix . "huge_itportfolio_portfolios",
-                    array( 'published' => $_POST["posthuge-it-description-length"] ),
-                    array( 'id' => $id ),
-                    array( '%s' )
-                );
-            }
-        }
-    }
-
-    if (isset($_POST["lastposts"])) {
-        $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "posts where post_type = 'post' and post_status = 'publish' order by id DESC LIMIT 0, " . $_POST["lastposts"] . "");
-        $rowspostslast = $wpdb->get_results($query);
-        foreach ($rowspostslast as $rowspostslastfor) {
-
-            $my_id = $rowspostslastfor;
-            $post_id_1 = get_post($my_id);
-
-
-            $post_image = wp_get_attachment_url(get_post_thumbnail_id($rowspostslastfor));
-            $posturl = get_permalink($rowspostslastfor);
-            $table_name = $wpdb->prefix . "huge_itportfolio_images";
-            $descnohtmlno = strip_tags($post_id_1->post_content);
-            $descnohtmlno1 = html_entity_decode($descnohtmlno);
-            $lengthtextpost = '300';
-            $descnohtmlno2 = substr_replace($descnohtmlno1, "", $lengthtextpost);
-            $descnohtmlno3 = htmlentities($descnohtmlno2, ENT_QUOTES, "UTF-8");
-            $posttitle = htmlentities($post_id_1->post_title, ENT_QUOTES, "UTF-8");
-            $posturl2 = htmlentities($posturl, ENT_QUOTES, "UTF-8");
-
-
-            $wpdb->insert(
-                $table_name,
-                array(
-                    'name' => $posttitle,
-                    'portfolio_id' => $row->id,
-                    'description' => $descnohtmlno3,
-                    'image_url' => $post_image,
-                    'sl_url' => $post_image,
-                    'ordering' => par_TV,
-                    'published' => '2',
-                    'published_in_sl_width' => '1',
-                ),
-                array(
-                    '%s',
-                    '%d',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                    '%s',
-                )
-            );
-        }
-    }
-
-    Html_portfolio_gallery_popup_posts($ord_elem, $count_ord, $images, $row, $cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat);
-}
 
 /**
  * Prints Admin Portfolios list pagination HTML
@@ -240,11 +10,10 @@ function portfolio_gallery_popup_posts($id)
  * @param $page_number
  * @param string $serch_fields
  */
-function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fields = "")
-{
+function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fields = "") {
     ?>
     <script type="text/javascript">
-        function clear_serch_texts() {
+        function clear_search_texts() {
             document.getElementById("serch_or_not").value = '';
         }
         function submit_href(x, y) {
@@ -258,7 +27,7 @@ function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fie
                 echo 1;
             }?>;
             if (document.getElementById("serch_or_not").value != "search") {
-                clear_serch_texts();
+                clear_search_texts();
             }
             switch (y) {
                 case 1:
@@ -331,13 +100,13 @@ function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fie
         </div>
     </div>
     <input type="hidden" id="page_number" name="page_number" value="<?php if (isset($_POST['page_number'])) {
-        echo $_POST['page_number'];
+        echo esc_attr($_POST['page_number']);
     } else {
         echo '1';
     } ?>"/>
 
     <input type="hidden" id="serch_or_not" name="serch_or_not" value="<?php if (isset($_POST["serch_or_not"])) {
-        echo $_POST["serch_or_not"];
+        echo esc_attr($_POST["serch_or_not"]);
     } ?>"/>
     <?php
 
@@ -348,15 +117,8 @@ function portfolio_gallery_print_html_nav($count_items, $page_number, $serch_fie
  *
  * @return int
  */
-function portfolio_gallery_get_portfolio_id()
-{
-    if ( isset($_GET["id"])){
-        $id = intval( $_GET['id'] );
-    }else{
-        $id = 0;
-    }
-
-    return $id;
+function portfolio_gallery_get_portfolio_id() {
+    return isset( $_GET["id"] ) ? intval( $_GET['id'] ) : 0;
 }
 
 /**
@@ -364,15 +126,8 @@ function portfolio_gallery_get_portfolio_id()
  *
  * @return string
  */
-function portfolio_gallery_get_portfolio_task()
-{
-    if (isset($_GET["task"])) {
-        $task = $_GET["task"];
-    } else {
-        $task = '';
-    }
-
-    return $task;
+function portfolio_gallery_get_portfolio_task() {
+    return isset($_GET["task"]) ? sanitize_text_field($_GET["task"]) : '';
 }
 
 /**
@@ -382,8 +137,7 @@ function portfolio_gallery_get_portfolio_task()
  *
  * @return array
  */
-function portfolio_gallery_open_cat_in_tree($catt, $tree_problem = '', $hihiih = 1)
-{
+function portfolio_gallery_open_cat_in_tree($catt, $tree_problem = '', $hihiih = 1) {
 
     global $wpdb;
     global $glob_ordering_in_cat;
