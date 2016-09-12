@@ -6,9 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ( $portfolioShowSorting == 'on' ) {
 	echo 'sortingActive ';
 }
-if ( $portfolioShowFiltering == 'on' ) {
-	echo 'filteringActive';
-} ?>"
+if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
          data-image-behaviour="<?php echo $paramssld['port_natural_size_contentpopup']; ?>">
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
@@ -70,8 +68,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 					?>
 				</ul>
 			</div>
-		<?php } ?>
-		<?php if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
+		<?php }
+		if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
 	</div>
 <?php } ?>
 	<div id="huge_it_portfolio_container_<?php echo $portfolioID; ?>"
@@ -124,7 +122,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 								<img alt="<?php echo esc_attr( $row->name ); ?>"
 								     src="<?php echo esc_attr( $imgsrc ); ?>"/>
 								<?php break;
-
 						}
 					} else { ?>
 						<img alt="<?php echo esc_attr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
@@ -189,7 +186,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 								<?php
 								break;
 							case 'youtube':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );//var_dump($videourl[0]);
+								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
 								?>
 								<iframe
 									src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>?modestbranding=1&showinfo=0"
@@ -197,7 +194,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 								<?php
 								break;
 							case 'vimeo':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );//var_dump($videourl[0]);
+								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
 								?>
 								<iframe
 									src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>?title=0&amp;byline=0&amp;portrait=0"
@@ -206,16 +203,15 @@ if ( $portfolioShowFiltering == 'on' ) {
 								<?php break;
 						}
 					} else { ?>
-						<img alt="<?php echo esc_atr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
+						<img alt="<?php echo esc_attr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
 						     src="images/noimage.jpg"/>
 						<?php
 					} ?>
 				</div>
 				<div class="right-block">
 					<?php if ( $paramssld["ht_view2_show_popup_title"] == 'on' ) { ?><h3
-						class="title"><?php echo $row->name; ?></h3><?php } ?>
-
-					<?php if ( $paramssld["ht_view2_thumbs_position"] == 'before' and $paramssld["ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
+						class="title"><?php echo $row->name; ?></h3><?php }
+						if ( $paramssld["ht_view2_thumbs_position"] == 'before' and $paramssld["ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
 						<div>
 							<ul class="thumbs-list thumbs-list_<?php echo $portfolioID; ?>">
 								<?php
@@ -273,9 +269,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 								} ?>
 							</ul>
 						</div>
-					<?php } ?>
-
-					<?php if ( $paramssld["ht_view2_show_description"] == 'on' ) { ?>
+					<?php }
+					if ( $paramssld["ht_view2_show_description"] == 'on' ) { ?>
 						<div class="description"><?php echo $row->description; ?></div><?php } ?>
 
 					<?php if ( $paramssld["ht_view2_thumbs_position"] == 'after' and $paramssld["ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
@@ -325,7 +320,6 @@ if ( $portfolioShowFiltering == 'on' ) {
 												</a>
 												<?php
 												break;
-
 										}
 										?>
 									</li>
@@ -333,9 +327,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 								} ?>
 							</ul>
 						</div>
-					<?php } ?>
-
-					<?php if ( $paramssld["ht_view2_show_popup_linkbutton"] == 'on' && $link != '' ) { ?>
+					<?php }
+					if ( $paramssld["ht_view2_show_popup_linkbutton"] == 'on' && $link != '' ) { ?>
 						<div class="button-block">
 							<a href="<?php echo esc_url( $link ); ?>" <?php if ( $row->link_target == "on" ) {
 								echo 'target="_blank"';

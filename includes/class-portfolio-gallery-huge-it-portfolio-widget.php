@@ -3,16 +3,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 /**
- * Class Huge_it_portfolio_Widget
+ * Class Huge_It_Portfolio_Widget
  */
-class Huge_it_portfolio_Widget extends WP_Widget {
+class Huge_It_Portfolio_Widget extends WP_Widget {
 
 	/**
-	 * Huge_it_portfolio_Widget constructor.
+	 * Huge_It_Portfolio_Widget constructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'Huge_it_portfolio_Widget',
+			'huge_it_portfolio_widget',
 			'Huge IT Portfolio',
 			array( 'description' => __( 'Huge IT Portfolio', 'huge_it_portfolio' ), )
 		);
@@ -56,7 +56,10 @@ class Huge_it_portfolio_Widget extends WP_Widget {
 
 	/**
 	 * Print out the widget's form HTML
+	 *
 	 * @param array $instance
+	 *
+	 * @return string|void
 	 */
 	public function form( $instance ) {
 		$selected_portfolio = 0;

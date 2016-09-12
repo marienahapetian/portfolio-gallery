@@ -2,15 +2,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-$wp_nonce = $_GET['huge_it_portfolio_nonce'];
-if(!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
-	wp_die('Security check fail');
-}
-$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
+
 ?>
 <style>
 	html.wp-toolbar {
-		padding:0px !important;
+		padding:0 !important;
 	}
 	#wpadminbar,#adminmenuback,#screen-meta, .update-nag,#dolly {
 		display:none;
@@ -20,7 +16,7 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 	}
 	#adminmenuwrap {display:none !important;}
 	.auto-fold #wpcontent, .auto-fold #wpfooter {
-		margin-left: 0px;
+		margin-left: 0;
 	}
 	#wpfooter {display:none;}
 	iframe {height:150px !important;}
@@ -44,13 +40,13 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 	}
 </style>
 <script type="text/javascript">
-	function youtube_parser(url){
+	function youtube_parser(url) {
 		var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 		var match = url.match(regExp);
-		var match_vimeo = /vimeo.*\/(\d+)/i.exec( url );
-		if (match&&match[7].length==11){
+		var match_vimeo = /vimeo.*\/(\d+)/i.exec(url);
+		if (match && match[7].length == 11) {
 			return match[7];
-		}else if(match_vimeo) {
+		} else if (match_vimeo) {
 			return match_vimeo[1];
 		}
 		else {
@@ -68,59 +64,54 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 				return false;
 			}
 			jQuery('.huge-it-insert-post-button').on('click', function() {
-				//var ID1 = jQuery('#huge_it_add_video_input').val();
-
 				window.parent.uploadID.val(ID1);
 
 				tb_remove();
-				//jQuery("#save-buttom").click();
 			});
 
 			jQuery('#huge_it_add_video_input').change(function(){
-
-				if (jQuery(this).val().indexOf("youtube") >= 0){
+				if (jQuery(this).val().indexOf("youtube") >= 0) {
 					jQuery('#add-video-popup-options > div').removeClass('active');
 					jQuery('#add-video-popup-options  .youtube').addClass('active');
-				}else if (jQuery(this).val().indexOf("vimeo") >= 0){
+				} else if (jQuery(this).val().indexOf("vimeo") >= 0) {
 					jQuery('#add-video-popup-options > div').removeClass('active');
 					jQuery('#add-video-popup-options  .vimeo').addClass('active');
-				}else {
+				} else {
 					jQuery('#add-video-popup-options > div').removeClass('active');
 					jQuery('#add-video-popup-options  .error-message').addClass('active');
 				}
 			})
 		});
 		<?php
-		if(isset($_GET["closepop"])){
-		if($_GET["closepop"] == 1){ ?>
-		jQuery("#closepopup").click();
-		self.parent.location.reload();
-		<?php	}	} ?>
+		if (isset($_GET["closepop"])) {
+			if($_GET["closepop"] == 1) { ?>
+				jQuery("#closepopup").click();
+				self.parent.location.reload();
+		<?php
+			}
+		} ?>
 		jQuery('.updated').css({"display":"none"});
 	});
 	/***add***/
 	jQuery(function($) {
 
 		jQuery(".set-new-video").on('click',function() {
-			var showcontrols,prefix;
-			var new_video = jQuery("#huge_it_add_video_input").val();
-			//alert(new_video);return;
-			var new_video_id= youtube_parser(new_video);
-			if(!new_video_id)
+			var showcontrols,
+				prefix,
+				new_video = jQuery("#huge_it_add_video_input").val(),
+				new_video_id= youtube_parser(new_video);
+
+			if (!new_video_id)
 				return;
-			if(new_video_id.length == 11) {
+			if (new_video_id.length == 11) {
 				showcontrols = "?modestbranding=1&showinfo=0&controls=0";
 				prefix = "//www.youtube.com/embed/";
 			}
 			else {
 				showcontrols = "?title=0&amp;byline=0&amp;portrait=0";
 				prefix = "//player.vimeo.com/video/";
-
 			}
 			var old_url =jQuery(".text-area");
-
-
-
 			jQuery(".iframe-area").fadeOut(300);
 			old_url.html("");
 			jQuery(".text-area").html(new_video);
@@ -131,7 +122,7 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 	});
 </script>
 <h1><?php echo __( 'Update video', 'portfolio-gallery' );?></h1>
-<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $portfolio_id;?>&id=<?php echo $id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&thumb=<?php echo $thumb;?>&TB_iframe=1&closepop=1" >
+<form method="post" action="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $portfolio_id;?>&id=<?php echo $id; ?>&thumb=<?php echo $thumb;?>&TB_iframe=1&closepop=1" >
 	<div class="iframe-text-area">
 		<?php if($edit == '') { ?>
 			<iframe class="iframe-area" src="<?php if($video == 'youtube') { ?>//www.youtube.com/embed/<?php echo esc_attr($video_id[0]); ?>?modestbranding=1&showinfo=0&controls=0
@@ -140,7 +131,7 @@ $portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 		<?php } else  { ?>
 			<iframe class="iframe-area" src=<?php echo $edit;?>  frameborder="0" allowfullscreen></iframe>
 		<?php } ?>
-		<textarea rows="4" cols="50" class="text-area" disabled >
+		<textarea rows="4" cols="50" class="text-area" disabled>
 <?php echo esc_html(stripslashes($input_edit_video_thumb));?>
 	</textarea>
 		<input type="text" id="huge_it_add_video_input" name="huge_it_add_video_input" value="" placeholder = "New video url" /><br />

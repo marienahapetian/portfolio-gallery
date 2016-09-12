@@ -2,15 +2,8 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-if (isset($__REQUEST['huge_it_portfolio_nonce'])) {
-    $wp_nonce = $__REQUEST['huge_it_portfolio_nonce'];
-    if (!wp_verify_nonce($wp_nonce, 'huge_it_portfolio_nonce')) {
-        wp_die('Security check fail');
-    }
-}
 global $wpdb;
 $id = intval($_GET['id']);
-$portfolio_wp_nonce = wp_create_nonce('huge_it_portfolio_nonce');
 
 if (isset($_GET["addslide"])) {
     if ($_GET["addslide"] == 1) {
@@ -19,13 +12,10 @@ if (isset($_GET["addslide"])) {
 }
 ?>
 <script type="text/javascript">
-
-
     function submitbutton(pressbutton) {
         if (!document.getElementById('name').value) {
             alert("Name is required.");
             return;
-
         }
         filterInputs();
         document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
@@ -33,16 +23,11 @@ if (isset($_GET["addslide"])) {
     }
     var name_changeRight = function (e) {
         document.getElementById("name").value = e.value;
-    }
+    };
     var name_changeTop = function (e) {
         document.getElementById("huge_it_portfolio_name").value = e.value;
-        //alert(e);
     };
 
-    function change_select() {
-        submitbutton('apply');
-
-    }
     /***<add>***/
     function secondimageslistlisize() {
         var lisaze = jQuery('#images-list').width();
@@ -79,11 +64,9 @@ if (isset($_GET["addslide"])) {
                 src += ";";
             });
             jQuery(this).find('.all-urls').val(src);
-            //alert(src);
         });
     }
     function filterInputs() {
-
         var mainInputs = "";
 
         jQuery("#images-list > li.highlights").each(function () {
@@ -92,7 +75,7 @@ if (isset($_GET["addslide"])) {
             jQuery(this).prev().prev().addClass('submit-post');
             jQuery(this).addClass('submit-post');
             jQuery(this).removeClass('highlights');
-        })
+        });
 
         if (jQuery("#images-list > li.submit-post").length) {
 
@@ -103,11 +86,9 @@ if (isset($_GET["addslide"])) {
                 var res = inputs.substring(n + 1, inputs.length);
                 res += ',';
                 mainInputs += res;
-
             });
 
             mainInputs = mainInputs.substring(0, mainInputs.length - 1);
-
 
             jQuery(".changedvalues").val(mainInputs);
 
@@ -116,8 +97,8 @@ if (isset($_GET["addslide"])) {
                 jQuery(this).find('textarea').removeAttr('name');
                 jQuery(this).find('select').removeAttr('name');
             });
-            return mainInputs;
 
+            return mainInputs;
         }
         jQuery("#images-list > li").each(function () {
             jQuery(this).find('input').removeAttr('name');
@@ -149,7 +130,7 @@ if (isset($_GET["addslide"])) {
         jQuery('.add-thumb-project').on('hover', function () {
             jQuery(this).parent().parents("li").addClass('submit-post');
             //	filterInputs();
-        })
+        });
 
         jQuery("#images-list").sortable({
             stop: function () {
@@ -213,21 +194,28 @@ if (isset($_GET["addslide"])) {
 
 <div class="wrap">
     <?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php'); ?>
-    <?php $path_site2 = PORTFOLIO_GALLERY_IMAGES_URL; ?>
-    <form action="admin.php?page=portfolios_huge_it_portfolio&id=<?php echo $row->id; ?>" method="post" name="adminForm"
+    <?php
+    $path_site2 = PORTFOLIO_GALLERY_IMAGES_URL;
+    $form_action = wp_nonce_url('admin.php?page=portfolios_huge_it_portfolio&id=' . $id, 'apply_portfolio_' . $row->id, 'hugeit_portfolio_apply_portfolio_nonce');
+    ?>
+    <form action="<?php echo $form_action; ?>" method="post" name="adminForm"
           id="adminForm">
         <input type="hidden" class="changedvalues" value="" name="changedvalues" size="80">
         <div id="poststuff">
             <div id="portfolio-header">
                 <ul id="portfolios-list">
-
                     <?php
                     foreach ($rowsld as $rowsldires) {
                         if ($rowsldires->id != $row->id) {
+                            $edit_portfolio_safe_link = wp_nonce_url(
+                                'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rowsldires->id,
+                                'edit_portfolio_' . $rowsldires->id,
+                                'hugeit_portfolio_edit_portfolio_nonce'
+                            );
                             ?>
                             <li>
                                 <a href="#"
-                                   onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=<?php echo $rowsldires->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'"><?php echo $rowsldires->name; ?></a>
+                                   onclick="window.location.href='<?php esc_attr_e($edit_portfolio_safe_link) ?>'"><?php echo $rowsldires->name; ?></a>
                             </li>
                             <?php
                         } else { ?>
@@ -242,19 +230,21 @@ if (isset($_GET["addslide"])) {
                             <?php
                         }
                     }
+                    $add_new_portfolio_safe_link = wp_nonce_url(
+                        'admin.php?page=portfolios_huge_it_portfolio&task=add_portfolio',
+                        'add_new_portfolio',
+                        'hugeit_portfolio_add_portfolio_nonce'
+                    );
                     ?>
                     <li class="add-new">
-                        <a onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio&amp;task=add_portfolio&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>'">+</a>
+                        <a onclick="window.location.href='<?php echo $add_new_portfolio_safe_link; ?>'">+</a>
                     </li>
                 </ul>
             </div>
             <div id="post-body" class="metabox-holder columns-2">
                 <!-- Content -->
                 <div id="post-body-content">
-
-
                     <?php add_thickbox(); ?>
-
                     <div id="post-body">
                         <div id="post-body-heading">
                             <h3><?php echo __('Projects / Images', 'portfolio-gallery'); ?></h3>
@@ -276,8 +266,7 @@ if (isset($_GET["addslide"])) {
                                             } else {
                                                 return _orig_send_attachment.apply(this, [props, attachment]);
                                             }
-                                            ;
-                                        }
+                                        };
 
                                         wp.media.editor.open(button);
 
@@ -305,11 +294,9 @@ if (isset($_GET["addslide"])) {
                                             jQuery('.for-content-slider').css('display', 'block');
                                             jQuery('.no-content-slider').css('display', 'none');
                                             jQuery('ul.for_loading').parent().css('display', 'none');
-                                        }
-                                        else if (sel == 3) {
+                                        } else if (sel == 3) {
                                             jQuery('.no-content-slider').css('display', 'none');
-                                        }
-                                        else {
+                                        } else {
                                             jQuery('.for-content-slider').css('display', 'none');
                                             jQuery('.no-content-slider').css('display', 'block');
                                             jQuery('ul.for_loading').parent().css('display', 'block');
@@ -326,29 +313,27 @@ if (isset($_GET["addslide"])) {
                                        id="_unique_name_button" value="Add Project / Image"/>
                             </div>
 
-                            <a href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&TB_iframe=1"
+                            <a href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $id; ?>&TB_iframe=1"
                                class="button button-primary add-video-slide thickbox" id="slideup3s" value="iframepop">
-                                <span
-                                    class="wp-media-buttons-icon"></span><?php echo __('Add Video Slide', 'portfolio-gallery'); ?>
+                                <span class="wp-media-buttons-icon"></span>
+                                <?php echo __('Add Video Slide', 'portfolio-gallery'); ?>
                             </a>
                         </div>
                         <ul id="images-list">
                             <?php
                             /***<add>***/
-                            function get_youtube_id_from_url($url)
-                            {
+                            function get_youtube_id_from_url($url) {
                                 if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
                                     return $match[1];
                                 }
                             }
 
-                            function get_image_from_video($image_url)
-                            {
+                            function get_image_from_video($image_url) {
                                 if (strpos($image_url, 'youtube') !== false || strpos($image_url, 'youtu') !== false) {
                                     $liclass = "youtube";
                                     $video_thumb_url = get_youtube_id_from_url($image_url);
                                     $thumburl = 'http://img.youtube.com/vi/' . $video_thumb_url . '/mqdefault.jpg';
-                                } else
+                                } else {
                                     if (strpos($image_url, 'vimeo') !== false) {
                                         $liclass = "vimeo";
                                         $vimeo = $image_url;
@@ -358,6 +343,8 @@ if (isset($_GET["addslide"])) {
                                         $imgsrc = $hash[0]['thumbnail_large'];
                                         $thumburl = $imgsrc;
                                     }
+                                }
+
                                 return $thumburl;
                             }
 
@@ -367,17 +354,13 @@ if (isset($_GET["addslide"])) {
                             $myrows = explode(",", $row->categories);
 
                             foreach ($rowim as $key => $rowimages) {
-                                ?>
-                                <!--<add>  swirch case--->
-                                <?php if ($rowimages->sl_type == '') {
+                                // <add>  swirch case
+                                if ($rowimages->sl_type == '') {
                                     $rowimages->sl_type = 'image';
                                 }
                                 switch ($rowimages->sl_type) {
                                     case 'image': ?>
-                                        <li <?php if ($j % 2 == 0) {
-                                            echo "class='has-background'";
-                                        }
-                                        $j++; ?>>
+                                        <li <?php if ($j % 2 == 0) echo "class='has-background'"; $j++; ?>>
                                             <input class="order_by" type="hidden"
                                                    name="order_by_<?php echo $rowimages->id; ?>"
                                                    value="<?php echo $rowimages->ordering; ?>"/>
@@ -386,49 +369,39 @@ if (isset($_GET["addslide"])) {
                                                     <?php $imgurl = explode(";", $rowimages->image_url);
                                                     array_pop($imgurl);
                                                     $i = 0;
-                                                    //$imgurl = array_reverse($imgurl);
-                                                    foreach ($imgurl as $key1 => $img) {//var_dump(portfolio_gallery_youtube_or_vimeo_portfolio$img));
+                                                    foreach ($imgurl as $key1 => $img) {
                                                         if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') { ?>
-                                                            <li class="editthisvideo editthisimage<?php echo $key; ?><?php if ($i == 0) {
-                                                                echo 'first';
-                                                            } ?>">
+                                                            <li class="editthisvideo editthisimage<?php echo $key; ?><?php if ($i == 0) echo 'first'; ?>">
                                                                 <img class="editthisvideo"
                                                                      src="<?php echo get_image_from_video($img); ?>"
                                                                      data-video-src="<?php echo esc_attr($img); ?>"
                                                                      alt="<?php echo esc_attr($img); ?>"/>
                                                                 <div
-                                                                    class="play-icon <?php if (portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube') { ?> youtube-icon<?php } else { ?> vimeo-icon <?php } ?>"></div>
+                                                                    class="play-icon <?php echo portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube' ? 'youtube-icon' : 'vimeo-icon'; ?>"></div>
                                                                 <a class="thickbox"
-                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&TB_iframe=1&closepop=1"
+                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&TB_iframe=1&closepop=1"
                                                                    id="xxx">
-                                                                    <input type="button" class="edit-video"
-                                                                           id="edit-video_<?php echo $rowimages->id; ?>_<?php echo $key; ?>"
-                                                                           value="Edit"/>
+                                                                    <input type="button" class="edit-video" id="edit-video_<?php echo $rowimages->id; ?>_<?php echo $key; ?>" value="Edit" />
                                                                 </a>
                                                                 <a href="#remove" title="<?php echo $i; ?>"
                                                                    class="remove-image">remove</a>
                                                             </li>
                                                             <?php
                                                         } else { ?>
-                                                            <li class="editthisimage<?php echo $key; ?> <?php if ($i == 0) {
-                                                                echo 'first';
-                                                            } ?>">
+                                                            <li class="editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
                                                                 <img src="<?php echo esc_attr($img); ?>"/>
                                                                 <input type="button" class="edit-image" id=""
                                                                        value="Edit"/>
                                                                 <a href="#remove" title="<?php echo $i; ?>"
                                                                    class="remove-image">remove</a>
                                                             </li>
-
                                                             <?php
                                                         }
                                                         $i++;
                                                     } ?>
                                                     <li class="add-image-box">
                                                         <div class="add-thumb-project">
-                                                            <img
-                                                                src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/plus.png'; ?>"
-                                                                class="plus" alt=""/>
+                                                            <img src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/plus.png'; ?>" class="plus" alt=""/>
                                                         </div>
                                                         <div class="add-image-video">
                                                             <input type="hidden"
@@ -437,7 +410,7 @@ if (isset($_GET["addslide"])) {
                                                                    class="all-urls"
                                                                    value="<?php echo $rowimages->image_url; ?>"/>
                                                             <a title="Add video" class="add-video-slide thickbox"
-                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
+                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
                                                                 <!--</add> thumb parent is project's image id-->
                                                                 <img
                                                                     src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-video.png'; ?>"
@@ -462,9 +435,9 @@ if (isset($_GET["addslide"])) {
                                                 <script>
                                                     jQuery(document).ready(function ($) {
                                                         function secondimageslistlisize() {
-                                                            var lisaze = jQuery('#images-list').width();
-                                                            lisaze = lisaze * 0.06;
-                                                            jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
+                                                            var liSize = jQuery('#images-list').width();
+                                                            liSize = liSize * 0.06;
+                                                            jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(liSize);
                                                         }
 
                                                         jQuery(".wp-media-buttons-icon").click(function () {
@@ -488,15 +461,13 @@ if (isset($_GET["addslide"])) {
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
                                                             wp.media.editor.open(button);
                                                             return false;
                                                         });
 
                                                         jQuery('.widget-images-list').on('click', '.edit-image', function (e) {
                                                             jQuery(this).parents("#images-list > li").addClass('submit-post');
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
                                                             var $src;
                                                             var button = jQuery(this);
                                                             var id = button.parents('.widget-images-list').find('.all-urls').attr('id');
@@ -514,19 +485,17 @@ if (isset($_GET["addslide"])) {
                                                                     img.parents('.widget-images-list').find('img').not('.plus').each(function () {
                                                                         if (jQuery(this).hasClass('editthisvideo')) {
                                                                             $src = jQuery(this).attr('data-video-src');
+                                                                        } else {
+                                                                            $src = jQuery(this).attr('src');
                                                                         }
-                                                                        else $src = jQuery(this).attr('src');
-                                                                        console.log($src);
                                                                         allurls = allurls + $src + ';';
                                                                     });
                                                                     jQuery("#" + id).val(allurls);
                                                                     secondimageslistlisize();
-                                                                    //jQuery("#save-buttom").click();
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
                                                             wp.media.editor.open(button);
                                                             return false;
                                                         });
@@ -537,7 +506,6 @@ if (isset($_GET["addslide"])) {
                                                         /*#####ADD IMAGE######*/
                                                         jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function (e) {
                                                             jQuery(this).parents("#images-list > li").addClass('submit-post');
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
 
                                                             var button = jQuery(this);
                                                             var id = button.attr('id').replace('_button', '');
@@ -550,12 +518,10 @@ if (isset($_GET["addslide"])) {
                                                                     jQuery("#" + id).val(jQuery("#" + id).val() + attachment.url + ';');
 
                                                                     secondimageslistlisize();
-
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
 
                                                             wp.media.editor.open(button);
 
@@ -572,12 +538,11 @@ if (isset($_GET["addslide"])) {
                                                             var $src;
 
                                                             jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').each(function () {
-                                                                //console.log(jQuery(this).parent());
                                                                 if (jQuery(this).hasClass('editthisvideo')) {
                                                                     $src = jQuery(this).attr('data-video-src');
+                                                                } else {
+                                                                    $src = jQuery(this).attr('src');
                                                                 }
-                                                                else $src = jQuery(this).attr('src');
-                                                                console.log($src);
                                                                 allUrls = allUrls + $src + ';';
                                                                 jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
                                                                 secondimageslistlisize();
@@ -585,7 +550,6 @@ if (isset($_GET["addslide"])) {
                                                             jQuery(this).parent().remove();
                                                             return false;
                                                         });
-
 
                                                         /*#####HIDE NEW UPLOADER'S LEFT MENU######*/
                                                         jQuery(".wp-media-buttons-icon").click(function () {
@@ -607,7 +571,6 @@ if (isset($_GET["addslide"])) {
                                                         <input class="text_area" type="text"
                                                                id="titleimage<?php echo $rowimages->id; ?>"
                                                                name="titleimage<?php echo $rowimages->id; ?>"
-                                                               id="titleimage<?php echo $rowimages->id; ?>"
                                                                value="<?php echo htmlspecialchars($rowimages->name); ?>">
                                                     </div>
                                                     <div class="description-block">
@@ -631,11 +594,10 @@ if (isset($_GET["addslide"])) {
                                                             <input type="hidden"
                                                                    name="sl_link_target<?php echo $rowimages->id; ?>"
                                                                    value=""/>
-                                                            <input <?php if ($rowimages->link_target == 'on') {
-                                                                echo 'checked="checked"';
-                                                            } ?> class="link_target" type="checkbox"
-                                                                 id="sl_link_target<?php echo $rowimages->id; ?>"
-                                                                 name="sl_link_target<?php echo $rowimages->id; ?>"/>
+                                                            <input <?php if ($rowimages->link_target == 'on') echo 'checked="checked"'; ?>
+                                                                class="link_target" type="checkbox"
+                                                                id="sl_link_target<?php echo $rowimages->id; ?>"
+                                                                name="sl_link_target<?php echo $rowimages->id; ?>"/>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -644,23 +606,24 @@ if (isset($_GET["addslide"])) {
                                                     <em>(<?php echo __('Press Ctrl And Select multiply', 'portfolio-gallery'); ?>
                                                         )</em>
                                                     <select id="multipleSelect" multiple="multiple" disabled>
-                                                        <?php //    var_dump($huge_cat);
+                                                        <?php
                                                         $huge_cat = explode(",", $rowimages->category);
                                                         foreach ($myrows as $value) {
                                                             if (!empty($value)) {
                                                                 ?>
-                                                                <option <?php if (in_array(str_replace(' ', '_', $value), str_replace(' ', '_', $huge_cat))) {
-                                                                    echo "selected='selected' ";
-                                                                } ?>
+                                                                <option <?php if (in_array(str_replace(' ', '_', $value), str_replace(' ', '_', $huge_cat))) echo "selected='selected' "; ?>
                                                                     value="<?php echo esc_attr(str_replace(' ', '_', $value)); ?>">
-                                                                    <!-- attrForDelete="<?php// echo str_replace(" ","_",$value);
-                                                                    ?>" -->
                                                                     <?php echo str_replace('_', ' ', $value); ?>
                                                                 </option>
                                                                 <?php
                                                             }
-                                                        } ?>
                                                         }
+                                                        $remove_project_safe_link = wp_nonce_url(
+                                                            'admin.php?page=portfolios_huge_it_portfolio&id=' . $row->id . '&task=apply&removeslide=' . $rowimages->id,
+                                                            'remove_project_' . $rowimages->id,
+                                                            'hugeit_portfolio_apply_portfolio_nonce'
+                                                        );
+                                                        ?>
                                                     </select>
                                                     <input type="hidden" id="category<?php echo $rowimages->id; ?>"
                                                            name="category<?php echo $rowimages->id; ?>"
@@ -668,20 +631,17 @@ if (isset($_GET["addslide"])) {
                                                 </div>
                                                 <div class="remove-image-container">
                                                     <a class="button remove-image"
-                                                       href="admin.php?page=portfolios_huge_it_portfolio&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>"><?php echo __('Remove Project', 'portfolio-gallery'); ?></a>
+                                                       href="<?php echo $remove_project_safe_link; ?>"><?php echo __('Remove Project', 'portfolio-gallery'); ?></a>
                                                 </div>
                                             </div>
                                             <div class="clear"></div>
                                         </li>
                                         <?php
                                         break;
-                                    case 'video'://$i = 0;
+                                    case 'video':
                                         ?>
                                         <!--<add>-->
-                                        <li <?php if ($j % 2 == 0) {
-                                            echo "class='has-background'";
-                                        }
-                                        $j++; ?> >
+                                        <li <?php if ($j % 2 == 0) echo "class='has-background'"; $j++; ?>>
                                             <input class="order_by" type="hidden"
                                                    name="order_by_<?php echo $rowimages->id; ?>"
                                                    value="<?php echo esc_attr($rowimages->ordering); ?>"/>
@@ -691,18 +651,16 @@ if (isset($_GET["addslide"])) {
                                                     array_pop($imgurl);
                                                     $i = 0;
                                                     foreach ($imgurl as $key1 => $img) {
-                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') { ?>
-                                                            <li class="editthisvideo editthisimage<?php echo $key; ?> <?php if ($i == 0) {
-                                                                echo 'first';
-                                                            } ?>">
+                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') : ?>
+                                                            <li class="editthisvideo editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
                                                                 <img class="editthisvideo"
                                                                      src="<?php echo esc_attr(get_image_from_video($img)); ?>"
                                                                      data-video-src="<?php echo esc_attr($img); ?>"
                                                                      alt="<?php echo esc_attr($img); ?>"/>
                                                                 <div
-                                                                    class="play-icon <?php if (portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube') { ?> youtube-icon<?php } else { ?> vimeo-icon <?php } ?>"></div>
+                                                                    class="play-icon <?php echo portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube' ? 'youtube-icon' : 'vimeo-icon'; ?>"></div>
                                                                 <a class="thickbox"
-                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&TB_iframe=1&closepop=1"
+                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&TB_iframe=1&closepop=1"
                                                                    id="xxx">
                                                                     <input type="button" class="edit-video"
                                                                            id="edit-video_<?php echo $rowimages->id; ?>_<?php echo $key; ?>"
@@ -712,19 +670,14 @@ if (isset($_GET["addslide"])) {
                                                                    class="remove-image">remove</a>
                                                             </li>
                                                             <?php
-                                                        } else { ?>
-                                                            <li class="editthisimage<?php echo $key; ?> <?php if ($i == 0) {
-                                                                echo 'first';
-                                                            } ?>">
+                                                        else : ?>
+                                                            <li class="editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
                                                                 <img src="<?php echo esc_attr($img); ?>"/>
-                                                                <input type="button" class="edit-image" id=""
-                                                                       value="Edit"/>
-                                                                <a href="#remove" title="<?php echo $i; ?>"
-                                                                   class="remove-image">remove</a>
+                                                                <input type="button" class="edit-image" id="" value="Edit"/>
+                                                                <a href="#remove" title="<?php echo $i; ?>" class="remove-image">remove</a>
                                                             </li>
-
                                                             <?php
-                                                        }
+                                                        endif;
                                                         $i++;
                                                     } ?>
 
@@ -736,24 +689,24 @@ if (isset($_GET["addslide"])) {
                                                         </div>
                                                         <div class="add-image-video">
                                                             <input type="hidden"
-                                                                   name="imagess<?php echo $rowimages->id; ?>"
-                                                                   id="unique_name<?php echo $rowimages->id; ?>"
+                                                                   name="imagess<?php echo esc_attr($rowimages->id); ?>"
+                                                                   id="unique_name<?php echo esc_attr($rowimages->id); ?>"
                                                                    class="all-urls"
                                                                    value="<?php echo esc_attr($rowimages->image_url); ?>"/>
                                                             <a title="Add video" class="add-video-slide thickbox"
-                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
+                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
                                                                 <!--</add> thumb parent is project's image id-->
                                                                 <img
-                                                                    src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-video.png'; ?>"
+                                                                    src="<?php echo esc_attr(Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-video.png'); ?>"
                                                                     title="Add video" alt="" class="plus"/>
                                                                 <input type="button"
-                                                                       class="button<?php echo $rowimages->id; ?> wp-media-buttons-icon add-video"
-                                                                       id="unique_name_button<?php echo $rowimages->id; ?>"
+                                                                       class="button<?php echo esc_attr($rowimages->id); ?> wp-media-buttons-icon add-video"
+                                                                       id="unique_name_button<?php echo esc_attr($rowimages->id); ?>"
                                                                        value="+"/>
                                                             </a>
                                                             <div class="add-image-slide" title="Add image">
                                                                 <img
-                                                                    src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-img.png'; ?>"
+                                                                    src="<?php echo esc_attr(Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-img.png'); ?>"
                                                                     title="Add image" alt="" class="plus"/>
                                                                 <input type="button"
                                                                        class="button<?php echo $rowimages->id; ?> wp-media-buttons-icon add-image"
@@ -779,7 +732,6 @@ if (isset($_GET["addslide"])) {
 
                                                         /*#####ADD NEW PROJECT######*/
                                                         jQuery('.huge-it-newuploader .button').click(function (e) {
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
                                                             var button = jQuery(this);
                                                             var id = button.attr('id').replace('_button', '');
                                                             _custom_media = true;
@@ -792,8 +744,7 @@ if (isset($_GET["addslide"])) {
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
                                                             wp.media.editor.open(button);
                                                             return false;
                                                         });
@@ -825,12 +776,10 @@ if (isset($_GET["addslide"])) {
                                                                     });
                                                                     jQuery("#" + id).val(allurls);
                                                                     secondimageslistlisize();
-                                                                    //jQuery("#save-buttom").click();
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
                                                             wp.media.editor.open(button);
                                                             return false;
                                                         });
@@ -858,29 +807,25 @@ if (isset($_GET["addslide"])) {
                                                                 } else {
                                                                     return _orig_send_attachment.apply(this, [props, attachment]);
                                                                 }
-                                                                ;
-                                                            }
+                                                            };
 
                                                             wp.media.editor.open(button);
 
                                                             return false;
                                                         });
 
-
                                                         /*#####REMOVE IMAGE######*/
                                                         jQuery("ul.widget-images-list").on('click', '.remove-image', function () {
                                                             jQuery(this).parent().find('img').remove();
-
-                                                            var allUrls = "";
-                                                            var $src;
+                                                            var allUrls = "",
+                                                                $src;
 
                                                             jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').each(function () {
-                                                                //console.log(jQuery(this).parent());
                                                                 if (jQuery(this).hasClass('editthisvideo')) {
                                                                     $src = jQuery(this).attr('data-video-src');
+                                                                } else {
+                                                                    $src = jQuery(this).attr('src');
                                                                 }
-                                                                else $src = jQuery(this).attr('src');
-                                                                console.log($src);
                                                                 allUrls = allUrls + $src + ';';
                                                                 jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
                                                                 secondimageslistlisize();
@@ -888,7 +833,6 @@ if (isset($_GET["addslide"])) {
                                                             jQuery(this).parent().remove();
                                                             return false;
                                                         });
-
 
                                                         /*#####HIDE NEW UPLOADER'S LEFT MENU######*/
                                                         jQuery(".wp-media-buttons-icon").click(function () {
@@ -898,30 +842,7 @@ if (isset($_GET["addslide"])) {
                                                             jQuery('.attachment-filters').val('image').trigger('change');
                                                             jQuery(".attachment-filters").css("display", "none");
                                                         });
-                                                        /*jQuery("ul.widget-images-list").on('click','.remove-video',function () {
-                                                         var new_video_list,del_video_number,old_video_list,old_video_array;
-
-                                                         new_video_list = "";
-                                                         del_video_number = jQuery(this).attr("title");
-                                                         old_video_list = jQuery(this).parent().parent().find('input.all-urls').val();
-                                                         old_video_array = old_video_list.split(";");console.log(old_video_array);
-
-                                                         for(var video in old_video_array) {
-                                                         if(video==del_video_number)
-                                                         continue;
-                                                         new_video_list += old_video_array[video]+";";
-
-                                                         }
-
-                                                         new_video_list = new_video_list.substr(0,new_video_list.length-1);
-
-                                                         jQuery(this).parent().parent().find('input.video-all-urls').val(new_video_list);
-
-                                                         jQuery(this).parent().remove();
-                                                         return;
-                                                         });*/
                                                     });
-
                                                 </script>
                                             </div>
                                             <div class="image-options">
@@ -933,7 +854,6 @@ if (isset($_GET["addslide"])) {
                                                         <input class="text_area" type="text"
                                                                id="titleimage<?php echo $rowimages->id; ?>"
                                                                name="titleimage<?php echo $rowimages->id; ?>"
-                                                               id="titleimage<?php echo $rowimages->id; ?>"
                                                                value="<?php echo esc_html(stripslashes($rowimages->name)); ?>">
                                                     </div>
                                                     <div class="description-block">
@@ -944,22 +864,15 @@ if (isset($_GET["addslide"])) {
                                                                   name="im_description<?php echo $rowimages->id; ?>"><?php echo esc_html(stripslashes($rowimages->description)); ?></textarea>
                                                     </div>
                                                     <div class="link-block">
-                                                        <label
-                                                            for="sl_url<?php echo $rowimages->id; ?>"><?php echo __('URL', 'portfolio-gallery'); ?>
-                                                            :</label>
+                                                        <label for="sl_url<?php echo $rowimages->id; ?>"><?php echo __('URL', 'portfolio-gallery'); ?>:</label>
                                                         <input class="text_area url-input" type="text"
                                                                id="sl_url<?php echo $rowimages->id; ?>"
                                                                name="sl_url<?php echo $rowimages->id; ?>"
                                                                value="<?php echo esc_attr($rowimages->sl_url); ?>">
-                                                        <label class="long"
-                                                               for="sl_link_target<?php echo $rowimages->id; ?>">
+                                                        <label class="long" for="sl_link_target<?php echo $rowimages->id; ?>">
                                                             <span>Open in new tab</span>
-                                                            <input type="hidden"
-                                                                   name="sl_link_target<?php echo $rowimages->id; ?>"
-                                                                   value=""/>
-                                                            <input <?php if ($rowimages->link_target == 'on') {
-                                                                echo 'checked="checked"';
-                                                            } ?> class="link_target" type="checkbox"
+                                                            <input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
+                                                            <input <?php if ($rowimages->link_target == 'on') echo 'checked="checked"'; ?> class="link_target" type="checkbox"
                                                                  id="sl_link_target<?php echo $rowimages->id; ?>"
                                                                  name="sl_link_target<?php echo $rowimages->id; ?>"/>
                                                         </label>
@@ -967,25 +880,25 @@ if (isset($_GET["addslide"])) {
                                                 </div>
                                                 <div class="category-container">
                                                     <strong><?php echo __('Select Categories', 'portfolio-gallery'); ?></strong>
-                                                    <em>(<?php echo __('Press Ctrl And Select multiply', 'portfolio-gallery'); ?>
-                                                        )</em>
+                                                    <em>(<?php echo __('Press Ctrl And Select multiply', 'portfolio-gallery'); ?>)</em>
                                                     <select id="multipleSelect" multiple="multiple" disabled>
                                                         <?php
                                                         $huge_cat = explode(",", $rowimages->category);
                                                         foreach ($myrows as $value) {
                                                             if (!empty($value)) { ?>
-                                                                <option <?php if (in_array(str_replace(' ', '_', $value), str_replace(' ', '_', $huge_cat))) {
-                                                                    echo "selected='selected' ";
-                                                                } ?>
+                                                                <option <?php if (in_array(str_replace(' ', '_', $value), str_replace(' ', '_', $huge_cat))) echo "selected='selected' "; ?>
                                                                     value="<?php echo esc_attr(str_replace(' ', '_', $value)); ?>">
-                                                                    <!-- attrForDelete="<?php// echo str_replace(" ","_",$value);
-                                                                    ?>" -->
                                                                     <?php echo str_replace('_', ' ', $value); ?>
                                                                 </option>
                                                                 <?php
                                                             }
-                                                        } ?>
                                                         }
+                                                        $remove_project_safe_link = wp_nonce_url(
+                                                            'admin.php?page=portfolios_huge_it_portfolio&id=' . $row->id . '&task=apply&removeslide=' . $rowimages->id,
+                                                            'remove_project_' . $rowimages->id,
+                                                            'hugeit_portfolio_apply_portfolio_nonce'
+                                                        );
+                                                        ?>
                                                     </select>
                                                     <input type="hidden" id="category<?php echo $rowimages->id; ?>"
                                                            name="category<?php echo $rowimages->id; ?>"
@@ -993,52 +906,47 @@ if (isset($_GET["addslide"])) {
                                                 </div>
                                                 <div class="remove-image-container">
                                                     <a class="button remove-image"
-                                                       href="admin.php?page=portfolios_huge_it_portfolio&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>&huge_it_portfolio_nonce=<?php echo $portfolio_wp_nonce; ?>"><?php echo __('Remove Project', 'portfolio-gallery'); ?></a>
+                                                       href="<?php echo $remove_project_safe_link; ?>"><?php echo __('Remove Project', 'portfolio-gallery'); ?></a>
                                                 </div>
                                             </div>
                                             <div class="clear"></div>
                                         </li>
-                                        <!--</add>-->
-                                        <?php break; ?>
-                                    <?php } ?>
-                            <?php } ?>
+                                        <?php break;
+                                }
+                            }
+                            ?>
                         </ul>
                     </div>
-
                 </div>
                 <script>
                     jQuery('.category-container select').change(function () {
                         var cat_new_val = jQuery(this).val();
                         var new_cat_name = jQuery(this).parent().find('input').attr('name');
                         jQuery('#' + new_cat_name).attr('value', cat_new_val + ',');
-                        //console.log(cat_new_val);  console.log(new_cat_name);
                     });
                     jQuery(document).on('click', '#edit_cat', function () {
                         jQuery(this).parent().find('.del_val').focus();
                         var changing_val = jQuery(this).parent().find('.del_val').val().replace(/ /g, '_');
                         jQuery('#changing_val').removeAttr('value').attr('value', changing_val);
-                        //console.log(changing_val);
                     });
-                    //ok a
 
                     jQuery(document).on('click', '#portfolios-list .active', function () {
                         jQuery(this).find('input').focus();
                     });
 
                     //getting category old name
-                    jQuery(document).on('focus', '.del_val', function () { // Know which category we want to change
-                        var changing_val = jQuery(this).val().replace(/ /g, "_");  //console.log(changing_val);
+                    jQuery(document).on('focus', '.del_val', function () {
+                        var changing_val = jQuery(this).val().replace(/ /g, "_");
                         jQuery('#changing_val').removeAttr('value').attr('value', changing_val);
                     });
 
                     jQuery(document).on('change', '.del_val', function () {
-                        //alert("ok")
                         var no_edited_cats = jQuery("#allCategories").val().replace(/ /g, "_");
                         var old_name = jQuery('#changing_val').val();
                         var edited_cat = jQuery(this).val();
                         edited_cat = edited_cat.replace(/ /g, "_");
                         var new_cat = no_edited_cats.replace(old_name, edited_cat);
-                        jQuery('#allCategories').val(new_cat);  // console.log(no_edited_cats); console.log(old_name); console.log(edited_cat); console.log(new_cat);
+                        jQuery('#allCategories').val(new_cat);
                     });
 
                 </script>
@@ -1082,32 +990,19 @@ if (isset($_GET["addslide"])) {
                                     <label
                                         for="portfolio_effects_list"><?php echo __('Select The View', 'portfolio-gallery'); ?></label>
                                     <select name="portfolio_effects_list" id="portfolio_effects_list">
-                                        <option <?php if ($row->portfolio_list_effects_s == '0') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '0') echo 'selected'; ?>
                                             value="0"><?php echo __('Blocks Toggle Up/Down', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '1') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '1') echo 'selected'; ?>
                                             value="1"><?php echo __('Full-Height Blocks', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '2') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '2') echo 'selected'; ?>
                                             value="2"><?php echo __('Gallery/Content-Popup', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '3') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '3') echo 'selected'; ?>
                                             value="3"><?php echo __('Full-Width Blocks', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '4') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '4') echo 'selected'; ?>
                                             value="4"><?php echo __('FAQ Toggle Up/Down', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '5') {
-                                            echo 'selected';
-                                        } ?> value="5"><?php echo __('Content Slider', 'portfolio-gallery'); ?></option>
-                                        <option <?php if ($row->portfolio_list_effects_s == '6') {
-                                            echo 'selected';
-                                        } ?>
+                                        <option <?php if ($row->portfolio_list_effects_s == '5') echo 'selected'; ?>
+                                            value="5"><?php echo __('Content Slider', 'portfolio-gallery'); ?></option>
+                                        <option <?php if ($row->portfolio_list_effects_s == '6') echo 'selected'; ?>
                                             value="6"><?php echo __('Lightbox-Gallery', 'portfolio-gallery'); ?></option>
                                     </select>
                                 </li>
@@ -1130,15 +1025,8 @@ if (isset($_GET["addslide"])) {
                                     <label
                                         for="slider_effect"><?php echo __('Show In Center', 'portfolio-gallery'); ?></label>
                                     <select id="slider_effect" disabled style="width:103px">
-                                        <option <?php if ($row->sl_position == 'off') {
-                                            echo 'selected';
-                                        } ?> value="off">Off
-                                        </option>
-                                        <option <?php if ($row->sl_position == 'on') {
-                                            echo 'selected';
-                                        } ?> value="on">On
-                                        </option>
-
+                                        <option <?php if ($row->sl_position == 'off') echo 'selected'; ?> value="off">Off</option>
+                                        <option <?php if ($row->sl_position == 'on') echo 'selected'; ?> value="on">On</option>
                                     </select>
                                     <a class="probuttonlink" href="http://huge-it.com/portfolio-gallery/"
                                        target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
@@ -1148,17 +1036,13 @@ if (isset($_GET["addslide"])) {
                                         for="pause_on_hover"><?php echo __('Pause On Hover ', 'portfolio-gallery'); ?></label>
                                     <input type="hidden" value="off" name="pause_on_hover"/>
                                     <input type="checkbox" name="pause_on_hover" value="on"
-                                           id="pause_on_hover" <?php if ($row->pause_on_hover == 'on') {
-                                        echo 'checked="checked"';
-                                    } ?> />
+                                           id="pause_on_hover" <?php if ($row->pause_on_hover == 'on') echo 'checked="checked"'; ?> />
                                 </li>
                                 <li style="display:none;margin-top:10px" class="for-content-slider">
                                     <label for="autoslide"><?php echo __('Autoslide ', 'portfolio-gallery'); ?></label>
                                     <input type="hidden" value="off" name="autoslide"/>
                                     <input type="checkbox" name="autoslide" value="on"
-                                           id="autoslide" <?php if ($row->autoslide == 'on') {
-                                        echo 'checked="checked"';
-                                    } ?> />
+                                           id="autoslide" <?php if ($row->autoslide == 'on') echo 'checked="checked"'; ?> />
                                 </li>
                             </ul>
                             <div id="major-publishing-actions">
@@ -1167,7 +1051,6 @@ if (isset($_GET["addslide"])) {
                                            id="save-buttom" class="button button-primary button-large">
                                 </div>
                                 <div class="clear"></div>
-                                <!--<input type="button" onclick="window.location.href='admin.php?page=portfolios_huge_it_portfolio'" value="Cancel" class="button-secondary action">-->
                             </div>
                         </div>
 
@@ -1178,17 +1061,13 @@ if (isset($_GET["addslide"])) {
                                         <?php echo __(' Show Sorting Buttons', 'portfolio-gallery'); ?> :
                                         <input type="hidden" value="off" name="ht_show_sorting"/>
                                         <input type="checkbox"
-                                               id="ht_show_sorting" <?php if ($row->ht_show_sorting == 'on') {
-                                            echo 'checked="checked"';
-                                        } ?> name="ht_show_sorting" value="on"/>
+                                               id="ht_show_sorting" <?php if ($row->ht_show_sorting == 'on') echo 'checked="checked"'; ?> name="ht_show_sorting" value="on"/>
                                     </li>
                                     <li class="allowIsotope">
                                         <?php echo __(' Show Category Buttons', 'portfolio-gallery'); ?> :
                                         <input type="hidden" value="off" name="ht_show_filtering"/>
                                         <input type="checkbox"
-                                               id="ht_show_filtering" <?php if ($row->ht_show_filtering == 'on') {
-                                            echo 'checked="checked"';
-                                        } ?> value="on" disabled/>
+                                               id="ht_show_filtering" <?php if ($row->ht_show_filtering == 'on') echo 'checked="checked"'; ?> value="on" disabled/>
                                         <a class="probuttonlink" href="http://huge-it.com/portfolio-gallery/"
                                            target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span>
                                             )</a>
@@ -1208,10 +1087,9 @@ if (isset($_GET["addslide"])) {
                                     $ifforempty = stripslashes($ifforempty);
                                     $ifforempty = esc_html($ifforempty);
                                     $ifforempty = empty($ifforempty);
-                                    if (!($ifforempty)) {
-                                        foreach ($myrows as $value) {
-                                            if (!empty($value)) {
-                                                ?>
+                                    if (!($ifforempty)) :
+                                        foreach ($myrows as $value) :
+                                            if (!empty($value)) : ?>
                                                 <li class="hndle">
                                                     <input class="del_val"
                                                            value="<?php echo str_replace("_", " ", $value); ?>"
@@ -1224,9 +1102,9 @@ if (isset($_GET["addslide"])) {
                                                             width="10" height="10"></span>
                                                 </li>
                                                 <?php
-                                            }
-                                        }
-                                    }
+                                            endif;
+                                        endforeach;
+                                    endif;
                                     ?>
                                     <input type="hidden" value="<?php if (strpos($row->categories, ',,') !== false) {
                                         $row->categories = str_replace(",,", ",", $row->categories);
@@ -1249,17 +1127,13 @@ if (isset($_GET["addslide"])) {
                                     <li>
                                         <label><?php echo __(' Show Loading Icon', 'portfolio-gallery'); ?> :</label>
                                         <input type="hidden" value="off" name="show_loading"/>
-                                        <input type="checkbox" id="show_loading" <?php if ($row->show_loading == 'on') {
-                                            echo 'checked="checked"';
-                                        } ?> name="show_loading" value="on"/>
+                                        <input type="checkbox" id="show_loading" <?php if ($row->show_loading == 'on') echo 'checked="checked"'; ?> name="show_loading" value="on"/>
                                     </li>
                                     <li class="loading_opton">
                                         <label for="portfolio_load_icon"
                                                style="width: 100%"><?php echo __('Image while portfolio loads:', 'portfolio-gallery'); ?></label>
                                         <ul id="portfolio-loading-icon">
-                                            <li <?php if ($row->loading_icon_type == 1) {
-                                                echo 'class="act"';
-                                            } ?>>
+                                            <li <?php if ($row->loading_icon_type == 1) echo 'class="act"'; ?>>
                                                 <label for="loading_icon_type_1">
                                                     <div class="image-block-icon">
                                                         <img src="<?php echo $path_site2; ?>/loading/loading-1.svg"
@@ -1267,14 +1141,10 @@ if (isset($_GET["addslide"])) {
                                                     </div>
                                                     <input type="radio" id="loading_icon_type_1"
                                                            name="loading_icon_type"
-                                                           value="1" <?php if ($row->loading_icon_type == 1) {
-                                                        echo 'checked="checked"';
-                                                    } ?>>
+                                                           value="1" <?php if ($row->loading_icon_type == 1) echo 'checked="checked"'; ?>>
                                                 </label>
                                             </li>
-                                            <li <?php if ($row->loading_icon_type == 2) {
-                                                echo 'class="act"';
-                                            } ?>>
+                                            <li <?php if ($row->loading_icon_type == 2) echo 'class="act"'; ?>>
                                                 <label for="loading_icon_type_2">
                                                     <div class="image-block-icon">
                                                         <img src="<?php echo $path_site2; ?>/loading/loading-2.svg"
@@ -1282,14 +1152,10 @@ if (isset($_GET["addslide"])) {
                                                     </div>
                                                     <input type="radio" id="loading_icon_type_2"
                                                            name="loading_icon_type"
-                                                           value="2" <?php if ($row->loading_icon_type == 2) {
-                                                        echo 'checked="checked"';
-                                                    } ?>>
+                                                           value="2" <?php if ($row->loading_icon_type == 2) echo 'checked="checked"'; ?>>
                                                 </label>
                                             </li>
-                                            <li <?php if ($row->loading_icon_type == 3) {
-                                                echo 'class="act"';
-                                            } ?>>
+                                            <li <?php if ($row->loading_icon_type == 3) echo 'class="act"'; ?>>
                                                 <label for="loading_icon_type_3">
                                                     <div class="image-block-icon">
                                                         <img src="<?php echo $path_site2; ?>/loading/loading-3.svg"
@@ -1297,24 +1163,17 @@ if (isset($_GET["addslide"])) {
                                                     </div>
                                                     <input type="radio" id="loading_icon_type_3"
                                                            name="loading_icon_type"
-                                                           value="3" <?php if ($row->loading_icon_type == 3) {
-                                                        echo 'checked="checked"';
-                                                    } ?>>
+                                                           value="3" <?php if ($row->loading_icon_type == 3) echo 'checked="checked"'; ?>>
                                                 </label>
                                             </li>
-                                            <li <?php if ($row->loading_icon_type == 4) {
-                                                echo 'class="act"';
-                                            } ?>>
+                                            <li <?php if ($row->loading_icon_type == 4) echo 'class="act"'; ?>>
                                                 <label for="loading_icon_type_4">
                                                     <div class="image-block-icon">
-                                                        <img src="<?php echo $path_site2; ?>/loading/loading-4.svg"
-                                                             alt=""/>
+                                                        <img src="<?php echo $path_site2; ?>/loading/loading-4.svg" alt=""/>
                                                     </div>
                                                     <input type="radio" id="loading_icon_type_4"
                                                            name="loading_icon_type"
-                                                           value="4" <?php if ($row->loading_icon_type == 4) {
-                                                        echo 'checked="checked"';
-                                                    } ?>>
+                                                           value="4" <?php if ($row->loading_icon_type == 4) echo 'checked="checked"'; ?>>
                                                 </label>
                                             </li>
                                         </ul>
@@ -1331,9 +1190,7 @@ if (isset($_GET["addslide"])) {
                                         <h4><?php echo __('Shortcode', 'portfolio-gallery'); ?></h4>
                                         <p><?php echo __('Copy &amp; paste the shortcode directly into any WordPress post or page', 'portfolio-gallery'); ?>
                                             .</p>
-                                        <textarea class="full"
-                                                  readonly="readonly">[huge_it_portfolio id="<?php echo $row->id; ?>
-                                            "]</textarea>
+                                        <textarea class="full" readonly="readonly">[huge_it_portfolio id="<?php echo $row->id; ?>"]</textarea>
                                     </li>
                                     <li rel="tab-2">
                                         <h4><?php echo __('Template Include', 'portfolio-gallery'); ?></h4>
@@ -1349,7 +1206,7 @@ if (isset($_GET["addslide"])) {
                 </div>
             </div>
         </div>
-        <?php echo wp_nonce_field('huge_it_portfolio_nonce', 'huge_it_portfolio_nonce') ?>
-        <input type="hidden" name="task" value=""/>
+        <!--<?php wp_nonce_field( 'apply_portfolio_' . $row->id, 'hugeit_portfolio_apply_portfolio_nonce' ); ?>-->
+<!--        <input type="hidden" name="task" value=""/>-->
     </form>
 </div>

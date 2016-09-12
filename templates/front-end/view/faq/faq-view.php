@@ -20,18 +20,18 @@ if ($portfolioShowFiltering == 'on') {
                             <?php if($paramssld["ht_view4_sorting_name_by_default"] != ''):?>
                             <li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
                                    data><?php echo $paramssld["ht_view4_sorting_name_by_default"]; ?></a></li>
-                            <?php endif;?>
-                            <?php if($paramssld["ht_view4_sorting_name_by_id"] != ''):?>
+                            <?php endif;
+                            if($paramssld["ht_view4_sorting_name_by_id"] != ''):?>
                             <li><a href="#sortBy=id"
                                    data-option-value="id"><?php echo $paramssld["ht_view4_sorting_name_by_id"]; ?></a>
                             </li>
-                            <?php endif;?>
-                            <?php if($paramssld["ht_view4_sorting_name_by_name"] != ''):?>
+                            <?php endif;
+                            if($paramssld["ht_view4_sorting_name_by_name"] != ''):?>
                             <li><a href="#sortBy=symbol"
                                    data-option-value="symbol"><?php echo $paramssld["ht_view4_sorting_name_by_name"]; ?></a>
                             </li>
-                            <?php endif;?>
-                            <?php if($paramssld["ht_view4_sorting_name_by_random"] != ''):?>
+                            <?php endif;
+                            if($paramssld["ht_view4_sorting_name_by_random"] != ''):?>
                             <li id="shuffle"><a
                                             href='#shuffle'><?php echo $paramssld["ht_view4_sorting_name_by_random"]; ?></a>
                             </li>
@@ -42,8 +42,8 @@ if ($portfolioShowFiltering == 'on') {
                             <li><a href="#sortAscending=true" data-option-value="true"
                                    class="selected"><?php echo $paramssld["ht_view4_sorting_name_by_asc"]; ?></a>
                             </li>
-                            <?php endif;?>
-                            <?php if($paramssld["ht_view4_sorting_name_by_desc"] != ''):?>
+                            <?php endif;
+                            if($paramssld["ht_view4_sorting_name_by_desc"] != ''):?>
                             <li><a href="#sortAscending=false"
                                    data-option-value="false"><?php echo $paramssld["ht_view4_sorting_name_by_desc"]; ?></a>
                             </li>
@@ -115,9 +115,9 @@ if ($portfolioShowFiltering == 'on') {
                                 foreach ($imgurl as $key => $img) {
                                     ?>
                                     <li>
-                                        <a href="<?php echo esc_url($img); ?>" class="group1"
-                                           title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>"><img
-                                                src="<?php echo esc_attr($img); ?>"></a>
+                                        <a href="<?php echo esc_url($img); ?>" class="group1" title="<?php esc_attr(portfolio_gallery_huge_it_title_img_display($img, $title)); ?>">
+                                            <img src="<?php echo esc_attr($img); ?>">
+                                        </a>
                                     </li>
                                     <?php
                                 }
@@ -136,10 +136,8 @@ if ($portfolioShowFiltering == 'on') {
                     <div style="clear:both"></div>
                 </div>
             </div>
-
             <?php
         }
         ?>
-
     </div>
 </section>

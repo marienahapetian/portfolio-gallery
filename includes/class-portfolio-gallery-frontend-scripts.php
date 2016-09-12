@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Portfolio_Gallery_Frontend_Scripts {
 
 	/**
-	 * Portfolio_Gallery constructor.
+	 * Portfolio_Gallery_Frontend_Scripts constructor.
 	 */
 	public function __construct() {
 		add_action( 'portfolio_gallery_shortcode_scripts', array( $this, 'frontend_scripts' ), 10, 2 );
@@ -33,8 +33,8 @@ class Portfolio_Gallery_Frontend_Scripts {
 
 		wp_enqueue_style( 'portfolio_gallery_colorbox_css', untrailingslashit( Portfolio_Gallery()->plugin_url() ) . '/assets/style/colorbox-' . $general_options['light_box_style'] . '.css' );
 
-		if($portfolio_view == '5'){
-			wp_register_style( 'animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css' );
+		if ($portfolio_view == '5') {
+			wp_register_style( 'animate-css', plugins_url( '../assets/style/animate.min.css', __FILE__ ) );
 			wp_enqueue_style( 'animate-css' );
 			wp_register_style( 'liquid-slider-css', plugins_url( '../assets/style/liquid-slider.css', __FILE__ ) );
 			wp_enqueue_style( 'liquid-slider-css' );
@@ -63,10 +63,10 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_register_script( 'custom-js', plugins_url( '../assets/js/custom.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'custom-js' );
 
-		if($portfolio_view == '5'){
-			wp_register_script( 'easing-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js', array( 'jquery' ), '1.0.0', true );
+		if ($portfolio_view == '5'){
+			wp_register_script( 'easing-js', plugins_url( '../assets/js/jquery.easing.min.js', __FILE__ ), array( 'jquery' ), '1.3.0', true );
 			wp_enqueue_script( 'easing-js' );
-			wp_register_script( 'touch_swipe-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js', array( 'jquery' ), '1.0.0', true );
+			wp_register_script( 'touch_swipe-js', plugins_url( '../assets/js/jquery.touchSwipe.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'touch_swipe-js' );
 			wp_register_script( 'liquid-slider-js', plugins_url( '../assets/js/jquery.liquid-slider.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'liquid-slider-js' );
@@ -113,11 +113,6 @@ class Portfolio_Gallery_Frontend_Scripts {
 					$float['filtering'] = '';
 				}
 
-				if ( $portfolio_param["port_natural_size_contentpopup"] == 'resize' ) {
-					$portfolio_gallery_images_natural_size = false;
-				} elseif ( $portfolio_param["port_natural_size_contentpopup"] == 'natural' ) {
-					$portfolio_gallery_images_natural_size = true;
-				}
 				break;
 		}
 		$lightbox = array(

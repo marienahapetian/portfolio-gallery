@@ -29,7 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( $row->image_url != ';' ) {
 						switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {
 							case 'image':
-
 								?>
 								<a class="portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>"
 								   href="<?php echo esc_url( $imgurl[0] ); ?>"
@@ -70,9 +69,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<img alt="<?php echo esc_attr( $row->name ); ?>" class="main-image"
 						     src="images/noimage.jpg"/>
 						<?php
-					} ?>
-
-					<?php if ( $paramssld["ht_view5_show_thumbs"] ) { ?>
+					}
+					if ( $paramssld["ht_view5_show_thumbs"] ) { ?>
 						<div>
 							<ul class="thumbs-list_<?php echo $portfolioID; ?>">
 								<?php

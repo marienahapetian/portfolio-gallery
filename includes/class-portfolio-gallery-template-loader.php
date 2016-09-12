@@ -4,13 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Portfolio_Gallery_Template_Loader {
-
-	public function __contstruct(){
-		add_action('media_buttons_context', array($this,'add_editor_media_button'));
-	}
-
-	
-
 	/**
 	 * Load the Plugin shortcode's frontend
 	 *
@@ -19,8 +12,7 @@ class Portfolio_Gallery_Template_Loader {
 	 * @param $portfolio
 	 * @param $title
 	 */
-	public function load_front_end( $images, $paramssld, $portfolio, $title ){
-		global $portfolio_gallery_images_natural_size;
+	public function load_front_end( $images, $paramssld, $portfolio, $title ) {
 
 		$portfolioID             = $portfolio[0]->id;
 		$portfoliotitle          = $portfolio[0]->name;
@@ -52,8 +44,8 @@ class Portfolio_Gallery_Template_Loader {
 					$filteringFloatToggle = '';
 				}
 				$view_slug = portfolio_gallery_get_view_slag_by_id( $portfolioID );
-				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'toggle-up-down'.DIRECTORY_SEPARATOR.'toggle_up_down-view.php';
-				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'toggle-up-down'.DIRECTORY_SEPARATOR.'toggle_up_down-view.css.php';
+				require PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'front-end' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'toggle-up-down' . DIRECTORY_SEPARATOR . 'toggle_up_down-view.php';
+				require PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'front-end' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'toggle-up-down' . DIRECTORY_SEPARATOR . 'toggle_up_down-view.css.php';
 				break;
 			case 1:
 				if ( $portfolioShowSorting == 'on' ) {
@@ -136,7 +128,5 @@ class Portfolio_Gallery_Template_Loader {
 				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'lightbox-gallery'.DIRECTORY_SEPARATOR.'lightbox-gallery-view.css.php';
 				break;
 		}
-		
-
 	}
 }

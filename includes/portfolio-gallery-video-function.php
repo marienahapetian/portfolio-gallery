@@ -44,6 +44,8 @@ if ( ! function_exists( 'portfolio_gallery_get_video_id_from_url_portfolio' ) ) 
 				return array( $match[1], 'youtube' );
 			}
 		} else {
+			$url = untrailingslashit($url);
+
 			$vimeoid = explode( "/", $url );
 			$vimeoid = end( $vimeoid );
 

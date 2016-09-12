@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			These features are available in the Professional version of the plugin only.
 			<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary">Enable</a>
 		</p>
-		<img style="width: 100%;" src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/lightbox_options.jpg';?>">
+		<img style="width: 100%;" src="<?php echo esc_attr(PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/lightbox_options.jpg');?>">
 	</div>
 </div>
 

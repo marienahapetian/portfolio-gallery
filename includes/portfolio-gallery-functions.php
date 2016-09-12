@@ -4,8 +4,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!function_exists('huge_it_title_img_display')) {
-    function portfolio_gallery_huge_it_title_img_display($image_name, $title)
-    {
+    function portfolio_gallery_huge_it_title_img_display($image_name, $title) {
         for ($i = 0; $i < count($title); $i++) {
             $title_explode = explode("_-_-_", $title[$i]);
             if ($title_explode[1] == $image_name) {
@@ -24,8 +23,7 @@ if (!function_exists('huge_it_title_img_display')) {
  *
  * @return array Array of all general options
  */
-function portfolio_gallery_get_general_options()
-{
+function portfolio_gallery_get_general_options() {
     $paramssld['port_natural_size_toggle'] = "resize";
     $paramssld['port_natural_size_contentpopup'] = "resize";
     $paramssld['ht_view0_border_width'] = "1";
@@ -745,8 +743,7 @@ function portfolio_gallery_get_general_options()
     return $paramssld;
 }
 
-function portfolio_gallery_get_view_slag_by_id($id)
-{
+function portfolio_gallery_get_view_slag_by_id($id) {
     global $wpdb;
     $query = $wpdb->prepare("SELECT portfolio_list_effects_s from " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id=%d", $id);
     $view = $wpdb->get_var($query);
@@ -782,8 +779,7 @@ function portfolio_gallery_get_view_slag_by_id($id)
  * @param $image_url
  * @return mixed
  */
-function portfolio_gallery_get_image_id($image_url)
-{
+function portfolio_gallery_get_image_id($image_url) {
     global $wpdb;
     $attachment = $wpdb->get_var($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts WHERE guid=%s", $image_url));
     return $attachment;
@@ -793,25 +789,20 @@ function portfolio_gallery_get_image_id($image_url)
  * Get image url by image src, width, height
  *
  * @param $image_src
- * @param $image_width
- * @param $image_height
- * @param bool $is_attachment
+ * @param $image_sizes
+ * @param $is_thumbnail
+ *
  * @return false|string
  */
-function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail)
-{
+function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail) {
     $is_attachment = portfolio_gallery_get_image_id($image_src);
 
     if (is_string($image_sizes)) {
-        $image_sizes = $image_sizes;
         $img_width = intval($image_sizes);
+    } elseif (is_object($image_sizes)) {
+	    $image_sizes = array($image_sizes, '');
     }
-    if (is_object($image_sizes)) {
-        // Closures are currently implemented as objects
-        $image_sizes = array($image_sizes, '');
-    } /*else {
-        $image_sizes = (array) $image_sizes;
-    }*/
+
     if (!$is_attachment) {
         $image_url = $image_src;
     } else {
@@ -820,15 +811,18 @@ function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, 
         $natural_img_width = $natural_img_width[1];
         $natural_img_width = str_replace(' ', '', $natural_img_width);
         $natural_img_width = intval(str_replace('px', '', $natural_img_width));
-        if (isset($img_width)) {
-            if ($img_width <= 150 && !$is_thumbnail)
-                $image_url = wp_get_attachment_image_url($attachment_id, 'medium');
-            elseif ($img_width >= $natural_img_width)
-                $image_url = wp_get_attachment_image_url($attachment_id, 'full');
-            else
-                $image_url = wp_get_attachment_image_url($attachment_id, $img_width);
-        } else
-            $image_url = wp_get_attachment_image_url($attachment_id, $image_sizes);
+	    if ( isset( $img_width ) ) {
+		    if ( $img_width <= 150 && ! $is_thumbnail ) {
+			    $image_url = wp_get_attachment_image_url( $attachment_id, 'medium' );
+		    } elseif ( $img_width >= $natural_img_width ) {
+			    $image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
+		    } else {
+			    $image_url = wp_get_attachment_image_url( $attachment_id, $img_width );
+		    }
+	    } else {
+		    $image_url = wp_get_attachment_image_url( $attachment_id, $image_sizes );
+	    }
     }
-    return $image_url;
+
+	return $image_url;
 }

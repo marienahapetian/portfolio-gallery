@@ -2,7 +2,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/slider/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/slider-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/slider-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -27,7 +27,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/wordpress-gallery/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/image-gallery-icon.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/image-gallery-icon.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -51,7 +51,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/responsive-slider-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/responsive-slider-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -72,7 +72,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/lightbox/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/lightbox-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/lightbox-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -95,7 +95,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/wordpress-video-gallery/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/video-gallery-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/video-gallery-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -118,7 +118,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/share-buttons/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/share-buttons-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/share-buttons-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -141,7 +141,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/google-map/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/google-maps-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/google-maps-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -163,7 +163,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/colorbox/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/colorbox-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/colorbox-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -185,7 +185,7 @@
 	<div class="left-block">
 		<div class="main-image-block">
 			<a href="http://huge-it.com/video-player/" rel="content" target="_blank"><img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/video-player-logo.png', __FILE__ ); ?>"></a>
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/video-player-logo.png', __FILE__ )); ?>"></a>
 		</div>
 	</div>
 	<div class="right-block">
@@ -209,7 +209,7 @@
 		<div class="main-image-block">
 			<a href="http://huge-it.com/product-catalog/" target="_blank">
 				<img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/product-catalog-logo.png', __FILE__ ); ?>">
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/product-catalog-logo.png', __FILE__ )); ?>">
 			</a>
 		</div>
 	</div>
@@ -234,7 +234,7 @@
 		<div class="main-image-block">
 			<a href="http://huge-it.com/forms/" target="_blank">
 				<img
-					src="<?php echo plugins_url( '../../assets/images/admin_images/form-logo.png', __FILE__ ); ?>">
+					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/form-logo.png', __FILE__ )); ?>">
 			</a>
 		</div>
 	</div>
