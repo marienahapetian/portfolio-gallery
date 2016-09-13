@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /***</add>***/
 .portelement_<?php echo $portfolioID; ?> {
-	max-width:<?php echo $paramssld['ht_view1_block_width']+2*$paramssld['ht_view1_element_border_width']; ?>px !important;
-	width: 100%;
+	width:<?php echo $paramssld['ht_view1_block_width']+2*$paramssld['ht_view1_element_border_width']; ?>px !important;
+	max-width: 100%;
 	height:auto;
 	margin: 5px;
 	float: left;
@@ -135,6 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .thumbs-list_<?php echo $portfolioID; ?> li a {
+	display:block;
 	width:<?php echo $paramssld['ht_view1_thumbs_width']; ?>px;
 	height:<?php echo $paramssld['ht_view1_thumbs_width']; ?>px;
 	opacity:0.7;
@@ -171,6 +172,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .button-block a, .wd-portfolio-panel_<?php echo $portfolioID; ?> .button-block a:link, .wd-portfolio-panel_<?php echo $portfolioID; ?> .button-block a:visited {
+	padding:10px;
 	display:inline-block;
 	font-size:<?php echo $paramssld['ht_view1_linkbutton_font_size']; ?>px;
 	background:#<?php echo $paramssld['ht_view1_linkbutton_background_color']; ?>;
@@ -188,7 +190,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
 	position: relative;
 	overflow: hidden;
-<?php if($sortingFloatFullHeight != 'top'){
+<?php   if($sortingFloatFullHeight != 'top'){
             echo 'float:'.$sortingFloatFullHeight.';margin-top:5px;';
             echo  "max-width:180px;width:20%;display:inline-block;";
             if($filteringFloatFullHeight == 'top') echo 'margin-top:45px;';
@@ -203,6 +205,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         if(($sortingFloatFullHeight == 'left' && $filteringFloatFullHeight == 'left') || ($sortingFloatFullHeight == 'right' && $filteringFloatFullHeight == 'right')){
             echo 'width: 100%;';
         }
+?>
+
+<?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 	margin-bottom: 10px;
@@ -288,6 +293,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         if(($sortingFloatFullHeight == 'left' && $filteringFloatFullHeight == 'left') || ($sortingFloatFullHeight == 'right' && $filteringFloatFullHeight == 'right')){
             echo 'width: 100%;';
         }
+?>
+
+<?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
 }
@@ -384,6 +392,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		line-height: 3vw;
 		font-size:3vw !important;
 	}
+	.portelement_<?php echo $portfolioID; ?>  {
+		max-width: calc(100% - 10px) !important;
+	}
+	.wd-portfolio-panel_<?php echo $portfolioID; ?> {
+		width: calc(100% - 10px) !important;
+	}
 }
 @media screen and (max-width: 420px) {
 
@@ -406,7 +420,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		border:<?php echo $paramssld['ht_view0_element_border_width']; ?>px solid #<?php echo $paramssld['ht_view0_element_border_color']; ?>;
 	}
 	.wd-portfolio-panel_<?php echo $portfolioID; ?> {
-		width: 100% !important;
+		width: calc(100% - 10px) !important;
 	}
 }
 #huge-it-container-loading-overlay_<?php echo $portfolioID; ?> {

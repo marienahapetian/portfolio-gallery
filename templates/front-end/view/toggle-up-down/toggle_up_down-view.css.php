@@ -472,10 +472,21 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
 		font-size:4vw !important;
 	}
+	.portelement_<?php echo $portfolioID; ?>  {
+		max-width:98% !important;
+		margin: 1% !important;
+		float: left;
+		overflow: hidden;
+		outline:none;
+		border:<?php echo $paramssld['ht_view0_element_border_width']; ?>px solid #<?php echo $paramssld['ht_view0_element_border_color']; ?>;
+	}
+	.wd-portfolio-panel_<?php echo $portfolioID; ?> .description-block_<?php echo $portfolioID; ?>{
+		width: calc(100% - 10px);
+	}
 }
 @media screen and (max-width: <?php echo $paramssld['ht_view0_block_width']+2*$paramssld['ht_view0_element_border_width']+40; ?>px) {
    .portelement_<?php echo $portfolioID; ?>  {
-		width:98%;
+		max-width:98% !important;
 		margin: 1% !important;
 		float: left;
 		overflow: hidden;
