@@ -229,7 +229,6 @@ class Portfolio_Gallery_Frontend_Scripts {
 
 
 		wp_localize_script( 'front-end-js', 'param_obj', $portfolio_param );
-		wp_localize_script( 'front-end-js', 'portfolio_obj', $portfolio );
 		wp_localize_script( 'front-end-js', 'float', $float );
 		wp_localize_script( 'jquery.pcolorbox-js', 'lightbox_obj', $lightbox );
 		wp_localize_script( 'custom-js', 'portfolioId', $id ); ?>
