@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<style type="text/css">
+<style>
 /***For Full Width view***/
 .portelement_<?php echo $portfolioID; ?> .play-icon.youtube-icon  {
     background: url(<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.youtube.png';?>) center center no-repeat;
@@ -365,7 +365,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_container_<?php echo $portfolioID; ?> {
 
-    width: 79%;
+    width: 100%;
 <?php if(($sortingFloatFullWidth == "left" && $filteringFloatFullWidth == "right") || ($sortingFloatFullWidth == "right" && $filteringFloatFullWidth == "left"))
     {echo "margin: 0px auto;width:58%;"; }
     if(($filteringFloatFullWidth == "left" || $filteringFloatFullWidth == "right" && $sortingFloatFullWidth == "top") || ($sortingFloatFullWidth == "left" || $sortingFloatFullWidth == "right" && $filteringFloatFullWidth == "top"))

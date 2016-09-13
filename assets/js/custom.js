@@ -1,6 +1,8 @@
 jQuery(document).ready(function () {
+    jQuery('.portfolio-gallery-content').each(function(){
+        var portfolioId = jQuery(this).attr('data-portfolio-id');
+
         jQuery("#huge_it_portfolio_content_"+portfolioId+" a[href$='.jpg'], #huge_it_portfolio_content_"+portfolioId+" a[href$='.png'], #huge_it_portfolio_content_"+portfolioId+" a[href$='.gif']").addClass('group1');
-        //	jQuery("#huge_it_portfolio_content_portfolioId a").addClass('group1');
         var group_count = 0;
         jQuery(".portelement_"+portfolioId).each(function () {
             group_count++;
@@ -15,7 +17,6 @@ jQuery(document).ready(function () {
             group_count_slider++;
         });
         jQuery(".portfolio-group-slider" + i).pcolorbox({rel: 'portfolio-group-slider' + i});
-        //jQuery(".group1").pcolorbox({rel:'group1'});
         for (var i = 1; i <= group_count_slider; i++) {
             jQuery(".portfolio-group-slider_" + portfolioId + "_" + i).pcolorbox({rel: 'portfolio-group-slider_' + portfolioId + "_" + i});
             jQuery("#p-main-slider_"+portfolioId+" .clone  a").removeClass();
@@ -44,19 +45,11 @@ jQuery(document).ready(function () {
         jQuery('.non-retina').pcolorbox({rel: 'group5', transition: 'none'})
         jQuery('.retina').pcolorbox({rel: 'group5', transition: 'none', retinaImage: true, retinaUrl: true});
 
+        jQuery("#huge_it_portfolio_content_"+portfolioId+" #huge_it_portfolio_filters_"+portfolioId+" ul li a").click(function () {
+            jQuery("#huge_it_portfolio_content_"+portfolioId+" #huge_it_portfolio_filters_portfolioId ul li").removeClass("active");
+            jQuery(this).parent().addClass("active");
 
-        jQuery("#click").click(function () {
-            jQuery('#click').css({
-                "background-color": "#f00",
-                "color": "#fff",
-                "cursor": "inherit"
-            }).text("Open this window again and this message will still be here.");
-            return false;
         });
-
-    jQuery("#huge_it_portfolio_content_"+portfolioId+" #huge_it_portfolio_filters_"+portfolioId+" ul li a").click(function () {
-        jQuery("#huge_it_portfolio_content_"+portfolioId+" #huge_it_portfolio_filters_portfolioId ul li").removeClass("active");
-        jQuery(this).parent().addClass("active");
-
     });
+
 })

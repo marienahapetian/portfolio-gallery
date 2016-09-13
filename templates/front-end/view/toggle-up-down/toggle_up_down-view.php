@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ( $portfolioShowSorting == 'on' ) {
+<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" data-portfolio-id="<?php echo $portfolioID; ?>" class="portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
 	echo 'sortingActive ';
 }
 if ( $portfolioShowFiltering == 'on' ) {

@@ -18,6 +18,7 @@ function Portfolio_Gallery_Full_Height(id) {
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
     _this.filterButton = _this.filtersBlock.find('ul li');
+    console.log(_this);
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
         ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == '' ) || ( _this.optionsBlock.data('sorting-position') == '' && _this.filtersBlock.data('filtering-position') == 'top' ) )) {

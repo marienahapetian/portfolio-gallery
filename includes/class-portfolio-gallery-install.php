@@ -3,7 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 class Portfolio_Gallery_Install {
-
     /**
      * Install Portfolio Gallery.
      */
@@ -17,12 +16,9 @@ class Portfolio_Gallery_Install {
         // Trigger action
         do_action('portfolio_gallery_installed');
     }
-
     private static function create_tables() {
         global $wpdb;
-
-/// creat database tables
-
+        $charset = $wpdb->get_charset_collate();
         $sql_huge_itportfolio_images = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -37,10 +33,8 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_images` (
   `published` tinyint(4) unsigned DEFAULT NULL,
   `published_in_sl_width` tinyint(4) unsigned DEFAULT NULL,
   `category` text NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-)  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5";
-
+  PRIMARY KEY (`id`)
+) " . $charset . " AUTO_INCREMENT=5";
         $sql_huge_itportfolio_portfolios = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -58,10 +52,8 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
   `ht_show_sorting` text NOT NULL,
   `ht_show_filtering` text NOT NULL,
   `autoslide` varchar(5) NOT NULL DEFAULT 'on',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-)   DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
-
+  PRIMARY KEY (`id`)
+) " . $charset . " AUTO_INCREMENT=2";
         $table_name = $wpdb->prefix . "huge_itportfolio_images";
         $sql_2 = "
 INSERT INTO 
@@ -75,39 +67,32 @@ INSERT INTO
 (7, 'Take Fight', '1', '<h6>Lorem Ipsum</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><p>Excepteur sint occaecat cupidatat non proident , sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/7.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/7.2.jpg" . ";" . "https://www.youtube.com/watch?v=SP3Dgr9S4pM" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/7.3.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 6, 1, NULL),
 (8, 'The Optic', '1', '<h6>Lorem Ipsum </h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><ul><li>lorem ipsum</li><li>dolor sit amet</li><li>lorem ipsum</li><li>dolor sit amet</li></ul>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/8.3.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 7, 1, NULL),
 (9, 'Cone Music', '1', '<ul><li>lorem ipsumdolor sit amet</li><li>lorem ipsum dolor sit amet</li></ul><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.2.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 8, 1, NULL)";
-
         $table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
-
-
-
         $wpdb->query($sql_huge_itportfolio_images);
         $wpdb->query($sql_huge_itportfolio_portfolios);
-
         if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itportfolio_images")) {
             $wpdb->query($sql_2);
         }
         if (!$wpdb->get_var("select count(*) from " . $wpdb->prefix . "huge_itportfolio_portfolios")) {
-        	$wpdb->insert(
-        		$table_name,
-		        array(
-			        'id' => 1,
-					'name' => 'My First Portfolio',
-					'sl_height' => 375,
-					'sl_width' => 600,
-					'pause_on_hover' => 'on',
-					'portfolio_list_effects_s' => '2',
-					'description' => '4000',
-					'param' => '1000',
-					'sl_position' => 'center',
-					'ordering' => 1,
-					'published' => '300'
-		        )
-	        );
+            $wpdb->insert(
+                $table_name,
+                array(
+                    'id' => 1,
+                    'name' => 'My First Portfolio',
+                    'sl_height' => 375,
+                    'sl_width' => 600,
+                    'pause_on_hover' => 'on',
+                    'portfolio_list_effects_s' => '2',
+                    'description' => '4000',
+                    'param' => '1000',
+                    'sl_position' => 'center',
+                    'ordering' => 1,
+                    'published' => '300'
+                )
+            );
         }
-
         $imagesAllFieldsInArray = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_images", ARRAY_A);
         $forUpdate = 0;
-
         foreach ($imagesAllFieldsInArray as $portfoliosField) {
             if ($portfoliosField['Field'] == 'category') {
                 $forUpdate = 1;
@@ -128,7 +113,6 @@ INSERT INTO
                     $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='7'");
                     $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,' WHERE id='8'");
                 }
-
                 break;
             }
         }
@@ -143,14 +127,11 @@ INSERT INTO
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='7'");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,' WHERE id='8'");
         }
-
         $productPortfolio = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
         $isUpdate = 0;
-
         foreach ($productPortfolio as $prodPortfolio) {
             if ($prodPortfolio['Field'] == 'categories' && $prodPortfolio['Type'] == 'text') {
                 $isUpdate = 1;
-
                 $allCats = $wpdb->get_results("SELECT categories FROM " . $wpdb->prefix . "huge_itportfolio_portfolios");
                 $needToUpdateAllCats = 0;
                 foreach ($allCats as $AllCatsVal) {
@@ -163,17 +144,14 @@ INSERT INTO
                     $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_sorting = 'off' ");
                     $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_filtering = 'off' ");
                 }
-
                 break;
             }
         }
         if ($isUpdate) {
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD categories text");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET categories = 'My First Category,My Second Category,My Third Category,'");
-
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD ht_show_sorting text");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_sorting = 'off'");
-
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD ht_show_filtering text");
             $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_filtering = 'off'");
         }
@@ -189,26 +167,24 @@ INSERT INTO
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `show_loading` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'");
             $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `loading_icon_type` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '1'");
         }
-
         $portfoliosAllFieldsInArray2 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A );
-	    $forNewUpdate2               = 0;
-	    foreach ( $portfoliosAllFieldsInArray2 as $portfoliosField2 ) {
-		    if ( $portfoliosField2['Field'] == 'autoslide' ) {
-			    $forNewUpdate2 = 1;
-		    }
-	    }
-	    if ( ! $forNewUpdate2 ) {
-		    $wpdb->query( "ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'" );
-	    }
-
-	    $table_name = $wpdb->prefix . "huge_itportfolio_images";
-	    $query      = "SELECT id,image_url,portfolio_id FROM " . $table_name . " WHERE portfolio_id=1";
-	    $images_url = $wpdb->get_results( $query );
-	    foreach ( $images_url as $image_url ) {
-		    if ( strpos( $image_url->image_url, 'portfolio-gallery/Front_images' ) > - 1 ) {
-			    $new_url = str_replace( 'portfolio-gallery/Front_images', 'portfolio-gallery/assets/images/Front_images', $image_url->image_url );
-			    $wpdb->query( $wpdb->prepare( "UPDATE " . $table_name . " SET image_url= %s WHERE id=%d", $new_url, $image_url->id ) );
-		    }
-	    }
+        $forNewUpdate2               = 0;
+        foreach ( $portfoliosAllFieldsInArray2 as $portfoliosField2 ) {
+            if ( $portfoliosField2['Field'] == 'autoslide' ) {
+                $forNewUpdate2 = 1;
+            }
+        }
+        if ( ! $forNewUpdate2 ) {
+            $wpdb->query( "ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'" );
+        }
+        $table_name = $wpdb->prefix . "huge_itportfolio_images";
+        $query      = "SELECT id,image_url,portfolio_id FROM " . $table_name . " WHERE portfolio_id=1";
+        $images_url = $wpdb->get_results( $query );
+        foreach ( $images_url as $image_url ) {
+            if ( strpos( $image_url->image_url, 'portfolio-gallery/Front_images' ) > - 1 ) {
+                $new_url = str_replace( 'portfolio-gallery/Front_images', 'portfolio-gallery/assets/images/Front_images', $image_url->image_url );
+                $wpdb->query( $wpdb->prepare( "UPDATE " . $table_name . " SET image_url= %s WHERE id=%d", $new_url, $image_url->id ) );
+            }
+        }
     }
 }
