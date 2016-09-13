@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<style type="text/css">
+<style>
 /***For Full Width view***/
 .portelement_<?php echo $portfolioID; ?> .play-icon.youtube-icon  {
     background: url(<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.youtube.png';?>) center center no-repeat;

@@ -92,7 +92,6 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
             setInterval(function(){
                 _this.container.hugeitmicro('reLayout');
             });
-            console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
         }
     };
 
@@ -186,15 +185,15 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.imagesBehavior = function(){
         _this.container.find('.portelement .image-block img').each(function( i, img ){
             var naturalRatio = jQuery(this).prop('naturalWidth')/jQuery(this).prop('naturalHeight');
-            var defaultRatio = _this.defaultBlockWidth/_this.defaultBlockHeight;console.log(defaultRatio+'aaa'+naturalRatio);
-            if(naturalRatio<=defaultRatio){console.log(0);
+            var defaultRatio = _this.defaultBlockWidth/_this.defaultBlockHeight;
+            if(naturalRatio<=defaultRatio){
                 jQuery(img).css({
                     position: "absolute",
                     width: '100%',
                     top: '50%',
                     transform: 'translateY(-50%)'
                 });
-            }else {console.log(1);
+            }else {
                 jQuery(img).css({
                     position: "absolute",
                     height:'100%',
