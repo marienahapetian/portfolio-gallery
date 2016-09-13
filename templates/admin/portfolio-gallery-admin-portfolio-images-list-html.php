@@ -771,7 +771,6 @@ if (isset($_GET["addslide"])) {
                                                                             $src = jQuery(this).attr('data-video-src');
                                                                         }
                                                                         else $src = jQuery(this).attr('src');
-                                                                        console.log($src);
                                                                         allurls = allurls + $src + ';';
                                                                     });
                                                                     jQuery("#" + id).val(allurls);

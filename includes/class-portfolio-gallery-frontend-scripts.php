@@ -50,15 +50,14 @@ class Portfolio_Gallery_Frontend_Scripts {
 		if ( ! wp_script_is( 'jquery' ) ) {
 			wp_enqueue_script( 'jquery' );
 		}
-
 		wp_register_script( 'jquery.pcolorbox-js', plugins_url( '../assets/js/jquery.colorbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'jquery.pcolorbox-js' );
 
 		wp_register_script( 'hugeitmicro-min-js', plugins_url( '../assets/js/jquery.hugeitmicro.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'hugeitmicro-min-js' );
 
-		wp_register_script( 'front-end-js', plugins_url( '../assets/js/view-' . $view_slug . '.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-		wp_enqueue_script( 'front-end-js' );
+		wp_register_script( 'front-end-js-'.$view_slug, plugins_url( '../assets/js/view-' . $view_slug . '.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'front-end-js-'.$view_slug );
 
 		wp_register_script( 'custom-js', plugins_url( '../assets/js/custom.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'custom-js' );
@@ -74,47 +73,9 @@ class Portfolio_Gallery_Frontend_Scripts {
 	}
 
 	public function localize_scripts( $id ) {
-		global $wpdb;
-		$query           = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id=%d", $id );
-		$portfolio       = $wpdb->get_results( $query );
 		$portfolio_param = portfolio_gallery_get_general_options();
+		$view_slug = portfolio_gallery_get_view_slag_by_id( $id );
 
-		$portfolioID             = $portfolio[0]->id;
-		$portfoliotitle          = $portfolio[0]->name;
-		$portfolioheight         = $portfolio[0]->sl_height;
-		$portfoliowidth          = $portfolio[0]->sl_width;
-		$portfolio_view          = $portfolio[0]->portfolio_list_effects_s;
-		$slidepausetime          = ( $portfolio[0]->description + $portfolio[0]->param );
-		$portfoliopauseonhover   = $portfolio[0]->pause_on_hover;
-		$portfolioposition       = $portfolio[0]->sl_position;
-		$slidechangespeed        = $portfolio[0]->param;
-		$portfolioCats           = $portfolio[0]->categories;
-		$portfolioShowSorting    = $portfolio[0]->ht_show_sorting;
-		$portfolioShowFiltering  = $portfolio[0]->ht_show_filtering;
-		$portfolioShowLoading    = $portfolio[0]->show_loading;
-		$portfolioLoadingIconype = $portfolio[0]->loading_icon_type;
-		$image_prefix            = "_huge_it_small_portfolio";
-
-		$float                  = array();
-		$float['isCenter']      = $portfolioposition;
-		$float['showFiltering'] = $portfolioShowFiltering;
-		$float['showSorting']   = $portfolioShowSorting;
-
-		switch ( $portfolio_view ) {
-			case 0:
-				if ( $portfolioShowSorting == 'on' ) {
-					$float['sorting'] = $portfolio_param["ht_view0_sorting_float"];
-				} else {
-					$float['sorting'] = '';
-				}
-				if ( $portfolioShowFiltering == 'on' ) {
-					$float['filtering'] = $portfolio_param["ht_view0_filtering_float"];
-				} else {
-					$float['filtering'] = '';
-				}
-
-				break;
-		}
 		$lightbox = array(
 			'lightbox_transition'     => $portfolio_param['light_box_transition'],
 			'lightbox_speed'          => $portfolio_param['light_box_speed'],
@@ -228,11 +189,9 @@ class Portfolio_Gallery_Frontend_Scripts {
 		}
 
 
-		wp_localize_script( 'front-end-js', 'param_obj', $portfolio_param );
-		wp_localize_script( 'front-end-js', 'portfolio_obj', $portfolio );
-		wp_localize_script( 'front-end-js', 'float', $float );
+		wp_localize_script( 'front-end-js-'.$view_slug, 'param_obj', $portfolio_param );
 		wp_localize_script( 'jquery.pcolorbox-js', 'lightbox_obj', $lightbox );
-		wp_localize_script( 'custom-js', 'portfolioId', $id ); ?>
+		?>
 
 		<?php
 	}

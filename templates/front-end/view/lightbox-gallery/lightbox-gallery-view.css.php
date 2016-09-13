@@ -244,7 +244,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_container_<?php echo $portfolioID; ?> {
-    width: 79%;
+    width: 100%;
 <?php if(($sortingFloatLgal == "left" && $filteringFloatLgal == "right") || ($sortingFloatLgal == "right" && $filteringFloatLgal == "left"))
     {echo "margin: 0 auto;width:58%;"; }
     if(($filteringFloatLgal == "left" || $filteringFloatLgal == "right" && $sortingFloatLgal == "top") || ($sortingFloatLgal == "left" || $sortingFloatLgal == "right" && $filteringFloatLgal == "top"))

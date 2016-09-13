@@ -89,7 +89,6 @@ function Portfolio_Gallery_Full_Height(id) {
                 "margin": "0px auto",
                 "overflow": "hidden"
             });
-            console.log(elementwidth + " " + enterycontent + " " + whole + " " + sectionwidth);
         }
     };
 

@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<div id="p-main-slider_<?php echo $portfolioID; ?>" class="p-main-slider liquid-slider view-<?php echo $view_slug; ?>"
+<div id="p-main-slider_<?php echo $portfolioID; ?>" data-portfolio-id="<?php echo $portfolioID; ?>"  class="portfolio-gallery-content p-main-slider liquid-slider view-<?php echo $view_slug; ?>"
      data-pause-hover="<?php echo $portfolio[0]->pause_on_hover; ?>"
      data-autoslide="<?php echo $portfolio[0]->autoslide; ?>"
      data-slide-duration="<?php echo $portfolio[0]->param; ?>"
