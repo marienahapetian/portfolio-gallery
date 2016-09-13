@@ -20,7 +20,7 @@ class Portfolio_Gallery_Install {
 
     private static function create_tables() {
         global $wpdb;
-
+        $charset = $wpdb->get_charset_collate();
 /// creat database tables
 
         $sql_huge_itportfolio_images = "
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_images` (
   `category` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-)  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5";
+) " . $charset . " AUTO_INCREMENT=5";
 
         $sql_huge_itportfolio_portfolios = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
   `autoslide` varchar(5) NOT NULL DEFAULT 'on',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-)   DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
+) " . $charset . " AUTO_INCREMENT=2";
 
         $table_name = $wpdb->prefix . "huge_itportfolio_images";
         $sql_2 = "
