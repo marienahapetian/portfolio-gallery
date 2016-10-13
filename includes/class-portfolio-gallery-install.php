@@ -102,4 +102,17 @@ INSERT INTO
 	        );
         }
     }
+
+	public static function db_update(){
+		global $wpdb;
+		$query = "SELECT ht_show_filtering FROM ".$wpdb->prefix."huge_itportfolio_portfolios WHERE id=1";
+		$ht_show_filtering = $wpdb->get_var($query);
+		if( $ht_show_filtering != 'on'){
+			$wpdb->update(
+				$wpdb->prefix."huge_itportfolio_portfolios",
+				array('ht_show_filtering' => 'off'),
+				array('id' => 1)
+			);
+		}
+	}
 }

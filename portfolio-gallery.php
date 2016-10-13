@@ -92,6 +92,7 @@ final class Portfolio_Gallery {
 		register_activation_hook( __FILE__, array( 'Portfolio_Gallery_Install', 'install' ) );
 		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
+		add_action( 'init', array( 'Portfolio_Gallery_Install', 'db_update' ), 0 );
 		
 	}
 
