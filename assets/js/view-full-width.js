@@ -1,3 +1,4 @@
+"use strict";
 jQuery.each(param_obj, function (index, value) {
     if (!isNaN(value)) {
         param_obj[index] = parseInt(value);
@@ -12,7 +13,7 @@ function Portfolio_Gallery_Full_Width(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockWidth = param_obj.ht_view3_mainimage_width;
+    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view3_mainimage_width;
     _this.optionSets = _this.optionsBlock.find('.option-set'),
         _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -23,10 +24,10 @@ function Portfolio_Gallery_Full_Width(id) {
         _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
-        _this.container.hugeitmicro({
+        var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view3_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view3_element_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -56,9 +57,10 @@ function Portfolio_Gallery_Full_Width(id) {
                     return $elem.find('.id').text();
                 }
             }
-        });
+        };
+        portfolioGalleryIsotope(_this.container,options);
         setInterval(function(){
-            _this.container.hugeitmicro('reLayout');
+            portfolioGalleryIsotope(_this.container,'reLayout');
         });
     };
 
@@ -104,13 +106,13 @@ function Portfolio_Gallery_Full_Width(id) {
             changeLayoutMode($this, options)
         } else {
 
-            _this.container.hugeitmicro(options);
+            portfolioGalleryIsotope(_this.container,options);
         }
 
         return false;
     };
     _this.randomClick = function () {
-        _this.container.hugeitmicro('shuffle');
+        portfolioGalleryIsotope(_this.container,'shuffle');
         _this.sortBy.find('.selected').removeClass('selected');
         _this.sortBy.find('[data-option-value="random"]').addClass('selected');
         return false;
@@ -123,7 +125,7 @@ function Portfolio_Gallery_Full_Width(id) {
         // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
         // use filterFn if matches value
-        _this.container.hugeitmicro({filter: filterValue});
+        portfolioGalleryIsotope(_this.container,{filter: filterValue});
     };
 
     _this.init = function () {

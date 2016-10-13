@@ -1,3 +1,17 @@
+.iframe-text-area {
+	float: left;
+}
+.iframe-area {
+	float: left;
+	height: 100%;
+	width: 40%;
+	margin: 5px;
+}
+.text-area {
+	float: left;
+	width: 50%;
+	margin: 5px;
+}
 .pro_info{
 	width: 100%;
 	position: relative;
@@ -11,7 +25,7 @@
 
 }
 #portfolio-loading-icon {
-	display: inline-block;p
+	display: inline-block;
 	margin: 0px ;
 	padding: 0px ;
 	width: 220px;
@@ -263,17 +277,6 @@ ul#portfolio-loading-icon{
 	margin-right: 0px !important;
 }
 
-
-#post-body-heading .button.add-post-slide .wp-media-buttons-icon {
-	background: url('../../../../wp-admin/images/post-ats.png') no-repeat top left;
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	vertical-align: text-top;
-	margin: 2px 7px 0px 0px;
-}
-
-
 #post-body-footer {
 	padding:5px 10px 5px 10px;
 }
@@ -334,7 +337,7 @@ ul#portfolio-loading-icon{
 	overflow:hidden;
 	clear:none;
 	padding:0px;
-	vertical-align:middel;
+	vertical-align:middle;
 	background-image:none !important;
 }
 
@@ -408,7 +411,7 @@ ul#portfolio-loading-icon{
 #images-list .widget-images-list li.add-image-box .add-thumb-project{
 	height: 100%;
 	width: 100%;
-	display: block;
+	display: table;
 	margin: 2px 0;
 }
 #images-list .widget-images-list li.add-image-box .add-thumb-project img{
@@ -1020,9 +1023,8 @@ ul#portfolio-loading-icon{
 .postbox .inside ul li span {
     cursor: pointer !important;
 }
-/*#####ADD VIDEO SLIDE POPUP###*/
 
-#huge_it_add_video_input {
+#huge_it_add_video_input, #huge_it_add_video_input_thumb, #huge_it_edit_video_input {
 	width:470px;
 	height:33px;
 }
@@ -1182,7 +1184,7 @@ ul#portfolio-loading-icon{
 	font-weight: bold !important;
 	display:block;
 	float:left;
-	width:330px;
+	width:300px;
 	margin-left:75px;
 	font-family:'Open Sans',sans-serif;
 	font-size:14px;
@@ -1255,7 +1257,7 @@ ul#portfolio-loading-icon{
 	top:9px;
 	background-image:url('../images/admin_images/wp_shop.png');
 	background-position:0px 0px;
-	background-repeat;
+	background-repeat: no-repeat;
 }
 
 .free_version_banner .get_full_version:hover:before {

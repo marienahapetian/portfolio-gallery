@@ -1,3 +1,4 @@
+"use strict";
 jQuery.each(param_obj, function (index, value) {
     if (!isNaN(value)) {
         param_obj[index] = parseInt(value);
@@ -12,8 +13,8 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockHeight = param_obj.ht_view0_block_height;
-    _this.defaultBlockWidth = param_obj.ht_view0_block_width;
+    _this.defaultBlockHeight = param_obj.portfolio_gallery_ht_view0_block_height;
+    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view0_block_width;
     _this.optionSets = _this.optionsBlock.find('.option-set');
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -27,10 +28,10 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
-        _this.container.hugeitmicro({
+        var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view0_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view0_element_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -60,7 +61,8 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
                     return $elem.find('.id').text();
                 }
             }
-        });
+        };
+        portfolioGalleryIsotope(_this.container,options);
     };
 
     _this.manageLoading = function () {
@@ -75,22 +77,19 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.ht_view0_element_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view0_element_border_width * 2;
             var enterycontent = _this.content.width();
-            var whole = ~~(enterycontent / (elementwidth));
+            var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;
             if (whole == 0) {
                 return false;
             }
             else {
-                var sectionwidth = whole * elementwidth + (whole - 1) * 20;
+                var sectionwidth = whole * elementwidth ;
             }
             _this.container.width(sectionwidth).css({
                 "margin": "0px auto",
                 "overflow": "hidden"
-            });
-            setInterval(function(){
-                _this.container.hugeitmicro('reLayout');
             });
         }
     };
@@ -108,6 +107,10 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     };
     _this.resizeEvent = function(){
         _this.showCenter();
+        var loadInterval = setInterval(function(){
+            portfolioGalleryIsotope(_this.container,'reLayout');
+        },100);
+        setTimeout(function(){clearInterval(loadInterval);},5000);
     };
     _this.optionsClick = function () {
         var $this = jQuery(this);
@@ -131,13 +134,13 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
             changeLayoutMode($this, options)
         } else {
 
-            _this.container.hugeitmicro(options);
+            portfolioGalleryIsotope(_this.container,options);
         }
 
         return false;
     };
     _this.randomClick = function () {
-        _this.container.hugeitmicro('shuffle');
+        portfolioGalleryIsotope(_this.container,'shuffle');
         _this.sortBy.find('.selected').removeClass('selected');
         _this.sortBy.find('[data-option-value="random"]').addClass('selected');
         return false;
@@ -147,13 +150,13 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         jQuery(this).parents('.portelement').find('.wd-portfolio-panel > div').each(function () {
             strheight += parseInt(jQuery(this).outerHeight()) + 10;
         });
-        strheight += _this.defaultBlockHeight + 20 + 2 * param_obj.ht_view0_element_border_width + param_obj.ht_view0_title_font_size;
+        strheight += _this.defaultBlockHeight + 20 + 2 * param_obj.portfolio_gallery_ht_view0_element_border_width + param_obj.portfolio_gallery_ht_view0_title_font_size;
         if (jQuery(this).parents('.portelement').hasClass("large")) {
             jQuery(this).parents('.portelement').animate({
-                height: _this.defaultBlockHeight + 20 + param_obj.ht_view0_title_font_size
+                height: _this.defaultBlockHeight + 20 + 2*param_obj.portfolio_gallery_ht_view0_element_border_width+param_obj.portfolio_gallery_ht_view0_title_font_size
             }, 300, function () {
                 jQuery(this).removeClass('large');
-                _this.container.hugeitmicro('reLayout');
+                portfolioGalleryIsotope(_this.container,'reLayout');
             });
             _this.element.removeClass("active");
             return false;
@@ -161,13 +164,13 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         jQuery(this).parents('.portelement').css({height: strheight});
         jQuery(this).parents('.portelement').addClass('large');
 
-        _this.container.hugeitmicro('reLayout');
-        jQuery(this).parents('.portelement').css({height: _this.defaultBlockHeight + 45 + 2 * param_obj.ht_view0_element_border_width + param_obj.ht_view0_title_font_size + "px"});
+        portfolioGalleryIsotope(_this.container,'reLayout');
+        jQuery(this).parents('.portelement').css({height: _this.defaultBlockHeight + 45 + 2 * param_obj.portfolio_gallery_ht_view0_element_border_width + param_obj.portfolio_gallery_ht_view0_title_font_size + "px"});
 
         jQuery(this).parents('.portelement').animate({
             height: strheight + "px"
         }, 300, function () {
-            _this.container.hugeitmicro('reLayout');
+            portfolioGalleryIsotope(_this.container,'reLayout');
         });
         return false;
     };
@@ -176,10 +179,8 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
             jQuery(this).removeClass('active');
         });
         jQuery(this).addClass('active');
-        // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
-        // use filterFn if matches value
-        _this.container.hugeitmicro({filter: filterValue});
+        portfolioGalleryIsotope(_this.container,{filter: filterValue});
     };
 
     _this.imagesBehavior = function(){

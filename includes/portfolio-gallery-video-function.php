@@ -30,7 +30,6 @@ if ( ! function_exists( 'youtube_or_vimeo_portfolio' ) ) {
 
 }
 
-if ( ! function_exists( 'portfolio_gallery_get_video_id_from_url_portfolio' ) ) {
 	/**
 	 * Returns Youtube or Vimeo URL ID
 	 *
@@ -38,7 +37,7 @@ if ( ! function_exists( 'portfolio_gallery_get_video_id_from_url_portfolio' ) ) 
 	 *
 	 * @return array
 	 */
-	function portfolio_gallery_get_video_id_from_url_portfolio( $url ) {
+	function portfolio_gallery_get_video_id_from_url( $url ) {
 		if ( strpos( $url, 'youtube' ) !== false || strpos( $url, 'youtu' ) !== false ) {
 			if ( preg_match( '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match ) ) {
 				return array( $match[1], 'youtube' );
@@ -52,6 +51,29 @@ if ( ! function_exists( 'portfolio_gallery_get_video_id_from_url_portfolio' ) ) 
 			return array( $vimeoid, 'vimeo' );
 		}
 	}
-}
+
+	/**
+	 * Return thumbnail img url from url
+	 *
+	 * @param $image_url
+	 *
+	 * @return string
+	 */
+	function portfolio_gallery_get_image_from_video( $image_url ) {
+		if ( strpos( $image_url, 'youtube' ) !== false || strpos( $image_url, 'youtu' ) !== false ) {
+			$video_thumb     = portfolio_gallery_get_video_id_from_url( $image_url );
+			$video_thumb_url = $video_thumb[0];
+			$thumburl        = 'http://img.youtube.com/vi/' . $video_thumb_url . '/mqdefault.jpg';
+		} else if ( strpos( $image_url, 'vimeo' ) !== false ) {
+			$vimeo         = $image_url;
+			$vimeo_explode = explode( "/", $vimeo );
+			$imgid         = end( $vimeo_explode );
+			$hash          = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $imgid . ".php" ) );
+			$imgsrc        = $hash[0]['thumbnail_large'];
+			$thumburl      = $imgsrc;
+		}
+
+		return $thumburl;
+	}
 
 

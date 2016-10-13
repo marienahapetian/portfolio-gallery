@@ -3,194 +3,9 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 global $wpdb;
-$id = intval($_GET['id']);
-
-if (isset($_GET["addslide"])) {
-    if ($_GET["addslide"] == 1) {
-        header('Location: admin.php?page=portfolios_huge_it_portfolio&id=' . $row->id . '&task=apply');
-    }
-}
+$portfolio_wp_nonce = wp_create_nonce( 'huge_it_portfolio_nonce' );
+$id                 = intval( $_GET['id'] );
 ?>
-<script type="text/javascript">
-    function submitbutton(pressbutton) {
-        if (!document.getElementById('name').value) {
-            alert("Name is required.");
-            return;
-        }
-        filterInputs();
-        document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
-        document.getElementById("adminForm").submit();
-    }
-    var name_changeRight = function (e) {
-        document.getElementById("name").value = e.value;
-    };
-    var name_changeTop = function (e) {
-        document.getElementById("huge_it_portfolio_name").value = e.value;
-    };
-
-    /***<add>***/
-    function secondimageslistlisize() {
-        var lisaze = jQuery('#images-list').width();
-        lisaze = lisaze * 0.06;
-        jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
-    }
-
-    function replaceAddImageBox() {
-        jQuery(".widget-images-list").each(function () {
-            var src = "";
-
-            if (!jQuery(this).find('li').last().hasClass('add-image-box')) {
-                var html = jQuery(this).find('.add-image-box').html();
-                var li = jQuery('<li>');
-
-                jQuery(this).find('.add-image-box').remove();
-                li.addClass('add-image-box').append(html);
-                jQuery(this).append(li);
-                li.find('.add-thumb-project').css('display', 'block');
-                li.find('.add-image-video').next().css('display', 'none');
-                li.hover(function () {
-                    jQuery(this).find('.add-thumb-project').css('display', 'none');
-                    jQuery(this).find('.add-image-video').css('display', 'block');
-
-                }, function () {
-                    jQuery(this).find('.add-image-video').css('display', 'none');
-                    jQuery(this).find('.add-thumb-project').css('display', 'block');
-
-                });
-
-            }
-            jQuery(this).find("li").not(".add-image-box").each(function () {
-                src += (jQuery(this).hasClass('editthisvideo') == true) ? jQuery(this).find('img').attr('data-video-src') : jQuery(this).find('img').attr('src');
-                src += ";";
-            });
-            jQuery(this).find('.all-urls').val(src);
-        });
-    }
-    function filterInputs() {
-        var mainInputs = "";
-
-        jQuery("#images-list > li.highlights").each(function () {
-            jQuery(this).next().addClass('submit-post');
-            jQuery(this).prev().addClass('submit-post');
-            jQuery(this).prev().prev().addClass('submit-post');
-            jQuery(this).addClass('submit-post');
-            jQuery(this).removeClass('highlights');
-        });
-
-        if (jQuery("#images-list > li.submit-post").length) {
-
-            jQuery("#images-list > li.submit-post").each(function () {
-
-                var inputs = jQuery(this).find('.order_by').attr("name");
-                var n = inputs.lastIndexOf('_');
-                var res = inputs.substring(n + 1, inputs.length);
-                res += ',';
-                mainInputs += res;
-            });
-
-            mainInputs = mainInputs.substring(0, mainInputs.length - 1);
-
-            jQuery(".changedvalues").val(mainInputs);
-
-            jQuery("#images-list > li").not('.submit-post').each(function () {
-                jQuery(this).find('input').removeAttr('name');
-                jQuery(this).find('textarea').removeAttr('name');
-                jQuery(this).find('select').removeAttr('name');
-            });
-
-            return mainInputs;
-        }
-        jQuery("#images-list > li").each(function () {
-            jQuery(this).find('input').removeAttr('name');
-            jQuery(this).find('textarea').removeAttr('name');
-            jQuery(this).find('select').removeAttr('name');
-        });
-
-    }
-    /***</add>***/
-
-    jQuery(function () {
-
-        jQuery("#images-list > li input").on('keyup', function () {
-            jQuery(this).parents("#images-list > li").addClass('submit-post');
-            //filterInputs();
-        });
-        jQuery("#images-list > li textarea").on('keyup', function () {
-            jQuery(this).parents("#images-list > li").addClass('submit-post');
-            //	filterInputs();
-        });
-        jQuery("#images-list > li input").on('change', function () {
-            jQuery(this).parents("#images-list > li").addClass('submit-post');
-            //	filterInputs();
-        });
-        jQuery("#images-list > li select").on('change', function () {
-            jQuery(this).parents("#images-list > li").addClass('submit-post');
-            //	filterInputs();
-        });
-        jQuery('.add-thumb-project').on('hover', function () {
-            jQuery(this).parent().parents("li").addClass('submit-post');
-            //	filterInputs();
-        });
-
-        jQuery("#images-list").sortable({
-            stop: function () {
-                jQuery("#images-list > li").removeClass('has-background');
-                count = jQuery("#images-list > li").length;
-                for (var i = 0; i <= count; i += 2) {
-                    jQuery("#images-list > li").eq(i).addClass("has-background");
-                }
-                jQuery("#images-list > li").each(function () {
-                    jQuery(this).find('.order_by').val(jQuery(this).index());
-                });
-            },
-            change: function (event, ui) {
-                var start_pos = ui.item.data('start_pos');
-                var index = ui.placeholder.index();
-                if (start_pos < index + 2) {
-                    jQuery('#images-list > li:nth-child(' + index + ')').addClass('highlights');
-                } else {
-                    jQuery('#images-list > li:eq(' + (index + 1) + ')').addClass('highlights');
-                }
-            },
-            update: function (event, ui) {
-                jQuery('#sortable li').removeClass('highlights');
-            },
-            revert: true
-        });
-        /***<add>***/
-        jQuery(".widget-images-list").sortable({
-            stop: function () {
-
-                jQuery(".widget-images-list > li").each(function () {
-                    jQuery(this).removeClass('first');
-                    jQuery(".widget-images-list > li").first().addClass('first');
-                });
-
-                secondimageslistlisize();
-                replaceAddImageBox();
-            },
-            change: function (event, ui) {
-
-                jQuery(this).parents('li').addClass('submit-post');
-                var start_pos = ui.item.data('start_pos');
-                var index = ui.placeholder.index();
-                if (start_pos < index) {
-                    jQuery('.widget-images-list > li:nth-child(' + index + ')').addClass('highlights');
-
-                } else {
-                    jQuery('widget-images-list > li:eq(' + (index + 1) + ')').addClass('highlights');
-                }
-            },
-            update: function (event, ui) {
-                jQuery('#sortable li').removeClass('highlights');
-            },
-            revert: true
-        });
-    });
-</script>
-
-<!-- GENERAL PAGE, ADD IMAGES PAGE -->
-
 
 <div class="wrap">
     <?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php'); ?>
@@ -248,63 +63,6 @@ if (isset($_GET["addslide"])) {
                     <div id="post-body">
                         <div id="post-body-heading">
                             <h3><?php echo __('Projects / Images', 'portfolio-gallery'); ?></h3>
-                            <script>
-                                jQuery(document).ready(function ($) {
-
-                                    jQuery('.huge-it-newuploader .button').click(function (e) {
-                                        var send_attachment_bkp = wp.media.editor.send.attachment;
-
-                                        var button = jQuery(this);
-                                        var id = button.attr('id').replace('_button', '');
-                                        _custom_media = true;
-
-                                        jQuery("#" + id).val('');
-                                        wp.media.editor.send.attachment = function (props, attachment) {
-                                            if (_custom_media) {
-                                                jQuery("#" + id).val(attachment.url + ';;;' + jQuery("#" + id).val());
-                                                jQuery("#save-buttom").click();
-                                            } else {
-                                                return _orig_send_attachment.apply(this, [props, attachment]);
-                                            }
-                                        };
-
-                                        wp.media.editor.open(button);
-
-                                        return false;
-                                    });
-
-                                    /*#####HIDE NEW UPLOADER'S LEFT MENU######*/
-                                    jQuery(".wp-media-buttons-icon").click(function () {
-                                        jQuery(".media-menu .media-menu-item").css("display", "none");
-                                        jQuery(".media-menu-item:first").css("display", "block");
-                                        jQuery(".separator").next().css("display", "none");
-                                        jQuery('.attachment-filters').val('image').trigger('change');
-                                        jQuery(".attachment-filters").css("display", "none");
-                                    });
-                                    jQuery('.widget-images-list .add-image-box').hover(function () {
-                                        jQuery(this).find('.add-thumb-project').css('display', 'none');
-                                        jQuery(this).find('.add-image-video').css('display', 'block');
-                                    }, function () {
-                                        jQuery(this).find('.add-image-video').css('display', 'none');
-                                        jQuery(this).find('.add-thumb-project').css('display', 'block');
-                                    });
-                                    jQuery('#portfolio_effects_list').on('change', function () {
-                                        var sel = jQuery(this).val();
-                                        if (sel == 5) {
-                                            jQuery('.for-content-slider').css('display', 'block');
-                                            jQuery('.no-content-slider').css('display', 'none');
-                                            jQuery('ul.for_loading').parent().css('display', 'none');
-                                        } else if (sel == 3) {
-                                            jQuery('.no-content-slider').css('display', 'none');
-                                        } else {
-                                            jQuery('.for-content-slider').css('display', 'none');
-                                            jQuery('.no-content-slider').css('display', 'block');
-                                            jQuery('ul.for_loading').parent().css('display', 'block');
-                                        }
-                                    });
-                                    jQuery('#portfolio_effects_list').change();
-                                });
-                            </script>
 
                             <input type="hidden" name="imagess" id="_unique_name"/>
                             <span class="wp-media-buttons-icon"></span>
@@ -313,54 +71,29 @@ if (isset($_GET["addslide"])) {
                                        id="_unique_name_button" value="Add Project / Image"/>
                             </div>
 
-                            <a href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $id; ?>&TB_iframe=1"
-                               class="button button-primary add-video-slide thickbox" id="slideup3s" value="iframepop">
+                            <a href="#TB_inline?width=700&height=500&inlineId=portfolio_gallery_add_videos"
+                               class="button button-primary add-video-slide thickbox" id="slideup3s"
+                               value="iframepop" data-portfolio-gallery-id="<?php echo $row->id; ?>">
                                 <span class="wp-media-buttons-icon"></span>
-                                <?php echo __('Add Video Slide', 'portfolio-gallery'); ?>
+                                <?php echo __('Add Video', 'portfolio-gallery'); ?>
                             </a>
                         </div>
-                        <ul id="images-list">
+                        <ul id="images-list" data-portfolio-gallery-id="<?php echo $row->id; ?>">
                             <?php
-                            /***<add>***/
-                            function get_youtube_id_from_url($url) {
-                                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
-                                    return $match[1];
-                                }
-                            }
-
-                            function get_image_from_video($image_url) {
-                                if (strpos($image_url, 'youtube') !== false || strpos($image_url, 'youtu') !== false) {
-                                    $liclass = "youtube";
-                                    $video_thumb_url = get_youtube_id_from_url($image_url);
-                                    $thumburl = 'http://img.youtube.com/vi/' . $video_thumb_url . '/mqdefault.jpg';
-                                } else {
-                                    if (strpos($image_url, 'vimeo') !== false) {
-                                        $liclass = "vimeo";
-                                        $vimeo = $image_url;
-                                        $vimeo_explode = explode("/", $vimeo);
-                                        $imgid = end($vimeo_explode);
-                                        $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/" . $imgid . ".php"));
-                                        $imgsrc = $hash[0]['thumbnail_large'];
-                                        $thumburl = $imgsrc;
-                                    }
-                                }
-
-                                return $thumburl;
-                            }
-
-                            /***</add>***/
                             $j = 2;
-
                             $myrows = explode(",", $row->categories);
 
                             foreach ($rowim as $key => $rowimages) {
-                                // <add>  swirch case
                                 if ($rowimages->sl_type == '') {
                                     $rowimages->sl_type = 'image';
                                 }
+                                $add_thumb_video_nonce = wp_create_nonce( 'add_thumb_video_nonce' . $rowimages->id );
                                 switch ($rowimages->sl_type) {
                                     case 'image': ?>
-                                        <li <?php if ($j % 2 == 0) echo "class='has-background'"; $j++; ?>>
+                                        <li class='portfolio-item <?php if ( $j % 2 == 0 ) {
+                                            echo "has-background";
+                                        }
+                                        $j ++; ?>' data-portfolio-item-id="<?php echo $rowimages->id; ?>">
                                             <input class="order_by" type="hidden"
                                                    name="order_by_<?php echo $rowimages->id; ?>"
                                                    value="<?php echo $rowimages->ordering; ?>"/>
@@ -370,17 +103,28 @@ if (isset($_GET["addslide"])) {
                                                     array_pop($imgurl);
                                                     $i = 0;
                                                     foreach ($imgurl as $key1 => $img) {
-                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') { ?>
-                                                            <li class="editthisvideo editthisimage<?php echo $key; ?><?php if ($i == 0) echo 'first'; ?>">
+                                                        $edit_thumb_video_nonce = wp_create_nonce( 'edit_thumb_video_nonce' . $rowimages->id . $i );
+                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') {
+                                                            $video_id = portfolio_gallery_get_video_id_from_url( $img );
+                                                            if ( portfolio_gallery_youtube_or_vimeo_portfolio( $img ) == 'youtube' ) {
+                                                                $iframe_video_src = "//www.youtube.com/embed/" . $video_id[0] . "?modestbranding=1&showinfo=0&controls=0";
+                                                            } else {
+                                                                $iframe_video_src = "//player.vimeo.com/video/" . $video_id[0] . "?title=0&amp;byline=0&amp;portrait=0";
+                                                            }
+                                                            ?>
+                                                            <li class="editthisvideo editthisimage<?php echo $key; ?><?php if ( $i == 0 ) {
+                                                                echo 'first';
+                                                            } ?>" data-video-index="<?php echo $i; ?>"
+                                                                data-iframe-src="<?php echo $iframe_video_src; ?>">
                                                                 <img class="editthisvideo"
-                                                                     src="<?php echo get_image_from_video($img); ?>"
+                                                                     src="<?php echo portfolio_gallery_get_image_from_video($img); ?>"
                                                                      data-video-src="<?php echo esc_attr($img); ?>"
                                                                      alt="<?php echo esc_attr($img); ?>"/>
                                                                 <div
                                                                     class="play-icon <?php echo portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube' ? 'youtube-icon' : 'vimeo-icon'; ?>"></div>
-                                                                <a class="thickbox"
-                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&TB_iframe=1&closepop=1"
-                                                                   id="xxx">
+                                                                <a class="thickbox edit-video-button"
+                                                                   data-edit-thumb-video="<?php echo $edit_thumb_video_nonce; ?>"
+                                                                   href="#TB_inline?width=700&height=500&inlineId=portfolio-gallery-edit-video">
                                                                     <input type="button" class="edit-video" id="edit-video_<?php echo $rowimages->id; ?>_<?php echo $key; ?>" value="Edit" />
                                                                 </a>
                                                                 <a href="#remove" title="<?php echo $i; ?>"
@@ -410,8 +154,8 @@ if (isset($_GET["addslide"])) {
                                                                    class="all-urls"
                                                                    value="<?php echo $rowimages->image_url; ?>"/>
                                                             <a title="Add video" class="add-video-slide thickbox"
-                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
-                                                                <!--</add> thumb parent is project's image id-->
+                                                               data-add-thumb-video-nonce="<?php echo $add_thumb_video_nonce; ?>"
+                                                               href="#TB_inline?width=700&height=500&inlineId=portfolio_gallery_add_videos">
                                                                 <img
                                                                     src="<?php echo Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-video.png'; ?>"
                                                                     title="Add video" alt="" class="plus"/>
@@ -432,135 +176,6 @@ if (isset($_GET["addslide"])) {
                                                         </div>
                                                     </li>
                                                 </ul>
-                                                <script>
-                                                    jQuery(document).ready(function ($) {
-                                                        function secondimageslistlisize() {
-                                                            var liSize = jQuery('#images-list').width();
-                                                            liSize = liSize * 0.06;
-                                                            jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(liSize);
-                                                        }
-
-                                                        jQuery(".wp-media-buttons-icon").click(function () {
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                        });
-                                                        var _custom_media = true,
-                                                            _orig_send_attachment = wp.media.editor.send.attachment;
-
-                                                        /*#####ADD NEW PROJECT######*/
-                                                        jQuery('.huge-it-newuploader .button').click(function (e) {
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
-                                                            var button = jQuery(this);
-                                                            var id = button.attr('id').replace('_button', '');
-                                                            _custom_media = true;
-
-                                                            jQuery("#" + id).val('');
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    jQuery("#" + id).val(attachment.url + ';;;' + jQuery("#" + id).val());
-                                                                    jQuery("#save-buttom").click();
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-                                                            wp.media.editor.open(button);
-                                                            return false;
-                                                        });
-
-                                                        jQuery('.widget-images-list').on('click', '.edit-image', function (e) {
-                                                            jQuery(this).parents("#images-list > li").addClass('submit-post');
-                                                            var $src;
-                                                            var button = jQuery(this);
-                                                            var id = button.parents('.widget-images-list').find('.all-urls').attr('id');
-                                                            var img = button.prev('img');
-                                                            _custom_media = true;
-                                                            jQuery(".media-menu .media-menu-item").css("display", "none");
-                                                            jQuery(".media-menu-item:first").css("display", "block");
-                                                            jQuery(".separator").next().css("display", "none");
-                                                            jQuery('.attachment-filters').val('image').trigger('change');
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    img.attr('src', attachment.url);
-                                                                    var allurls = '';
-                                                                    img.parents('.widget-images-list').find('img').not('.plus').each(function () {
-                                                                        if (jQuery(this).hasClass('editthisvideo')) {
-                                                                            $src = jQuery(this).attr('data-video-src');
-                                                                        } else {
-                                                                            $src = jQuery(this).attr('src');
-                                                                        }
-                                                                        allurls = allurls + $src + ';';
-                                                                    });
-                                                                    jQuery("#" + id).val(allurls);
-                                                                    secondimageslistlisize();
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-                                                            wp.media.editor.open(button);
-                                                            return false;
-                                                        });
-
-                                                        jQuery('.add_media').on('click', function () {
-                                                            _custom_media = false;
-                                                        });
-                                                        /*#####ADD IMAGE######*/
-                                                        jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function (e) {
-                                                            jQuery(this).parents("#images-list > li").addClass('submit-post');
-
-                                                            var button = jQuery(this);
-                                                            var id = button.attr('id').replace('_button', '');
-                                                            _custom_media = true;
-
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    jQuery("#" + id).parent().parent().before('<li class="editthisimage1 "><img src="' + attachment.url + '" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
-                                                                    //alert(jQuery("#"+id).val());
-                                                                    jQuery("#" + id).val(jQuery("#" + id).val() + attachment.url + ';');
-
-                                                                    secondimageslistlisize();
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-
-                                                            wp.media.editor.open(button);
-
-                                                            return false;
-                                                        });
-
-
-                                                        /*#####REMOVE IMAGE######*/
-                                                        jQuery("ul.widget-images-list").on('click', '.remove-image', function () {
-                                                            jQuery(this).parents("#images-list > li").addClass('submit-post');
-                                                            jQuery(this).parent().find('img').remove();
-
-                                                            var allUrls = "";
-                                                            var $src;
-
-                                                            jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').each(function () {
-                                                                if (jQuery(this).hasClass('editthisvideo')) {
-                                                                    $src = jQuery(this).attr('data-video-src');
-                                                                } else {
-                                                                    $src = jQuery(this).attr('src');
-                                                                }
-                                                                allUrls = allUrls + $src + ';';
-                                                                jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
-                                                                secondimageslistlisize();
-                                                            });
-                                                            jQuery(this).parent().remove();
-                                                            return false;
-                                                        });
-
-                                                        /*#####HIDE NEW UPLOADER'S LEFT MENU######*/
-                                                        jQuery(".wp-media-buttons-icon").click(function () {
-                                                            jQuery(".media-menu .media-menu-item").css("display", "none");
-                                                            jQuery(".media-menu-item:first").css("display", "block");
-                                                            jQuery(".separator").next().css("display", "none");
-                                                            jQuery('.attachment-filters').val('image').trigger('change');
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                        });
-                                                    });
-                                                </script>
                                             </div>
                                             <div class="image-options">
                                                 <div class="options-container">
@@ -640,8 +255,10 @@ if (isset($_GET["addslide"])) {
                                         break;
                                     case 'video':
                                         ?>
-                                        <!--<add>-->
-                                        <li <?php if ($j % 2 == 0) echo "class='has-background'"; $j++; ?>>
+                                        <li class='portfolio-item <?php if ( $j % 2 == 0 ) {
+                                            echo "has-background";
+                                        }
+                                        $j ++; ?>' data-portfolio-item-id="<?php echo $rowimages->id; ?>">
                                             <input class="order_by" type="hidden"
                                                    name="order_by_<?php echo $rowimages->id; ?>"
                                                    value="<?php echo esc_attr($rowimages->ordering); ?>"/>
@@ -651,17 +268,27 @@ if (isset($_GET["addslide"])) {
                                                     array_pop($imgurl);
                                                     $i = 0;
                                                     foreach ($imgurl as $key1 => $img) {
-                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') : ?>
-                                                            <li class="editthisvideo editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
+                                                        $edit_thumb_video_nonce = wp_create_nonce( 'edit_thumb_video_nonce' . $rowimages->id . $i );
+                                                        if (portfolio_gallery_youtube_or_vimeo_portfolio($img) != 'image') :
+                                                            $video_id = portfolio_gallery_get_video_id_from_url( $img );
+                                                            if ( portfolio_gallery_youtube_or_vimeo_portfolio( $img ) == 'youtube' ) {
+                                                                $iframe_video_src = "//www.youtube.com/embed/" . $video_id[0] . "?modestbranding=1&showinfo=0&controls=0";
+                                                            } else {
+                                                                $iframe_video_src = "//player.vimeo.com/video/" . $video_id[0] . "?title=0&amp;byline=0&amp;portrait=0";
+                                                            }?>
+                                                            <li class="editthisvideo editthisimage<?php echo $key; ?><?php if ( $i == 0 ) {
+                                                                echo 'first';
+                                                            } ?>" data-video-index="<?php echo $i; ?>"
+                                                                data-iframe-src="<?php echo $iframe_video_src; ?>">
                                                                 <img class="editthisvideo"
-                                                                     src="<?php echo esc_attr(get_image_from_video($img)); ?>"
+                                                                     src="<?php echo esc_attr(portfolio_gallery_get_image_from_video($img)); ?>"
                                                                      data-video-src="<?php echo esc_attr($img); ?>"
                                                                      alt="<?php echo esc_attr($img); ?>"/>
                                                                 <div
                                                                     class="play-icon <?php echo portfolio_gallery_youtube_or_vimeo_portfolio($img) == 'youtube' ? 'youtube-icon' : 'vimeo-icon'; ?>"></div>
-                                                                <a class="thickbox"
-                                                                   href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video_edit&portfolio_id=<?php echo $rowimages->portfolio_id; ?>&id=<?php echo $rowimages->id; ?>&thumb=<?php echo $i; ?>&TB_iframe=1&closepop=1"
-                                                                   id="xxx">
+                                                                <a class="thickbox edit-video-button"
+                                                                   data-edit-thumb-video="<?php echo $edit_thumb_video_nonce; ?>"
+                                                                   href="#TB_inline?width=700&height=500&inlineId=portfolio-gallery-edit-video">
                                                                     <input type="button" class="edit-video"
                                                                            id="edit-video_<?php echo $rowimages->id; ?>_<?php echo $key; ?>"
                                                                            value="Edit"/>
@@ -694,8 +321,8 @@ if (isset($_GET["addslide"])) {
                                                                    class="all-urls"
                                                                    value="<?php echo esc_attr($rowimages->image_url); ?>"/>
                                                             <a title="Add video" class="add-video-slide thickbox"
-                                                               href="admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id=<?php echo $row->id; ?>&thumb_parent=<?php echo $rowimages->id; ?>&TB_iframe=1">
-                                                                <!--</add> thumb parent is project's image id-->
+                                                               data-add-thumb-video-nonce="<?php echo $add_thumb_video_nonce; ?>"
+                                                               href="#TB_inline?width=700&height=500&inlineId=portfolio_gallery_add_videos">
                                                                 <img
                                                                     src="<?php echo esc_attr(Portfolio_Gallery()->plugin_url() . '/assets/images/admin_images/icon-video.png'); ?>"
                                                                     title="Add video" alt="" class="plus"/>
@@ -716,133 +343,6 @@ if (isset($_GET["addslide"])) {
                                                         </div>
                                                     </li>
                                                 </ul>
-                                                <script>
-                                                    jQuery(document).ready(function ($) {
-                                                        function secondimageslistlisize() {
-                                                            var lisaze = jQuery('#images-list').width();
-                                                            lisaze = lisaze * 0.06;
-                                                            jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
-                                                        }
-
-                                                        jQuery(".wp-media-buttons-icon").click(function () {
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                        });
-                                                        var _custom_media = true,
-                                                            _orig_send_attachment = wp.media.editor.send.attachment;
-
-                                                        /*#####ADD NEW PROJECT######*/
-                                                        jQuery('.huge-it-newuploader .button').click(function (e) {
-                                                            var button = jQuery(this);
-                                                            var id = button.attr('id').replace('_button', '');
-                                                            _custom_media = true;
-
-                                                            jQuery("#" + id).val('');
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    jQuery("#" + id).val(attachment.url + ';;;' + jQuery("#" + id).val());
-                                                                    jQuery("#save-buttom").click();
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-                                                            wp.media.editor.open(button);
-                                                            return false;
-                                                        });
-
-                                                        /*#####EDIT IMAGE######*/
-                                                        jQuery('.widget-images-list').on('click', '.edit-image', function (e) {
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
-                                                            var $src;
-                                                            var button = jQuery(this);
-                                                            var id = button.parents('.widget-images-list').find('.all-urls').attr('id');
-                                                            var img = button.prev('img');
-                                                            _custom_media = true;
-                                                            jQuery(".media-menu .media-menu-item").css("display", "none");
-                                                            jQuery(".media-menu-item:first").css("display", "block");
-                                                            jQuery(".separator").next().css("display", "none");
-                                                            jQuery('.attachment-filters').val('image').trigger('change');
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    img.attr('src', attachment.url);
-                                                                    var allurls = '';
-                                                                    img.parents('.widget-images-list').find('img').not('.plus').each(function () {
-                                                                        if (jQuery(this).hasClass('editthisvideo')) {
-                                                                            $src = jQuery(this).attr('data-video-src');
-                                                                        }
-                                                                        else $src = jQuery(this).attr('src');
-                                                                        allurls = allurls + $src + ';';
-                                                                    });
-                                                                    jQuery("#" + id).val(allurls);
-                                                                    secondimageslistlisize();
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-                                                            wp.media.editor.open(button);
-                                                            return false;
-                                                        });
-
-                                                        jQuery('.add_media').on('click', function () {
-                                                            _custom_media = false;
-                                                        });
-
-                                                        /*#####ADD IMAGE######*/
-                                                        jQuery('.add-image.button<?php echo $rowimages->id; ?>').click(function (e) {
-                                                            var send_attachment_bkp = wp.media.editor.send.attachment;
-
-                                                            var button = jQuery(this);
-                                                            var id = button.attr('id').replace('_button', '');
-                                                            _custom_media = true;
-
-                                                            wp.media.editor.send.attachment = function (props, attachment) {
-                                                                if (_custom_media) {
-                                                                    jQuery("#" + id).parent().parent().before('<li class="editthisimage1 "><img src="' + attachment.url + '" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
-                                                                    //alert(jQuery("#"+id).val());
-                                                                    jQuery("#" + id).val(jQuery("#" + id).val() + attachment.url + ';');
-
-                                                                    secondimageslistlisize();
-
-                                                                } else {
-                                                                    return _orig_send_attachment.apply(this, [props, attachment]);
-                                                                }
-                                                            };
-
-                                                            wp.media.editor.open(button);
-
-                                                            return false;
-                                                        });
-
-                                                        /*#####REMOVE IMAGE######*/
-                                                        jQuery("ul.widget-images-list").on('click', '.remove-image', function () {
-                                                            jQuery(this).parent().find('img').remove();
-                                                            var allUrls = "",
-                                                                $src;
-
-                                                            jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').each(function () {
-                                                                if (jQuery(this).hasClass('editthisvideo')) {
-                                                                    $src = jQuery(this).attr('data-video-src');
-                                                                } else {
-                                                                    $src = jQuery(this).attr('src');
-                                                                }
-                                                                allUrls = allUrls + $src + ';';
-                                                                jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
-                                                                secondimageslistlisize();
-                                                            });
-                                                            jQuery(this).parent().remove();
-                                                            return false;
-                                                        });
-
-                                                        /*#####HIDE NEW UPLOADER'S LEFT MENU######*/
-                                                        jQuery(".wp-media-buttons-icon").click(function () {
-                                                            jQuery(".media-menu .media-menu-item").css("display", "none");
-                                                            jQuery(".media-menu-item:first").css("display", "block");
-                                                            jQuery(".separator").next().css("display", "none");
-                                                            jQuery('.attachment-filters').val('image').trigger('change');
-                                                            jQuery(".attachment-filters").css("display", "none");
-                                                        });
-                                                    });
-                                                </script>
                                             </div>
                                             <div class="image-options">
                                                 <div class="options-container">
@@ -917,40 +417,6 @@ if (isset($_GET["addslide"])) {
                         </ul>
                     </div>
                 </div>
-                <script>
-                    jQuery('.category-container select').change(function () {
-                        var cat_new_val = jQuery(this).val();
-                        var new_cat_name = jQuery(this).parent().find('input').attr('name');
-                        jQuery('#' + new_cat_name).attr('value', cat_new_val + ',');
-                    });
-                    jQuery(document).on('click', '#edit_cat', function () {
-                        jQuery(this).parent().find('.del_val').focus();
-                        var changing_val = jQuery(this).parent().find('.del_val').val().replace(/ /g, '_');
-                        jQuery('#changing_val').removeAttr('value').attr('value', changing_val);
-                    });
-
-                    jQuery(document).on('click', '#portfolios-list .active', function () {
-                        jQuery(this).find('input').focus();
-                    });
-
-                    //getting category old name
-                    jQuery(document).on('focus', '.del_val', function () {
-                        var changing_val = jQuery(this).val().replace(/ /g, "_");
-                        jQuery('#changing_val').removeAttr('value').attr('value', changing_val);
-                    });
-
-                    jQuery(document).on('change', '.del_val', function () {
-                        var no_edited_cats = jQuery("#allCategories").val().replace(/ /g, "_");
-                        var old_name = jQuery('#changing_val').val();
-                        var edited_cat = jQuery(this).val();
-                        edited_cat = edited_cat.replace(/ /g, "_");
-                        var new_cat = no_edited_cats.replace(old_name, edited_cat);
-                        jQuery('#allCategories').val(new_cat);
-                    });
-
-                </script>
-
-                <!-- SIDEBAR -->
                 <div id="postbox-container-1" class="postbox-container">
                     <div id="side-sortables" class="meta-box-sortables ui-sortable">
                         <div id="portfolio-unique-options" class="postbox">
@@ -963,7 +429,7 @@ if (isset($_GET["addslide"])) {
                                         for="huge_it_portfolio_name"><?php echo __('Portfolio Name', 'portfolio-gallery'); ?></label>
                                     <input type="text" name="name" id="huge_it_portfolio_name"
                                            value="<?php echo esc_html(stripslashes($row->name)); ?>"
-                                           onkeyup="name_changeRight(this)">
+                                           onkeyup="sidebarNameChange(this)">
                                 </li>
                                 <li style="display:none;">
                                     <label
@@ -1205,7 +671,9 @@ if (isset($_GET["addslide"])) {
                 </div>
             </div>
         </div>
-        <!--<?php wp_nonce_field( 'apply_portfolio_' . $row->id, 'hugeit_portfolio_apply_portfolio_nonce' ); ?>-->
-<!--        <input type="hidden" name="task" value=""/>-->
     </form>
 </div>
+<?php
+require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-video-add-html.php' );
+require_once( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-video-edit-html.php' );
+?>

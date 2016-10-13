@@ -38,11 +38,9 @@ class Portfolio_Gallery_Ajax {
 				wp_die();
 			}
 		}
-		/**************************Options DB update****************************************/
-		if ( $_POST['post'] === 'portfolioSaveOptions' ) {
+		if ( $_POST['post'] == 'portfolioSaveOptions' ) {
 			if ( isset( $_POST["htportfolio_id"] ) ) {
 				$id = absint($_POST["htportfolio_id"]);
-
 				$wpdb->update(
 					$wpdb->prefix . "huge_itportfolio_portfolios",
 					array(
@@ -57,6 +55,22 @@ class Portfolio_Gallery_Ajax {
 					array('%s', '%s', '%s', '%s', '%s', '%s')
 				);
 			}
+		}
+		if (  $_POST['post'] == 'see_new_video' ) {
+			if ( ! isset( $_REQUEST['videoEditNonce'] ) || ! wp_verify_nonce( $_REQUEST['videoEditNonce'], 'see_new_video_nonce' ) ) {
+				die( __( 'Authentication failed', 'portfolio-gallery' ) );
+			}
+			$video_url = sanitize_text_field( $_POST['videoUrl'] );
+			$video_id = portfolio_gallery_get_video_id_from_url( $video_url );
+			$video_id = $video_id[0];
+			$video_type = portfolio_gallery_youtube_or_vimeo_portfolio( $video_url );
+			if ( $video_type == 'youtube' ) {
+				$iframe_video_src = "//www.youtube.com/embed/" . $video_id . "?modestbranding=1&showinfo=0&controls=0";
+			} else {
+				$iframe_video_src = "//player.vimeo.com/video/" . $video_id . "?title=0&amp;byline=0&amp;portrait=0";
+			}
+			echo json_encode( $iframe_video_src );
+			wp_die();
 		}
 	}
 }

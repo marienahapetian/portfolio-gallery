@@ -3,29 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<script>
-	jQuery(document).ready(function () {
-		var strliID = jQuery(location).attr('hash');
-//alert(strliID);
-		jQuery('#portfolio-view-tabs li').removeClass('active');
-		if (jQuery('#portfolio-view-tabs li a[href="' + strliID + '"]').length > 0) {
-			jQuery('#portfolio-view-tabs li a[href="' + strliID + '"]').parent().addClass('active');
-		} else {
-			jQuery('#portfolio-view-tabs li a[href="#portfolio-view-options-0"]').parent().addClass('active');
-		}
-		jQuery('#portfolio-view-tabs-contents li').removeClass('active');
 
-		if (jQuery(strliID).length > 0) {
-			jQuery(strliID).addClass('active');
-		} else {
-			jQuery('#portfolio-view-options-0').addClass('active');
-		}
-		jQuery('input[data-slider="true"]').bind("slider:changed", function (event, data) {
-			jQuery(this).parent().find('span').html(parseInt(data.value) + "%");
-			jQuery(this).val(parseInt(data.value));
-		});
-	});
-</script>
 <div class="wrap">
 <div>
 	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
