@@ -1,9 +1,9 @@
+
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-?>
-<style>
+?><style>
     /***For Content Slider view***/
 #p-main-slider_<?php echo $portfolioID; ?> .play-icon.youtube-icon  {
     background: url('<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.youtube.png';?>') center center no-repeat;
@@ -28,27 +28,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /***</add>***/
 #p-main-slider_<?php echo $portfolioID; ?>-wrapper .ls-nav { display: none; }
-#p-main-slider_<?php echo $portfolioID; ?> {background:#<?php echo $paramssld["ht_view5_slider_background_color"];?>;}
+#p-main-slider_<?php echo $portfolioID; ?> {background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_slider_background_color"];?>;}
 
 #p-main-slider_<?php echo $portfolioID; ?> div.slider-content {
+    position:relative;
     width:100%;
     padding:0 0 0 0;
     position:relative;
-    background:#<?php echo $paramssld["ht_view5_slider_background_color"];?>;
+    background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_slider_background_color"];?>;
 }
 
 
 
 [class$="-arrow"] {
-    background-image:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/arrow.'.$paramssld["ht_view5_icons_style"].'.png';?>') !important;
+    background-image:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/arrow.'.$portfolio_gallery_get_options["portfolio_gallery_ht_view5_icons_style"].'.png';?>') !important;
 }
 
 .ls-select-box {
-    background:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/menu.'.$paramssld["ht_view5_icons_style"].'.png';?>') right center no-repeat #<?php echo $paramssld["ht_view5_slider_background_color"];?> !important;
+    background:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/menu.'.$portfolio_gallery_get_options["portfolio_gallery_ht_view5_icons_style"].'.png';?>') right center no-repeat #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_slider_background_color"];?> !important;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?>-nav-select {
-    color:#<?php echo $paramssld["ht_view5_title_font_color"];?>;
+    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_title_font_color"];?>;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> div.slider-content .slider-content-wrapper {
@@ -59,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> {
-    width:<?php echo $paramssld["ht_view5_main_image_width"];?>px;
+    width:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_main_image_width"];?>px;
     display:table-cell;
     padding:0 10px 0 0;
     float:left;
@@ -76,6 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     list-style:none;
     display:table;
     position:relative;
+    clear:both;
     width:100%;
     margin:10px 0 0 0;
     padding:0;
@@ -85,8 +87,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> ul.thumbs-list_<?php echo $portfolioID; ?> li {
     display:block;
     float:left;
-    width:<?php echo $paramssld["ht_view5_thumbs_width"];?>px;
-    height:<?php echo $paramssld["ht_view5_thumbs_height"];?>px;
+    width:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_thumbs_width"];?>px;
+    height:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_thumbs_height"];?>px;
     margin:0 2% 5px 1%;
     opacity:0.45;
 }
@@ -103,8 +105,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> ul.thumbs-list_<?php echo $portfolioID; ?> li img {
     margin:0 !important;
     padding:0 !important;
-    width:<?php echo $paramssld["ht_view5_thumbs_width"];?>px !important;
-    height:<?php echo $paramssld["ht_view5_thumbs_height"];?>px !important;
+    width:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_thumbs_width"];?>px !important;
+    height:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_thumbs_height"];?>px !important;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block {
@@ -114,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block > div {
     padding-bottom:10px;
     margin-top:10px;
-<?php if($paramssld['ht_view5_show_separator_lines']=="on") {?>
+<?php if($portfolio_gallery_get_options['portfolio_gallery_ht_view5_show_separator_lines']=="on") {?>
     background:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/divider.line.png'; ?>') center bottom repeat-x;
 <?php } ?>
 }
@@ -125,18 +127,18 @@ if ( ! defined( 'ABSPATH' ) ) {
     position:relative;
     display:block;
     margin:-10px 0 0 0;
-    font-size:<?php echo $paramssld["ht_view5_title_font_size"];?>px !important;
-    line-height:<?php echo $paramssld["ht_view5_title_font_size"]+4;?>px !important;
-    color:#<?php echo $paramssld["ht_view5_title_font_color"];?>;
+    font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_title_font_size"];?>px !important;
+    line-height:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_title_font_size"]+4;?>px !important;
+    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_title_font_color"];?>;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block .description {
     clear:both;
     position:relative;
     text-align:justify;
-    font-size:<?php echo $paramssld["ht_view5_description_font_size"];?>px !important;
-    line-height:<?php echo $paramssld["ht_view5_description_font_size"]+4;?>px !important;
-    color:#<?php echo $paramssld["ht_view5_description_color"];?>;
+    font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_description_font_size"];?>px !important;
+    line-height:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_description_font_size"]+4;?>px !important;
+    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_description_color"];?>;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block .description h1,
@@ -168,16 +170,16 @@ if ( ! defined( 'ABSPATH' ) ) {
     position:relative;
     display:inline-block;
     padding:6px 12px;
-    background:#<?php echo $paramssld["ht_view5_linkbutton_background_color"];?>;
-    color:#<?php echo $paramssld["ht_view5_linkbutton_color"];?>;
-    font-size:<?php echo $paramssld["ht_view5_linkbutton_font_size"];?>px;
+    background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_background_color"];?>;
+    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_color"];?>;
+    font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_font_size"];?>px;
     text-decoration:none;
     border:none;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .button-block a:hover,#p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .button-block a:focus,#p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .button-block a:active {
-    background:#<?php echo $paramssld["ht_view5_linkbutton_background_hover_color"];?>;
-    color:#<?php echo $paramssld["ht_view5_linkbutton_font_hover_color"];?>;
+    background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_background_hover_color"];?>;
+    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_font_hover_color"];?>;
 }
 
 @media only screen and (min-width:500px) {

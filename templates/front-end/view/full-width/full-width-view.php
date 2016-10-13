@@ -3,49 +3,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" data-portfolio-id="<?php echo $portfolioID; ?>"  class="portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
-	echo 'sortingActive ';
-}
-if ( $portfolioShowFiltering == 'on' ) {
-	echo 'filteringActive';
-} ?>">
+<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>"
+         class="clear portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
+	         echo 'sortingActive ';
+         }
+         if ( $portfolioShowFiltering == 'on' ) {
+	         echo 'filteringActive';
+         } ?>"
+         data-portfolio-id="<?php echo $portfolioID; ?>">
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left' ) || ( $sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right' ) ) { ?>
 	<div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
 		<?php } ?>
 		<?php if ( $portfolioShowSorting == "on" ) { ?>
 			<div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>"
-			     data-sorting-position="<?php echo $paramssld["ht_view1_sorting_float"]; ?>">
+			     data-sorting-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view1_sorting_float"]; ?>">
 				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
-					<?php if ( $paramssld["ht_view3_sorting_name_by_default"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_default"] != '' ): ?>
 						<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
-						       data><?php echo $paramssld["ht_view3_sorting_name_by_default"]; ?></a></li>
+						       data><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_default"]; ?></a></li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view3_sorting_name_by_id"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_id"] != '' ): ?>
 						<li><a href="#sortBy=id"
-						       data-option-value="id"><?php echo $paramssld["ht_view3_sorting_name_by_id"]; ?></a>
+						       data-option-value="id"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_id"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view3_sorting_name_by_name"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_name"] != '' ): ?>
 						<li><a href="#sortBy=symbol"
-						       data-option-value="symbol"><?php echo $paramssld["ht_view3_sorting_name_by_name"]; ?></a>
+						       data-option-value="symbol"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_name"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view3_sorting_name_by_random"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_random"] != '' ): ?>
 						<li id="shuffle"><a
-								href='#shuffle'><?php echo $paramssld["ht_view3_sorting_name_by_random"]; ?></a>
+								href='#shuffle'><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_random"]; ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>
 				<ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
-					<?php if ( $paramssld["ht_view3_sorting_name_by_asc"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_asc"] != '' ): ?>
 						<li><a href="#sortAscending=true" data-option-value="true"
-						       class="selected"><?php echo $paramssld["ht_view3_sorting_name_by_asc"]; ?></a>
+						       class="selected"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_asc"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view3_sorting_name_by_desc"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_desc"] != '' ): ?>
 						<li><a href="#sortAscending=false"
-						       data-option-value="false"><?php echo $paramssld["ht_view3_sorting_name_by_desc"]; ?></a>
+						       data-option-value="false"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_name_by_desc"]; ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>
@@ -53,9 +55,9 @@ if ( $portfolioShowFiltering == 'on' ) {
 		<?php }
 		if ( $portfolioShowFiltering == "on" ) { ?>
 			<div id="huge_it_portfolio_filters_<?php echo $portfolioID; ?>"
-			     data-filtering-position="<?php echo $paramssld["ht_view1_filtering_float"]; ?>">
+			     data-filtering-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view1_filtering_float"]; ?>">
 				<ul>
-					<li rel="*"><a><?php echo $paramssld["ht_view3_cat_all"]; ?></a></li>
+					<li rel="*"><a><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_cat_all"]; ?></a></li>
 					<?php
 					$portfolioCats = explode( ",", $portfolioCats );
 					foreach ( $portfolioCats as $portfolioCatsValue ) {
@@ -76,7 +78,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 	<div id="huge_it_portfolio_container_<?php echo $portfolioID; ?>"
 	     data-show-loading="<?php echo $portfolioShowLoading; ?>"
 	     data-show-center="<?php echo $portfolioposition; ?>"
-	     class="huge_it_portfolio_container super-list variable-sizes clearfix view-<?php echo $view_slug; ?>" <?php if ( $paramssld["ht_view3_sorting_float"] == "top" && $paramssld["ht_view3_filtering_float"] == "top" ) {
+	     class="huge_it_portfolio_container super-list variable-sizes clearfix view-<?php echo $view_slug; ?>" <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_float"] == "top" && $portfolio_gallery_get_options["portfolio_gallery_ht_view3_filtering_float"] == "top" ) {
 		echo "style='clear: both;'";
 	} ?>>
 		<?php
@@ -108,13 +110,13 @@ if ( $portfolioShowFiltering == 'on' ) {
 											alt="<?php echo esc_attr( $row->name ); ?>"
 											id="wd-cl-img<?php echo $key; ?>"
 											src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
-												$paramssld['ht_view3_mainimage_width'],
+												$portfolio_gallery_get_options['portfolio_gallery_ht_view3_mainimage_width'],
 												''
 											), false ) ); ?>"></a>
 									<?php
 									break;
 								case 'youtube':
-									$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] ); ?>
+									$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 									<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> add-H-block"
 									   title="<?php echo esc_attr( $row->name ); ?>">
@@ -125,7 +127,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 
 									<?php break;
 								case 'vimeo':
-									$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
+									$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
 									$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 									$imgsrc = $hash[0]['thumbnail_large']; ?>
 									<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> add-H-block"
@@ -148,7 +150,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					</div>
 					<div class="thumbs-block">
 						<?php
-						if ( $paramssld["ht_view3_show_thumbs"] == 'on' ) {
+						if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_show_thumbs"] == 'on' ) {
 							?>
 							<ul class="thumbs-list_<?php echo $portfolioID; ?>">
 								<?php
@@ -161,16 +163,15 @@ if ( $portfolioShowFiltering == 'on' ) {
 										case 'image':
 											?>
 											<li><a href="<?php echo esc_url( $img ); ?>"
-											       class=" portfolio-group<?php echo $group_key; ?> "
-											       title="<?php esc_attr( portfolio_gallery_huge_it_title_img_display( $img, $title ) ); ?>"><img
+											       class=" portfolio-group<?php echo $group_key; ?> "><img
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
-															$paramssld['ht_view3_thumbs_width'],
-															$paramssld['ht_view3_thumbs_height']
+															$portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_width'],
+															$portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_height']
 														), true ) ); ?>"></a>
 											</li>
 											<?php break;
 										case 'youtube':
-											$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img ); ?>
+											$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 											<li>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?>  add-H-relative"
@@ -184,7 +185,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 											<?php
 											break;
 										case 'vimeo':
-											$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img );
+											$videourl = portfolio_gallery_get_video_id_from_url( $img );
 											$hash   = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 											$imgsrc = $hash[0]['thumbnail_large']; ?>
 											<li>
@@ -200,6 +201,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 											<?php
 											break;
 									}
+
 								}
 								?>
 							</ul>
@@ -213,7 +215,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					<div class="title-block_<?php echo $portfolioID; ?>">
 						<h3><?php echo $row->name; ?></h3></div><?php } ?>
 					<?php
-					if ( $paramssld["ht_view3_show_description"] == 'on' ) {
+					if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_show_description"] == 'on' ) {
 						if ( $row->description != '' ) { ?>
 							<div class="description-block_<?php echo $portfolioID; ?>">
 								<p><?php echo $row->description; ?></p></div>
@@ -221,19 +223,21 @@ if ( $portfolioShowFiltering == 'on' ) {
 					<?php }
 
 					if ( $link != '' ) {
-						if ( $paramssld["ht_view3_show_linkbutton"] == 'on' && $paramssld["ht_view3_linkbutton_text"] != '' && $link != '' ) {
+						if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_show_linkbutton"] == 'on' && $portfolio_gallery_get_options["portfolio_gallery_ht_view3_linkbutton_text"] != '' && $link != '' ) {
 							?>
 							<div class="button-block">
 								<a href="<?php echo esc_url( $link ); ?>" <?php if ( $row->link_target == "on" ) {
 									echo 'target="_blank"';
-								} ?>><?php echo $paramssld["ht_view3_linkbutton_text"]; ?></a>
+								} ?>><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_linkbutton_text"]; ?></a>
 							</div>
 						<?php }
 					} ?>
 				</div>
 			</div>
+
 			<?php
 		}
 		?>
+
 	</div>
 </section>

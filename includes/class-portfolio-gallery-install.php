@@ -53,9 +53,11 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itportfolio_portfolios` (
   `ordering` int(11) NOT NULL,
   `published` text,
   `categories` text NOT NULL,
-  `ht_show_sorting` text NOT NULL,
-  `ht_show_filtering` text NOT NULL,
+  `ht_show_sorting` varchar(3) NOT NULL DEFAULT 'off',
+  `ht_show_filtering` varchar(3) NOT NULL DEFAULT 'off',
   `autoslide` varchar(5) NOT NULL DEFAULT 'on',
+  `show_loading` varchar(3) NOT NULL DEFAULT 'on',
+  `loading_icon_type` int(2) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 ) " . $charset . " AUTO_INCREMENT=2";
 
@@ -74,9 +76,6 @@ INSERT INTO
 (9, 'Cone Music', '1', '<ul><li>lorem ipsumdolor sit amet</li><li>lorem ipsum dolor sit amet</li></ul><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.1.jpg" . ";" . Portfolio_Gallery()->plugin_url() . "/assets/images/Front_images/projects/5.2.jpg" . ";', 'http://huge-it.com/fields/order-website-maintenance/', 'image', 'on', 8, 1, NULL)";
 
         $table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
-
-
-
         $wpdb->query($sql_huge_itportfolio_images);
         $wpdb->query($sql_huge_itportfolio_portfolios);
 
@@ -95,117 +94,12 @@ INSERT INTO
 					'portfolio_list_effects_s' => '2',
 					'description' => '4000',
 					'param' => '1000',
-					'sl_position' => 'center',
+					'sl_position' => 'off',
 					'ordering' => 1,
-					'published' => '300'
+					'published' => '300',
+			        'categories'=>'My_First_Category,My_Second_Category,My_Third_Category,',
 		        )
 	        );
         }
-
-        $imagesAllFieldsInArray = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_images", ARRAY_A);
-        $forUpdate = 0;
-
-        foreach ($imagesAllFieldsInArray as $portfoliosField) {
-            if ($portfoliosField['Field'] == 'category') {
-                $forUpdate = 1;
-                $catValues = $wpdb->get_results("SELECT category FROM " . $wpdb->prefix . "huge_itportfolio_images");
-                $needToUpdate = 0;
-                foreach ($catValues as $catValue) {
-                    if ($catValue->category !== '') {
-                        $needToUpdate = 1;
-                    }
-                }
-                if ($needToUpdate == 0) {
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,My Third Category,' WHERE id='1'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='2'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Third Category,' WHERE id='3'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,My Second Category,' WHERE id='4'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,My Third Category,' WHERE id='5'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Third Category,' WHERE id='6'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='7'");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,' WHERE id='8'");
-                }
-
-                break;
-            }
-        }
-        if ($forUpdate) {
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_images ADD category text");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,My Third Category,' WHERE id='1'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='2'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Third Category,' WHERE id='3'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,My Second Category,' WHERE id='4'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,My Third Category,' WHERE id='5'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Third Category,' WHERE id='6'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My Second Category,' WHERE id='7'");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_images SET category = 'My First Category,' WHERE id='8'");
-        }
-
-        $productPortfolio = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
-        $isUpdate = 0;
-
-        foreach ($productPortfolio as $prodPortfolio) {
-            if ($prodPortfolio['Field'] == 'categories' && $prodPortfolio['Type'] == 'text') {
-                $isUpdate = 1;
-
-                $allCats = $wpdb->get_results("SELECT categories FROM " . $wpdb->prefix . "huge_itportfolio_portfolios");
-                $needToUpdateAllCats = 0;
-                foreach ($allCats as $AllCatsVal) {
-                    if ($AllCatsVal->categories !== '') {
-                        $needToUpdateAllCats = 1;
-                    }
-                }
-                if ($needToUpdateAllCats == 0) {
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET categories = 'My First Category,My Second Category,My Third Category,' ");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_sorting = 'off' ");
-                    $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_filtering = 'off' ");
-                }
-
-                break;
-            }
-        }
-        if ($isUpdate) {
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD categories text");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET categories = 'My First Category,My Second Category,My Third Category,'");
-
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD ht_show_sorting text");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_sorting = 'off'");
-
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios ADD ht_show_filtering text");
-            $wpdb->query("UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET ht_show_filtering = 'off'");
-        }
-        ////////////////////////////////////////////////////////////////////////
-        $portfoliosAllFieldsInArray1 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A);
-        $forNewUpdate1 = 0;
-        foreach ($portfoliosAllFieldsInArray1 as $portfoliosField) {
-            if ($portfoliosField['Field'] == 'show_loading') {
-                $forNewUpdate1 = 1;
-            }
-        }
-        if (!$forNewUpdate1) {
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `show_loading` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'");
-            $wpdb->query("ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `loading_icon_type` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  '1'");
-        }
-
-        $portfoliosAllFieldsInArray2 = $wpdb->get_results( "DESCRIBE " . $wpdb->prefix . "huge_itportfolio_portfolios", ARRAY_A );
-	    $forNewUpdate2               = 0;
-	    foreach ( $portfoliosAllFieldsInArray2 as $portfoliosField2 ) {
-		    if ( $portfoliosField2['Field'] == 'autoslide' ) {
-			    $forNewUpdate2 = 1;
-		    }
-	    }
-	    if ( ! $forNewUpdate2 ) {
-		    $wpdb->query( "ALTER TABLE " . $wpdb->prefix . "huge_itportfolio_portfolios  ADD `autoslide` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT  'on'" );
-	    }
-
-	    $table_name = $wpdb->prefix . "huge_itportfolio_images";
-	    $query      = "SELECT id,image_url,portfolio_id FROM " . $table_name . " WHERE portfolio_id=1";
-	    $images_url = $wpdb->get_results( $query );
-	    foreach ( $images_url as $image_url ) {
-		    if ( strpos( $image_url->image_url, 'portfolio-gallery/Front_images' ) > - 1 ) {
-			    $new_url = str_replace( 'portfolio-gallery/Front_images', 'portfolio-gallery/assets/images/Front_images', $image_url->image_url );
-			    $wpdb->query( $wpdb->prepare( "UPDATE " . $table_name . " SET image_url= %s WHERE id=%d", $new_url, $image_url->id ) );
-		    }
-	    }
     }
 }

@@ -12,7 +12,7 @@ class Huge_It_Portfolio_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		parent::__construct(
-			'huge_it_portfolio_widget',
+			'Huge_It_Portfolio_Widget',
 			'Huge IT Portfolio',
 			array( 'description' => __( 'Huge IT Portfolio', 'huge_it_portfolio' ), )
 		);

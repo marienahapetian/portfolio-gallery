@@ -20,7 +20,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 	 * Enqueue styles
 	 */
 	public function frontend_styles( $id, $portfolio_view ) {
-		$general_options = portfolio_gallery_get_general_options();
+		$general_options = portfolio_gallery_get_default_general_options();
 
 		wp_register_style( 'portfolio-all-css', plugins_url( '../assets/style/portfolio-all.css', __FILE__ ) );
 		wp_enqueue_style( 'portfolio-all-css' );
@@ -31,7 +31,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_register_style( 'lightbox-css', plugins_url( '../assets/style/lightbox.css', __FILE__ ) );
 		wp_enqueue_style( 'lightbox-css' );
 
-		wp_enqueue_style( 'portfolio_gallery_colorbox_css', untrailingslashit( Portfolio_Gallery()->plugin_url() ) . '/assets/style/colorbox-' . $general_options['light_box_style'] . '.css' );
+		wp_enqueue_style( 'portfolio_gallery_colorbox_css', untrailingslashit( Portfolio_Gallery()->plugin_url() ) . '/assets/style/colorbox-' . $general_options['portfolio_gallery_light_box_style'] . '.css' );
 
 		if ($portfolio_view == '5') {
 			wp_register_style( 'animate-css', plugins_url( '../assets/style/animate.min.css', __FILE__ ) );
@@ -73,64 +73,64 @@ class Portfolio_Gallery_Frontend_Scripts {
 	}
 
 	public function localize_scripts( $id ) {
-		$portfolio_param = portfolio_gallery_get_general_options();
+		$portfolio_param = portfolio_gallery_get_default_general_options();
 		$view_slug = portfolio_gallery_get_view_slag_by_id( $id );
 
 		$lightbox = array(
-			'lightbox_transition'     => $portfolio_param['light_box_transition'],
-			'lightbox_speed'          => $portfolio_param['light_box_speed'],
-			'lightbox_fadeOut'        => $portfolio_param['light_box_fadeout'],
-			'lightbox_title'          => $portfolio_param['light_box_title'],
-			'lightbox_scalePhotos'    => $portfolio_param['light_box_scalephotos'],
-			'lightbox_scrolling'      => $portfolio_param['light_box_scrolling'],
-			'lightbox_opacity'        => ( $portfolio_param['light_box_opacity'] / 100 ) + 0.001,
-			'lightbox_open'           => $portfolio_param['light_box_open'],
-			'lightbox_returnFocus'    => $portfolio_param['light_box_returnfocus'],
-			'lightbox_trapFocus'      => $portfolio_param['light_box_trapfocus'],
-			'lightbox_fastIframe'     => $portfolio_param['light_box_fastiframe'],
-			'lightbox_preloading'     => $portfolio_param['light_box_preloading'],
-			'lightbox_overlayClose'   => $portfolio_param['light_box_overlayclose'],
-			'lightbox_escKey'         => $portfolio_param['light_box_esckey'],
-			'lightbox_arrowKey'       => $portfolio_param['light_box_arrowkey'],
-			'lightbox_loop'           => $portfolio_param['light_box_loop'],
-			'lightbox_closeButton'    => $portfolio_param['light_box_closebutton'],
-			'lightbox_previous'       => $portfolio_param['light_box_previous'],
-			'lightbox_next'           => $portfolio_param['light_box_next'],
-			'lightbox_close'          => $portfolio_param['light_box_close'],
-			'lightbox_html'           => $portfolio_param['light_box_html'],
-			'lightbox_photo'          => $portfolio_param['light_box_photo'],
-			'lightbox_innerWidth'     => $portfolio_param['light_box_innerwidth'],
-			'lightbox_innerHeight'    => $portfolio_param['light_box_innerheight'],
-			'lightbox_initialWidth'   => $portfolio_param['light_box_initialwidth'],
-			'lightbox_initialHeight'  => $portfolio_param['light_box_initialheight'],
-			'lightbox_slideshow'      => $portfolio_param['light_box_slideshow'],
-			'lightbox_slideshowSpeed' => $portfolio_param['light_box_slideshowspeed'],
-			'lightbox_slideshowAuto'  => $portfolio_param['light_box_slideshowauto'],
-			'lightbox_slideshowStart' => $portfolio_param['light_box_slideshowstart'],
-			'lightbox_slideshowStop'  => $portfolio_param['light_box_slideshowstop'],
-			'lightbox_fixed'          => $portfolio_param['light_box_fixed'],
-			'lightbox_reposition'     => $portfolio_param['light_box_reposition'],
-			'lightbox_retinaImage'    => $portfolio_param['light_box_retinaimage'],
-			'lightbox_retinaUrl'      => $portfolio_param['light_box_retinaurl'],
-			'lightbox_retinaSuffix'   => $portfolio_param['light_box_retinasuffix'],
-			'lightbox_maxWidth'       => $portfolio_param['light_box_maxwidth'],
-			'lightbox_maxHeight'      => $portfolio_param['light_box_maxheight'],
-			'lightbox_sizeFix'        => $portfolio_param['light_box_size_fix']
+			'lightbox_transition'     => $portfolio_param['portfolio_gallery_light_box_transition'],
+			'lightbox_speed'          => $portfolio_param['portfolio_gallery_light_box_speed'],
+			'lightbox_fadeOut'        => $portfolio_param['portfolio_gallery_light_box_fadeout'],
+			'lightbox_title'          => $portfolio_param['portfolio_gallery_light_box_title'],
+			'lightbox_scalePhotos'    => $portfolio_param['portfolio_gallery_light_box_scalephotos'],
+			'lightbox_scrolling'      => $portfolio_param['portfolio_gallery_light_box_scrolling'],
+			'lightbox_opacity'        => ( $portfolio_param['portfolio_gallery_light_box_opacity'] / 100 ) + 0.001,
+			'lightbox_open'           => $portfolio_param['portfolio_gallery_light_box_open'],
+			'lightbox_returnFocus'    => $portfolio_param['portfolio_gallery_light_box_returnfocus'],
+			'lightbox_trapFocus'      => $portfolio_param['portfolio_gallery_light_box_trapfocus'],
+			'lightbox_fastIframe'     => $portfolio_param['portfolio_gallery_light_box_fastiframe'],
+			'lightbox_preloading'     => $portfolio_param['portfolio_gallery_light_box_preloading'],
+			'lightbox_overlayClose'   => $portfolio_param['portfolio_gallery_light_box_overlayclose'],
+			'lightbox_escKey'         => $portfolio_param['portfolio_gallery_light_box_esckey'],
+			'lightbox_arrowKey'       => $portfolio_param['portfolio_gallery_light_box_arrowkey'],
+			'lightbox_loop'           => $portfolio_param['portfolio_gallery_light_box_loop'],
+			'lightbox_closeButton'    => $portfolio_param['portfolio_gallery_light_box_closebutton'],
+			'lightbox_previous'       => $portfolio_param['portfolio_gallery_light_box_previous'],
+			'lightbox_next'           => $portfolio_param['portfolio_gallery_light_box_next'],
+			'lightbox_close'          => $portfolio_param['portfolio_gallery_light_box_close'],
+			'lightbox_html'           => $portfolio_param['portfolio_gallery_light_box_html'],
+			'lightbox_photo'          => $portfolio_param['portfolio_gallery_light_box_photo'],
+			'lightbox_innerWidth'     => $portfolio_param['portfolio_gallery_light_box_innerwidth'],
+			'lightbox_innerHeight'    => $portfolio_param['portfolio_gallery_light_box_innerheight'],
+			'lightbox_initialWidth'   => $portfolio_param['portfolio_gallery_light_box_initialwidth'],
+			'lightbox_initialHeight'  => $portfolio_param['portfolio_gallery_light_box_initialheight'],
+			'lightbox_slideshow'      => $portfolio_param['portfolio_gallery_light_box_slideshow'],
+			'lightbox_slideshowSpeed' => $portfolio_param['portfolio_gallery_light_box_slideshowspeed'],
+			'lightbox_slideshowAuto'  => $portfolio_param['portfolio_gallery_light_box_slideshowauto'],
+			'lightbox_slideshowStart' => $portfolio_param['portfolio_gallery_light_box_slideshowstart'],
+			'lightbox_slideshowStop'  => $portfolio_param['portfolio_gallery_light_box_slideshowstop'],
+			'lightbox_fixed'          => $portfolio_param['portfolio_gallery_light_box_fixed'],
+			'lightbox_reposition'     => $portfolio_param['portfolio_gallery_light_box_reposition'],
+			'lightbox_retinaImage'    => $portfolio_param['portfolio_gallery_light_box_retinaimage'],
+			'lightbox_retinaUrl'      => $portfolio_param['portfolio_gallery_light_box_retinaurl'],
+			'lightbox_retinaSuffix'   => $portfolio_param['portfolio_gallery_light_box_retinasuffix'],
+			'lightbox_maxWidth'       => $portfolio_param['portfolio_gallery_light_box_maxwidth'],
+			'lightbox_maxHeight'      => $portfolio_param['portfolio_gallery_light_box_maxheight'],
+			'lightbox_sizeFix'        => $portfolio_param['portfolio_gallery_light_box_size_fix']
 		);
 
-		if ( $portfolio_param['light_box_size_fix'] == 'false' ) {
+		if ( $portfolio_param['portfolio_gallery_light_box_size_fix'] == 'false' ) {
 			$lightbox['lightbox_width'] = '';
 		} else {
-			$lightbox['lightbox_width'] = $portfolio_param['light_box_width'];
+			$lightbox['lightbox_width'] = $portfolio_param['portfolio_gallery_light_box_width'];
 		}
 
-		if ( $portfolio_param['light_box_size_fix'] == 'false' ) {
+		if ( $portfolio_param['portfolio_gallery_light_box_size_fix'] == 'false' ) {
 			$lightbox['lightbox_height'] = '';
 		} else {
-			$lightbox['lightbox_height'] = $portfolio_param['light_box_height'];
+			$lightbox['lightbox_height'] = $portfolio_param['portfolio_gallery_light_box_height'];
 		}
 
-		$pos = $portfolio_param['slider_title_position'];
+		$pos = $portfolio_param['portfolio_gallery_slider_title_position'];
 		switch ( $pos ) {
 			case 1:
 				$lightbox['lightbox_top']    = '10%';

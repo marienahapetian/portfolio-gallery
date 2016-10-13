@@ -8,38 +8,30 @@ class Portfolio_Gallery_Template_Loader {
 	 * Load the Plugin shortcode's frontend
 	 *
 	 * @param $images
-	 * @param $paramssld
+	 * @param $portfolio_gallery_get_options
 	 * @param $portfolio
 	 * @param $title
 	 */
-	public function load_front_end( $images, $paramssld, $portfolio, $title ) {
-
-		$portfolioID             = $portfolio[0]->id;
-		$portfoliotitle          = $portfolio[0]->name;
-		$portfolioheight         = $portfolio[0]->sl_height;
-		$portfoliowidth          = $portfolio[0]->sl_width;
-		$portfolioeffect         = $portfolio[0]->portfolio_list_effects_s;
-		$slidepausetime          = ( $portfolio[0]->description + $portfolio[0]->param );
-		$portfoliopauseonhover   = $portfolio[0]->pause_on_hover;
-		$portfolioposition       = $portfolio[0]->sl_position;
-		$slidechangespeed        = $portfolio[0]->param;
-		$portfolioCats           = $portfolio[0]->categories;
-		$portfolioShowSorting    = $portfolio[0]->ht_show_sorting;
-		$portfolioShowFiltering  = $portfolio[0]->ht_show_filtering;
-		$portfolioShowLoading    = $portfolio[0]->show_loading;
-		$portfolioLoadingIconype = $portfolio[0]->loading_icon_type;
-		$image_prefix            = "_huge_it_small_portfolio";
+	public function load_front_end( $images, $portfolio_gallery_get_options, $portfolio ){
+        $portfolioID             = $portfolio[0]->id;
+        $portfolioeffect         = $portfolio[0]->portfolio_list_effects_s;
+        $portfolioposition       = $portfolio[0]->sl_position;
+        $portfolioCats           = $portfolio[0]->categories;
+        $portfolioShowSorting    = $portfolio[0]->ht_show_sorting;
+        $portfolioShowFiltering  = $portfolio[0]->ht_show_filtering;
+        $portfolioShowLoading    = $portfolio[0]->show_loading;
+        $portfolioLoadingIconype = $portfolio[0]->loading_icon_type;
 
 		$view =  $portfolioeffect;
 		switch ( $view ){
 			case 0:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatToggle = $paramssld["ht_view0_sorting_float"];
+					$sortingFloatToggle = $portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_float"];
 				} else {
 					$sortingFloatToggle = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatToggle = $paramssld["ht_view0_filtering_float"];
+					$filteringFloatToggle = $portfolio_gallery_get_options["portfolio_gallery_ht_view0_filtering_float"];
 				} else {
 					$filteringFloatToggle = '';
 				}
@@ -49,12 +41,12 @@ class Portfolio_Gallery_Template_Loader {
 				break;
 			case 1:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatFullHeight = $paramssld["ht_view1_sorting_float"];
+					$sortingFloatFullHeight = $portfolio_gallery_get_options["portfolio_gallery_ht_view1_sorting_float"];
 				} else {
 					$sortingFloatFullHeight = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatFullHeight = $paramssld["ht_view1_filtering_float"];
+					$filteringFloatFullHeight = $portfolio_gallery_get_options["portfolio_gallery_ht_view1_filtering_float"];
 				} else {
 					$filteringFloatFullHeight = '';
 				}
@@ -64,12 +56,12 @@ class Portfolio_Gallery_Template_Loader {
 				break;
 			case 2:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatPopup = $paramssld["ht_view2_sorting_float"];
+					$sortingFloatPopup = $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_float"];
 				} else {
 					$sortingFloatPopup = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatPopup = $paramssld["ht_view2_filtering_float"];
+					$filteringFloatPopup = $portfolio_gallery_get_options["portfolio_gallery_ht_view2_filtering_float"];
 				} else {
 					$filteringFloatPopup = '';
 				}
@@ -79,12 +71,12 @@ class Portfolio_Gallery_Template_Loader {
 				break;
 			case 3:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatFullWidth = $paramssld["ht_view3_sorting_float"];
+					$sortingFloatFullWidth = $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_float"];
 				} else {
 					$sortingFloatFullWidth = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatFullWidth = $paramssld["ht_view3_filtering_float"];
+					$filteringFloatFullWidth = $portfolio_gallery_get_options["portfolio_gallery_ht_view3_filtering_float"];
 				} else {
 					$filteringFloatFullWidth = '';
 				}
@@ -94,12 +86,12 @@ class Portfolio_Gallery_Template_Loader {
 				break;
 			case 4:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatFaq = $paramssld["ht_view4_sorting_float"];
+					$sortingFloatFaq = $portfolio_gallery_get_options["portfolio_gallery_ht_view4_sorting_float"];
 				} else {
 					$sortingFloatFaq = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatFaq = $paramssld["ht_view4_filtering_float"];
+					$filteringFloatFaq = $portfolio_gallery_get_options["portfolio_gallery_ht_view4_filtering_float"];
 				} else {
 					$filteringFloatFaq = '';
 				}
@@ -114,12 +106,12 @@ class Portfolio_Gallery_Template_Loader {
 				break;
 			case 6:
 				if ( $portfolioShowSorting == 'on' ) {
-					$sortingFloatLgal = $paramssld["ht_view6_sorting_float"];
+					$sortingFloatLgal = $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sorting_float"];
 				} else {
 					$sortingFloatLgal = '';
 				}
 				if ( $portfolioShowFiltering == 'on' ) {
-					$filteringFloatLgal = $paramssld["ht_view6_filtering_float"];
+					$filteringFloatLgal = $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filtering_float"];
 				} else {
 					$filteringFloatLgal = '';
 				}

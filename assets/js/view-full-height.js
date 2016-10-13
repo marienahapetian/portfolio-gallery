@@ -1,3 +1,4 @@
+"use strict";
 jQuery.each(param_obj, function (index, value) {
     if (!isNaN(value)) {
         param_obj[index] = parseInt(value);
@@ -12,8 +13,8 @@ function Portfolio_Gallery_Full_Height(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockHeight = param_obj.ht_view1_block_height;
-    _this.defaultBlockWidth = param_obj.ht_view1_block_width;
+    _this.defaultBlockHeight = param_obj.portfolio_gallery_ht_view1_block_height;
+    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view1_block_width;
     _this.optionSets = _this.optionsBlock.find('.option-set');
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -24,10 +25,10 @@ function Portfolio_Gallery_Full_Height(id) {
         _this.isCentered = _this.container.data("show-center") == "on";
     }
     _this.documentReady = function () {
-        _this.container.hugeitmicro({
+        var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view1_element_border_width * 2
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view1_element_border_width * 2
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -57,9 +58,10 @@ function Portfolio_Gallery_Full_Height(id) {
                     return $elem.find('.id').text();
                 }
             }
-        });
-        setInterval(function(){
-            _this.container.hugeitmicro('reLayout');
+        };
+        portfolioGalleryIsotope(_this.container,options);
+        _this.container.find('img').on('load', function () {
+            portfolioGalleryIsotope(_this.container,'reLayout');
         });
     };
 
@@ -75,15 +77,15 @@ function Portfolio_Gallery_Full_Height(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.ht_view1_element_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view1_element_border_width * 2;
             var enterycontent = _this.content.width();
-            var whole = ~~(enterycontent / (elementwidth));
+            var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;
             if (whole == 0) {
                 return false;
             }
             else {
-                var sectionwidth = whole * elementwidth + (whole - 1) * 20;
+                var sectionwidth = whole * elementwidth ;
             }
             _this.container.width(sectionwidth).css({
                 "margin": "0px auto",
@@ -102,8 +104,11 @@ function Portfolio_Gallery_Full_Height(id) {
 
     };
     _this.resizeEvent = function(){
-        _this.container.hugeitmicro('reLayout');
         _this.showCenter();
+        var loadInterval = setInterval(function(){
+            portfolioGalleryIsotope(_this.container,'reLayout');
+        },100);
+        setTimeout(function(){clearInterval(loadInterval);},5000);
     };
     _this.optionsClick = function () {
         var $this = jQuery(this);
@@ -127,13 +132,13 @@ function Portfolio_Gallery_Full_Height(id) {
             changeLayoutMode($this, options)
         } else {
 
-            _this.container.hugeitmicro(options);
+            portfolioGalleryIsotope(_this.container,options);
         }
 
         return false;
     };
     _this.randomClick = function () {
-        _this.container.hugeitmicro('shuffle');
+        portfolioGalleryIsotope(_this.container,'shuffle');
         _this.sortBy.find('.selected').removeClass('selected');
         _this.sortBy.find('[data-option-value="random"]').addClass('selected');
         return false;
@@ -146,7 +151,7 @@ function Portfolio_Gallery_Full_Height(id) {
         // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
         // use filterFn if matches value
-        _this.container.hugeitmicro({filter: filterValue});
+        portfolioGalleryIsotope(_this.container,{filter: filterValue});
     };
 
     _this.init = function () {

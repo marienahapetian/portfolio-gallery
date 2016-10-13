@@ -3,48 +3,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" data-portfolio-id="<?php echo $portfolioID; ?>" class="portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
+<section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>" class="<?php if ( $portfolioShowSorting == 'on' ) {
 	echo 'sortingActive ';
 }
-if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
-         data-image-behaviour="<?php echo $paramssld['port_natural_size_contentpopup']; ?>">
+if ( $portfolioShowFiltering == 'on' ) {
+	echo 'filteringActive';
+} ?>"
+         data-image-behaviour="<?php echo $portfolio_gallery_get_options['portfolio_gallery_port_natural_size_contentpopup']; ?>">
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
 	<div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
 		<?php } ?>
 		<?php if ( $portfolioShowSorting == "on" ) { ?>
 			<div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>"
-			     data-sorting-position="<?php echo $paramssld["ht_view2_sorting_float"]; ?>">
+			     data-sorting-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_float"]; ?>">
 				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
-					<?php if ( $paramssld["ht_view2_sorting_name_by_default"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_default"] != '' ): ?>
 						<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
-						       data><?php echo $paramssld["ht_view2_sorting_name_by_default"]; ?></a></li>
+						       data><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_default"]; ?></a></li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view2_sorting_name_by_id"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_id"] != '' ): ?>
 						<li><a href="#sortBy=id"
-						       data-option-value="id"><?php echo $paramssld["ht_view2_sorting_name_by_id"]; ?></a>
+						       data-option-value="id"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_id"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view2_sorting_name_by_name"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_name"] != '' ): ?>
 						<li><a href="#sortBy=symbol"
-						       data-option-value="symbol"><?php echo $paramssld["ht_view2_sorting_name_by_name"]; ?></a>
+						       data-option-value="symbol"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_name"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view2_sorting_name_by_random"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_random"] != '' ): ?>
 						<li id="shuffle"><a
-								href='#shuffle'><?php echo $paramssld["ht_view2_sorting_name_by_random"]; ?></a>
+								href='#shuffle'><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_random"]; ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>
 				<ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
-					<?php if ( $paramssld["ht_view2_sorting_name_by_asc"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_asc"] != '' ): ?>
 						<li><a href="#sortAscending=true" data-option-value="true"
-						       class="selected"><?php echo $paramssld["ht_view2_sorting_name_by_asc"]; ?></a>
+						       class="selected"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_asc"]; ?></a>
 						</li>
 					<?php endif; ?>
-					<?php if ( $paramssld["ht_view2_sorting_name_by_desc"] != '' ): ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_desc"] != '' ): ?>
 						<li><a href="#sortAscending=false"
-						       data-option-value="false"><?php echo $paramssld["ht_view2_sorting_name_by_desc"]; ?></a>
+						       data-option-value="false"><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_desc"]; ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>
@@ -52,9 +54,9 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 		<?php }
 		if ( $portfolioShowFiltering == "on" ) { ?>
 			<div id="huge_it_portfolio_filters_<?php echo $portfolioID; ?>"
-			     data-filtering-position="<?php echo $paramssld["ht_view2_filtering_float"]; ?>">
+			     data-filtering-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_filtering_float"]; ?>">
 				<ul>
-					<li rel="*"><a><?php echo $paramssld["ht_view2_cat_all"]; ?></a></li>
+					<li rel="*"><a><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_cat_all"]; ?></a></li>
 					<?php
 					$portfolioCats = explode( ",", $portfolioCats );
 					foreach ( $portfolioCats as $portfolioCatsValue ) {
@@ -68,8 +70,8 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 					?>
 				</ul>
 			</div>
-		<?php }
-		if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
+		<?php } ?>
+		<?php if ( ( $sortingFloatPopup == 'left' && $filteringFloatPopup == 'left' ) || ( $sortingFloatPopup == 'right' && $filteringFloatPopup == 'right' ) ) { ?>
 	</div>
 <?php } ?>
 	<div id="huge_it_portfolio_container_<?php echo $portfolioID; ?>"
@@ -92,15 +94,14 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 			     data-category="alkaline-earth">
 				<div class="image-block image-block_<?php echo $portfolioID; ?>">
 					<?php $imgurl = explode( ";", $row->image_url ); ?>
-					<?php
-					if ( $row->image_url != ';' ) {
+					<?php if ( $row->image_url != ';' ) {
 						switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {
 							case 'image': ?>
 								<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>"
-								     src="<?php if ( $paramssld['port_natural_size_contentpopup'] == 'resize' ) {
+								     src="<?php if ( $portfolio_gallery_get_options['portfolio_gallery_port_natural_size_contentpopup'] == 'resize' ) {
 									     echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
-										     $paramssld['ht_view2_element_width'],
-										     $paramssld['ht_view2_element_height']
+										     $portfolio_gallery_get_options['portfolio_gallery_ht_view2_element_width'],
+										     $portfolio_gallery_get_options['portfolio_gallery_ht_view2_element_height']
 									     ), false ) );
 								     } else {
 									     echo esc_url( $imgurl[0] );
@@ -108,20 +109,21 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								<?php
 								break;
 							case 'youtube':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] ); ?>
+								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 								<img alt="<?php echo esc_attr( $row->name ); ?>"
 								     id="wd-cl-img<?php echo $key; ?>"
 								     src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg"/>
 								<?php
 								break;
 							case 'vimeo':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
+								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
 								$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 								$imgsrc = $hash[0]['thumbnail_large'];
 								?>
 								<img alt="<?php echo esc_attr( $row->name ); ?>"
 								     src="<?php echo esc_attr( $imgsrc ); ?>"/>
 								<?php break;
+
 						}
 					} else { ?>
 						<img alt="<?php echo esc_attr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
@@ -131,15 +133,17 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 					<div class="image-overlay"><a title="<?php echo esc_attr( $row->name ); ?>"
 					                              href="#<?php echo esc_attr( $row->id ); ?>"></a></div>
 				</div>
+				<?php if( $row->name != ''  ||  $row->sl_url != '' ): ?>
 				<div class="title-block_<?php echo $portfolioID; ?>">
 					<h3 title="<?php echo esc_attr( $row->name ); ?>"><?php echo $row->name; ?></h3>
-					<?php if ( $paramssld["ht_view2_element_show_linkbutton"] == 'on' && $link != '' ) { ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_show_linkbutton"] == 'on' && $link != '' ) { ?>
 						<div class="button-block"><a
 								href="<?php echo esc_url( $row->sl_url ); ?>" <?php if ( $row->link_target == "on" ) {
 								echo 'target="_blank"';
-							} ?> ><?php echo $paramssld["ht_view2_element_linkbutton_text"]; ?></a></div>
+							} ?> ><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_linkbutton_text"]; ?></a></div>
 					<?php } ?>
 				</div>
+				<?php endif; ?>
 			</div>
 			<?php
 		} ?>
@@ -173,7 +177,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 				<div style="clear:both;"></div>
 			</div>
 			<div class="popup-wrapper popup-wrapper_<?php echo $portfolioID; ?>">
-				<div class="image-block_<?php echo $portfolioID; ?>">
+				<div class="image-block_<?php echo $portfolioID; ?> image-block">
 					<?php
 
 					if ( $row->image_url != ';' ) {
@@ -186,7 +190,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								<?php
 								break;
 							case 'youtube':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
+								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
 								?>
 								<iframe
 									src="//www.youtube.com/embed/<?php echo $videourl[0]; ?>?modestbranding=1&showinfo=0"
@@ -194,7 +198,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								<?php
 								break;
 							case 'vimeo':
-								$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $imgurl[0] );
+								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
 								?>
 								<iframe
 									src="//player.vimeo.com/video/<?php echo $videourl[0]; ?>?title=0&amp;byline=0&amp;portrait=0"
@@ -203,15 +207,16 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								<?php break;
 						}
 					} else { ?>
-						<img alt="<?php echo esc_attr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
+						<img alt="<?php echo esc_atr( $row->name ); ?>" id="wd-cl-img<?php echo $key; ?>"
 						     src="images/noimage.jpg"/>
 						<?php
 					} ?>
 				</div>
 				<div class="right-block">
-					<?php if ( $paramssld["ht_view2_show_popup_title"] == 'on' ) { ?><h3
-						class="title"><?php echo $row->name; ?></h3><?php }
-						if ( $paramssld["ht_view2_thumbs_position"] == 'before' and $paramssld["ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_popup_title"] == 'on' ) { ?><h3
+						class="title"><?php echo $row->name; ?></h3><?php } ?>
+
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_thumbs_position"] == 'before' and $portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
 						<div>
 							<ul class="thumbs-list thumbs-list_<?php echo $portfolioID; ?>">
 								<?php
@@ -227,14 +232,14 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 												   class="img-thumb"
 												   title="<?php echo esc_attr( $row->name ); ?>"><img
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
-															$paramssld['ht_view2_thumbs_width'],
-															$paramssld['ht_view2_thumbs_height']
+															$portfolio_gallery_get_options['portfolio_gallery_ht_view2_thumbs_width'],
+															$portfolio_gallery_get_options['portfolio_gallery_ht_view2_thumbs_height']
 														), true ) ); ?>"></a>
 
 												<?php
 												break;
 											case 'youtube':
-												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img ); ?>
+												$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="video-thumb"
 												   title="<?php echo esc_attr( $row->name ); ?>"
@@ -246,7 +251,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 												</a>
 												<?php break;
 											case 'vimeo':
-												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img );
+												$videourl = portfolio_gallery_get_video_id_from_url( $img );
 												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large'];
 												?>
@@ -269,11 +274,12 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								} ?>
 							</ul>
 						</div>
-					<?php }
-					if ( $paramssld["ht_view2_show_description"] == 'on' ) { ?>
+					<?php } ?>
+
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_description"] == 'on' ) { ?>
 						<div class="description"><?php echo $row->description; ?></div><?php } ?>
 
-					<?php if ( $paramssld["ht_view2_thumbs_position"] == 'after' and $paramssld["ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_thumbs_position"] == 'after' and $portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_thumbs"] == 'on' && count( $imgurl ) != 1 ) { ?>
 						<div>
 							<ul class="thumbs-list_<?php echo $portfolioID; ?>">
 								<?php
@@ -293,7 +299,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 												<?php
 												break;
 											case 'youtube':
-												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img ); ?>
+												$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class=" video-thumb"
 												   title="<?php echo esc_attr( $row->name ); ?>"
@@ -305,7 +311,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 												</a>
 												<?php break;
 											case 'vimeo':
-												$videourl = portfolio_gallery_get_video_id_from_url_portfolio( $img );
+												$videourl = portfolio_gallery_get_video_id_from_url( $img );
 												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large'];
 												?>
@@ -320,6 +326,7 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 												</a>
 												<?php
 												break;
+
 										}
 										?>
 									</li>
@@ -327,12 +334,13 @@ if ( $portfolioShowFiltering == 'on' ) echo 'filteringActive'; ?>"
 								} ?>
 							</ul>
 						</div>
-					<?php }
-					if ( $paramssld["ht_view2_show_popup_linkbutton"] == 'on' && $link != '' ) { ?>
+					<?php } ?>
+
+					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_popup_linkbutton"] == 'on' && $link != '' ) { ?>
 						<div class="button-block">
 							<a href="<?php echo esc_url( $link ); ?>" <?php if ( $row->link_target == "on" ) {
 								echo 'target="_blank"';
-							} ?>><?php echo $paramssld["ht_view2_popup_linkbutton_text"]; ?></a>
+							} ?>><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_popup_linkbutton_text"]; ?></a>
 						</div>
 					<?php } ?>
 					<div style="clear:both;"></div>

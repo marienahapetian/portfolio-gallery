@@ -23,12 +23,11 @@ class Portfolio_Gallery_Shortcode {
 	 * @return string
 	 */
 	public function run_shortcode( $attrs ) {
-		global $wpdb;
-
 		$attrs = shortcode_atts( array(
 			'id' => 'no huge_it portfolio',
 		), $attrs );
 
+		global $wpdb;
 		$query = $wpdb->prepare("SELECT portfolio_list_effects_s FROM ".$wpdb->prefix."huge_itportfolio_portfolios WHERE id=%d", $attrs['id']);
 		$portfolio_view = $wpdb->get_var($query);
 
@@ -51,37 +50,15 @@ class Portfolio_Gallery_Shortcode {
 		$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_images WHERE portfolio_id = '%d' ORDER BY ordering ASC", $id );
 
 		$images = $wpdb->get_results( $query );
-		/***<title display>***/
-		$title  = array();
-		$number = 0;
-		foreach ( $images as $key => $row ) {
-			$imagesuploader = explode( ";", $row->image_url );
-			array_pop( $imagesuploader );
-			$count = count( $imagesuploader );
-			for ( $i = 0; $i < $count; $i ++ ) {
-				$pathinfo    = pathinfo( $imagesuploader[ $i ] );
-				$filename    = $pathinfo["filename"];
-				$filename    = strtolower( $filename );
-				$query       = $wpdb->prepare( "SELECT post_title FROM " . $wpdb->prefix . "posts WHERE post_name = '%s'", $filename );
-				$post_result = $wpdb->get_var( $query );
-				$concat      = $post_result . "_-_-_" . $imagesuploader[ $i ];
-				if ( in_array( $concat, $title ) ) {
-					continue;
-				}
-				$title[ $number ] = $concat;
-				$number ++;
-			}
-		}
 
 		$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = '%d' ORDER BY id ASC", $id );
 
 		$portfolio = $wpdb->get_results( $query );
 
-		$paramssld = portfolio_gallery_get_general_options();
+		$portfolio_gallery_get_options = portfolio_gallery_get_default_general_options();
 
 		ob_start();
-
-		Portfolio_Gallery()->template_loader->load_front_end( $images, $paramssld, $portfolio, $title );
+		Portfolio_Gallery()->template_loader->load_front_end( $images, $portfolio_gallery_get_options, $portfolio );
 
 		return ob_get_clean();
 

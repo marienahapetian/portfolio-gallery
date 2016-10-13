@@ -4,38 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 global $wpdb;
 ?>
-
-<script language="javascript">
-	function ordering(name,as_or_desc) {
-		document.getElementById('asc_or_desc').value=as_or_desc;
-		document.getElementById('order_by').value=name;
-		document.getElementById('admin_form').submit();
-	}
-	function saveorder() {
-		document.getElementById('saveorder').value="save";
-		document.getElementById('admin_form').submit();
-
-	}
-	function listItemTask(this_id,replace_id) {
-		document.getElementById('oreder_move').value=this_id+","+replace_id;
-		document.getElementById('admin_form').submit();
-		function doNothing() {
-			var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-			if( keyCode == 13 ) {
-				if(!e) var e = window.event;
-
-				e.cancelBubble = true;
-				e.returnValue = false;
-
-				if (e.stopPropagation) {
-					e.stopPropagation();
-					e.preventDefault();
-				}
-			}
-		}
-	}
-</script>
-
 <div class="wrap">
 	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' );?>
 	<?php

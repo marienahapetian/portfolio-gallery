@@ -1,9 +1,9 @@
+"use strict";
 jQuery.each(param_obj, function (index, value) {
     if (!isNaN(value)) {
         param_obj[index] = parseInt(value);
     }
 });
-//@todo natural images
 function Portfolio_Gallery_Content_Popup(id) {
     var _this = this;
     _this.body = jQuery('body');
@@ -13,8 +13,8 @@ function Portfolio_Gallery_Content_Popup(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockHeight = param_obj.ht_view2_element_height;
-    _this.defaultBlockWidth = param_obj.ht_view2_element_width;
+    _this.defaultBlockHeight = param_obj.portfolio_gallery_ht_view2_element_height;
+    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view2_element_width;
     _this.optionSets = _this.optionsBlock.find('.option-set'),
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -33,10 +33,10 @@ function Portfolio_Gallery_Content_Popup(id) {
         _this.isCentered = _this.container.data("show-center");
     }
     _this.documentReady = function () {
-        _this.container.hugeitmicro({
+        var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.ht_view2_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view2_element_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 20
@@ -66,6 +66,10 @@ function Portfolio_Gallery_Content_Popup(id) {
                     return $elem.find('.id').text();
                 }
             }
+        };
+        portfolioGalleryIsotope(_this.container,options);
+        _this.container.find('img').on('load', function () {
+            portfolioGalleryIsotope(_this.container,'reLayout');
         });
     };
 
@@ -81,22 +85,19 @@ function Portfolio_Gallery_Content_Popup(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.ht_view2_element_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view2_element_border_width * 2;
             var enterycontent = _this.content.width();
-            var whole = ~~(enterycontent / (elementwidth));
+            var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;
             if (whole == 0) {
                 return false;
             }
             else {
-                var sectionwidth = whole * elementwidth + (whole - 1) * 20;
+                var sectionwidth = whole * elementwidth ;
             }
             _this.container.width(sectionwidth).css({
                 "margin": "0px auto",
                 "overflow": "hidden"
-            });
-            setInterval(function(){
-                _this.container.hugeitmicro('reLayout');
             });
         }
     };
@@ -127,13 +128,15 @@ function Portfolio_Gallery_Content_Popup(id) {
         var width = jQuery(window).width();
         if (width <= 767) {
             jQuery(window).scrollTop(0);
+            jQuery(window).scrollTop(0);
+            _this.popupList.find('.popup-wrapper .image-block iframe').height(jQuery('body').width() * 0.5);
+        } else {
+            _this.popupList.find('.popup-wrapper .image-block iframe').height(jQuery('body').width() * 0.23);
         }
         jQuery('#huge_it_portfolio_pupup_element_' + strid).addClass('active').css({height: height * 0.7});
         _this.popupList.addClass('active');
 
         jQuery('#huge_it_portfolio_pupup_element_' + strid + ' ul.thumbs-list li:first-child').addClass('active');
-        var strsrc = jQuery('#huge_it_portfolio_pupup_element_' + strid + ' ul.thumbs-list li:first-child a img').attr('src');
-        jQuery('#huge_it_portfolio_pupup_element_' + strid + ' .image-block img').attr('src', strsrc);
 
         if (jQuery('.pupup-element.active .description').height() + jQuery('.right-block h3').height() + 200 > jQuery('.pupup-element.active .right-block').height()) {
             if (jQuery('.pupup-element.active img').height() > jQuery('.pupup-element.active .image-block').height()) {
@@ -151,6 +154,11 @@ function Portfolio_Gallery_Content_Popup(id) {
     _this.leftChange = function(){
         var height = jQuery(window).height();
         var num = jQuery(this).find("a").attr("href").replace('#', '');
+        if(_this.popupList.find('.pupup-element.active .image-block iframe').length) {
+            var videoSrc = _this.popupList.find('.pupup-element.active .image-block iframe').attr('src');
+            videoSrc = videoSrc.replace('autoplay=1', 'autoplay=0');
+            _this.popupList.find('.pupup-element.active .image-block iframe').attr('src', videoSrc);
+        }
         if (_this.filtersBlock.find("li[rel!='*'].active").attr("rel"))
             var active_rel = _this.filtersBlock.find("li[rel!='*'].active").attr("rel");
         else
@@ -182,9 +190,14 @@ function Portfolio_Gallery_Content_Popup(id) {
     };
     _this.rightChange = function(){
         var height = jQuery(window).height();
-        var num = jQuery(this).find("a").attr("href").replace('#', '');
+        var num = jQuery(this).find("a").attr("href").replace('#', '');console.log(_this.popupList.find('.pupup-element.active .image-block iframe').length);
+        if(_this.popupList.find('.pupup-element.active .image-block iframe').length) {
+            var videoSrc = _this.popupList.find('.pupup-element.active .image-block iframe').attr('src');
+            videoSrc = videoSrc.replace('autoplay=1', 'autoplay=0');
+            _this.popupList.find('.pupup-element.active .image-block iframe').attr('src', videoSrc);
+        }
         if (_this.filtersBlock.find("li[rel!='*'].active").attr("rel"))
-            var active_rel = _this.filtersBlock.find("li[rel!='*'].active").attr("rel").attr("rel");
+            var active_rel = _this.filtersBlock.find("li[rel!='*'].active").attr("rel");
         else
             var active_rel = "";
         var cnt = 0;
@@ -261,9 +274,13 @@ function Portfolio_Gallery_Content_Popup(id) {
                 jQuery('.pupup-element.active .right-block').css('overflow-y', 'auto');
             }
         } else {
-            if (jQuery('.pupup-element.active img').height() > jQuery('.pupup-element.active .image-block').height()) {
-                jQuery('.pupup-element.active .popup-wrapper').css('overflow-y', 'auto');
-            }
+            setTimeout(function () {
+                console.log(jQuery('.pupup-element.active .image-block img').height(),jQuery('.pupup-element.active .image-block').height());
+                if (jQuery('.pupup-element.active .image-block img').height() > jQuery('.pupup-element.active .image-block').height()) {
+                    jQuery('.pupup-element.active .popup-wrapper').css('overflow-y', 'auto');
+                }
+            },10);
+
         }
 
         return false;
@@ -282,6 +299,8 @@ function Portfolio_Gallery_Content_Popup(id) {
             prefix = "//player.vimeo.com/video/";
 
         }
+        jQuery(this).parent().parent().parent().find('li.active').removeClass('active');
+        jQuery(this).parent().parent().addClass('active');
         add_src = prefix + new_video_id + showcontrols;
         var left_block = jQuery(this).parents('.right-block').prev();
         if (left_block.find('iframe').length != 0)
@@ -292,8 +311,11 @@ function Portfolio_Gallery_Content_Popup(id) {
         return false;
     };
     _this.resizeEvent = function(){
-        _this.container.hugeitmicro('reLayout');
         _this.showCenter();
+        var loadInterval = setInterval(function(){
+            portfolioGalleryIsotope(_this.container,'reLayout');
+        },100);
+        setTimeout(function(){clearInterval(loadInterval);},5000);
     };
     _this.optionsClick = function () {
         var $this = jQuery(this);
@@ -317,13 +339,13 @@ function Portfolio_Gallery_Content_Popup(id) {
             changeLayoutMode($this, options)
         } else {
 
-            _this.container.hugeitmicro(options);
+            portfolioGalleryIsotope(_this.container,options);
         }
 
         return false;
     };
     _this.randomClick = function () {
-        _this.container.hugeitmicro('shuffle');
+        portfolioGalleryIsotope(_this.container,'shuffle');
         _this.sortBy.find('.selected').removeClass('selected');
         _this.sortBy.find('[data-option-value="random"]').addClass('selected');
         return false;
@@ -333,10 +355,8 @@ function Portfolio_Gallery_Content_Popup(id) {
             jQuery(this).removeClass('active');
         });
         jQuery(this).addClass('active');
-        // get filter value from option value
         var filterValue = jQuery(this).attr('rel');
-        // use filterFn if matches value
-        _this.container.hugeitmicro({filter: filterValue});
+        portfolioGalleryIsotope(_this.container,{filter: filterValue});
     };
     _this.imagesBehavior = function (){
         _this.container.find('.portelement .image-block img').each(function(i, img) {
