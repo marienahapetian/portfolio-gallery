@@ -1,10 +1,10 @@
 ﻿=== Portfolio ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/portfolio-gallery/
-Tags: Portfolio Gallery, portfolio, portfolio plugin, portfolios, images gallery, gallery, thumbnails, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
+Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, free portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
-Tested up to: 4.6
-Stable tag: 2.1.1
+Tested up to: 4.6.1
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, 
 
 == Description ==
 
-**Portfolio Gallery**
+**Portfolio - Gallery Portfolio**
 
 * [Wordpress Portfolio Gallery](http://huge-it.com/portfolio-gallery/)
 * [Portfolio Gallery Demo](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/)
@@ -352,7 +352,26 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 
 == Changelog ==
 
-= 2.0.11 =
+= 2.2.0 =
+
+* 1) We have made the front end more responsive , particularly Full-widtht, Full-height, Toggle up/down and FAQ views are 100% responsive now
+* 2) Took down CSS cripts from admin page
+* 3) Added an inline-popup when a new video is being added instead of AJAX load
+* 4) We have also fixed a conflict with the Lightbox plugin
+* 5) Updated the plugin vignette image with new features mentions
+
+= 2.1.12 =
+**We make additional bug fixes, perfect the code structure of plugins and try to meet all WordPress standards fully. We avoid regular updates/commits, this is why we group all the points during the week and perform updates. Please, let us know if you catch a bug or any issue after the update at info@huge-it.com**
+
+* 1) Rate Us URL leading to the review page of WordPress has been changed to lead to the new/correct one after WP.org update of links
+* 2) Sanitize the user data and validated post/get calls of the plugin
+* 3) Finalise addition of nonces for edit/create/delete requests
+* 4) Edited collation to meet WordPRess standards fully  
+* 5) Fixed the MyISAM table structure as requested in support ticket by removing the dependency on MyISAM.
+* 6) Took off additional/extra indexes from tables
+* 7) Fixed the issue of CSS bugs on front end , where images were being cut. Now the plugin is fully responsive
+
+= 2.1.11 =
 *  We have fixed a reflected cross-site scripting (XSS) vulnerability disclosed in the plugin.
 *  Minor code optimization.
 
