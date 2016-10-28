@@ -117,7 +117,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 								break;
 							case 'vimeo':
 								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
-								$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+								$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 								$imgsrc = $hash[0]['thumbnail_large'];
 								?>
 								<img alt="<?php echo esc_attr( $row->name ); ?>"
@@ -252,7 +252,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												<?php break;
 											case 'vimeo':
 												$videourl = portfolio_gallery_get_video_id_from_url( $img );
-												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+												$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large'];
 												?>
 												<a class=" video-thumb"
@@ -312,7 +312,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												<?php break;
 											case 'vimeo':
 												$videourl = portfolio_gallery_get_video_id_from_url( $img );
-												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+												$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large'];
 												?>
 												<a class="video-thumb"

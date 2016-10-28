@@ -57,6 +57,7 @@ class Portfolio_Gallery_Admin {
 		add_action( 'wp_loaded', array( $this, 'wp_loaded_add_video' ) );
 		add_action( 'wp_loaded', array( $this, 'wp_loaded_edit_video' ) );
 		add_action( 'wp_loaded', array( $this, 'wp_loaded_remove_video' ) );
+        add_action('wp_loaded', array($this, 'wp_loaded_duplicate_portfolio'));
 	}
 
 	/**
@@ -77,7 +78,7 @@ class Portfolio_Gallery_Admin {
 		$this->pages[] = add_menu_page( __( 'Huge-IT Portfolio Gallery', 'portfolio-gallery' ),  __( 'Huge-IT Portfolio', 'portfolio-gallery' ), 'delete_pages', 'portfolios_huge_it_portfolio', array( Portfolio_Gallery()->admin->portfolios,'load_portfolio_page' ), PORTFOLIO_GALLERY_IMAGES_URL."/admin_images/huge_it_portfolioLogoHover -for_menu.png" );
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __('Portfolios','portfolio-gallery'), __('Portfolios','portfolio-gallery'), 'delete_pages', 'portfolios_huge_it_portfolio', array( Portfolio_Gallery()->admin->portfolios,'load_portfolio_page' ));
 
-		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'General Options', 'portfolio-gallery' ), __( 'General Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_styles', array( Portfolio_Gallery()->admin->general_options ,'load_page' ) );
+		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Advanced Features PRO', 'portfolio-gallery' ), __( 'Advanced Features PRO', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_styles', array( Portfolio_Gallery()->admin->general_options ,'load_page' ) );
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Lightbox Options', 'portfolio-gallery' ), __( 'Lightbox Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_lightbox_styles', array( Portfolio_Gallery()->admin->lightbox_options,'load_page' ) );
 
 		$this->pages[] =add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Featured Plugins', 'portfolio-gallery' ), __( 'Featured Plugins', 'portfolio-gallery' ), 'delete_pages', 'huge_it__portfolio_featured_plugins', array( Portfolio_Gallery()->admin->featured_plugins,'show_page' ) );
@@ -245,7 +246,7 @@ class Portfolio_Gallery_Admin {
 	}
 
 	function wp_loaded_remove_video() {
-		if ( portfolio_gallery_get_portfolio_task() == 'remove_cat' ) {
+		if ( portfolio_gallery_get_portfolio_task() == 'remove_portfolio' ) {
 			$id = portfolio_gallery_get_portfolio_id();
 			if ( ! isset( $_REQUEST['hugeit_portfolio_remove_portfolio_nonce'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_portfolio_remove_portfolio_nonce'], 'remove_portfolio_' . $id ) ) {
 				wp_die( 'Security check failure' );
@@ -262,5 +263,69 @@ class Portfolio_Gallery_Admin {
 			header( 'Location: admin.php?page=portfolios_huge_it_portfolio' );
 		}
 	}
+
+    /**
+     * Duplicate Portfolio
+     */
+    function wp_loaded_duplicate_portfolio()
+    {
+        if (isset($_GET['page']) && $_GET['page'] == 'portfolios_huge_it_portfolio') {
+            if (isset($_GET["id"])) {
+                $id = absint($_GET["id"]);
+            }
+            if (isset($_REQUEST['portfolio_gallery_duplicate_nonce'])) {
+                $video_duplicate_nonce = $_REQUEST['portfolio_gallery_duplicate_nonce'];
+                if (!wp_verify_nonce($video_duplicate_nonce, 'huge_it_portfolio_duplicate_nonce' . $id)) {
+                    wp_die('Security check fail');
+                }
+            }
+            if (portfolio_gallery_get_portfolio_task() && portfolio_gallery_get_portfolio_task() == 'duplicate_portfolio_gallery') {
+                global $wpdb;
+                $table_name = $wpdb->prefix . "huge_itportfolio_portfolios";
+                $query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE id=%d", $id);
+                $portfolio_gallery = $wpdb->get_results($query);
+                $wpdb->insert(
+                    $table_name,
+                    array(
+                        'name' => $portfolio_gallery[0]->name . ' Copy',
+                        'sl_height' => $portfolio_gallery[0]->sl_height,
+                        'sl_width' => $portfolio_gallery[0]->sl_width,
+                        'pause_on_hover' => $portfolio_gallery[0]->pause_on_hover,
+                        'portfolio_list_effects_s' => $portfolio_gallery[0]->portfolio_list_effects_s,
+                        'description' => $portfolio_gallery[0]->description,
+                        'param' => $portfolio_gallery[0]->param,
+                        'sl_position' => $portfolio_gallery[0]->sl_position,
+                        'ordering' => $portfolio_gallery[0]->ordering,
+                        'published' => $portfolio_gallery[0]->published,
+                        'categories' => $portfolio_gallery[0]->categories,
+                        'ht_show_sorting' => $portfolio_gallery[0]->ht_show_sorting,
+                        'ht_show_filtering' => $portfolio_gallery[0]->ht_show_filtering,
+                        'autoslide' => $portfolio_gallery[0]->autoslide,
+                        'show_loading' => $portfolio_gallery[0]->show_loading,
+                        'loading_icon_type' => $portfolio_gallery[0]->loading_icon_type
+                    )
+                );
+
+                $query = "SELECT id FROM " . $wpdb->prefix . "huge_itportfolio_portfolios order by id ASC";
+                $last_key = $wpdb->insert_id;
+                $table_name = $wpdb->prefix . "huge_itportfolio_images";
+                $query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE portfolio_id=%d", $id);
+                $portfolios = $wpdb->get_results($query);
+                $portfolios_list = "";
+                foreach ($portfolios as $key => $portfolio) {
+                    $new_portfolio = "('";
+                    $new_portfolio .= $portfolio->name . "','" . $last_key . "','" . $portfolio->description . "','" . $portfolio->image_url . "','" .
+                                      $portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
+                                      $portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
+                    $portfolios_list .= $new_portfolio . ",";
+                }
+                $portfolios_list = substr($portfolios_list, 0, strlen($portfolios_list) - 1);
+                $query = "INSERT into " . $table_name . " (name,portfolio_id,description,image_url,sl_url,sl_type,link_target,ordering,published,published_in_sl_width,category)
+					VALUES " . $portfolios_list;
+                $wpdb->query($query);
+                wp_redirect('admin.php?page=portfolios_huge_it_portfolio');
+            }
+        }
+    }
 }
 

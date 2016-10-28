@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 ?>
-<div class="free_version_banner" <?php if( isset($_COOKIE['hgSliderFreeBannerShow']) && isset($_COOKIE['hgSliderFreeBannerShow']) == "no" ) echo 'style="display:none"'; ?> >
+<div class="free_version_banner" <?php if( isset($_COOKIE['portfolioGalleryBannerShow']) && $_COOKIE['portfolioGalleryBannerShow'] == "no" ) echo 'style="display:none"'; ?> >
     <a class="close_free_banner">+</a>
     <img class="manual_icon" src="<?php echo esc_attr(PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/icon-user-manual.png');?>" alt="user manual" />
     <p class="usermanual_text">If you have any difficulties in using the options, Follow the link to <a href="http://huge-it.com/wordpress-portfolio-gallery-user-manual/" target="_blank">User Manual</a></p>

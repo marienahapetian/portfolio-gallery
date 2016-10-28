@@ -282,6 +282,14 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
         $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = %d", $id);
         $row = $wpdb->get_row($query);
 
+        if(isset($_POST['portfolio_gallery_admin_image_hover_preview'])){
+            $img_preview = sanitize_text_field($_POST['portfolio_gallery_admin_image_hover_preview']);
+            update_option('portfolio_gallery_admin_image_hover_preview',$img_preview);
+        }
+        else{
+            update_option('portfolio_gallery_admin_image_hover_preview','off');
+        }
+
         if (isset($_POST['changedvalues']) && $_POST['changedvalues'] != '') {
             $changedValues = preg_replace('#[^0-9,]+#', '', $_POST['changedvalues']);
             $query = $wpdb->prepare("SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_images where portfolio_id = %d AND id in (" . $changedValues . ") order by id ASC", $row->id);

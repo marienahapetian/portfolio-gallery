@@ -4,6 +4,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 class Portfolio_Gallery_Install {
 
+    public static function init() {
+        add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
+    }
+    /**
+     * Check Portfolio Gallery version and run the updater is required.
+     *
+     * This check is done on all requests and runs if the versions do not match.
+     */
+    public static function check_version() {
+        if(get_option( 'portfolio_gallery_version' ) !== Portfolio_Gallery()->version ){
+            self::install();
+            update_option( 'portfolio_gallery_version',Portfolio_Gallery()->version );
+        }
+    }
+
+    public static function install_options() {
+        if( !get_option( 'portfolio_gallery_admin_image_hover_preview' ) ) {
+            update_option( 'portfolio_gallery_admin_image_hover_preview', 'on' );
+            update_option( 'portfolio_gallery_version', '2.2.0' );
+        }
+    }
+
     /**
      * Install Portfolio Gallery.
      */
@@ -13,8 +35,7 @@ class Portfolio_Gallery_Install {
         }
         self::create_tables();
         // Flush rules after install
-        flush_rewrite_rules();
-        // Trigger action
+        self::install_options();
         do_action('portfolio_gallery_installed');
     }
 
@@ -116,3 +137,5 @@ INSERT INTO
 		}
 	}
 }
+
+Portfolio_Gallery_Install::init();

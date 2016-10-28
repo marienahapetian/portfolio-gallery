@@ -6,6 +6,21 @@ var portfoliosListNameChange = function (e) {
     document.getElementById("huge_it_portfolio_name").value = e.value;
 };
 jQuery(document).ready(function () {
+	var setTimeoutConst;
+	jQuery('ul#images-list > li img').on('mouseenter',function () {
+		var onHoverPreview = jQuery('#img_hover_preview').prop('checked');
+		if(onHoverPreview == true) {
+			var imgSrc = jQuery(this).attr('data-img-src');
+			jQuery('#gallery-image-zoom img').attr('src', imgSrc);
+			setTimeoutConst = setTimeout(function () {
+				jQuery('#gallery-image-zoom').fadeIn('3000');
+			}, 700);
+		}
+	});
+	jQuery('ul#images-list > li img').on('mouseout',function () {
+		clearTimeout(setTimeoutConst);
+		jQuery('#gallery-image-zoom').fadeOut('3000');
+	});
 	jQuery('a.set-new-video').click(function (e) {
 		e.preventDefault();
 		var videoUrl = jQuery('#huge_it_edit_video_input').val();
@@ -13,7 +28,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (youtube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -38,7 +53,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (youtube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -70,7 +85,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (youtube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -86,7 +101,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (youtube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -140,11 +155,9 @@ jQuery(document).ready(function () {
 	});
 	jQuery(".close_free_banner").on("click",function(){
 		jQuery(".free_version_banner").css("display","none");
-		hgSliderSetCookie( 'hgSliderFreeBannerShow', 'no', {expires:3600} );
+		portfolioGallerySetCookie( 'portfolioGalleryBannerShow', 'no', {expires:86400} );
 	});
-	imageslistlisize();
 	jQuery(window).resize(function(){
-		imageslistlisize();
 	});
     jQuery('#portfolio-loading-icon li').click(function(){
 		jQuery(this).parents('ul').find('li.act').removeClass('act');
@@ -161,7 +174,7 @@ jQuery(document).ready(function () {
         });
         jQuery('input#show_loading').change();
 
-	jQuery('table.wp-list-table a[href*="remove_cat"]').click(function(){
+	jQuery('table.wp-list-table a[href*="remove_portfolio"]').click(function(){
 		if(!confirm("Are you sure you want to delete this item?"))
 			return false;
 	});
@@ -174,10 +187,9 @@ jQuery(document).ready(function () {
 			if (jQuery(this).hasClass('editthisvideo')) {
 				$src = jQuery(this).attr('data-video-src');
 			}
-			else $src = jQuery(this).attr('src');
+			else $src = jQuery(this).attr('data-img-src');
 			allUrls = allUrls + $src + ';';
 			jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
-			secondimageslistlisize();
 		});
 		jQuery(this).parent().remove();
 		return false;
@@ -191,7 +203,6 @@ jQuery(document).ready(function () {
 			if (_custom_media) {
 				jQuery("#" + id).parent().parent().before('<li class="editthisimage1 "><img src="' + attachment.url + '" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
 				jQuery("#" + id).val(jQuery("#" + id).val() + attachment.url + ';');
-				secondimageslistlisize();
 			} else {
 				return _orig_send_attachment.apply(this, [props, attachment]);
 			}
@@ -200,6 +211,7 @@ jQuery(document).ready(function () {
 		return false;
 	});
 	jQuery('.widget-images-list').on('click', '.edit-image', function (e) {
+		jQuery(this).parents("#images-list > li").addClass('submit-post');
 		var send_attachment_bkp = wp.media.editor.send.attachment;
 		var $src;
 		var button = jQuery(this);
@@ -213,17 +225,17 @@ jQuery(document).ready(function () {
 		jQuery(".attachment-filters").css("display", "none");
 		wp.media.editor.send.attachment = function (props, attachment) {
 			if (_custom_media) {
+				img.attr('data-img-src', attachment.url);
 				img.attr('src', attachment.url);
 				var allurls = '';
 				img.parents('.widget-images-list').find('img').not('.plus').each(function () {
 					if (jQuery(this).hasClass('editthisvideo')) {
 						$src = jQuery(this).attr('data-video-src');
 					}
-					else $src = jQuery(this).attr('src');
+					else $src = jQuery(this).attr('data-img-src');
 					allurls = allurls + $src + ';';
 				});
 				jQuery("#" + id).val(allurls);
-				secondimageslistlisize();
 			} else {
 				return _orig_send_attachment.apply(this, [props, attachment]);
 			}
@@ -231,7 +243,6 @@ jQuery(document).ready(function () {
 		wp.media.editor.open(button);
 		return false;
 	});
-	secondimageslistlisize();
 	jQuery('.huge-it-newuploader .button').click(function (e) {
 		var send_attachment_bkp = wp.media.editor.send.attachment;
 		var button = jQuery(this);
@@ -328,8 +339,7 @@ jQuery(document).ready(function () {
 				jQuery(this).removeClass('first');
 				jQuery(".widget-images-list > li").first().addClass('first');
 			});
-			secondimageslistlisize();
-			replaceAddImageBox();
+			portfolioGalleryReplaceAddImageBox();
 		},
 		change: function (event, ui) {
 			jQuery(this).parents('li').addClass('submit-post');
@@ -350,14 +360,8 @@ jQuery(document).ready(function () {
 });
 
 /* Cookies */
-function hgSliderGetCookie(name) {
-	var matches = document.cookie.match(new RegExp(
-		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-	));
-	return matches ? decodeURIComponent(matches[1]) : undefined;
-}
 
-function hgSliderSetCookie(name, value, options) {
+function portfolioGallerySetCookie(name, value, options) {
 	options = options || {};
 
 	var expires = options.expires;
@@ -389,18 +393,7 @@ function hgSliderSetCookie(name, value, options) {
 	document.cookie = updatedCookie;
 }
 
-function hgSliderDeleteCookie(name) {
-	setCookie(name, "", {
-		expires: -1
-	})
-}
-
-function imageslistlisize() {
-	var lisaze = jQuery('#images-list').width();
-	lisaze = lisaze * 0.06;
-	jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
-}
-function popupsizes(checkbox) {
+function portfolioGalleryPopupSizes(checkbox) {
 	if (checkbox.is(':checked')) {
 		jQuery('.lightbox-options-block .not-fixed-size').css({'display': 'none'});
 		jQuery('.lightbox-options-block .fixed-size').css({'display': 'block'});
@@ -409,29 +402,17 @@ function popupsizes(checkbox) {
 		jQuery('.lightbox-options-block .not-fixed-size').css({'display': 'block'});
 	}
 }
-function submitbutton(pressbutton) {
+function portfolioGallerySubmitButton(pressbutton) {
 	if (!document.getElementById('name').value) {
 		alert("Name is required.");
 		return;
 
 	}
-	filterInputs();
+	portfolioGalleryFilterInputs();
 	document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
 	document.getElementById("adminForm").submit();
 }
-
-
-function change_select() {
-	submitbutton('apply');
-
-}
-function secondimageslistlisize() {
-	var lisaze = jQuery('#images-list').width();
-	lisaze = lisaze * 0.06;
-	jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
-}
-
-function replaceAddImageBox() {
+function portfolioGalleryReplaceAddImageBox() {
 	jQuery(".widget-images-list").each(function () {
 		var src = "";
 
@@ -456,13 +437,13 @@ function replaceAddImageBox() {
 
 		}
 		jQuery(this).find("li").not(".add-image-box").each(function () {
-			src += (jQuery(this).hasClass('editthisvideo') == true) ? jQuery(this).find('img').attr('data-video-src') : jQuery(this).find('img').attr('src');
+			src += (jQuery(this).hasClass('editthisvideo') == true) ? jQuery(this).find('img').attr('data-video-src') : jQuery(this).find('img').attr('data-img-src');
 			src += ";";
 		});
 		jQuery(this).find('.all-urls').val(src);
 	});
 }
-function filterInputs() {
+function portfolioGalleryFilterInputs() {
 	var mainInputs = "";
 	jQuery("#images-list > li.highlights").each(function () {
 		jQuery(this).next().addClass('submit-post');
@@ -494,42 +475,7 @@ function filterInputs() {
 		jQuery(this).find('select').removeAttr('name');
 	});
 }
-function secondimageslistlisize() {
-	var lisaze = jQuery('#images-list').width();
-	lisaze = lisaze * 0.06;
-	jQuery('#images-list .widget-images-list li').not('.add-image-box').not('.first').height(lisaze);
-}
-function ordering(name, as_or_desc) {
-	document.getElementById('asc_or_desc').value = as_or_desc;
-	document.getElementById('order_by').value = name;
-	document.getElementById('admin_form').submit();
-}
-function saveorder() {
-	document.getElementById('saveorder').value = "save";
-	document.getElementById('admin_form').submit();
-
-}
-function listItemTask(this_id, replace_id) {
-	document.getElementById('oreder_move').value = this_id + "," + replace_id;
-	document.getElementById('admin_form').submit();
-	function doNothing() {
-		var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-		if (keyCode == 13) {
-
-
-			if (!e) var e = window.event;
-
-			e.cancelBubble = true;
-			e.returnValue = false;
-
-			if (e.stopPropagation) {
-				e.stopPropagation();
-				e.preventDefault();
-			}
-		}
-	}
-}
-function youtube_parser(url) {
+function portfolioGalleryYoutube_parser(url) {
 	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 	var match = url.match(regExp);
 	var match_vimeo = /vimeo.*\/(\d+)/i.exec(url);
