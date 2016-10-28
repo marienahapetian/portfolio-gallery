@@ -14,6 +14,7 @@ function Portfolio_Gallery_Content_Slider(id) {
     _this.slideInterval = +_this.container.data("slide-interval");
     _this.hasLoading = _this.container.data("show-loading") == "on";
     _this.slideEffect = this.container.data("slide-effect").split('_');
+    _this.timeArrowsClick;
     _this.sliderOptons = {
         autoSlide: _this.autoSlide,
         pauseOnHover: _this.pauseHover,
@@ -25,8 +26,21 @@ function Portfolio_Gallery_Content_Slider(id) {
     _this.documentReady = function () {
         _this.container.liquidSlider(_this.sliderOptons);
     };
+    _this.addEventListeners = function () {
+        if(_this.autoSlide) {
+            jQuery('body').on('click', '.ls-nav-left-arrow,.ls-nav-right-arrow', _this.autoslide);
+        }
+    };
+    _this.autoslide = function(){
+        clearTimeout(_this.timeArrowsClick);
+        var api = jQuery.data( document.querySelector('#' + id + '.p-main-slider.liquid-slider'), 'liquidSlider');
+        _this.timeArrowsClick = setTimeout(function(){
+            api.startAutoSlide();
+        },_this.slideInterval);
+    };
     _this.init = function () {
         _this.documentReady();
+        _this.addEventListeners();
     };
     this.init();
 }

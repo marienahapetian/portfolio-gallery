@@ -380,7 +380,8 @@ function portfolio_gallery_get_default_general_options() {
 		'portfolio_gallery_ht_view3_filterbutton_width'                      => '180',
 		'portfolio_gallery_ht_view4_filterbutton_width'                      => '180',
 		'portfolio_gallery_ht_view6_filterbutton_width'                      => '180',
-		'portfolio_gallery_port_natural_size_toggle'                         => 'resize'
+		'portfolio_gallery_port_natural_size_toggle'                         => 'resize',
+        'portfolio_gallery_admin_image_hover_preview'                        => 'on',
 	);
 
 	return $portfolio_gallery_default__params;
@@ -439,34 +440,40 @@ function portfolio_gallery_get_image_id($image_url) {
  */
 function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail) {
     $is_attachment = portfolio_gallery_get_image_id($image_src);
+    $img_sizes = getimagesize($image_src);
+    $img_height = $img_sizes[1];
 
-	if ( is_string( $image_sizes ) ) {
-		$image_sizes = $image_sizes;
-		$img_width   = intval( $image_sizes );
-	}
-	if ( is_object( $image_sizes ) ) {
-		// Closures are currently implemented as objects
-		$image_sizes = array( $image_sizes, '' );
-	}
-	if ( ! $is_attachment ) {
-		$image_url = $image_src;
-	} else {
-		$attachment_id     = portfolio_gallery_get_image_id( $image_src );
-		$natural_img_width = explode( ',', wp_get_attachment_image_sizes( $attachment_id, 'full' ) );
-		$natural_img_width = $natural_img_width[1];
-		$natural_img_width = str_replace( ' ', '', $natural_img_width );
-		$natural_img_width = intval( str_replace( 'px', '', $natural_img_width ) );
-		if($is_thumbnail){
-			$image_url = wp_get_attachment_image_url( $attachment_id, 'thumbnail' );
-		}
-		elseif ( $image_sizes[0] <= 400 || $image_sizes[0] == '' ) {
-			$image_url = wp_get_attachment_image_url( $attachment_id, 'medium' );
-		} elseif ( $image_sizes[0] >= $natural_img_width ) {
-			$image_url = wp_get_attachment_image_url( $attachment_id, 'full' );
-		} else {
-			$image_url = wp_get_attachment_image_url( $attachment_id, $image_sizes );
-		}
-	}
+    if (is_string($image_sizes)) {
+        $image_sizes = $image_sizes;
+        $img_width = intval($image_sizes);
+    }
+    if (is_object($image_sizes)) {
+        // Closures are currently implemented as objects
+        $image_sizes = array($image_sizes, '');
+    }
+    if (!$is_attachment) {
+        $image_url = $image_src;
+    } else {
+        $attachment_id = portfolio_gallery_get_image_id($image_src);
+        $natural_img_width = explode(',', wp_get_attachment_image_sizes($attachment_id, 'full'));
+        $natural_img_width = $natural_img_width[1];
+        $natural_img_width = str_replace(' ', '', $natural_img_width);
+        $natural_img_width = intval(str_replace('px', '', $natural_img_width));
+        if ($is_thumbnail) {
+            $image_url = wp_get_attachment_image_url($attachment_id, 'thumbnail');
+        } elseif ($image_sizes[0] <= 300 || $image_sizes[0] == '') {
+            if ($img_height <= $natural_img_width)
+                $image_url = wp_get_attachment_image_url($attachment_id, 'medium');
+            else
+                $image_url = wp_get_attachment_image_url($attachment_id, 'large');
+        } elseif ($image_sizes[0] <= 700) {
+            $image_url = wp_get_attachment_image_url($attachment_id, 'large');
+        } elseif ($image_sizes[0] >= $natural_img_width) {
+            $image_url = wp_get_attachment_image_url($attachment_id, 'full');
+        } else {
+            $image_url = wp_get_attachment_image_url($attachment_id, $image_sizes);
+        }
+    }
 
 	return $image_url;
 }

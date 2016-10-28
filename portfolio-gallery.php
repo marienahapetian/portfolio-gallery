@@ -24,7 +24,7 @@ final class Portfolio_Gallery {
 	 * Version of plugin
 	 * @var float
 	 */
-	public $version = 10.0;
+	public $version = '2.2.1';
 
 	/**
 	 * Instance of Portfolio_Gallery_Admin class to manage admin

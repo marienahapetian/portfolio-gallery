@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									break;
 								case 'vimeo':
 									$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
-									$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+									$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 									$imgsrc = $hash[0]['thumbnail_large'];
 									?>
 									<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
@@ -191,7 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												break;
 											case 'vimeo':
 												$videourl = portfolio_gallery_get_video_id_from_url( $img );
-												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+												$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large']; ?>
 												<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
@@ -252,7 +252,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												break;
 											case 'vimeo':
 												$videourl = portfolio_gallery_get_video_id_from_url( $img );
-												$hash = unserialize( file_get_contents( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+												$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 												$imgsrc = $hash[0]['thumbnail_large']; ?>
 												<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"

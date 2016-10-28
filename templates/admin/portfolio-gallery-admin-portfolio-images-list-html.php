@@ -6,7 +6,9 @@ global $wpdb;
 $portfolio_wp_nonce = wp_create_nonce( 'huge_it_portfolio_nonce' );
 $id                 = intval( $_GET['id'] );
 ?>
-
+<div id="gallery-image-zoom">
+    <img src=""/>
+</div>
 <div class="wrap">
     <?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php'); ?>
     <?php
@@ -62,12 +64,18 @@ $id                 = intval( $_GET['id'] );
                     <?php add_thickbox(); ?>
                     <div id="post-body">
                         <div id="post-body-heading">
-                            <h3><?php echo __('Projects / Images', 'portfolio-gallery'); ?></h3>
-
-                            <input type="hidden" name="imagess" id="_unique_name"/>
-                            <span class="wp-media-buttons-icon"></span>
-                            <div class="huge-it-newuploader uploader button button-primary add-new-image">
-                                <input type="button" class="button wp-media-buttons-icon" name="_unique_name_button"
+                            <div id="img_preview">
+                                <h3><?php echo __( 'Projects / Images', 'portfolio-gallery' ); ?></h3>
+                                <input type="hidden" name="imagess" id="_unique_name"/>
+                                <input type="hidden"  name="portfolio_gallery_admin_image_hover_preview" value="off"/>
+                                <label for="img_hover_preview"><?php _e('Image preview on hover','portfolio-gallery');?>
+                                    <input type="checkbox" id="img_hover_preview" name="portfolio_gallery_admin_image_hover_preview"
+                                           value="on" <?php if ( get_option('portfolio_gallery_admin_image_hover_preview') == 'on' )
+                                        echo 'checked' ?>>
+                                </label>
+                            </div>
+                            <div class="huge-it-newuploader uploader  add-new-image">
+                                <input type="button" class="button button-primary wp-media-buttons-icon" name="_unique_name_button"
                                        id="_unique_name_button" value="Add Project / Image"/>
                             </div>
 
@@ -132,8 +140,10 @@ $id                 = intval( $_GET['id'] );
                                                             </li>
                                                             <?php
                                                         } else { ?>
-                                                            <li class="editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
-                                                                <img src="<?php echo esc_attr($img); ?>"/>
+                                                            <li class="editthisimage editthisimage<?php echo $key; ?> <?php if ( $i == 0 ) {
+                                                                echo 'first';if( strpos($img, 'projects' ) != FALSE ){ echo ' default-image';}
+                                                            } ?>">
+                                                                <img src="<?php echo esc_attr( portfolio_gallery_get_image_by_sizes_and_src( $img, array(), true) ); ?>" data-img-src="<?php echo esc_attr( $img ); ?>"/>
                                                                 <input type="button" class="edit-image" id=""
                                                                        value="Edit"/>
                                                                 <a href="#remove" title="<?php echo $i; ?>"
@@ -180,26 +190,17 @@ $id                 = intval( $_GET['id'] );
                                             <div class="image-options">
                                                 <div class="options-container">
                                                     <div>
-                                                        <label
-                                                            for="titleimage<?php echo $rowimages->id; ?>"><?php echo __('Title', 'portfolio-gallery'); ?>
-                                                            :</label>
-                                                        <input class="text_area" type="text"
+                                                        <input class="text_area" type="text" placeholder="<?php echo __('Title', 'portfolio-gallery'); ?>"
                                                                id="titleimage<?php echo $rowimages->id; ?>"
                                                                name="titleimage<?php echo $rowimages->id; ?>"
                                                                value="<?php echo htmlspecialchars($rowimages->name); ?>">
                                                     </div>
                                                     <div class="description-block">
-                                                        <label
-                                                            for="im_description<?php echo $rowimages->id; ?>"><?php echo __('Description', 'portfolio-gallery'); ?>
-                                                            :</label>
-                                                        <textarea id="im_description<?php echo $rowimages->id; ?>"
+                                                        <textarea id="im_description<?php echo $rowimages->id; ?>" placeholder="<?php echo __('Description', 'portfolio-gallery'); ?>"
                                                                   name="im_description<?php echo $rowimages->id; ?>"><?php echo esc_html(stripslashes($rowimages->description)); ?></textarea>
                                                     </div>
                                                     <div class="link-block">
-                                                        <label
-                                                            for="sl_url<?php echo $rowimages->id; ?>"><?php echo __('URL', 'portfolio-gallery'); ?>
-                                                            :</label>
-                                                        <input class="text_area url-input" type="text"
+                                                        <input class="text_area url-input" type="text" placeholder="<?php echo __('URL', 'portfolio-gallery'); ?>"
                                                                id="sl_url<?php echo $rowimages->id; ?>"
                                                                name="sl_url<?php echo $rowimages->id; ?>"
                                                                value="<?php echo esc_attr($rowimages->sl_url); ?>">
@@ -298,8 +299,8 @@ $id                 = intval( $_GET['id'] );
                                                             </li>
                                                             <?php
                                                         else : ?>
-                                                            <li class="editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
-                                                                <img src="<?php echo esc_attr($img); ?>"/>
+                                                            <li class="editthisimage editthisimage<?php echo $key; if ($i == 0) echo 'first'; ?>">
+                                                                <img src="<?php echo esc_attr( portfolio_gallery_get_image_by_sizes_and_src( $img, array(), true) ); ?>" data-img-src="<?php echo esc_attr( $img ); ?>" />
                                                                 <input type="button" class="edit-image" id="" value="Edit"/>
                                                                 <a href="#remove" title="<?php echo $i; ?>" class="remove-image">remove</a>
                                                             </li>
@@ -347,24 +348,17 @@ $id                 = intval( $_GET['id'] );
                                             <div class="image-options">
                                                 <div class="options-container">
                                                     <div>
-                                                        <label
-                                                            for="titleimage<?php echo $rowimages->id; ?>"><?php echo __('Title', 'portfolio-gallery'); ?>
-                                                            :</label>
-                                                        <input class="text_area" type="text"
+                                                        <input class="text_area" type="text" placeholder="<?php echo __('Title', 'portfolio-gallery'); ?>"
                                                                id="titleimage<?php echo $rowimages->id; ?>"
                                                                name="titleimage<?php echo $rowimages->id; ?>"
                                                                value="<?php echo esc_html(stripslashes($rowimages->name)); ?>">
                                                     </div>
                                                     <div class="description-block">
-                                                        <label
-                                                            for="im_description<?php echo $rowimages->id; ?>"><?php echo __('Description', 'portfolio-gallery'); ?>
-                                                            :</label>
-                                                        <textarea id="im_description<?php echo $rowimages->id; ?>"
+                                                        <textarea id="im_description<?php echo $rowimages->id; ?>" placeholder="<?php echo __('Description', 'portfolio-gallery'); ?>"
                                                                   name="im_description<?php echo $rowimages->id; ?>"><?php echo esc_html(stripslashes($rowimages->description)); ?></textarea>
                                                     </div>
                                                     <div class="link-block">
-                                                        <label for="sl_url<?php echo $rowimages->id; ?>"><?php echo __('URL', 'portfolio-gallery'); ?>:</label>
-                                                        <input class="text_area url-input" type="text"
+                                                        <input class="text_area url-input" type="text" placeholder="<?php echo __('URL', 'portfolio-gallery'); ?>"
                                                                id="sl_url<?php echo $rowimages->id; ?>"
                                                                name="sl_url<?php echo $rowimages->id; ?>"
                                                                value="<?php echo esc_attr($rowimages->sl_url); ?>">
@@ -493,8 +487,8 @@ $id                 = intval( $_GET['id'] );
                                         <option <?php if ($row->sl_position == 'off') echo 'selected'; ?> value="off">Off</option>
                                         <option <?php if ($row->sl_position == 'on') echo 'selected'; ?> value="on">On</option>
                                     </select>
-                                    <a class="probuttonlink" href="http://huge-it.com/portfolio-gallery/"
-                                       target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
+                                    <a class="portfolio-pro-link probuttonlink" href="http://huge-it.com/portfolio-gallery/"
+                                       target="_blank"><span class="portfolio-pro-icon"></span></a>
                                 </li>
                                 <li style="display:none;margin-top:10px" class="for-content-slider">
                                     <label
@@ -512,7 +506,7 @@ $id                 = intval( $_GET['id'] );
                             </ul>
                             <div id="major-publishing-actions">
                                 <div id="publishing-action">
-                                    <input type="button" onclick="submitbutton('apply')" value="Save Portfolio"
+                                    <input type="button" onclick="portfolioGallerySubmitButton('apply')" value="Save Portfolio"
                                            id="save-buttom" class="button button-primary button-large">
                                 </div>
                                 <div class="clear"></div>
@@ -533,18 +527,19 @@ $id                 = intval( $_GET['id'] );
                                         <input type="hidden" value="off" name="ht_show_filtering"/>
                                         <input type="checkbox"
                                                id="ht_show_filtering" <?php if ($row->ht_show_filtering == 'on') echo 'checked="checked"'; ?> value="on" disabled/>
-                                        <a class="probuttonlink" href="http://huge-it.com/portfolio-gallery/"
-                                           target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span>
-                                            )</a>
+                                        <a class="portfolio-pro-link probuttonlink" href="http://huge-it.com/portfolio-gallery/"
+                                           target="_blank"><span class="portfolio-pro-icon"></span></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="postbox">
-                            <h3 class="hndle"><span><?php echo __('Categories', 'portfolio-gallery'); ?>:</span>&nbsp;&nbsp;<a
-                                    class="probuttonlink" href="http://huge-it.com/portfolio-gallery/" target="_blank">(
-                                    <span style="color: red;font-size: 14px;"> PRO </span> )</a></h3>
+                            <h3 class="hndle"><span><?php echo __('Categories', 'portfolio-gallery'); ?>:</span>&nbsp;&nbsp;
+                                <a class="portfolio-pro-link probuttonlink" href="http://huge-it.com/portfolio-gallery/"
+                                       target="_blank"><span class="portfolio-pro-icon"></span>
+                                </a>
+                            </h3>
                             <div class="inside">
                                 <ul>
                                     <?php
@@ -661,8 +656,7 @@ $id                 = intval( $_GET['id'] );
                                         <h4><?php echo __('Template Include', 'portfolio-gallery'); ?></h4>
                                         <p><?php echo __('Copy &amp; paste this code into a template file to include the slideshow within your theme', 'portfolio-gallery'); ?>
                                             .</p>
-                                        <textarea class="full" readonly="readonly">&lt;?php echo do_shortcode("[huge_it_portfolio id='<?php echo $row->id; ?>
-                                            ']"); ?&gt;</textarea>
+                                        <textarea class="full" readonly="readonly">&lt;?php echo do_shortcode("[huge_it_portfolio id='<?php echo $row->id; ?>']"); ?&gt;</textarea>
                                     </li>
                                 </ul>
                             </div>
