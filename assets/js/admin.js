@@ -28,7 +28,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutubeParser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutubeParser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -85,7 +85,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutubeParser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -101,7 +101,7 @@ jQuery(document).ready(function () {
 			alert("Please copy and past url from Youtube or Vimeo to insert into slider.");
 			return false;
 		}
-		if (portfolioGalleryYoutube_parser(videoUrl) == false) {
+		if (portfolioGalleryYoutubeParser(videoUrl) == false) {
 			alert("Url is incorrect");
 			return false;
 		}
@@ -475,7 +475,7 @@ function portfolioGalleryFilterInputs() {
 		jQuery(this).find('select').removeAttr('name');
 	});
 }
-function portfolioGalleryYoutube_parser(url) {
+function portfolioGalleryYoutubeParser(url) {
 	var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 	var match = url.match(regExp);
 	var match_vimeo = /vimeo.*\/(\d+)/i.exec(url);
