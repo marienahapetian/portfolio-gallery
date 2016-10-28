@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, free portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -114,11 +114,17 @@ The all images/videos of portfolio gallery project become large and open with po
 
 Arrow-down has already become a cross which close the text back. If the pictures are under each other, the opened text moves other images/video thumbnail of the portfolio gallery project toward. Simple and compact.
 
+Regarding the backend of portfolio gallery Blocks Toggle Up/Down view, there is a General Options allowing users to customize portfolio gallery Blocks Toggle view according to their taste. Thumbnail Images can be hidden due to unticking Show Thumbnails from General Options section of Portfolio Gallery.
+
 *   **Full-Height Blocks**
 
 Full-Height Blocks is a type of view demonstrating a tape of images/videos, which allows to see the text and other images/videos under the main image/video with its title.
 
 All additional images/videos become large when clicking on them, and open with popup. It has “View more” button at the bottom of the text for each portfolio gallery project.
+
+General Options of portfolio gallery allow to hide the description of your gallery if needed. Those images of portfolio gallery which you don’t need to direct with URL just untick Show Link Button.
+
+Labeled “View More” button text can be changed into any other word in each portfolio gallery project.
 
 *   **Gallery / Content-Popup**
 
@@ -130,6 +136,8 @@ There is also a button “View more” inside, which allows opening more informa
 
 Using right left arrows inside the popup you can slide within all gallery projects. The “cross” button in the upper right corner closes the popup going back to the gallery items.
 
+Gallery / Content-Popup view provides a zoom icon when users hover over the portfolio gallery  images. There is a possibility to select the position of category from the General Options of portfolio gallery. The popup description and labeled “View More” can be disabled from portfolio gallery options.
+
 *   **Full-Width Blocks**
 
 Full-Width Blocks is a type of view, which looks like portfolio gallery project which demonstrates images or videos on the left side, and title + description text on the right side.
@@ -137,6 +145,8 @@ Full-Width Blocks is a type of view, which looks like portfolio gallery project 
 It allows to see your main image with its additional images under it and the text disposed next to the image.
 
 The title is above the text and “View more” button is at the bottom of the text. All images can be opened and enlarged with lightbox tool.
+
+Portfolio gallery Full-Width Blocks images are opening with beautiful pop up without any description. Main Image size is changeable due to the portfolio gallery functionality options.
 
 *   **FAQ Toggle Up/Down**
 
@@ -148,6 +158,10 @@ Clicking on down-arrow button smoothly opens the text downwards and “view more
 
 So there are no images/videos only the text. Pressing on the cross you can close the text and go back to titles.
 
+The backend part of portfolio gallery FAQ view allows to change the Block Width of FAQs. Enable/disable descriptions and View More button of FAQ portfolio gallery.There is an opportunity to select the position of category from the General Options of portfolio gallery. 
+
+Portfolio gallery provides with the possibility to change each sort button name for FAQ view.
+
 *   **Content Slider**
 
 Content Slider is a type of view, which gives you an ability to see photos/videos with slider, the text is next to the image/video with the title above.
@@ -156,12 +170,15 @@ Every slide is represented as one project of the portfolio gallery.
 
 Just simply press the arrows on the upper right corner and slide the content of portfolio gallery projects.
 
+Content Slider allows to insert thumbnail images/videos into each portfolio gallery projects. The description and labeled “View More” can be disabled from portfolio gallery options. Portfolio gallery provides with the features to disable description and Link Button for Content Slider view.
+
 *   **Lightbox Gallery**
 
 Lightbox Gallery is a type of gallery view involves only preview of images without description text. The title comes up from the bottom of the image as you hover the mouse on it.
 
 Images and Videos become larger with the lightbox and you can slide to watch them. Pay attention, this portfolio gallery demonstrates only main image/videos of the whole project.
 
+The main image size can be changed from portfolio gallery General Options for providing the look you desire. Ability to change the Category styles position for each portfolio gallery project for Lightbox Gallery view.
 
 Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
 
@@ -346,11 +363,71 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 
 = How to show Title of images in Lightbox tool? =
 
-To show the title, write it in the Title field of media library and turn on "show title" from Lightbox Options.
+*  To show the title, write it in the Title field of media library and turn on "show title" from Lightbox Options.
+
+
+= May I disable “View More” link button from my Portfolio images? =
+
+*  Yes, you can! Go to General Options, select the view which you are using, under Popup Link Button you can untick Show Link Button.
+
+
+= Can I show my Portfolio in the center? =
+
+*  Yes, go to Huge-IT Portfolios select you desired portfolio gallery and under Select The Portfolio Gallery View enable Show in Center.
+
+
+= Is it possible to utilize HTML in Portfolio Gallery plugin? =
+
+*  Yes, you can add HTML in your Portfolio Gallery plugin in description field
+
+
+= How to add Portfolio plugin into WordPress page or post? =
+
+*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend. 
+
+
+= Is there any slideshow in Portfolio Gallery plugin? =
+
+*  Yes, portfolio plugin allows users to turn on slideshow from Lightbox Options. Users can even tick Slideshow auto start section and set the interval between images. 
+
+
+= Does your portfolio plugin support keyboard navigation? =
+
+*  You need to go to Lightbox Options and tick on keyboard navigation area. 
+
+
+= Can I change the lightbox styles for my  portfolio plugin images? =
+
+*  Those images which are opening with lightbox can have 5 various lightbox styles to open your portfolio images. You need to go Lightbox Options and select one of 5 styles next to “Lightbox style”.
+
+
+= What is the main function of General Options? =
+
+*  General Options are available in pro version, which allows uses to do changes for each view. You can have control on many features of portfolio gallery such as Element Styles, Thumbnails, Sorting styles, Description, Category styles, Link Button and many other features. 
+
+
+= Are Sorting Button and Category Button of Portfolio Gallery plugin available in free version? =
+
+*  Sorting Buttons are available in free version, as to the Category Buttons this option is a pro feature which allows you to separate your portfolio images according to several categories. Sorting buttons separates your portfolio gallery images by Date, Title, Random, Ascending and Descending.
+
+
+= What is the main function of Portfolio Loading Icons? =
+
+*  Portfolio Loading Icon is good in those cases when you have big sets of images you can select one of beautiful loading icons while your portfolio images are loading.
+
 
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.1 =
+
+* 1) Added duplicate button, so that users can duplicate portfolios
+* 2) Image on hover: optimized images on back end, so they load faster.
+* 3) New preview options: In the back-end of the plugin galleries have new preview options. You may check the "On hover preview" and view each image of your gallery in full size
+* 4) Fixed some CSS issues on front end 
+* 5) Added close button of the banner 
+* 6) Made UI/UX customization's in order to have back-end of the plugin more friendly
 
 = 2.2.0 =
 
