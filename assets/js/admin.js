@@ -309,7 +309,10 @@ jQuery(document).ready(function () {
 	})
 
 	jQuery("#images-list").sortable({
-		stop: function () {
+			start: function(event, ui) {
+				ui.item.data('start_pos', ui.item.index());
+			},
+		stop: function (event, ui) {
 			jQuery("#images-list > li").removeClass('has-background');
 			var count = jQuery("#images-list > li").length;
 			for (var i = 0; i <= count; i += 2) {
@@ -318,9 +321,15 @@ jQuery(document).ready(function () {
 			jQuery("#images-list > li").each(function () {
 				jQuery(this).find('.order_by').val(jQuery(this).index());
 			});
+
+			var start = Math.min(ui.item.data('start_pos'),ui.item.index());
+			var end = Math.max(ui.item.data('start_pos'),ui.item.index());
+			for(var i1=start; i1<=end; i1++){
+				jQuery(document.querySelectorAll("#images-list > li")[i1]).addClass('highlights');
+			}
 		},
 		change: function (event, ui) {
-			var start_pos = ui.item.data('start_pos');
+			var start_pos = ui.item.data('start_pos');console.log(start_pos);
 			var index = ui.placeholder.index();
 			if (start_pos < index + 2) {
 				jQuery('#images-list > li:nth-child(' + index + ')').addClass('highlights');

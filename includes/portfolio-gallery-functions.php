@@ -440,8 +440,14 @@ function portfolio_gallery_get_image_id($image_url) {
  */
 function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail) {
     $is_attachment = portfolio_gallery_get_image_id($image_src);
-    $img_sizes = getimagesize($image_src);
-    $img_height = $img_sizes[1];
+    $is_readable = is_readable($image_src);
+    if( $is_readable) {
+        $img_sizes = getimagesize($image_src);
+        $img_height = $img_sizes[1];
+    }
+    else{
+        $img_height = NULL;
+    }
 
     if (is_string($image_sizes)) {
         $image_sizes = $image_sizes;
@@ -462,10 +468,10 @@ function portfolio_gallery_get_image_by_sizes_and_src($image_src, $image_sizes, 
         if ($is_thumbnail) {
             $image_url = wp_get_attachment_image_url($attachment_id, 'thumbnail');
         } elseif ($image_sizes[0] <= 300 || $image_sizes[0] == '') {
-            if ($img_height <= $natural_img_width)
-                $image_url = wp_get_attachment_image_url($attachment_id, 'medium');
-            else
+            if ($img_height == NULL || $img_height >= $natural_img_width)
                 $image_url = wp_get_attachment_image_url($attachment_id, 'large');
+            else
+                $image_url = wp_get_attachment_image_url($attachment_id, 'medium');
         } elseif ($image_sizes[0] <= 700) {
             $image_url = wp_get_attachment_image_url($attachment_id, 'large');
         } elseif ($image_sizes[0] >= $natural_img_width) {

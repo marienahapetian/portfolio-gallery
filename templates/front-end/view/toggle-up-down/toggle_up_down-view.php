@@ -97,7 +97,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 			<div
 				class="portelement portelement_<?php echo $portfolioID; ?> colorbox_grouping <?php foreach ( $catForFilter as $catForFilterValue ) {
 					echo str_replace( " ", "_", $catForFilterValue ) . " ";
-				} ?>" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
+				} ?>" data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
 				<div class="default-block_<?php echo $portfolioID; ?> <?php echo $lighboxable; ?>" style="<?php if( $row->name == '' && count($imgurl) < 3 && $imgurl[1] =='' && $row->description == '' && $link == '') echo "height:".$portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_height']."px !important;";?>">
 					<div class="image-block image-block_<?php echo $portfolioID; ?>  add-H-relative">
 						<?php $imgurl = explode( ";", $row->image_url ); ?>

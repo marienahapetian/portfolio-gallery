@@ -90,7 +90,7 @@ if ($portfolioShowFiltering == 'on') {
             <div
                 class="portelement portelement_<?php echo $portfolioID; ?>  <?php foreach ($catForFilter as $catForFilterValue) {
                     echo str_replace(" ", "_", $catForFilterValue) . " ";
-                } ?> " data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
+                } ?> " data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
                 <div class="title-block title-block_<?php echo $portfolioID; ?>">
                     <h3 title="<?php echo esc_attr($row->name); ?>"
                         class="title"><?php echo $row->name; ?></h3>
