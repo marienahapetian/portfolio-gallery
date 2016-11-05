@@ -1,10 +1,10 @@
 ﻿=== Portfolio ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/portfolio-gallery/
-Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, free portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
+Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, filterable portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -419,6 +419,12 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.2 =
+
+* 1) Fixed the issue related to filesystem access that caused problems with images
+* 2) Added functionality that allows to have html in titles
+* 3) Added backward compatibility related to database changes and image sizes
 
 = 2.2.1 =
 
