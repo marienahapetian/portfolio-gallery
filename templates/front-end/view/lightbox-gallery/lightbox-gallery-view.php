@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div
 				class="portelement portelement_<?php echo $portfolioID; ?> portfolio-lightbox <?php foreach ( $catForFilter as $catForFilterValue ) {
 					echo str_replace( " ", "_", $catForFilterValue ) . " ";
-				} ?> " tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
+				} ?> " tabindex="0" data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
 				<p style="display: none;" class="id"><?php echo $row->id; ?></p>
 				<div class="image-block_<?php echo $portfolioID; ?>">
 					<?php //echo $row->id;

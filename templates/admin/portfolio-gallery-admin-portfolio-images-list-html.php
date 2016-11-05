@@ -39,7 +39,7 @@ $id                 = intval( $_GET['id'] );
                             <li class="active"
                                 onclick="this.firstElementChild.style.width = ((this.firstElementChild.value.length + 1) * 8) + 'px';"
                                 style="background-image:url(<?php echo PORTFOLIO_GALLERY_IMAGES_URL . '/admin_images/edit.png'; ?>);cursor: pointer;">
-                                <input class="text_area" onkeyup="name_changeTop(this)"
+                                <input class="text_area" onkeyup="portfoliosListNameChange(this)"
                                        onfocus="this.style.width = ((this.value.length + 1) * 8) + 'px'" type="text"
                                        name="name" id="name" maxlength="250"
                                        value="<?php echo esc_html(stripslashes($row->name)); ?>"/>

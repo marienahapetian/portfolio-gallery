@@ -97,7 +97,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					<?php if ( $row->image_url != ';' ) {
 						switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {
 							case 'image': ?>
-								<img alt="<?php echo $row->name; ?>" id="wd-cl-img<?php echo $key; ?>"
+								<img alt="<?php echo esc_attr($row->name); ?>" id="wd-cl-img<?php echo $key; ?>"
 								     src="<?php if ( $portfolio_gallery_get_options['portfolio_gallery_port_natural_size_contentpopup'] == 'resize' ) {
 									     echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
 										     $portfolio_gallery_get_options['portfolio_gallery_ht_view2_element_width'],

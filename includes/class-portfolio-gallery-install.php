@@ -24,6 +24,23 @@ class Portfolio_Gallery_Install {
             update_option( 'portfolio_gallery_admin_image_hover_preview', 'on' );
             update_option( 'portfolio_gallery_version', '2.2.0' );
         }
+
+        $portfolio_new_columns = array(
+            array('categories','varchar(200)','My_First_Category,My_Second_Category,My_Third_Category,'),
+            array('ht_show_sorting','varchar(3)','off'),
+            array('ht_show_filtering','varchar(3)','off'),
+            array('autoslide','varchar(3)','on'),
+            array('show_loading','varchar(3)','on'),
+            array('loading_icon_type','int(2)','1')
+        );
+        global $wpdb;
+        $table_name = $wpdb->prefix."huge_itportfolio_portfolios" ;
+        foreach ($portfolio_new_columns as $portfolio_new_column){
+            if( !portfolio_gallery_isset_table_column( $table_name, $portfolio_new_column[0] ) ){
+                $query = "ALTER TABLE ".$table_name." ADD ".$portfolio_new_column[0]." ".$portfolio_new_column[1]." DEFAULT '".$portfolio_new_column[2]."'";
+                $wpdb->query($query);
+            }
+        }
     }
 
     /**
