@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, filterable portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -419,6 +419,11 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.3 =
+
+* Fixed issues with nonce tokens in the plugin for all _POST, _GET requests
+* Fixed issue with cross site scripting (XSS)
 
 = 2.2.2 =
 
