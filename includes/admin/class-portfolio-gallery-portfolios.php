@@ -9,10 +9,8 @@ class Portfolio_Gallery_Portfolios {
 	 */
 	public function load_portfolio_page() {
 		global $wpdb;
-		if ( isset( $_GET['page'] ) && $_GET['page'] == 'portfolios_huge_it_portfolio' ) {
-			$task = portfolio_gallery_get_portfolio_task();
-			$id   = portfolio_gallery_get_portfolio_id();
-		}
+		$task = portfolio_gallery_get_portfolio_task();
+		$id   = portfolio_gallery_get_portfolio_id();
 		switch ( $task ) {
 			case 'edit_cat':
 				if ( ! isset( $_REQUEST['hugeit_portfolio_edit_portfolio_nonce'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_portfolio_edit_portfolio_nonce'], 'edit_portfolio_' . $id ) ) {

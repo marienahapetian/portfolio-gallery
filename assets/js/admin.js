@@ -92,7 +92,7 @@ jQuery(document).ready(function () {
 		var portfolioItemId = jQuery(this).parent().attr('data-portfolio-item-id');
 		var portfolioId = jQuery('#portfolio_gallery_add_videos_wrap').attr('data-portfolio-gallery-id');
 		var addThumbVideoNonce = jQuery('#portfolio_gallery_add_videos_wrap').attr('data-add-thumb-video-nonce');
-		jQuery(this).parent().attr('action','admin.php?page=portfolios_huge_it_portfolio&task=portfolio_video&id='+portfolioId+'&thumb_parent='+portfolioItemId+'&add_thumb_video_nonce='+addThumbVideoNonce+'&closepop=1').submit();
+		jQuery(this).parent().attr('action','admin.php?page=portfolios_huge_it_portfolio&task=portfolio_add_thumb_video&id='+portfolioId+'&thumb_parent='+portfolioItemId+'&add_thumb_video_nonce='+addThumbVideoNonce+'&closepop=1').submit();
 	});
 	jQuery('.huge-it-insert-video-button').click(function (e) {
 		e.preventDefault();

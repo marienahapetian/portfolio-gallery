@@ -50,6 +50,23 @@
 <div class="element hugeitmicro-item">
 	<div class="left-block">
 		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><img
+					src="<?php echo plugins_url( '../../assets/images/admin_images/pricing-table-icon.png', __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><h3><?php echo __("Pricing Table");?></h3></a></div>
+		<div class="description-block">
+			<p><?php echo __("Make awesome sales with beautiful and responsive Pricing Table plugin for WordPress. This plugin includes more than 120 default themes to choose from, has variety of options and is free to download.","pportfolio-gallery");?>.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
 			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><img
 					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/responsive-slider-logo.png', __FILE__ )); ?>"></a>
 		</div>
