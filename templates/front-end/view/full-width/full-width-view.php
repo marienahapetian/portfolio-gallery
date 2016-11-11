@@ -4,7 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <section id="huge_it_portfolio_content_<?php echo $portfolioID; ?>"
-         class="clear portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
+         style="clear: both"
+         class="portfolio-gallery-content <?php if ( $portfolioShowSorting == 'on' ) {
 	         echo 'sortingActive ';
          }
          if ( $portfolioShowFiltering == 'on' ) {
