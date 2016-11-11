@@ -175,9 +175,12 @@ class Portfolio_Gallery_Admin {
 					}
 
 				}
+				if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+					wp_die('"id" parameter is required to be not negative integer');
+				}
+				$id = absint( $_GET["id"] );
 				$_POST["huge_it_add_video_input"] .= ";";
 				$_POST["show_title"]              = sanitize_text_field( $_POST["show_title"] );
-				$id                               = absint( $id );
 				$_POST["show_description"]        = wp_kses_post( $_POST["show_description"] );
 				$_POST["huge_it_add_video_input"] = explode( ';', $_POST["huge_it_add_video_input"] );
 				$_POST["huge_it_add_video_input"] = array_map( 'esc_url', $_POST["huge_it_add_video_input"] );
@@ -216,7 +219,10 @@ class Portfolio_Gallery_Admin {
 	public function add_thumb_video() {
 		if ( portfolio_gallery_get_portfolio_task() == 'portfolio_add_thumb_video' ) {
 			global $wpdb;
-			$id = portfolio_gallery_get_portfolio_id();
+			if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+				wp_die('"id" parameter is required to be not negative integer');
+			}
+			$id = absint( $_GET["id"] );
 			if ( isset( $_POST["huge_it_add_video_input_thumb"] ) && $_POST["huge_it_add_video_input_thumb"] != '' ) {
 				if ( ! isset( $_REQUEST['add_thumb_video_nonce'] ) || ! wp_verify_nonce( $_REQUEST['add_thumb_video_nonce'], 'add_thumb_video_nonce' . absint( $_GET['thumb_parent'] ) ) ) {
 					wp_die( 'Security check failure' );
@@ -243,6 +249,9 @@ class Portfolio_Gallery_Admin {
 
 		if ( portfolio_gallery_get_portfolio_task() == 'portfolio_video_edit' ) {
 			$thumb = sanitize_text_field( $_GET["thumb"] );
+			if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+				wp_die('"id" parameter is required to be not negative integer');
+			}
 			$id = absint( $_GET["id"] );
 			if ( ! isset( $_REQUEST['portfolio_video_edit_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_video_edit_nonce'], 'edit_thumb_video_nonce' . $id . $thumb ) ) {
 				wp_die( 'Security check failure' );
@@ -270,7 +279,10 @@ class Portfolio_Gallery_Admin {
 
 	function wp_loaded_remove_video() {
 		if ( portfolio_gallery_get_portfolio_task() == 'remove_portfolio' ) {
-			$id = portfolio_gallery_get_portfolio_id();
+			if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+				wp_die('"id" parameter is required to be not negative integer');
+			}
+			$id = absint( $_GET["id"] );
 			if ( ! isset( $_REQUEST['hugeit_portfolio_remove_portfolio_nonce'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_portfolio_remove_portfolio_nonce'], 'remove_portfolio_' . $id ) ) {
 				wp_die( 'Security check failure' );
 			}
@@ -292,10 +304,11 @@ class Portfolio_Gallery_Admin {
 	 */
 	function wp_loaded_duplicate_portfolio() {
 		if ( isset( $_GET['page'] ) && $_GET['page'] == 'portfolios_huge_it_portfolio' ) {
-			if ( isset( $_GET["id"] ) ) {
-				$id = absint( $_GET["id"] );
-			}
 			if ( portfolio_gallery_get_portfolio_task() && portfolio_gallery_get_portfolio_task() == 'duplicate_portfolio_gallery' ) {
+				if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
+					wp_die('"id" parameter is required to be not negative integer');
+				}
+				$id = absint( $_GET["id"] );
 				if ( !isset( $_REQUEST['portfolio_gallery_duplicate_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_gallery_duplicate_nonce'], 'huge_it_portfolio_duplicate_nonce' . $id ) ) {
 					wp_die( 'Security check fail' );
 				}
