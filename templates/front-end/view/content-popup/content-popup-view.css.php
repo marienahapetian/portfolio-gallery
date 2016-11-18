@@ -141,6 +141,8 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_linkbutton_background_color"];?>;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_linkbutton_color"];?>;
     text-decoration:none;
+    border: none;
+    box-shadow: none;
 }
 
 /*#####POPUP#####*/

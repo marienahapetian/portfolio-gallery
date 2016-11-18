@@ -89,6 +89,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     font-size: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_size"];?>px;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_color"];?>;
     font-weight:normal;
+    border: none;
+    box-shadow: none;
 }
 
 

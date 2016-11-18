@@ -68,6 +68,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	height:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_height']; ?>px !important;
 	overflow: hidden;
 	position:relative;
+	border: none;
+	box-shadow: none;
 }
 
 .portelement_<?php echo $portfolioID; ?> .default-block_<?php echo $portfolioID; ?> img {
@@ -199,6 +201,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	height:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_thumbs_width']; ?>px;
 	opacity:0.7;
 	display:table;
+	border: none;
+	box-shadow: none;
 }
 
 .wd-portfolio-panel_<?php echo $portfolioID; ?> .thumbs-list_<?php echo $portfolioID; ?> li a:hover {

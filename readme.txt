@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: Portfolio, portfolio Gallery, portfolio plugin, portfolios, images portfolio, gallery, filterable portfolio, image gallery, wordpress gallery, photo gallery, wordpress portfolio, Responsive Portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,33 +23,46 @@ Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, 
 
 https://www.youtube.com/watch?v=uq6Cw3ou-gM
 
-Portfolio Gallery is perfect for using for creating various within various views. Product allows adding images, videos from youtube and vimeo, descriptions and titles for each.
+Show off your portfolio, work and experience to prospective clients and employers with Huge-IT Portfolio.
 
-Portfolio Gallery is rather useful whether using with various pages and posts, as well as within custom location.
+
+Huge-IT Portfolio helps you demonstrate all that you can do through beautiful, cleanly-organized portfolio project and subject galleries. In images, YouTube or Vimeo videos, and formatted text, you present examples of your best portfolio in neatly categorized, sortable sets.
+
+
+Create as many portfolios with as many images, videos, or other items as you want. Choose from among seven, animated and Lightbox-enabled layouts that accommodate HTML and text hyperlinks, as well as custom URLs to point each portfolio to further detail elsewhere. Even in the free version, you can put as many individually-customized portfolios as you want on a single page.
+
+
+But you can do far more with this plugin than the obvious, with just a little ingenuity. Add categories to your portfolio items, and you have the basis for a navigable, multi-dimensional FAQ. Or a self-sorting gallery of topic-based images. The possibilities are endless.
+
+
+And how is this power and flexibility possible? Because the Portfolio plugin is actually four plugins in one: Huge-IT’s Slider, Video Gallery, and Image Gallery, as well as Lightbox, to bring them all to life. 
+
+
+**Standard Features (free)**
+
+*  **Unlimited portfolios**, with unlimited projects, each with unlimited images, videos, or other content
+*  **Images as well as videos** from other sites, like YouTube and Vimeo
+*  **Auto-generated shortcodes** for easy embedding
+*  **Portfolio-specific widgets** available right from the Widgets admin panel
+*  **Optional sorting buttons** to sort by date or title, ascending or descending, in random order, or default
+*  **Seven presentation layouts** with their own animation effects
+*  **Fully responsive design** for perfect performance across devices and screen sizes
+
+
+**Pro Features (license)**
+
+You can build stunning portfolios right out of the box, but purchase the Pro license and whole world of style and functionality is unlocked.
+
+*  **Full access to customize** all presentation layouts and buttons, including all styling and even changing the text for buttons
+*  **Categories for dynamically** self-filtering galleries
+
 
 Plugin provides you Free version to test all 7 gallery views, slider gallery options and other basic functionalities.
-
-And Pro versions, which opens more and more abilities of customization for your gallery, each gallery view has it’s own options, it depends which gallery type you decides to use.
-
-Besides that pro version allows to customize your Lightbox. Lightbox tool come with some of the gallery views, not all, but most gallery views have this wonderful ability to zoom the image.
-
-Plugin has unrepeatable, 7 different and very fancy views. These views will give you a chance to make your site look modern, creative, well designed and this will definitely raise a big interest in your portfolio gallery by millions of your visitors. Make your portfolio gallery fit your needs up to the most minor detail.
-
-Don’t want to use only images? Go ahead and upload videos, from YouTube and Vimeo - most popular video sources, create new portfolio gallery with videos, or create portfolio gallery with videos and photos.
-
-Our fantastic plugin has also the ability to create nicely designed FAQ system. 
-So what we have?
 
 *  Video, demonstrated with 7 different views
 *  Image, demonstrated with 7 views
 *  Image + Video , demonstrated with 7 views
 *  Separate view, one of 7 views - FAQ, for questions/answers and not only
-
-You can use on different pages so if you need to create single portfolio gallery, with description, video , video player, faq, slider and content slider, it’s enough to install only portfolio gallery plugin.
-
-With nicely designed user friendly admin panel it will take you 2 minutes to create your portfolio gallery on your website. And these all things are available in Free version. It’s not over
-
-Using our plugin, you use 4 plugins in one. How? In addition to 4 types that was said above, you should notice that among those 7 views you can find Slider view, so you get Slider Plugin.
 
 **Slider**
 
@@ -210,40 +223,50 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 
 == Installation ==
 
-###Thank you for your interest.
+###Thank you for your interest in Portfolio Gallery plugin.
 
-Minimum requirements.
-WordPress 3.0+
-PHP 5.x
-MySQL 5.x
+Installation of Portfolio Gallery needs minimum requirements, which are: WordPress 3.0+,  PHP 5.x and MySQL 5.x.
 
-### Uploading in WordPress Dashboard
+**Uploading Portfolio Gallery in WordPress Dashboard**
 
-1. First download the ZIP file from Wordpress website
-2. Log in to your website administrator panel   
-3. Go to the 'Add New' in the plugins dashboard, click “Upload Plugin”
-4. Upload [WordPress portfolio gallery](https://wordpress.org/plugins/portfolio-gallery/) ZIP file by choosing it from your computer
-5. Click **Install** Now button
-6. Then click **Activate Plugin** button.
-7. You can see the portfolio gallery plugin installed on Wordpress left menu.
+The most simple way to add Portfolio Gallery in WordPress website follows:
 
-### Using The WordPress Plugins Dashboard
 
-1. Go to the 'Add New' in the plugins dashboard
-2. Search for 'Portfolio Gallery Huge-IT'
-3. Click **Install** Now button
-4. Then click **Activate Plugin** button
-5. You can see the plugin installed on Wordpress left menu
+After getting the Zip file of the portfolio plugin from Huge-IT website, or from the Portfolio Gallery page in WordPress, once clicked on Download Free version you get a Zip file.
 
-### Using FTP
+* 1. First download the ZIP file of Portfolio plugin from WordPress website
+* 2. Log in to your website administrator panel
+* 3. Go to the 'Add New' in the plugins dashboard, click “Upload Plugin”
+* 4. Upload WordPress portfolio gallery ZIP file by choosing it from your computer
+* 5. Click **Install** Now button
+* 6. Then click **Activate Plugin** button.
+* 7. You can see the portfolio gallery plugin installed on WordPress left menu.
 
-1. Download the ZIP file from Wordpress website
-2. Extract the **portfolio-gallery** directory to your computer
-3. Upload the **portfolio-gallery** directory to the **/wp-content/plugins/** directory
-4. Activate the plugin in the Plugin dashboard
-5. You can see the plugin installed on Wordpress left menu
+**Using The WordPress Plugins Dashboard**
 
-Now you can set your Portfolio Gallery options, images or videos and use our portfolio gallery.
+If you try to install the free version of Portfolio from the search bar of WordPress 
+
+* 1. Go to the 'Add New' in the plugins dashboard
+* 2. Search for 'Portfolio Gallery Huge-IT'
+* 3. Click **Install** Now button
+* 4. Then click **Activate Plugin** button
+* 5. You can see the Portfolio Gallery plugin installed on WordPress left menu
+
+**Using FTP**
+
+Portfolio Gallery may be installed from the cPanel
+
+* 1. Download the ZIP file of Portfolio gallery plugin from WordPress website
+* 2. Extract the **portfolio-gallery** directory to your computer
+* 3. Upload the **portfolio-gallery** directory to the **/wp-content/plugins/** directory
+* 4. Activate the plugin in the Plugin dashboard
+* 5. You can see your Portfolio plugin installed on WordPress left menu
+
+Now you can set your Portfolio Gallery options, images or videos and use our Portfolio gallery.
+
+Every time you try to change Zip file of Portfolio plugin with another zip file of the same Portfolio plugin you need to delete the previous one. While deleting the plugin, database will still keep the projects which you have created in Portfolio, and transfer them into new Portfolio gallery file.
+
+If the installation of Portfolio Pro version didn’t open the Pro options, just delete and install it again
 
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
@@ -268,58 +291,61 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 
 == Frequently Asked Questions ==
 
-= Is the payment for Portfolio Gallery pro version one-time of per (month,year..)? =
 
-*  The payment for Pro license is one-time and for life.
+= Is the payment for Portfolio Gallery Pro version one-time of per (month,year..)? =
+
+The payment for Pro license of Portfolio Gallery is one-time and for lifetime. Portfolio Gallery is a WordPress plugin, which license is under GPL agreement.
 
 
-= How to install the PRO version of Portfolio Gallery? In order to install pro version of the plugin, simply follow these steps: =
+= How to install the PRO version of Portfolio Gallery? =
 
-*  1) delete your free version.
-*  2) install the zip file | Plugins > add new > upload plugin
+*  In order to install Pro version of the Portfolio Gallery plugin, simply follow these steps:
+
+*  1) delete your free version of Portfolio Gallery.
+*  2) install the zip file of the Portfolio Gallery Pro: go to plugins > add new > upload plugin
 *  3) clean your cache files |ctrl+f5|
 
-*  Don’t be afraid of deleting free version, because you will NOT lose your created portfolios
+*  Don’t be afraid of deleting free version of Portfolio Gallery, because you will NOT lose your created portfolios and other data. You will lose your data after uninstalling Portfolio Gallery plugin only.
 
 
-= How to get a copy of most recent version? =
+= How to get a copy of most recent version of Portfolio Gallery? =
 
-*  Pro users can get update versions contacting us by info@huge-it.com.
-*  Free version  users will find update notification in their wordpress admin panel.
-
-
-= I have paid for pro version and didn’t get the link or file to update =
-
-*  If you made purchase and didn’t get the Portfolio Gallery pro license file, or file was corrupt, contact us by info@huge-it.com and send “order number”, we will check and send you the file  as soon as possible.
+Pro users of Portfolio Gallery plugin can get update versions by contacting us by info@huge-it.com email address.
+Free version users of Portfolio Gallery will find update notification in their WordPress admin panel.
 
 
-= Have purchased pro version of portfolio gallery plugin but still get the announcement to buy the commercial version to change settings. What to do? =
+= I have paid for Pro version of Portfolio Gallery and didn’t get the link or file to update. =
 
-*  This can happen because of your browser’s cache files. Press ctrl+f5 (Chrome, FF) in order to clean them, if you use safari, etc., clean from browser settings. If nothing helps, just reinstall plugin again.
-
-
-= Will I lose all my changes that I made in free version, if I update to pro version? =
-
-*  All kind of changes made in free version will remain, even if you delete the plugin.
+*  If you made purchase and didn’t get the Portfolio Gallery Pro license file, or file was corrupt, contact us by info@huge-it.com and send “order number”, we will check and send you the file as soon as possible.
+Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folder of your email. Please, check all the folders before contacting us.
 
 
-= How to have more columns? =
+= I have purchased Pro version of portfolio gallery plugin but still get the announcement to buy the commercial version. How to change settings. What to do? =
 
-*  The number of columns depends on the size of your theme container. In order to fit one more column you should make element size smaller. If you are free user and can not make element size of portfolio gallery view a bit smaller, you need to buy the pro version or ask the developers for help info@huge-it.com
+*  This can happen because of your browser’s cache files. Press ctrl+f5 (Chrome, FF) in order to clean them, if you use Safari, etc., clean from browser settings. If nothing helps, just reinstall plugin again. For this, you will need to deactivate and delete Portfolio Gallery and then install it once again.
 
 
-= I have already purchased Multi Site version, how do I upgrade it to Developer version, without buying it again? =
+= Will I lose all my changes that I made in Free version of Portfolio Gallery, if I update to Pro version? =
+
+*  All kind of changes made in free version of Portfolio Gallery will remain, even if you delete the plugin.
+
+
+= How to have more columns in Portfolio Gallery? =
+
+*  The number of columns depends on the size of your theme container. In order to fit one more column you should make element size smaller. If you are free user and can not make element size of portfolio gallery view a bit smaller, you need to buy the pro version or ask the developers for help by contacting us at  info@huge-it.com
+
+
+= I have already purchased Multi Site version of Portfolio Gallery, how do I upgrade it to Developer version, without buying it again? =
 
 *  If you have any pro version our portfolio gallery plugin of our products and want to upgrade it, you do not need to buy the new portfolio gallery once again, you only need to pay the difference price. For that simply contact info@huge-it.com or our online chat and we will help you to pay the difference.
 
 
-= I’ve bought the commercial license, installed the file but the Plugin seems to be still in free version, what to do? =
+= I’ve bought the commercial license of Portfolio Gallery, installed the file but the Plugin seems to be still in free version, what to do? =
 
-After installation of portfolio gallery pro version, in General Options all your changes will be saved!
-If you still see "free version" notification after installation of pro version.
+*  After installation of portfolio gallery pro version, in General Options all your changes will be saved! If you still see "free version" notification after installation of pro version.
 
-*   1) try to clean your cache files if this will not help
-*   2) delete, and install the portfolio gallery plugin again
+*  1) try to clean your cache files if this will not help
+*  2) delete, and install the portfolio gallery plugin again
 
 
 = I want to click on main image and be directed to my custom URL link instead of lightbox, is it possible? =
@@ -332,36 +358,36 @@ If you still see "free version" notification after installation of pro version.
 *  This situation is related to z-index, try to enlarge the number of z-index, if you are unable to do that yourself contact info@huge-it.com for technical support.
 
 
-= I purchased the plugin, and instead of zip file got it in unzip form, how to upload in Wordpress? =
+= I purchased the plugin, and instead of zip file got it in unzip form, how to upload in WordPress? =
 
-*  If you got unzip file, that means your browser makes auto unzip, please zip the file yourself and upload into wordpress. 
+*  If you got unzip file, that means your browser makes auto unzip, please zip the file yourself and upload into wordpress. This normally happens with Mac users. If you face any other issues, please feel free to drop us a line using our contact form on Huge-IT.com 
 
 
-= My category buttons are on the left vertical, can I make them horizontal? =
+= My category buttons of Portfolio Gallery are on the left vertical, can I make them horizontal? =
 
 *  In General Options you may see filtering buttons position make it TOP.
 
 
 = I have multy sites portfolio gallery, and the plugin works only on one, but not other sites, why? =
 
-If you use multi site (have number of sites) when you install a plugin portfolio gallery in main site, it will not work on other sites. In order it could work there too, you should. 
+*  If you use multi site (have number of sites) when you install a plugin portfolio gallery in main site, it will not work on other sites. In order it could work there too, you should.
 
-*   1) deactivate the plugin from main site 
-*   2) go to the other sites and activate it there one by one 
-*   3) after all will be activated, go back to your main site and activate it.
+*  1) deactivate the plugin from main site
+*  2) go to the other sites and activate it there one by one
+*  3) after all will be activated, go back to your main site and activate it.
 
 
-= How to make bullets, paragraphs and other styles in description? =
+= How to make bullets, paragraphs and other styles in description section of Portfolio Gallery? =
 
-*  Our supports HTML in description, using it you may add many different tags and make text look as you need.
+*  Portfolio Gallery supports HTML in description, using it you may add many different tags and make text look as you need.
 
 
 = My images are stretched within a view, how to correct it? =
 
-*  If you are pro user, then from General Options go in Image Behavior and set on "Natural". If you are free user, just try to upload more proportional images for element box.
+*  If you are pro user of Portfolio Gallery, then from General Options go in Image Behavior and set on "Natural". If you are free user of Portfolio Gallery, just try to upload more proportional images for element box.
 
 
-= How to show Title of images in Lightbox tool? =
+= How to show Title of images in Lightbox tool in Portfolio Gallery? =
 
 *  To show the title, write it in the Title field of media library and turn on "show title" from Lightbox Options.
 
@@ -378,32 +404,32 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 
 = Is it possible to utilize HTML in Portfolio Gallery plugin? =
 
-*  Yes, you can add HTML in your Portfolio Gallery plugin in description field
+*  Yes, you can add HTML in your Portfolio Gallery plugin in description field.
 
 
 = How to add Portfolio plugin into WordPress page or post? =
 
-*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend. 
+*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend.
 
 
 = Is there any slideshow in Portfolio Gallery plugin? =
 
-*  Yes, portfolio plugin allows users to turn on slideshow from Lightbox Options. Users can even tick Slideshow auto start section and set the interval between images. 
+*  Yes, portfolio plugin allows users to turn on slideshow from Lightbox Options. Users can even tick Slideshow auto start section and set the interval between images.
 
 
 = Does your portfolio plugin support keyboard navigation? =
 
-*  You need to go to Lightbox Options and tick on keyboard navigation area. 
+*  You need to go to Lightbox Options and tick on keyboard navigation area.
 
 
-= Can I change the lightbox styles for my  portfolio plugin images? =
+= Can I change the lightbox styles for my portfolio plugin images? =
 
 *  Those images which are opening with lightbox can have 5 various lightbox styles to open your portfolio images. You need to go Lightbox Options and select one of 5 styles next to “Lightbox style”.
 
 
 = What is the main function of General Options? =
 
-*  General Options are available in pro version, which allows uses to do changes for each view. You can have control on many features of portfolio gallery such as Element Styles, Thumbnails, Sorting styles, Description, Category styles, Link Button and many other features. 
+*  General Options are available in pro version, which allows uses to do changes for each view. You can have control on many features of portfolio gallery such as Element Styles, Thumbnails, Sorting styles, Description, Category styles, Link Button and many other features.
 
 
 = Are Sorting Button and Category Button of Portfolio Gallery plugin available in free version? =
@@ -419,6 +445,12 @@ If you use multi site (have number of sites) when you install a plugin portfolio
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.4 =
+
+* 1) Fixed reported CSS issues on front end, connected with views. 
+* 2) Changed the main banner connected with particular image that offended minors.
+* 3) Made major grammatical corrections in the main description page of the plugin, so it appears more user friendly now.
 
 = 2.2.3 =
 
