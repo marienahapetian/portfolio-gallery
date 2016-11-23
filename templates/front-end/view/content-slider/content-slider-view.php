@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 								   class="huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?> add-H-relative add-H-block"
 								   title="<?php echo esc_attr( $row->name ); ?>">
-									<img
+									<img class="main-image"
 										src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
 									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
 								</a>
@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<a class="huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>   add-H-relative add-H-block"
 								   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
 								   title="<?php echo $row->name; ?>">
-									<img src="<?php echo esc_attr( $imgsrc ); ?>"
+									<img src="<?php echo esc_attr( $imgsrc ); ?>" class="main-image"
 									     alt="<?php echo esc_attr( $row->name ); ?>"/>
 									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
 								</a>

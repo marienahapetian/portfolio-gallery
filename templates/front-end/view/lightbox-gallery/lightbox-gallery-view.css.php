@@ -309,7 +309,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         font-size:4vw !important;
     }
 }
-@media screen and (max-width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_color']+40; ?>px) {
+@media screen and (max-width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']+40; ?>px) {
     .portelement_<?php echo $portfolioID; ?>  {
         width:98%;
         margin: 1% !important;
