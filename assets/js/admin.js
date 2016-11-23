@@ -159,12 +159,10 @@ jQuery(document).ready(function () {
 		jQuery(".free_version_banner").css("display","none");
 		portfolioGallerySetCookie( 'portfolioGalleryBannerShow', 'no', {expires:86400} );
 	});
-	jQuery(window).load(function(){console.log(document.cookie);
-        if(getcookie('deleted')){
+	jQuery(window).load(function(){
+        if(portfolioGalleryGetCookie('deleted')){
             portfolioGallerySetCookie( 'deleted', 'success', {expires:-1} );
         }
-        /*createCookie(name,"",-1);
-        createCookie(name,"",-1);*/
 	});
     jQuery('#portfolio-loading-icon li').click(function(){
 		jQuery(this).parents('ul').find('li.act').removeClass('act');
@@ -409,6 +407,19 @@ function portfolioGallerySetCookie(name, value, options) {
 	document.cookie = updatedCookie;
 }
 
+function portfolioGalleryGetCookie (name) {
+    var cookie, allcookie = document.cookie.split(';');
+    for (var i = 0; i < allcookie.length; i++) {
+        cookie = allcookie[i].split('=');
+        cookie[0] = cookie[0].replace(/ +/g,'');
+        if (cookie[0] == name) {
+            return decodeURIComponent(cookie[1]);
+        }
+    }
+    return false;
+}
+
+
 function portfolioGalleryPopupSizes(checkbox) {
 	if (checkbox.is(':checked')) {
 		jQuery('.lightbox-options-block .not-fixed-size').css({'display': 'none'});
@@ -503,17 +514,3 @@ function portfolioGalleryYoutubeParser(url) {
 		return false;
 	}
 }
-
-function getcookie (name) {
-    var cookie, allcookie = document.cookie.split(';');
-    for (var i = 0; i < allcookie.length; i++) {
-        cookie = allcookie[i].split('=');
-        cookie[0] = cookie[0].replace(/ +/g,'');
-        if (cookie[0] == name) {
-            return decodeURIComponent(cookie[1]);
-        }
-    }
-    return false;
-}
-
-	
