@@ -66,7 +66,7 @@ class Portfolio_Gallery_Admin {
         $this->pages[] = add_menu_page( __( 'Huge-IT Portfolio Gallery', 'portfolio-gallery' ), __( 'Huge-IT Portfolio', 'portfolio-gallery' ), 'delete_pages', 'portfolios_huge_it_portfolio', array(
             Portfolio_Gallery()->admin->portfolios,
             'load_portfolio_page'
-        ), PORTFOLIO_GALLERY_IMAGES_URL . "/admin_images/huge_it_portfolioLogoHover -for_menu.png" );
+        ), PORTFOLIO_GALLERY_IMAGES_URL . "/admin_images/huge_it_portfolioLogoHover-for_menu.png" );
         $this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Portfolios', 'portfolio-gallery' ), __( 'Portfolios', 'portfolio-gallery' ), 'delete_pages', 'portfolios_huge_it_portfolio', array(
             Portfolio_Gallery()->admin->portfolios,
             'load_portfolio_page'
@@ -161,14 +161,14 @@ class Portfolio_Gallery_Admin {
      * Insert portfolio video
      */
     public static function add_video() {
-        if ( ! isset( $_REQUEST['portfolio_add_video_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_add_video_nonce'], 'portfolio_add_video_nonce' ) ) {
-            wp_die( 'Security check failure' );
-        }
-        global $wpdb;
         if ( !isset( $_GET["id"] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
             wp_die('"id" parameter is required to be not negative integer');
         }
         $id = absint( $_GET["id"] );
+        if ( ! isset( $_REQUEST['portfolio_add_video_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_add_video_nonce'], 'portfolio_add_video_nonce' . $id ) ) {
+            wp_die( 'Security check failure' );
+        }
+        global $wpdb;
         if ( isset( $_POST["huge_it_add_video_input"] ) && $_POST["huge_it_add_video_input"] != '' ) {
             $query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id= %d", $id );
             $row          = $wpdb->get_row( $query );
@@ -302,10 +302,10 @@ class Portfolio_Gallery_Admin {
         $sql_remov_tag   = $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = %d", $id );
         $sql_remov_image = $wpdb->prepare( "DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images WHERE portfolio_id = %d", $id );
         if ( ! $wpdb->query( $sql_remov_tag ) ) {
-            setcookie( 'deleted', 'fail', time() + 2 );
+            setcookie( 'deleted', 'fail', time() + 120 );
         } else {
             $wpdb->query( $sql_remov_image );
-            setcookie( 'deleted', 'success', time() + 2 );
+            setcookie( 'deleted', 'success', time() + 120 );
         }
         header( 'Location: admin.php?page=portfolios_huge_it_portfolio' );
     }

@@ -2,14 +2,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-global $wpdb;
-$id                        = intval( $_GET['id'] );
-$portfolio_add_video_nonce = wp_create_nonce( 'portfolio_add_video_nonce' );
 ?>
 <div id="portfolio_gallery_add_videos" style="display: none">
 	<div id="portfolio_gallery_add_videos_wrap" data-portfolio-gallery-id=""
 		 data-add-thumb-video-nonce=""
-		 data-add-video-nonce="<?php echo $portfolio_add_video_nonce; ?>">
+		 data-add-video-nonce="">
 		<h2><?php echo __( 'Add Video URL From Youtube or Vimeo', 'portfolio-gallery' ); ?></h2>
 		<div class="control-panel">
 			<form method="post" action="" class="add-main-video">
