@@ -61,9 +61,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> {
     width:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_main_image_width"];?>px;
-    display:table-cell;
+    display:inline-block;
     padding:0 10px 0 0;
     float:left;
+}
+
+#p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?> img.main-image {
@@ -110,7 +116,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block {
-    display:table-cell;
+    display:inline-block;
+    width: calc(100% - <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_main_image_width"] + 10;?>px);
 }
 
 #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block > div {

@@ -52,6 +52,7 @@ $id                 = intval( $_GET['id'] );
                         'add_new_portfolio',
                         'hugeit_portfolio_add_portfolio_nonce'
                     );
+                    $add_video_nonce = wp_create_nonce( 'portfolio_add_video_nonce' . $row->id);
                     ?>
                     <li class="add-new">
                         <a onclick="window.location.href='<?php echo $add_new_portfolio_safe_link; ?>'">+</a>
@@ -81,7 +82,8 @@ $id                 = intval( $_GET['id'] );
 
                             <a href="#TB_inline?width=700&height=500&inlineId=portfolio_gallery_add_videos"
                                class="button button-primary add-video-slide thickbox" id="slideup3s"
-                               value="iframepop" data-portfolio-gallery-id="<?php echo $row->id; ?>">
+                               value="iframepop" data-portfolio-gallery-id="<?php echo $row->id; ?>"
+                               data-add-video-nonce="<?php echo $add_video_nonce; ?>">
                                 <span class="wp-media-buttons-icon"></span>
                                 <?php echo __('Add Video', 'portfolio-gallery'); ?>
                             </a>
