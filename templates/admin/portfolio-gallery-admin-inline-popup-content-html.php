@@ -28,13 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			echo "<option value='" . $shortcodeportfolio->id . "'>" . $shortcodeportfolio->name . "</option>";
 		}
 		echo "</select>";
-		echo "<button class='button primary' id='hugeitportfolioinsert'>Insert portfolio gallery</button>";
+		echo "<button class='button primary' id='hugeitportfolioinsert'>".__('Insert portfolio gallery','portfolio-gallery')."</button>";
 	} else {
 		echo "No slideshows found";
 	}
 	?>
 	<!--------------------------------Option's HTML-------------------------------->
-	<h3>Current Portfolio Options</h3>
+	<h3><?php _e('Current Portfolio Options','portfolio-gallery'); ?></h3>
 	<ul id="portfolio-unique-options-list">
 		<li style="display:none;">
 			<label for="sl_width"><?php echo __( 'The requested action is not valid.', 'portfolio-gallery' ); ?></label>
@@ -69,6 +69,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<option <?php if ( $row->portfolio_list_effects_s == '6' ) {
 					echo 'selected';
 				} ?> value="6"><?php echo __( 'Lightbox-Gallery', 'portfolio-gallery' ); ?></option>
+				<option <?php if ( $row->portfolio_list_effects_s == '7' ) {
+					echo 'selected';
+				} ?> value="7"><?php echo __( 'Elastic Grid', 'portfolio-gallery' ); ?></option>
 			</select>
 		</li>
 		<li class="allowIsotope">

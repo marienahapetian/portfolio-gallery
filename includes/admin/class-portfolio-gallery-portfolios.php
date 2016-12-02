@@ -198,8 +198,11 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 		global $wpdb;
 
 		if ( isset( $_GET["removeslide"] ) ) {
-			if ( $_GET["removeslide"] != '' ) {
-				$wpdb->query( "DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images  WHERE id = " . absint( $_GET["removeslide"] ) );
+			if ( absint( $_GET['removeslide'] ) != $_GET['removeslide'] || !absint($_GET['removeslide'])) {
+				wp_die( __('"removeslide" parameter is required to be not negative integer','portfolio-gallery' ) );
+			} else {
+				$project_id = absint( $_GET["removeslide"] );
+				$wpdb->query( "DELETE FROM " . $wpdb->prefix . "huge_itportfolio_images  WHERE id = " . $project_id );
 			}
 		}
 
@@ -233,13 +236,8 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 	 */
 	public function save_portfolio_data( $id ) {
 		global $wpdb;
-		if ( ! is_numeric( $id ) ) {
-			echo 'insert numerc id';
-
-			return '';
-		}
 		if ( ! ( isset( $_POST['sl_width'] ) && isset( $_POST["name"] ) ) ) {
-			return '';
+			return;
 		}
 		$id                     = absint( $id );
 		$name                   = sanitize_text_field( wp_unslash( $_POST["name"] ) );
@@ -253,7 +251,7 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 		$portfolio_effects_list = absint( $_POST["portfolio_effects_list"] );
 		$description            = absint( $_POST["sl_pausetime"] );
 		$sl_changespeed         = absint( $_POST["sl_changespeed"] );
-		$all_categories         = str_replace( ' ', '_', sanitize_text_field( $_POST["allCategories"] ) );
+		$all_categories         = wp_unslash( str_replace( ' ', '_', sanitize_text_field( $_POST["allCategories"] ) ) );
 		$ht_show_sorting        = in_array( $_POST["ht_show_sorting"], array(
 			'on',
 			'off'
@@ -305,18 +303,23 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 			$rowim         = $wpdb->get_results( $query );
 			foreach ( $rowim as $key => $rowimages ) {
 				$imgDescription = wp_kses_post( wp_unslash( $_POST[ "im_description" . $rowimages->id . "" ] ) );
-				$imgTitle       = wp_unslash( wp_kses( $_POST[ "titleimage" . $rowimages->id . "" ],'default' ) );
+				$imgTitle       = wp_kses_post( wp_unslash( $_POST[ "titleimage" . $rowimages->id . "" ] ) );
+				$orderBy        = absint( $_POST[ "order_by_" . $rowimages->id ] );
+				$link_target    = sanitize_text_field( $_POST[ "sl_link_target" . $rowimages->id ] );
+				$url            = sanitize_text_field( $_POST[ "sl_url" . $rowimages->id ] );
+				$image_url      = sanitize_text_field( $_POST[ "imagess" . $rowimages->id ] );
+				$category       = sanitize_text_field( wp_unslash( $_POST[ "category" . $rowimages->id ] ) );
 
 				$wpdb->update(
 					$wpdb->prefix . "huge_itportfolio_images",
 					array(
-						'ordering'    => $_POST[ "order_by_" . $rowimages->id ],
-						'link_target' => $_POST[ "sl_link_target" . $rowimages->id ],
-						'sl_url'      => $_POST[ "sl_url" . $rowimages->id ],
+						'ordering'    => $orderBy,
+						'link_target' => $link_target,
+						'sl_url'      => $url,
 						'name'        => $imgTitle,
 						'description' => $imgDescription,
-						'image_url'   => $_POST[ "imagess" . $rowimages->id ],
-						'category'    => $_POST[ "category" . $rowimages->id ],
+						'image_url'   => $image_url,
+						'category'    => $category,
 					),
 					array( 'id' => absint( $rowimages->id ) )
 				);
@@ -332,7 +335,7 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 			}
 
 			$table_name        = $wpdb->prefix . "huge_itportfolio_images";
-			$imagesnewuploader = explode( ";;;", $_POST["imagess"] );
+			$imagesnewuploader = explode( ";;;", sanitize_text_field( $_POST["imagess"] ) );
 
 			array_pop( $imagesnewuploader );
 
@@ -366,11 +369,8 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 			}
 		}
 
-		if ( isset( $_POST["posthuge-it-description-length"] ) ) {
-			$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itportfolio_portfolios SET  published = %d WHERE id = %d ", $_POST["posthuge-it-description-length"], $_GET['id'] ) );
-		}
 		?>
-		<div class="updated"><p><strong><?php _e( 'Item Saved' ); ?></strong></p></div>
+		<div class="updated"><p><strong><?php _e( 'Item Saved', 'portfolio-gallery' ); ?></strong></p></div>
 		<?php
 
 		return true;

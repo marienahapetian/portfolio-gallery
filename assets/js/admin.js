@@ -206,7 +206,7 @@ jQuery(document).ready(function () {
 		var _custom_media = true;
 		wp.media.editor.send.attachment = function (props, attachment) {
 			if (_custom_media) {
-				jQuery("#" + id).parent().parent().before('<li class="editthisimage1 "><img src="' + attachment.url + '" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
+				jQuery("#" + id).parent().parent().before('<li class="editthisimage1 "><img src="' + attachment.url + '" data-img-src="' + attachment.url + '" alt="" /><input type="button" class="edit-image"  id="" value="Edit" /><a href="#remove" class="remove-image">remove</a></li>');
 				jQuery("#" + id).val(jQuery("#" + id).val() + attachment.url + ';');
 			} else {
 				return _orig_send_attachment.apply(this, [props, attachment]);

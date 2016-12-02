@@ -119,6 +119,12 @@ class Portfolio_Gallery_Template_Loader {
 				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'lightbox-gallery'.DIRECTORY_SEPARATOR.'lightbox-gallery-view.php';
 				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'lightbox-gallery'.DIRECTORY_SEPARATOR.'lightbox-gallery-view.css.php';
 				break;
+            case 7:
+                $portfolioposition = 'on';
+				$view_slug = portfolio_gallery_get_view_slag_by_id( $portfolioID );
+				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.php';
+				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.css.php';
+				break;
 		}
 	}
 }
