@@ -823,12 +823,24 @@ jQuery(function() {
 
                 this.calcHeight();
                 /*this.$previewEl.css( 'height', this.height );*/
+                //this.$item.css( 'height', config.expandingHeight ).on( transEndEventName, onEndFn );
                 this.$previewEl.css( 'height', 'auto' );
                 this.$previewEl.height( this.$previewEl.height() );
-                this.itemHeight = this.$item.data( 'height' ) + this.$previewEl.height() + parseInt(elements_margin);
+                this.itemHeight = this.$item.data( 'height' ) + this.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
                 this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
-                //this.$item.css( 'height', config.expandingHeight ).on( transEndEventName, onEndFn );
-
+                var previewEl  = self.$previewEl;
+                jQuery('.og-expander img').on('load',function () {
+                    self.$previewEl.css( 'height', 'auto' );
+                    self.$previewEl.height( self.$previewEl.height() );
+                    self.itemHeight = self.$item.data( 'height' ) + self.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
+                    self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
+                });
+                jQuery('.og-expander iframe').on('load',function () {
+                    self.$previewEl.css( 'height', 'auto' );
+                    self.$previewEl.height( self.$previewEl.height() );
+                    self.itemHeight = self.$item.data( 'height' ) + self.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
+                    self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
+                });
                 if( !support ) {
                     onEndFn.call();
                 }
