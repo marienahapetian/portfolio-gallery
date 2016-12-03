@@ -159,6 +159,11 @@ jQuery(document).ready(function () {
 		jQuery(".free_version_banner").css("display","none");
 		portfolioGallerySetCookie( 'portfolioGalleryBannerShow', 'no', {expires:86400} );
 	});
+	jQuery(".christmas-close").on("click",function(e){
+		e.preventDefault();
+		jQuery(".backend-christmas-banner").css("display","none");
+		portfolioGallerySetCookie( 'portfolioGalleryChristmasBannerShow', 'no', {expires:3456000} );
+	});
 	jQuery(window).load(function(){
         if(portfolioGalleryGetCookie('deleted')){
             portfolioGallerySetCookie( 'deleted', 'success', {expires:-1} );

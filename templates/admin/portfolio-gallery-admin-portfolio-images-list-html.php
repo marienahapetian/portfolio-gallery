@@ -11,6 +11,7 @@ $id                 = intval( $_GET['id'] );
 	</div>
 	<div class="wrap">
 		<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
+		<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-chrismas-banner-html.php' ); ?>
 		<?php
 		$path_site2  = PORTFOLIO_GALLERY_IMAGES_URL;
 		$form_action = wp_nonce_url( 'admin.php?page=portfolios_huge_it_portfolio&id=' . $id, 'apply_portfolio_' . $row->id, 'hugeit_portfolio_apply_portfolio_nonce' );

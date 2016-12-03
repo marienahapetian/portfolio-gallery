@@ -222,9 +222,14 @@ class Portfolio_Gallery_Frontend_Scripts
             $thumbnails = explode(';', $thumbnails);
             $thumbs = array();
             $larg_images = array();
-            foreach ($thumbnails as $thumbnail) {
+            foreach ($thumbnails as $key => $thumbnail) {
                 if (portfolio_gallery_youtube_or_vimeo_portfolio($thumbnail) == 'image') {
-                    $smal_img = esc_url(portfolio_gallery_get_image_by_sizes_and_src($thumbnail, 'medium', false));
+                    if( $key == 0 ) {
+                        $smal_img = esc_url(portfolio_gallery_get_image_by_sizes_and_src($thumbnail, 'medium', false));
+                    }
+                    else {
+                        $smal_img = esc_url(portfolio_gallery_get_image_by_sizes_and_src($thumbnail, array(), true));
+                    }
                     $big_img = $thumbnail;
                 } elseif (portfolio_gallery_youtube_or_vimeo_portfolio($thumbnail) == 'youtube') {
                     $videourl = portfolio_gallery_get_video_id_from_url($thumbnail);

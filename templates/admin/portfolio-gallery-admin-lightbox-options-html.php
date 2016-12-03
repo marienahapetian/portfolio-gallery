@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="wrap">
 	<?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-free-banner.php');?>
+	<?php require(PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'portfolio-gallery-admin-chrismas-banner-html.php');?>
 	<div style="margin-left: -20px;position: relative" id="poststuff">
 		<p class="pro_info">
 			These features are available in the Professional version of the plugin only.

@@ -6,6 +6,7 @@ global $wpdb;
 ?>
 <div class="wrap">
 	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
+	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-chrismas-banner-html.php' ); ?>
 	<?php
 	$path_site2                  = plugins_url( "../images", __FILE__ );
 	$add_new_portfolio_safe_link = wp_nonce_url(
