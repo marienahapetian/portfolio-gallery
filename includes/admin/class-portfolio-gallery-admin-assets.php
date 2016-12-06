@@ -22,6 +22,8 @@ class Portfolio_Gallery_Admin_Assets {
 			wp_enqueue_style( "jquery_ui", esc_url("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"), false );
 			wp_enqueue_style( "simple_slider_css", Portfolio_Gallery()->plugin_url()."/assets/style/simple-slider.css",  false );
 			wp_enqueue_style( "featured_plugins", Portfolio_Gallery()->plugin_url()."/assets/style/featured-plugins.css",  false );
+			wp_enqueue_style( "licensing_css", Portfolio_Gallery()->plugin_url()."/assets/style/licensing.css",  false );
+			wp_enqueue_style( "christmas_css", Portfolio_Gallery()->plugin_url()."/assets/style/christmas.css",  false );
 		}
 	}
 
