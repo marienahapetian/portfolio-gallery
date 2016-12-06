@@ -4,7 +4,7 @@
 			<a href="http://huge-it.com/"></a>
 		</div>
 		<div class="text-block">
-			<a href="http://huge-it.com/">
+			<a href="http://huge-it.com/" target="_blank">
 				<p><?php _e("Upgrade your plugin and get Developer's License for 13 WordPress plugins worth","portfolio-gallery"); ?>
 					<span><?php _e('$760 for','portfolio-gallery'); ?> <strong>$149</strong> </span>
 					<?php _e('Plus, we add lifetime of FREE support and updates. The deal is available for a limited time only.','portfolio-gallery'); ?>

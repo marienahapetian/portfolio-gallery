@@ -63,6 +63,11 @@
     color: #f7e127;
 }
 
+.backend-christmas-banner  .banner-block .text-block button:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 .backend-christmas-banner  .banner-block .text-block button {
     height: 35px;
     border: none;
@@ -72,6 +77,7 @@
     color: #fff;
     padding: 0 25px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .backend-christmas-banner .banner-block .text-block span strong {
