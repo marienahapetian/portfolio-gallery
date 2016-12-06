@@ -173,14 +173,14 @@ class Portfolio_Gallery_Admin {
 	 * Insert portfolio video
 	 */
 	public static function add_video() {
-		if ( ! isset( $_REQUEST['portfolio_add_video_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_add_video_nonce'], 'portfolio_add_video_nonce' ) ) {
-			wp_die( 'Security check failure' );
-		}
-		global $wpdb;
 		if ( ! isset( $_GET["id"] ) || ! absint( $_GET['id'] ) || absint( $_GET['id'] ) != $_GET['id'] ) {
 			wp_die( '"id" parameter is required to be not negative integer' );
 		}
 		$id = absint( $_GET["id"] );
+		if ( ! isset( $_REQUEST['portfolio_add_video_nonce'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_add_video_nonce'], 'portfolio_add_video_nonce' . $id ) ) {
+			wp_die( 'Security check failure' );
+		}
+		global $wpdb;
 		if ( isset( $_POST["huge_it_add_video_input"] ) && $_POST["huge_it_add_video_input"] != '' ) {
 			$query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id= %d", $id );
 			$row          = $wpdb->get_row( $query );

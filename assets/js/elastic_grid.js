@@ -1,12 +1,12 @@
 /*
-* This is a fork of jQuery Elastic Grid library which is licensed under the MIT license
-*
-* latest version and complete README available on Github:
-* https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
-*/
+ * This is a fork of jQuery Elastic Grid library which is licensed under the MIT license
+ *
+ * latest version and complete README available on Github:
+ * https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
+ */
 var $event = jQuery.event,
-$special,
-resizeTimeout;
+    $special,
+    resizeTimeout;
 
 $special = $event.special.debouncedresize = {
     setup: function() {
@@ -21,20 +21,20 @@ $special = $event.special.debouncedresize = {
         jQuery('.og-fullimg').find('iframe:first').height(previewWrapperWidth*9/16);
         // Save the context
         /*var context = this,
-            args = arguments,
-            dispatch = function() {
-                // set correct event type
-                event.type = "debouncedresize";
-                $event.dispatch.apply( context, args );
-            };
+         args = arguments,
+         dispatch = function() {
+         // set correct event type
+         event.type = "debouncedresize";
+         $event.dispatch.apply( context, args );
+         };
 
-        if ( resizeTimeout ) {
-            clearTimeout( resizeTimeout );
-        }
+         if ( resizeTimeout ) {
+         clearTimeout( resizeTimeout );
+         }
 
-        execAsap ?
-            dispatch() :
-            resizeTimeout = setTimeout( dispatch, $special.threshold );*/
+         execAsap ?
+         dispatch() :
+         resizeTimeout = setTimeout( dispatch, $special.threshold );*/
         jQuery('.og-expander').height('auto');
         var ogExpanderHeight = jQuery('.og-expander').height();
         var elementHeight = jQuery('.og-expanded').find('a:first').height();
@@ -250,9 +250,9 @@ jQuery(function() {
         }
         ulObject.addClass('effect-'+config.filterEffect);
         ulObject.appendTo(container);
-/**************************************************************************
-* HOVER DIR
-***************************************************************************/
+        /**************************************************************************
+         * HOVER DIR
+         ***************************************************************************/
         if(config.hoverDirection == true){
             ulObject.find('li').each( function() {
                 jQuery(this).hoverdir({
@@ -262,134 +262,134 @@ jQuery(function() {
             } );
         }
 
-/**************************************************************************
-* Tags to filter
-***************************************************************************/
-    var porfolio_filter = container.find('#portfolio-filter');
-    var items = ulObject.find('li'),
-    itemsByTags = {};
-    numOfTag = 0;
+        /**************************************************************************
+         * Tags to filter
+         ***************************************************************************/
+        var porfolio_filter = container.find('#portfolio-filter');
+        var items = ulObject.find('li'),
+            itemsByTags = {};
+        numOfTag = 0;
 
-    // Looping though all the li items:
+        // Looping though all the li items:
 
-    items.each(function(i){
-        var elem = jQuery(this),
-        tags = elem.data('tags').split(',');
+        items.each(function(i){
+            var elem = jQuery(this),
+                tags = elem.data('tags').split(',');
 
-        // Adding a data-id attribute. Required by the Quicksand plugin:
-        elem.attr('data-id',i);
+            // Adding a data-id attribute. Required by the Quicksand plugin:
+            elem.attr('data-id',i);
 
-        elem.addClass('all');
-        jQuery.each(tags,function(key,value){
-            // Removing extra whitespace:
-            value = jQuery.trim(value);
+            elem.addClass('all');
+            jQuery.each(tags,function(key,value){
+                // Removing extra whitespace:
+                value = jQuery.trim(value);
 
-            //add class tags to li
-            elem.addClass(value.toLowerCase().replace(' ','-'));
+                //add class tags to li
+                elem.addClass(value.toLowerCase().replace(' ','-'));
 
-            if(!(value in itemsByTags)){
-                // Create an empty array to hold this item:
-                itemsByTags[value] = [];
-                numOfTag++;
-            }
+                if(!(value in itemsByTags)){
+                    // Create an empty array to hold this item:
+                    itemsByTags[value] = [];
+                    numOfTag++;
+                }
 
-            // Each item is added to one array per tag:
-            itemsByTags[value].push(elem);
+                // Each item is added to one array per tag:
+                itemsByTags[value].push(elem);
+            });
+
         });
 
-    });
+        if(numOfTag > 1){
+            // Creating the "Everything" option in the menu:
+            if(show_filter_all_text == 'on' || config.showAllText) {
+                createList(config.showAllText);
+            }
 
-    if(numOfTag > 1){
-        // Creating the "Everything" option in the menu:
-        if(show_filter_all_text == 'on' || config.showAllText) {
-            createList(config.showAllText);
+            // Looping though the arrays in itemsByTags:
+            jQuery.each(itemsByTags,function(k,v){
+                createList(k);
+            });
+        }else{
+            porfolio_filter.remove();
         }
 
-        // Looping though the arrays in itemsByTags:
-        jQuery.each(itemsByTags,function(k,v){
-            createList(k);
-        });
-    }else{
-        porfolio_filter.remove();
-    }
 
+        porfolio_filter.find('a').bind('click',function(e){
+            //close expanding preview
+            $grid.find('li.og-expanded').find('a').trigger('click');
+            $grid.find('.og-close').trigger('click');
 
-    porfolio_filter.find('a').bind('click',function(e){
-        //close expanding preview
-        $grid.find('li.og-expanded').find('a').trigger('click');
-        $grid.find('.og-close').trigger('click');
+            $this = jQuery(this);
+            $this.css('outline','none');
+            porfolio_filter.find('.current').removeClass('current');
+            $this.parent().addClass('current');
 
-        $this = jQuery(this);
-        $this.css('outline','none');
-        porfolio_filter.find('.current').removeClass('current');
-        $this.parent().addClass('current');
-
-        //var filterVal = $this.text().toLowerCase().replace(' ','-');
-        var filterVal = $this.attr('data-filter').slice(1);
-        var count  = numOfItems;
-        ulObject.find('li').each( function(i, el) {
-            classie.remove( el, 'hidden' );
-            classie.remove( el, 'animate' );
-            if(!--count){
-                setTimeout( function() {
-                    doAnimateItems(ulObject.find('li'), filterVal);
-                }, 1);
-            }
-        });
-
-        return false;
-    });
-
-    function doAnimateItems(objectLi, filterVal){
-        objectLi.each(function(i, el) {
-            if(classie.has( el, filterVal ) ) {
-                classie.toggle( el, 'animate' );
+            //var filterVal = $this.text().toLowerCase().replace(' ','-');
+            var filterVal = $this.attr('data-filter').slice(1);
+            var count  = numOfItems;
+            ulObject.find('li').each( function(i, el) {
                 classie.remove( el, 'hidden' );
-            }else{
-                classie.add( el, 'hidden' );
                 classie.remove( el, 'animate' );
-            }
+                if(!--count){
+                    setTimeout( function() {
+                        doAnimateItems(ulObject.find('li'), filterVal);
+                    }, 1);
+                }
+            });
+
+            return false;
         });
-    }
 
-    porfolio_filter.find('li:first').addClass('current');
-
-    function createList(text){
-        var filter = text.toLowerCase().replace(' ','-');
-        // This is a helper function that takes the
-        // text of a menu button and array of li items
-        if(text != ''){
-            text = text.replace(/_/g,' ');
-            var li = jQuery('<li>');
-            var a = jQuery('<a>',{
-                html: text,
-                'data-filter': '.'+filter,
-                href:'#',
-                'class':'filter',
-            }).appendTo(li);
-
-            li.appendTo(porfolio_filter);
+        function doAnimateItems(objectLi, filterVal){
+            objectLi.each(function(i, el) {
+                if(classie.has( el, filterVal ) ) {
+                    classie.toggle( el, 'animate' );
+                    classie.remove( el, 'hidden' );
+                }else{
+                    classie.add( el, 'hidden' );
+                    classie.remove( el, 'animate' );
+                }
+            });
         }
-    }
-/**************************************************************************
-* EXPANDING
-***************************************************************************/
+
+        porfolio_filter.find('li:first').addClass('current');
+
+        function createList(text){
+            var filter = text.toLowerCase().replace(' ','-');
+            // This is a helper function that takes the
+            // text of a menu button and array of li items
+            if(text != ''){
+                text = text.replace(/_/g,' ');
+                var li = jQuery('<li>');
+                var a = jQuery('<a>',{
+                    html: text,
+                    'data-filter': '.'+filter,
+                    href:'#',
+                    'class':'filter',
+                }).appendTo(li);
+
+                li.appendTo(porfolio_filter);
+            }
+        }
+        /**************************************************************************
+         * EXPANDING
+         ***************************************************************************/
         // list of items
         var $grid = ulObject,
-            // the items
+        // the items
             $items = $grid.children( 'li' ),
-            // current expanded item's index
+        // current expanded item's index
             current = -1,
-            // position (top) of the expanded item
-            // used to know if the preview will expand in a different row
+        // position (top) of the expanded item
+        // used to know if the preview will expand in a different row
             previewPos = -1,
-            // extra amount of pixels to scroll the window
+        // extra amount of pixels to scroll the window
             scrollExtra = 0,
-            // extra margin when expanded (between preview overlay and the next items)
+        // extra margin when expanded (between preview overlay and the next items)
             marginExpanded = 10,
             $window = jQuery( window ), winsize,
             $body = jQuery( 'html, body' ),
-            // transitionend events
+        // transitionend events
             transEndEventNames = {
                 'WebkitTransition' : 'webkitTransitionEnd',
                 'MozTransition' : 'transitionend',
@@ -398,9 +398,9 @@ jQuery(function() {
                 'transition' : 'transitionend'
             },
             transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-            // support for csstransitions
+        // support for csstransitions
             support = Modernizr.csstransitions,
-            // default settings
+        // default settings
             settings = {
                 minHeight : config.expandingHeight,
                 speed : config.expandingSpeed,
@@ -487,7 +487,7 @@ jQuery(function() {
         function showPreview( $item ) {
             hidePreview();
             var preview = jQuery.data( this, 'preview' ),
-                // item´s offset top
+            // item´s offset top
                 position = $item.data( 'offsetTop' );
 
             scrollExtra = 0;
@@ -614,7 +614,7 @@ jQuery(function() {
                         }
                     }
 
-                   var self = this;
+                    var self = this;
 
                     // remove the current image in the preview
                     if( typeof self.$largeImg != 'undefined' ) {
@@ -665,60 +665,59 @@ jQuery(function() {
                             jQuery(this).addClass('selected');
                             $largePhoto = jQuery(this).data('large');
                             if(jQuery(this).data('large')) {
-                                jQuery('<img/>').load(function () {
-                                    if (self.$fullimage.parents('#og-grid').find('.og-fullimg>img').length) {
-                                        self.$fullimage.find('img').fadeOut(500, function () {
-                                            jQuery(this).fadeIn(500).attr('src', $largePhoto);
-                                        })
-                                    }
-                                    else {
-                                        var fullImg = jQuery('<img style="display: none"/>').attr('src', $largePhoto);
-                                        self.$fullimage.find('iframe:first').fadeOut(500);
-                                        setTimeout(function () {
-                                            self.$fullimage.find('iframe:first').remove();
-                                            self.$fullimage.append(fullImg);
-                                            fullImg.fadeIn(500);
-                                            resizeExpander();
-                                        },500);
-                                    }
-                                }).attr('src', $largePhoto);
+                                self.$fullimage.find('img').fadeOut(500, function () {
+                                    self.$loading.show();
+                                    self.$fullimage.find('img').attr('src', $largePhoto);
+                                });
+                                if (self.$fullimage.parents('#og-grid').find('.og-fullimg>img').length) {
+                                    self.$fullimage.find('img').load(function(){
+                                        jQuery(this).fadeIn(500,function(){self.$loading.hide();})
+                                    });
+                                }
+                                else {
+                                    var fullImg = jQuery('<img style="display: none"/>');
+                                    self.$fullimage.find('iframe:first').fadeOut(500,function(){
+                                        self.$fullimage.find('iframe:first').remove();
+                                        self.$loading.show();
+                                        self.$fullimage.append(fullImg);
+                                        self.$fullimage.find('img').attr('src', $largePhoto);
+                                        self.$fullimage.find('img').load(function(){
+                                            self.$loading.hide();
+                                            self.$fullimage.find('img').fadeIn(500,function(){
+                                            });
+                                            self.setHeights();
+                                        });
+                                    });
+                                }
                             }
                             else if(jQuery(this).data('video')) {
                                 var iframeSrc = jQuery(this).data( 'video' );
                                 var previewWrapperWidth = self.$fullimage.width();
                                 if (self.$fullimage.find('iframe:first').length) {
-                                    self.$fullimage.find('iframe:first').fadeOut(500);
+                                    self.$fullimage.find('iframe:first').fadeOut(500,function(){self.$loading.show();});
                                     self.$fullimage.find('iframe:first').attr('src', iframeSrc);
-                                    self.$fullimage.find('iframe:first').on('load',function(){
-                                        setTimeout(function () {
-                                            self.$fullimage.find('iframe:first').fadeIn(500);
-                                        },500);
-                                        self.$fullimage.find('iframe:first').height(previewWrapperWidth * 9 / 16);
-                                    })
+                                    setTimeout(function () {
+                                        self.$fullimage.find('iframe:first').fadeIn(500,function(){self.$loading.hide();});
+                                    },500);
+                                    self.$fullimage.find('iframe:first').height(previewWrapperWidth * 9 / 16);
                                 }
                                 else {
                                     var iframe = jQuery('<iframe allowfullscreen style="display: none">').attr( 'src', iframeSrc);
-                                    self.$fullimage.find('img').fadeOut(500);
+                                    self.$fullimage.find('img').fadeOut(500,function(){self.$loading.show();});
                                     setTimeout(function () {
                                         self.$fullimage.find('img').remove();
                                         self.$fullimage.append( iframe );
                                         self.$fullimage.find('iframe:first').height(previewWrapperWidth * 9 / 16);
-                                        self.$fullimage.find('iframe:first').fadeIn(500);
-                                        resizeExpander();
+                                        self.$fullimage.find('iframe:first').fadeIn(500,function(){self.setHeights();
+                                            self.$loading.hide();});
                                     },500);
-
                                 }
                             }
                             self.$fullimage.parents('#og-grid').find('.og-fullimg img').load(function () {
                                 setTimeout(function () {
-                                    resizeExpander();
-                                 });
+                                    self.setHeights();
+                                });
                             });
-                            self.$fullimage.parents('#og-grid').find('.og-fullimg iframe').load(function () {
-                                setTimeout(function () {
-                                    resizeExpander();
-                                 },500);
-                            })
 
                         });
                         self.$details.append('<div class="infosep"></div>');
@@ -730,8 +729,9 @@ jQuery(function() {
 
                     // preload large image and add it to the preview
                     // for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
+                    self.setInitialHeights();
+                    self.$loading.show();
                     if( self.$fullimage.is( ':visible' ) ) {
-                        this.$loading.show();
                         jQuery( '<img/>' ).load( function() {
                             var $img = jQuery( this );
                             if( $img.attr( 'src' ) === self.$item.children('a').find('img').data( 'largesrc' ) ) {
@@ -740,31 +740,30 @@ jQuery(function() {
                                 self.$largeImg = $img.fadeIn( 350 );
                                 self.$fullimage.append( self.$largeImg );
                             }
-                        } ).attr( 'src', eldata.large[0] );
 
+                            self.setHeights();
+                        } ).attr( 'src', eldata.large[0] );
                     }
                     if( self.$item.children('a').find('img').data( 'video' )) {
+                        self.$loading.show();
                         var iframeSrc = self.$item.children('a').find('img').data( 'video' );
                         var iframe = jQuery('<iframe allowfullscreen>').attr( 'src', iframeSrc);
-                        self.$loading.hide();
                         self.$fullimage.find( 'img' ).remove();
                         self.$largeImg = iframe.fadeIn( 350 );
+
                         self.$fullimage.append( iframe );
+                        self.$fullimage.find('iframe').on('load',function(){
+                            self.$loading.hide();
+                        });
+                        self.setHeights();
                         var previewWrapperWidth = self.$fullimage.width();
                         self.$fullimage.find('iframe:first').height(previewWrapperWidth*9/16);
                     }
 
-
                 }
             },
             open : function() {
-
-                setTimeout( jQuery.proxy( function() {
-                    // set the height for the preview and the item
-                    this.setHeights();
-                    // scroll to position the preview in the right place
-                    this.positionPreview();
-                }, this ), 25 );
+                //this.setHeights();
 
             },
             close : function() {
@@ -819,28 +818,45 @@ jQuery(function() {
                             self.$item.off( transEndEventName );
                         }
                         self.$item.addClass( 'og-expanded' );
+                        self.$fullimage.find('img').css('width','100%');
                     };
 
                 this.calcHeight();
-                /*this.$previewEl.css( 'height', this.height );*/
-                //this.$item.css( 'height', config.expandingHeight ).on( transEndEventName, onEndFn );
-                this.$previewEl.css( 'height', 'auto' );
-                this.$previewEl.height( this.$previewEl.height() );
-                this.itemHeight = this.$item.data( 'height' ) + this.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
-                this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
-                var previewEl  = self.$previewEl;
-                jQuery('.og-expander img').on('load',function () {
-                    self.$previewEl.css( 'height', 'auto' );
-                    self.$previewEl.height( self.$previewEl.height() );
-                    self.itemHeight = self.$item.data( 'height' ) + self.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
-                    self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
-                });
-                jQuery('.og-expander iframe').on('load',function () {
-                    self.$previewEl.css( 'height', 'auto' );
-                    self.$previewEl.height( self.$previewEl.height() );
-                    self.itemHeight = self.$item.data( 'height' ) + self.$previewEl.height() + parseInt(elements_margin);//alert(this.$item.data( 'height' ));
-                    self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
-                });
+
+                var detailsHeight = self.$previewEl.find('.og-details').outerHeight();
+                var imgRatio = self.$fullimage.find('img').prop('naturalHeight')/self.$fullimage.find('img').prop('naturalWidth');
+                var imgHeight = ( self.$fullimage.find('img').length )?self.$fullimage.width()*imgRatio:self.$fullimage.find('iframe').height();
+                var blockHeight = Math.max(detailsHeight,imgHeight);
+                if(jQuery(window).width() > 767){
+                    self.$previewEl.css( 'height', blockHeight+60);
+                    self.itemHeight = self.$item.data( 'height' ) + blockHeight + 60 + parseInt(elements_margin);
+                }
+                else{
+                    self.$previewEl.css( 'height', detailsHeight+imgHeight+60);
+                    self.itemHeight = self.$item.data( 'height' ) + detailsHeight+imgHeight + 60 + parseInt(elements_margin);
+                }
+                self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
+
+                if( !support ) {
+                    onEndFn.call();
+                }
+
+            },
+            setInitialHeights : function() {
+
+                var self = this,
+                    onEndFn = function() {
+                        if( support ) {
+                            self.$item.off( transEndEventName );
+                        }
+                        self.$item.addClass( 'og-expanded' );
+                    };
+
+                self.$previewEl.css( 'height', config.expandingHeight);
+                self.positionPreview();
+                self.itemHeight = self.$item.data( 'height' ) + config.expandingHeight + parseInt(elements_margin);
+                self.$item.css( 'height', self.itemHeight ).on( transEndEventName, onEndFn );
+
                 if( !support ) {
                     onEndFn.call();
                 }
@@ -854,7 +870,7 @@ jQuery(function() {
                 // case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
                 var position = this.$item.data( 'offsetTop' ),
                     previewOffsetT = this.$previewEl.offset().top - scrollExtra,
-                    //scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
+                //scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
                     scrollVal = this.$previewEl.height() + this.$item.data( 'height' ) + marginExpanded  <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
 
                 $body.animate( { scrollTop : scrollVal }, settings.speed );
