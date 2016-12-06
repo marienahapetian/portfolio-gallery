@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,7 +69,7 @@ Plugin provides you Free version to test all 7 gallery views, slider gallery opt
 Plus to the most of these view we give free lightbox tool. 
 
 So totally you get Slider, Video gallery, Image Gallery, Lightbox plugins in ONE Portfolio Gallery plugin.
-Over 594,125 our users who tried Portfolio Gallery, can prove it's great functionality and utility. 
+Over 705,148 our users who tried Portfolio Gallery, can prove it's great functionality and utility. 
 
 Plugin has prepared one more present. Saying “Portfolio Gallery” you may imagine only photos, but now you see how many things you get with it.
 
@@ -86,7 +86,7 @@ To make those buttons work or just be seen on your front end, simply turn them o
 What about responsiveness. Portfolio Gallery is fully responsive plugin, which adapts to your screen size and make it convenient to use, Besides portfolio gallery, Lightbox tool is also responsive, as well as Popup, in Content Popup view. 
 Plugin is easy to insert into any part of your template and use portfolio gallery as widget.
 
-Portfolio Gallery uses 7 view options and can be customized using the General Options(pro options).
+Portfolio Gallery uses 8 view options and can be customized using the General Options(pro options).
 
 Almost all kind of texts are customizable in terms of text and color. So don’t hesitate about Huge-IT Portfolio Gallery plugin. For any questions related to portfolio gallery plugin, feel free to contact our responsive support team.
 
@@ -94,7 +94,7 @@ Almost all kind of texts are customizable in terms of text and color. So don’t
 
 **WordPress Portfolio / Gallery ready**
 
-= 7 Views: =
+= 8 Views: =
 
 *   1) Blocks Toggle Up/Down
 *   2) Full-Height Blocks
@@ -103,6 +103,7 @@ Almost all kind of texts are customizable in terms of text and color. So don’t
 *   5) FAQ Toggle Up/Down
 *   6) Content Slider
 *   7) Lightbox Gallery
+*   8) Elastic grid
 
 *    Sorting & Category for every view.
 *    Unlimited amount of images or videos to be added.
@@ -117,7 +118,7 @@ Almost all kind of texts are customizable in terms of text and color. So don’t
 *    Full Documentation.
 *	 Sample Portfolios / Galleries Included.
 
-### 7 Views Options:
+### 8 Views Options:
 
 *   **Blocks Toggle Up/Down**
 
@@ -192,6 +193,8 @@ Lightbox Gallery is a type of gallery view involves only preview of images witho
 Images and Videos become larger with the lightbox and you can slide to watch them. Pay attention, this portfolio gallery demonstrates only main image/videos of the whole project.
 
 The main image size can be changed from portfolio gallery General Options for providing the look you desire. Ability to change the Category styles position for each portfolio gallery project for Lightbox Gallery view.
+
+*   **Elastic Grid**
 
 Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
 
@@ -445,6 +448,11 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.6 =
+
+* 1) Added a new responsive view called Elastic Grid.
+* 2) Edited and corrected strings connected with translation of the plugin.
 
 = 2.2.5 =
 
