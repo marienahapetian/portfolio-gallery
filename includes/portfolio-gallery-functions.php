@@ -384,7 +384,7 @@ function portfolio_gallery_get_default_general_options() {
 		'portfolio_gallery_admin_image_hover_preview'                           => 'on',
 		'portfolio_gallery_ht_view7_image_behaviour'                            => 'crop',
 		'portfolio_gallery_ht_view7_element_width'                              => '250',
-		'portfolio_gallery_ht_view7_element_height'                             => '250',
+		'portfolio_gallery_ht_view7_element_height'                             => '150',
 		'portfolio_gallery_ht_view7_element_margin'                             => '10',
 		'portfolio_gallery_ht_view7_element_border_width'                       => '0',
 		'portfolio_gallery_ht_view7_element_border_color'                       => 'DEDEDE',
