@@ -504,6 +504,34 @@ ul#portfolio-loading-icon{
 	vertical-align:middle !important;
 }
 
+#images-list .widget-images-list li.add-image-box:first-child  > div > img.plus{
+	width: 50%;
+	height: auto !important;
+	margin: 0 !important;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+}
+
+#images-list .widget-images-list li.add-image-box:first-child > div.add-image-video input.add-image{
+	margin: 0 !important;
+	top:51%;
+}
+
+#images-list .widget-images-list li.add-image-box:first-child > div.add-image-video img{
+	padding: 0;
+}
+
+#images-list .widget-images-list li.add-image-box:first-child > div.add-image-video img{
+	width: 35%;
+	height: auto;
+}
+
+#images-list .widget-images-list li.add-image-box:first-child > div{
+	position: relative;
+	height: 100%;
+}
 
 #images-list .widget-images-list li.add-image-box {
 	border:1px dotted #0074a2;
