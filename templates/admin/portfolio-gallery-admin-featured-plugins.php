@@ -1,255 +1,133 @@
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/slider/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/slider-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/slider/" target="_blank">
-				<h3><?php _e('WordPress Slider','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<div class="description-block">
-			<p><?php _e('Huge-IT slider is an awesome WordPress slider plugin with a lot of nice features. Just install and build
-				sliders in a few minutes','portfolio-gallery'); ?>.</p>
-			<p><?php _e('Huge-IT Slider is a quick and easy way to add custom sliders to the WordPress websites (both to templates
-				and posts/pages). The slider allows having unlimited amount of images with their titles and
-				descriptions.','portfolio-gallery'); ?></p>
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/slider/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/wordpress-gallery/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/image-gallery-icon.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/wordpress-gallery/" target="_blank">
-				<h3><?php _e('WordPress Image Gallery','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<div class="description-block">
-			<p><?php _e('Huge-IT Gallery images is perfect for using for creating various galleries within various views, to
-				creating various sliders with plenty of styles, beautiful lightboxes with it’s options for any taste.
-				The product allows adding descriptions and titles for each image of the Gallery. It is rather useful
-				wherever using with various pages and posts, as well as within custom location.','portfolio-gallery'); ?></p>
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/wordpress-gallery/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/responsive-slider-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block"><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><h3<?php _e('>WordPress
-					Responsive Slider','portfolio-gallery'); ?></h3></a></div>
-		<div class="description-block">
-			<p><?php _e('The newly launched Responsive Slider from Huge-IT is the fastest loading slider for WordPress. Besides
-				being fully responsive, allowing to post unlimited slides in free version, Professional version of this
-				plugin will allow changing every corner of sliders, including buttons, arrows, bullets and more. Check
-				out the link for more details.','portfolio-gallery'); ?></p>
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/lightbox/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/lightbox-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/lightbox/" target="_blank">
-				<h3><?php _e('WordPress Lightbox','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<div class="description-block">
-			<p><?php _e('Lightbox is a perfect tool for viewing photos. It is created especially for simplification of using,
-				permits you to view larger version of images and giving an interesting design. With the help of
-				slideshow and various styles, betray a unique image to your website.','portfolio-gallery'); ?></p>
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/lightbox/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/wordpress-video-gallery/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/video-gallery-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/wordpress-video-gallery/" target="_blank">
-				<h3><?php _e('WordPress Video Gallery','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<div class="description-block">
-			<p><?php _e('Video Gallery plugin was created and specifically designed to show your video files in unusual splendid
-				ways. It has 5 good-looking views. Each are made in different taste so that you can choose any of them,
-				according to the style of your website.','portfolio-gallery'); ?></p>
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/wordpress-video-gallery/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/share-buttons/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/share-buttons-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/share-buttons/" target="_blank">
-				<h3><?php _e('WordPress Share Buttons','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<p><?php _e('Social network is one of the popular places where people get information about everything in the world.
-			Adding social share buttons into your blog or website page is very necessary and useful element for
-			"socialization" of the project.','portfolio-gallery'); ?></p>
-		<div class="description-block">
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/share-buttons/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/google-map/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/google-maps-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block"><a href="http://huge-it.com/google-map/" target="_blank">
-				<h3><?php _e('WordPress Google Map','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<p><?php _e('Huge-IT Google Map. One more perfect tool from Huge-IT. Improved Google Map, where we have our special
-			contribution. Most simple and effective tool for rapid creation of individual Google Map in posts and
-			pages.','portfolio-gallery'); ?></p>
-		<div class="description-block">
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/google-map/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/colorbox/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/colorbox-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block"><a href="http://huge-it.com/colorbox/" target="_blank">
-				<h3><?php _e('WordPress Colorbox','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<p><?php _e('Huge-It Colorbox is the most spellbinding plugin in WordPress that implement Lightbox-effect look of the
-			images and videos (when you click on the thumbnail of the image/video it nicely opens and increases in the
-			same window with a beautiful effect).','portfolio-gallery'); ?></p>
-		<div class="description-block">
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/colorbox/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/video-player/" rel="content" target="_blank"><img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/video-player-logo.png', __FILE__ )); ?>"></a>
-		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block"><a href="http://huge-it.com/video-player/" target="_blank">
-				<h3><?php _e('WordPress Video Player','portfolio-gallery'); ?></h3>
-			</a>
-		</div>
-		<p><?php _e('Inserting video on a page is a perfect way to supplement website with media content and expand the user’s
-			interest in your site. Huge-IT Video Player is extremely necessary video tool for your sites, which provides
-			a wide range of different file formats.','portfolio-gallery'); ?></p>
-		<div class="description-block">
-		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/video-player/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
-		</div>
-	</div>
 
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/product-catalog/" target="_blank">
-				<img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/product-catalog-logo.png', __FILE__ )); ?>">
-			</a>
+<div class="huge-plugins">
+	<div class="plaings-block">
+		<div class="plugin">
+			<div class="image-block photo-gallery"><a href="http://huge-it.com/wordpress-photo-gallery/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-photo-gallery/" target="_blank"><?php _e('Photo Gallery ', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Access advanced options and customization tools of this ultimate gallery, use the best ever functionality and unique features.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-photo-gallery/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/product-catalog/" target="_blank">
-				<h3><?php _e('WordPress Product Catalog','portfolio-gallery'); ?></h3>
-			</a>
+		<div class="plugin">
+			<div class="image-block portfolio-gallery"><a href="http://huge-it.com/portfolio-gallery/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/portfolio-gallery/" target="_blank"><?php _e('Portfolio Gallery', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Best Portfolio plugin for WordPress with 9 unique views, lightbox options, slideshows, advanced customization solutions.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/portfolio-gallery/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-		<div class="description-block">
-			<p><?php _e('Huge-IT Product Catalog is made for demonstration, sale, advertisements for your products. Imagine a
-				stand with a variety of catalogs with a specific product category. To imagine is not difficult, to use
-				is even easier.','portfolio-gallery'); ?></p>
+		<div class="plugin">
+			<div class="image-block responsive-slider"><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><?php _e('Responsive Slider', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Make stunning sliders using advanced video, YouTube, Vimeo options. Link slides with URL, add text layers, animations and more.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-responsive-slider/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/product-catalog/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
+		<div class="plugin">
+			<div class="image-block forms"><a href="http://huge-it.com/forms/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/forms/" target="_blank"><?php _e('Forms', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Create different recipients for each form, send newsletters, use ready-to-go fields and more with Forms Pro.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/forms/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-	</div>
-</div>
-<div class="element hugeitmicro-item">
-	<div class="left-block">
-		<div class="main-image-block">
-			<a href="http://huge-it.com/forms/" target="_blank">
-				<img
-					src="<?php echo esc_attr(plugins_url( '../../assets/images/admin_images/form-logo.png', __FILE__ )); ?>">
-			</a>
+		<div class="plugin">
+			<div class="image-block gallery"><a href="http://huge-it.com/wordpress-gallery/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-gallery/" target="_blank"><?php _e('Gallery', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Create unlimited stunning galleries of images and videos,  using 8 flexible and customizable views.Show them in a simple gallery forms.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-gallery/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-	</div>
-	<div class="right-block">
-		<div class="title-block">
-			<a href="http://huge-it.com/forms/" target="_blank">
-				<h3><?php _e('WordPress Forms','portfolio-gallery'); ?></h3>
-			</a>
+		<div class="plugin">
+			<div class="image-block slider"><a href="http://huge-it.com/slider/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/slider/" target="_blank"><?php _e('Slider', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Use million times downloaded slider with theme editor, post feed sliders,video support and advanced options right away.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/slider/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-		<div class="description-block">
-			<p><?php _e('Form Builder. this is one of the most important elements of WordPress website because without it you
-				cannot to always keep in touch with your visitors.','portfolio-gallery'); ?></p>
+		<div class="plugin">
+			<div class="image-block google-map"><a href="http://huge-it.com/google-map/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/google-map/" target="_blank"><?php _e('Google map', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Make advanced customization, add directions and layers, export maps in CSV file, add links and HTML with Google Maps Pro.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/google-map/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
-		<div class="button-block">
-			<a href="http://huge-it.com/forms/" target="_blank"><?php _e('View Plugin','portfolio-gallery'); ?></a>
+		<div class="plugin">
+			<div class="image-block video-gallery"><a href="http://huge-it.com/wordpress-video-gallery/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-video-gallery/" target="_blank"><?php _e('Video Gallery', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Create the best video galleries with this plugin using 7 views, design and lightbox customization, advanced options and more.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-video-gallery/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block login"><a href="http://huge-it.com/wordpress-login/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-login/" target="_blank"><?php _e('Login', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Add Login and sign up buttons on your site with amazing popup. Customize and style it to your liking, using security options and reCAPTCHA.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-login/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block catalog"><a href="http://huge-it.com/product-catalog/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/product-catalog/" target="_blank"><?php _e('Catalog', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Your ultimate store and catalog in 5 stylish views. Create products, design, customize categories, product pages, messages, comments, ratings. ', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/product-catalog/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block lightbox"><a href="http://huge-it.com/lightbox/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/lightbox/" target="_blank"><?php _e('Lightbox', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Pop up your images and videos in beautiful lightbox, share on social media and secure your images with watermark.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/lightbox/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block video-player"><a href="http://huge-it.com/video-player/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/video-player/" target="_blank"><?php _e('Video', 'portfolio-gallery' ); ?> Player</a></h2>
+				<p><?php _e('Create and customize your video player using advanced options, select skins and themes for your player.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/video-player/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block princing-table"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><?php _e('Princing Table', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Sell your products and services using 120 stunning pricing table themes and use more advanced options to design them.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/wordpress-pricing-table-builder/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block colorbox"><a href="http://huge-it.com/colorbox/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/colorbox/" target="_blank"><?php _e('Colorbox', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Add advanced solutions for your Colorbox plugin using customization settings and bring best of popup and lightbox effects.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/colorbox/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block share-buttons"><a href="http://huge-it.com/share-buttons/" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/share-buttons/" target="_blank"><?php _e('Share buttons', 'portfolio-gallery' ); ?></a></h2>
+				<p><?php _e('Spread the message of your websites all around social media using 11 beautiful design options and style settings of Share Buttons.', 'portfolio-gallery' ); ?></p>
+				<a href="http://huge-it.com/share-buttons/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
+		</div>
+		<div class="plugin">
+			<div class="image-block builder"><a href="http://huge-it.com/wordpress-price-table-builder" target="_blank"></a></div>
+			<div class="info-block">
+				<h2><a href="http://huge-it.com/wordpress-price-table-builder" target="_blank"><?php _e('Price Table Builder', 'portfolio-gallery' ); ?></a></h2>
+				<p>Access full customization list of Pricing Table Builder and change every corner of it, by customizing to your needs.</p>
+				<a href="http://huge-it.com/wordpress-price-table-builder" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
+			</div>
 		</div>
 	</div>
 </div>

@@ -47,20 +47,21 @@ global $wpdb;
 				<table class="wp-list-table widefat fixed pages" style="width:95%">
 					<thead>
 					<tr>
-						<th scope="col" id="id" style="width:30px">
+						<th scope="col" id="id" style="width:12%">
 							<span><?php echo __( 'ID', 'portfolio-gallery' ); ?></span><span
 								class="sorting-indicator"></span></th>
-						<th scope="col" id="name" style="width:85px">
+						<th scope="col" id="name" style="width:20%">
 							<span><?php echo __( 'Name', 'portfolio-gallery' ); ?></span><span
 								class="sorting-indicator"></span></th>
-						<th scope="col" id="prod_count" style="width:40px;">
+						<th scope="col" id="prod_count" style="width:12%;">
 							<span><?php echo __( 'Images', 'portfolio-gallery' ); ?></span><span
 								class="sorting-indicator"></span></th>
-						<th style="width:40px"><span><?php echo __( 'Duplicate', 'portfolio-gallery' ); ?>
-							</span><span class="sorting-indicator"></span></th>
-						<th style="width:40px"><span><?php echo __( 'Delete', 'portfolio-gallery' ); ?></span><span
+						<th style="width:20%"><span><?php echo __( 'Shortcode', 'portfolio-gallery' ); ?></span><span
 								class="sorting-indicator"></span></th>
-						</th>
+						<th style="width:12%"><span><?php echo __( 'Duplicate', 'portfolio-gallery' ); ?>
+							</span><span class="sorting-indicator"></span></th>
+						<th style="width:12%"><span><?php echo __( 'Delete', 'portfolio-gallery' ); ?></span><span
+								class="sorting-indicator"></span></th>
 					</tr>
 					</thead>
 					<tbody>
@@ -154,9 +155,12 @@ global $wpdb;
 								} ?>)
 							</td>
 							<td>
+								[huge_it_portfolio id="<?php echo $rows[ $i ]->id; ?>"]
+							</td>
+							<td>
 								<a href="admin.php?page=portfolios_huge_it_portfolio&task=duplicate_portfolio_gallery&id=<?php echo $rows[ $i ]->id; ?>&portfolio_gallery_duplicate_nonce=<?php echo $huge_it_portfolio_gallery_nonce_duplicate_portfolio; ?>"
 								   class="duplicate-link"><span class="duplicate-icon"></span></a>
-							<td><a href="<?php esc_attr_e( $delete_portfolio_safe_link );
+							<td><a href="<?php esc_attr_e($delete_portfolio_safe_link);
 								?>" class="delete-link"><span class="delete-icon"></span></a>
 							</td>
 						</tr>

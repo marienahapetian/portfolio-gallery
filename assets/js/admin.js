@@ -7,7 +7,7 @@ var portfoliosListNameChange = function (e) {
 };
 jQuery(document).ready(function () {
 	var setTimeoutConst;
-	jQuery('ul#images-list > li img').on('mouseenter',function () {
+	jQuery('body').on('mouseenter','ul#images-list > li img',function () {
 		var onHoverPreview = jQuery('#img_hover_preview').prop('checked');
 		if(onHoverPreview == true) {
 			var imgSrc = jQuery(this).attr('data-img-src');
@@ -17,7 +17,7 @@ jQuery(document).ready(function () {
 			}, 700);
 		}
 	});
-	jQuery('ul#images-list > li img').on('mouseout',function () {
+	jQuery('body').on('mouseout','ul#images-list > li img',function () {
 		clearTimeout(setTimeoutConst);
 		jQuery('#gallery-image-zoom').fadeOut('3000');
 	});
@@ -90,9 +90,35 @@ jQuery(document).ready(function () {
 			return false;
 		}
 		var portfolioItemId = jQuery(this).parent().attr('data-portfolio-item-id');
-		var portfolioId = jQuery('#portfolio_gallery_add_videos_wrap').attr('data-portfolio-gallery-id');
 		var addThumbVideoNonce = jQuery('#portfolio_gallery_add_videos_wrap').attr('data-add-thumb-video-nonce');
-		jQuery(this).parent().attr('action','admin.php?page=portfolios_huge_it_portfolio&task=portfolio_add_thumb_video&id='+portfolioId+'&thumb_parent='+portfolioItemId+'&add_thumb_video_nonce='+addThumbVideoNonce+'&closepop=1').submit();
+		var data = {
+			addThumbVideoNonce: addThumbVideoNonce,
+			videoUrl: videoUrl,
+			post: 'add_thumb_video',
+			action: 'portfolio_gallery_action',
+			portfolioItemId: portfolioItemId
+		};
+		jQuery.post(ajaxUrl, data, function (response) {
+			response = JSON.parse(response);
+			var projectIndex = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').index();
+			var videoIndex = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('.image-container li').length;
+			var allUrls = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val();
+			var iframeVideoSrc = response.iframe_video_src;
+			allUrls += iframeVideoSrc+';';
+			var imageUrl = response.image_url;
+			var videoType = response.video_type;
+			jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val(allUrls);
+			var videoContainer = '<li class="editthisvideo editthisimage'+projectIndex+' ui-sortable-handle" data-video-index="'+videoIndex+'" data-iframe-src="'+iframeVideoSrc+'"> \
+                <img class="editthisvideo" src="'+imageUrl+'" data-video-src="'+iframeVideoSrc+'" alt="'+iframeVideoSrc+'"> \
+                <div class="play-icon  '+videoType+'-icon"></div> \
+                <a class="thickbox edit-video-button" data-edit-thumb-video="" href="#TB_inline?width=700&amp;inlineId=portfolio-gallery-edit-video&amp;width=753&amp;height=396"> \
+                <input type="button" class="edit-video" id="edit-video_11_0" value="Edit"> \
+                </a> \
+                <a href="#remove" title="2" class="remove-image">remove</a> \
+                </li>';
+			jQuery('.tb-close-icon').click();
+			jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('li.add-image-box').before(videoContainer);
+		});
 	});
 	jQuery('.huge-it-insert-video-button').click(function (e) {
 		e.preventDefault();
@@ -201,6 +227,9 @@ jQuery(document).ready(function () {
 			allUrls = allUrls + $src + ';';
 			jQuery(this).parent().parent().parent().find('input.all-urls').val(allUrls);
 		});
+		if(!jQuery(this).parents('ul.widget-images-list').find('img').not('.plus').length){
+			jQuery(this).parent().parent().parent().find('input.all-urls').val('');
+		}
 		jQuery(this).parent().remove();
 		return false;
 	});
@@ -291,11 +320,17 @@ jQuery(document).ready(function () {
 			jQuery('.for-content-slider').css('display', 'block');
 			jQuery('.no-content-slider').css('display', 'none');
 			jQuery('ul.for_loading').parent().css('display', 'none');
+			jQuery('.inside2').parents('.postbox').css('display', 'none');
 		}
 		else if (sel == 3) {
 			jQuery('.no-content-slider').css('display', 'none');
 		}
+		else if(sel == 7){
+			jQuery('.postbox .allowIsotope:first').css('display', 'none');
+		}
 		else {
+			jQuery('.inside2').parents('.postbox').css('display', 'block');
+			jQuery('.postbox .allowIsotope:first').css('display', 'block');
 			jQuery('.for-content-slider').css('display', 'none');
 			jQuery('.no-content-slider').css('display', 'block');
 			jQuery('ul.for_loading').parent().css('display', 'block');
