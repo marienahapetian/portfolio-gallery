@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
 Requires at least: 3.0.1
-Tested up to: 4.6.1
-Stable tag: 2.2.6
+Tested up to: 4.7
+Stable tag: 2.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -448,6 +448,11 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.2.7 =
+
+* 1) Fixed a bug in the back end causing issues with front end views.
+* 2) Added the new featured plugins page to demonstrate new plugings.
 
 = 2.2.6 =
 
