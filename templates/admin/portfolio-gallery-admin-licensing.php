@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			advanced features, settings to customize every area of the plugin, then check out the Full License plugin. The
 			full version of the plugin is available in 3 different packages of one-time payment.','portfolio-gallery'); ?>
 		</p>
+		<a href="http://huge-it.com/portfolio-gallery/" class="button-primary" target="_blank"><?php _e('Purchase a License', 'portfolio-gallery' ); ?></a>
 	</div>
 	<div class="portfolio">
 		<div class="portfolio-block">

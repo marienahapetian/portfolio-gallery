@@ -7,7 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap">
 <div>
 	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
-	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-chrismas-banner-html.php' ); ?>
 	<div id="poststuff">
 		<div id="post-body-content" class="portfolio-options">
 			<p class="pro_info">

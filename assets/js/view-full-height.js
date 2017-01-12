@@ -59,9 +59,10 @@ function Portfolio_Gallery_Full_Height(id) {
                 }
             }
         };
+        portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
         _this.container.find('img').on('load', function () {
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         });
     };
 
@@ -106,7 +107,7 @@ function Portfolio_Gallery_Full_Height(id) {
     _this.resizeEvent = function(){
         _this.showCenter();
         var loadInterval = setInterval(function(){
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         },100);
         setTimeout(function(){clearInterval(loadInterval);},5000);
     };

@@ -62,6 +62,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
                 }
             }
         };
+        portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
     };
 
@@ -108,7 +109,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.resizeEvent = function(){
         _this.showCenter();
         var loadInterval = setInterval(function(){
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         },100);
         setTimeout(function(){clearInterval(loadInterval);},5000);
     };
@@ -129,9 +130,9 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
 
         value = value === 'false' ? false : value;
         options[key] = value;
-        if (key === 'layoutMode' && typeof changeLayoutMode === 'function') {
+        if (key === 'layoutMode' && typeof changelayoutMode === 'function') {
 
-            changeLayoutMode($this, options)
+            changelayoutMode($this, options)
         } else {
 
             portfolioGalleryIsotope(_this.container,options);
@@ -156,7 +157,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
                 height: _this.defaultBlockHeight + 20 + 2*param_obj.portfolio_gallery_ht_view0_element_border_width+param_obj.portfolio_gallery_ht_view0_title_font_size
             }, 300, function () {
                 jQuery(this).removeClass('large');
-                portfolioGalleryIsotope(_this.container,'reLayout');
+                portfolioGalleryIsotope(_this.container,'layout');
             });
             _this.element.removeClass("active");
             return false;
@@ -164,13 +165,13 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         jQuery(this).parents('.portelement').css({height: strheight});
         jQuery(this).parents('.portelement').addClass('large');
 
-        portfolioGalleryIsotope(_this.container,'reLayout');
+        portfolioGalleryIsotope(_this.container,'layout');
         jQuery(this).parents('.portelement').css({height: _this.defaultBlockHeight + 45 + 2 * param_obj.portfolio_gallery_ht_view0_element_border_width + param_obj.portfolio_gallery_ht_view0_title_font_size + "px"});
 
         jQuery(this).parents('.portelement').animate({
             height: strheight + "px"
         }, 300, function () {
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         });
         return false;
     };

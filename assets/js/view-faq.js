@@ -60,6 +60,7 @@ function Portfolio_Gallery_Faq(id) {
                 }
             }
         };
+        portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
     };
 
@@ -106,7 +107,7 @@ function Portfolio_Gallery_Faq(id) {
     _this.resizeEvent = function () {
         _this.showCenter();
         var loadInterval = setInterval(function(){
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         },100);
         setTimeout(function(){clearInterval(loadInterval);},5000);
     };
@@ -149,7 +150,7 @@ function Portfolio_Gallery_Faq(id) {
                 height: 45 + 2 * param_obj.portfolio_gallery_ht_view4_element_border_width + "px"//pakeluc heto erevacox masi chap@
             }, 700, function () {
                 jQuery(this).removeClass('large');
-                portfolioGalleryIsotope(_this.container,'reLayout');
+                portfolioGalleryIsotope(_this.container,'layout');
             });
 
             jQuery(this).parents('.portelement').removeClass("active");
@@ -160,7 +161,7 @@ function Portfolio_Gallery_Faq(id) {
         jQuery(this).parents('.portelement').css({height: 45 + jQuery(this).parents('.portelement').find('.wd-portfolio-panel').height()});
         jQuery(this).parents('.portelement').addClass('large');
 
-        portfolioGalleryIsotope(_this.container,'reLayout');
+        portfolioGalleryIsotope(_this.container,'layout');
         jQuery(this).parents('.portelement').css({height: "45px"});
 
         var strheight = (jQuery(this).parents('.portelement').find('.wd-portfolio-panel').height() + 35 + 2 * param_obj.portfolio_gallery_ht_view4_element_border_width);
@@ -169,7 +170,7 @@ function Portfolio_Gallery_Faq(id) {
         jQuery(this).parents('.portelement').animate({
             height: strheight + "px",
         }, 700, function () {
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         });
     };
     _this.filtersClick = function () {
