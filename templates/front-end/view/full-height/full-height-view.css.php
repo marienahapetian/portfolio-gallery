@@ -26,13 +26,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view1_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view1_element_border_width']; ?>px !important;
 	max-width: calc(100% - 10px);
 	height:auto;
-	margin: 5px;
+	margin: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	float: left;
 	overflow: hidden;
 	position: relative;
 	outline:none;
 	background:#<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view1_element_background_color']?>;
 	border:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view1_element_border_width']; ?>px solid #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view1_element_border_color']; ?>;
+	box-sizing: border-box;
 }
 
 .default-block_<?php echo $portfolioID; ?> {
