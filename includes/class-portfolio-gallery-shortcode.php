@@ -60,7 +60,7 @@ class Portfolio_Gallery_Shortcode {
 		ob_start();
 
 		if( !$portfolio ){
-			echo "Portfolio with this ID doesn't exist.";
+			_e("Portfolio with this ID doesn't exist.","portfolio-gallery");
 			return;
 		}
 

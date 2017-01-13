@@ -32,7 +32,7 @@ $id                 = intval( $_GET['id'] );
 								?>
 								<li>
 									<a href="#"
-									   onclick="window.location.href='<?php echo esc_url( 'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rowsldires->id ) ?>'"><?php echo $rowsldires->name; ?></a>
+									   onclick="window.location.href='<?php echo esc_url( 'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rowsldires->id ) ?>'"><?php echo esc_html($rowsldires->name); ?></a>
 								</li>
 								<?php
 							} else { ?>

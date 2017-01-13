@@ -26,9 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view1_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view1_element_border_width']; ?>px !important;
 	max-width: calc(100% - 10px);
 	height:auto;
-	margin: 0px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin: 5px 0 5px 0;
 	float: left;
 	overflow: hidden;
 	position: relative;
