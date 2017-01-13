@@ -13,9 +13,6 @@ class Portfolio_Gallery_Portfolios {
 		$id   = portfolio_gallery_get_portfolio_id();
 		switch ( $task ) {
 			case 'edit_cat':
-				if ( ! isset( $_REQUEST['hugeit_portfolio_edit_portfolio_nonce'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_portfolio_edit_portfolio_nonce'], 'edit_portfolio_' . $id ) ) {
-					wp_die( 'Security check failure' );
-				}
 				if ( $id ) {
 					$this->edit_portfolio( $id );
 				}

@@ -11,7 +11,6 @@ $id                 = intval( $_GET['id'] );
 	</div>
 	<div class="wrap">
 		<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
-		<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-chrismas-banner-html.php' ); ?>
 		<?php
 		$path_site2  = PORTFOLIO_GALLERY_IMAGES_URL;
 		$form_action = wp_nonce_url( 'admin.php?page=portfolios_huge_it_portfolio&id=' . $id, 'apply_portfolio_' . $row->id, 'hugeit_portfolio_apply_portfolio_nonce' );
@@ -33,7 +32,7 @@ $id                 = intval( $_GET['id'] );
 								?>
 								<li>
 									<a href="#"
-									   onclick="window.location.href='<?php esc_attr_e( $edit_portfolio_safe_link ) ?>'"><?php echo $rowsldires->name; ?></a>
+									   onclick="window.location.href='<?php echo esc_url( 'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rowsldires->id ) ?>'"><?php echo esc_html($rowsldires->name); ?></a>
 								</li>
 								<?php
 							} else { ?>

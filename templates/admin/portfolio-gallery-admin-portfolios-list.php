@@ -6,7 +6,6 @@ global $wpdb;
 ?>
 <div class="wrap">
 	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-free-banner.php' ); ?>
-	<?php require( PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-chrismas-banner-html.php' ); ?>
 	<?php
 	$path_site2                  = plugins_url( "../images", __FILE__ );
 	$add_new_portfolio_safe_link = wp_nonce_url(
@@ -136,17 +135,12 @@ global $wpdb;
 							'hugeit_portfolio_remove_portfolio_nonce'
 						);
 
-						$edit_portfolio_safe_link                            = wp_nonce_url(
-							'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rows[ $i ]->id,
-							'edit_portfolio_' . $rows[ $i ]->id,
-							'hugeit_portfolio_edit_portfolio_nonce'
-						);
 						$huge_it_portfolio_gallery_nonce_duplicate_portfolio = wp_create_nonce( 'huge_it_portfolio_duplicate_nonce' . $rows[ $i ]->id );
 						?>
 						<tr>
 							<td><?php echo $rows[ $i ]->id; ?></td>
 							<td>
-								<a href="<?php esc_attr_e( $edit_portfolio_safe_link ); ?>"><?php echo esc_html( stripslashes( $rows[ $i ]->name ) ); ?></a>
+								<a href="<?php echo esc_url( 'admin.php?page=portfolios_huge_it_portfolio&task=edit_cat&id=' . $rows[ $i ]->id ); ?>"><?php echo esc_html( stripslashes( $rows[ $i ]->name ) ); ?></a>
 							</td>
 							<td>(<?php if ( ! ( $pr_count ) ) {
 									echo '0';

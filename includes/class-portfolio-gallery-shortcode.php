@@ -58,6 +58,12 @@ class Portfolio_Gallery_Shortcode {
 		$portfolio_gallery_get_options = portfolio_gallery_get_default_general_options();
 
 		ob_start();
+
+		if( !$portfolio ){
+			_e("Portfolio with this ID doesn't exist.","portfolio-gallery");
+			return;
+		}
+
 		Portfolio_Gallery()->template_loader->load_front_end( $images, $portfolio_gallery_get_options, $portfolio );
 
 		return ob_get_clean();

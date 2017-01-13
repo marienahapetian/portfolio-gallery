@@ -58,10 +58,12 @@ function Portfolio_Gallery_Full_Width(id) {
                 }
             }
         };
+        portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
-        setInterval(function(){
-            portfolioGalleryIsotope(_this.container,'reLayout');
-        });
+        var loadInterval = setInterval(function(){
+            portfolioGalleryIsotope(_this.container,'layout');
+        },100);
+        setTimeout(function(){clearInterval(loadInterval);},5000);
     };
 
     _this.manageLoading = function () {

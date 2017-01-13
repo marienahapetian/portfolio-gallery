@@ -27,17 +27,17 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view6_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 10 + param_obj.portfolio_gallery_ht_view6_border_width * 2,
             },
             masonryHorizontal: {
-                rowHeight: 300 + 20
+                rowHeight: 300 + 10
             },
             cellsByRow: {
-                columnWidth: 300 + 20,
+                columnWidth: 300 + 10,
                 rowHeight: 240
             },
             cellsByColumn: {
-                columnWidth: 300 + 20,
+                columnWidth: 300 + 10,
                 rowHeight: 240
             },
             getSortData: {
@@ -58,9 +58,10 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
                 }
             }
         };
+        portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
         _this.container.find('img').on('load', function () {
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         });
     };
 
@@ -76,7 +77,7 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 20 + param_obj.portfolio_gallery_ht_view6_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.portfolio_gallery_ht_view6_border_width * 2;
             var enterycontent = _this.content.width();
             var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;
@@ -105,7 +106,7 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
     _this.resizeEvent = function () {
         _this.showCenter();
         var loadInterval = setInterval(function(){
-            portfolioGalleryIsotope(_this.container,'reLayout');
+            portfolioGalleryIsotope(_this.container,'layout');
         },100);
         setTimeout(function(){clearInterval(loadInterval);},5000);
     };

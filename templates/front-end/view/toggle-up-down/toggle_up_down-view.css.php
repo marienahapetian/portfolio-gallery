@@ -32,7 +32,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view0_element_border_width']; ?>px !important;
 	margin: 5px;
     max-width: calc(100% - 10px) !important;
-    box-sizing: content-box;
 	float: left;
 	overflow: hidden;
 	outline:none;
@@ -100,14 +99,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width']-30; ?>px !important;
 	width: 80%;
 	text-overflow: ellipsis;
-        overflow: hidden;
+	overflow: hidden;
 	white-space:nowrap;
 	font-weight:normal;
 	color:#<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_title_font_color']; ?>;
 	font-size:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_title_font_size']; ?>px !important;
-	line-height: 1.2 !important;
-        top: 50%;
-        transform: translateY(-50%);
+	line-height: normal !important;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> .open-close-button {
