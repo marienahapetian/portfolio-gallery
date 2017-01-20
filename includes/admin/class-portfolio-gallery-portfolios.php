@@ -305,7 +305,6 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 				$link_target    = sanitize_text_field( $_POST[ "sl_link_target" . $rowimages->id ] );
 				$url            = sanitize_text_field( $_POST[ "sl_url" . $rowimages->id ] );
 				$image_url      = sanitize_text_field( $_POST[ "imagess" . $rowimages->id ] );
-				$category       = sanitize_text_field( wp_unslash( $_POST[ "category" . $rowimages->id ] ) );
 
 				$wpdb->update(
 					$wpdb->prefix . "huge_itportfolio_images",
@@ -316,7 +315,6 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 						'name'        => $imgTitle,
 						'description' => $imgDescription,
 						'image_url'   => $image_url,
-						'category'    => $category,
 					),
 					array( 'id' => absint( $rowimages->id ) )
 				);

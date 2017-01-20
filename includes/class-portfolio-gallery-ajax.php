@@ -96,5 +96,3 @@ class Portfolio_Gallery_Ajax {
 		}
 	}
 }
-
-new Portfolio_Gallery_Ajax();

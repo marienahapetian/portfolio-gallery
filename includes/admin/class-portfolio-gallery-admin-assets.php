@@ -48,5 +48,3 @@ class Portfolio_Gallery_Admin_Assets {
 
 	}
 }
-
-new Portfolio_Gallery_Admin_Assets();
