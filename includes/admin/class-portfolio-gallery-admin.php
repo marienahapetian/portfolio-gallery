@@ -51,8 +51,20 @@ class Portfolio_Gallery_Admin {
 	 * Portfolio_Gallery_Admin constructor.
 	 */
 	public function __construct() {
+		$this->init();
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'wp_loaded', array( $this, 'wp_loaded' ) );
+	}
+
+	/**
+	 * Initialize Portfolio Gallery's admin
+	 */
+	protected function init() {
+		$this->general_options  = new Portfolio_Gallery_General_Options();
+		$this->portfolios       = new Portfolio_Gallery_Portfolios();
+		$this->lightbox_options = new Portfolio_Gallery_Lightbox_Options();
+		$this->featured_plugins = new Portfolio_Gallery_Featured_Plugins();
+		$this->licensing        = new Portfolio_Gallery_Licensing();
 	}
 
 	/**
@@ -60,30 +72,30 @@ class Portfolio_Gallery_Admin {
 	 */
 	public function admin_menu() {
 		$this->pages[] = add_menu_page( __( 'Huge-IT Portfolio Gallery', 'portfolio-gallery' ), __( 'Huge-IT Portfolio', 'portfolio-gallery' ), 'delete_pages', 'portfolios_huge_it_portfolio', array(
-			Portfolio_Gallery()->portfolios,
+			Portfolio_Gallery()->admin->portfolios,
 			'load_portfolio_page'
 		), PORTFOLIO_GALLERY_IMAGES_URL . "/admin_images/huge_it_portfolioLogoHover-for_menu.png" );
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Portfolios', 'portfolio-gallery' ), __( 'Portfolios', 'portfolio-gallery' ), 'delete_pages', 'portfolios_huge_it_portfolio', array(
-			Portfolio_Gallery()->portfolios,
+			Portfolio_Gallery()->admin->portfolios,
 			'load_portfolio_page'
 		) );
 
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'General Options', 'portfolio-gallery' ), __( 'General Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_styles', array(
-			Portfolio_Gallery()->general_options,
+			Portfolio_Gallery()->admin->general_options,
 			'load_page'
 		) );
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Lightbox Options', 'portfolio-gallery' ), __( 'Lightbox Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_lightbox_styles', array(
-			Portfolio_Gallery()->lightbox_options,
+			Portfolio_Gallery()->admin->lightbox_options,
 			'load_page'
 		) );
 
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Featured Plugins', 'portfolio-gallery' ), __( 'Featured Plugins', 'portfolio-gallery' ), 'delete_pages', 'huge_it__portfolio_featured_plugins', array(
-			Portfolio_Gallery()->featured_plugins,
+			Portfolio_Gallery()->admin->featured_plugins,
 			'show_page'
 		) );
 
 		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'Licensing', 'portfolio-gallery' ), __( 'Licensing', 'portfolio-gallery' ), 'delete_pages', 'huge_it__portfolio_licensing', array(
-			Portfolio_Gallery()->licensing,
+			Portfolio_Gallery()->admin->licensing,
 			'show_page'
 		) );
 	}
@@ -356,8 +368,8 @@ class Portfolio_Gallery_Admin {
 				foreach ( $portfolios as $key => $portfolio ) {
 					$new_portfolio = "('";
 					$new_portfolio .= $portfolio->name . "','" . $last_key . "','" . $portfolio->description . "','" . $portfolio->image_url . "','" .
-					                  $portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
-					                  $portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
+						$portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
+						$portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
 					$portfolios_list .= $new_portfolio . ",";
 				}
 				$portfolios_list = substr( $portfolios_list, 0, strlen( $portfolios_list ) - 1 );

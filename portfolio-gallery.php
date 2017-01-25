@@ -48,48 +48,6 @@ final class Portfolio_Gallery {
 	protected static $_instance = null;
 
 	/**
-	 * Array of pages in admin
-	 * @var array
-	 */
-	public $pages = array();
-
-	/**
-	 * Instance of Portfolio_Gallery_General_Options class
-	 *
-	 * @var Portfolio_Gallery_General_Options
-	 */
-	public $general_options = null;
-
-	/**
-	 * Instance of Portfolio_Gallery_Portfolios class
-	 *
-	 * @var Portfolio_Gallery_Portfolios
-	 */
-	public $portfolios = null;
-
-	/**
-	 * Instance of Portfolio_Gallery_Lightbox_Options class
-	 *
-	 * @var Portfolio_Gallery_Lightbox_Options
-	 */
-	public $lightbox_options = null;
-
-	/**
-	 * Instance of Portfolio_Gallery_Featured_Plugins class
-	 *
-	 * @var Portfolio_Gallery_Featured_Plugins
-	 */
-	public $featured_plugins = null;
-
-	/**
-	 * Instance of Portfolio_Gallery_Licensing class
-	 *
-	 * @var Portfolio_Gallery_Licensing
-	 */
-	public $licensing = null;
-
-
-	/**
 	 * Main Portfolio_Gallery Instance.
 	 *
 	 * Ensures only one instance of Portfolio_Gallery is loaded or can be loaded.
@@ -222,16 +180,6 @@ final class Portfolio_Gallery {
 		$this->template_loader = new Portfolio_Gallery_Template_Loader();
 
 		if ( $this->is_request( 'admin' ) ) {
-
-			$this->general_options  = new Portfolio_Gallery_General_Options();
-
-			$this->portfolios       = new Portfolio_Gallery_Portfolios();
-
-			$this->lightbox_options = new Portfolio_Gallery_Lightbox_Options();
-
-			$this->featured_plugins = new Portfolio_Gallery_Featured_Plugins();
-
-			$this->licensing        = new Portfolio_Gallery_Licensing();
 
 			$this->admin = new Portfolio_Gallery_Admin();
 
