@@ -99,5 +99,3 @@ class Portfolio_Gallery_Shortcode {
 		require PORTFOLIO_GALLERY_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'portfolio-gallery-admin-inline-popup-content-html.php';
 	}
 }
-
-new Portfolio_Gallery_Shortcode();

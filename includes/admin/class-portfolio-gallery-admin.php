@@ -368,8 +368,8 @@ class Portfolio_Gallery_Admin {
 				foreach ( $portfolios as $key => $portfolio ) {
 					$new_portfolio = "('";
 					$new_portfolio .= $portfolio->name . "','" . $last_key . "','" . $portfolio->description . "','" . $portfolio->image_url . "','" .
-					                  $portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
-					                  $portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
+						$portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
+						$portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
 					$portfolios_list .= $new_portfolio . ",";
 				}
 				$portfolios_list = substr( $portfolios_list, 0, strlen( $portfolios_list ) - 1 );

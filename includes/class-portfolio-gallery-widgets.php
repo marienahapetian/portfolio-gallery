@@ -5,21 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Portfolio_Gallery_Widgets
  */
-class Portfolio_Gallery_Widgets {
-
-	/**
-	 * Portfolio_Gallery_Widgets constructor.
-	 */
-	public function __construct() {
-		add_action( 'widgets_init', array($this,'register_widget'));
-	}
+class Portfolio_Gallery_Widgets{
 
 	/**
 	 * Register Huge-IT Portfolio Gallery Widget
 	 */
-	public function register_widget(){
-		register_widget( 'Huge_It_Portfolio_Widget' );
+	public static function init(){
+		register_widget( 'Portfolio_Gallery_Widget' );
 	}
 }
-
-new Portfolio_Gallery_Widgets();

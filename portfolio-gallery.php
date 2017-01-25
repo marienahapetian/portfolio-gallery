@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+include_once('config.php');
+
 if ( ! class_exists( 'Portfolio_Gallery' ) ) :
 
 final class Portfolio_Gallery {
@@ -92,8 +94,7 @@ final class Portfolio_Gallery {
 		register_activation_hook( __FILE__, array( 'Portfolio_Gallery_Install', 'install' ) );
 		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'plugins_loaded', array($this,'load_plugin_textdomain') );
-		add_action( 'init', array( 'Portfolio_Gallery_Install', 'db_update' ), 0 );
-		
+		add_action( 'widgets_init', array( 'Portfolio_Gallery_Widgets', 'init' ) );
 	}
 
 	/**
@@ -146,23 +147,8 @@ final class Portfolio_Gallery {
 	public function includes() {
 		include_once( 'includes/portfolio-gallery-functions.php' );
 		include_once( 'includes/portfolio-gallery-video-function.php' );
-		include_once( 'includes/class-portfolio-gallery-install.php' );
-		include_once( 'includes/class-portfolio-gallery-ajax.php' );
-		include_once( 'includes/class-portfolio-gallery-template-loader.php' );
-		include_once( 'includes/class-portfolio-gallery-widgets.php' );
-		include_once( 'includes/class-portfolio-gallery-huge-it-portfolio-widget.php' );
-		include_once( 'includes/class-portfolio-gallery-huge-it-portfolio-widget.php' );
-		include_once( 'includes/class-portfolio-gallery-shortcode.php' );
-		include_once( 'includes/class-portfolio-gallery-frontend-scripts.php' );
 		if ( $this->is_request( 'admin' ) ) {
 			include_once( 'includes/admin/portfolio-gallery-admin-functions.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-admin.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-admin-assets.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-general-options.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-portfolios.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-lightbox-options.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-featured-plugins.php' );
-			include_once( 'includes/admin/class-portfolio-gallery-licensing.php' );
 		}
 		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();
@@ -192,9 +178,22 @@ final class Portfolio_Gallery {
 		do_action( 'before_portfolio_gallery_init' );
 
 		$this->template_loader = new Portfolio_Gallery_Template_Loader();
+
 		if ( $this->is_request( 'admin' ) ) {
+
 			$this->admin = new Portfolio_Gallery_Admin();
+
+			new Portfolio_Gallery_Admin_Assets();
+
 		}
+
+		new Portfolio_Gallery_Frontend_Scripts();
+
+		new Portfolio_Gallery_Ajax();
+
+		new Portfolio_Gallery_Shortcode();
+
+
 
 		// Init action.
 		do_action( 'portfolio_gallery_init' );

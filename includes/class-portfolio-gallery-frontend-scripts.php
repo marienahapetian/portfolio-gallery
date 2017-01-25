@@ -277,5 +277,3 @@ class Portfolio_Gallery_Frontend_Scripts
         wp_localize_script('elastic_grid-js', 'elements_margin', $portfolio_param['portfolio_gallery_ht_view7_element_margin']);
     }
 }
-
-new Portfolio_Gallery_Frontend_Scripts();
