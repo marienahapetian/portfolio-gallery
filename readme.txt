@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.7.1
-Stable tag: 2.2.8
+Stable tag: 2.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -449,11 +449,18 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 
 == Changelog ==
 
+= 2.2.9 =
+
+* 1) Added auto-loader
+* 2) Fixed the conflict with Photo Gallery plugin
+* 3) Added demo links to galleries in the back-end of the plugin
+
+
 = 2.2.8 =
 
 * 1) Fixed the issue with overuse of nonces in edit pages.
 * 2) Fix issue with WP themes that included isotope js and brought conflict 
-* 3) Fixed the conflict with one column in some themes due to isotope js 
+* 3) Fixed the conflict with one column in some themes due to isotope js
 
 = 2.2.7 =
 
