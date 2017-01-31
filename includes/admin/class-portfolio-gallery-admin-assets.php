@@ -19,7 +19,7 @@ class Portfolio_Gallery_Admin_Assets {
 	public function admin_styles( $hook ){
 		if( in_array($hook, Portfolio_Gallery()->admin->pages ) ){
 			wp_enqueue_style( "admin_css", Portfolio_Gallery()->plugin_url()."/assets/style/admin.style.css", false );
-			wp_enqueue_style( "jquery_ui", esc_url("http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"), false );
+			wp_enqueue_style( "jquery_ui",  Portfolio_Gallery()->plugin_url()."/assets/style/jquery-ui.css", false );
 			wp_enqueue_style( "simple_slider_css", Portfolio_Gallery()->plugin_url()."/assets/style/simple-slider.css",  false );
 			wp_enqueue_style( "featured_plugins", Portfolio_Gallery()->plugin_url()."/assets/style/featured-plugins.css",  false );
 			wp_enqueue_style( "licensing_css", Portfolio_Gallery()->plugin_url()."/assets/style/licensing.css",  false );
@@ -31,7 +31,7 @@ class Portfolio_Gallery_Admin_Assets {
 		if( in_array($hook, Portfolio_Gallery()->admin->pages ) ){
 			wp_enqueue_media();
 			wp_enqueue_script( "portfolio_gallery_admin_js", Portfolio_Gallery()->plugin_url()."/assets/js/admin.js", false );
-			wp_enqueue_script( "jquery_ui_new", esc_url("http://code.jquery.com/ui/1.10.4/jquery-ui.js"), false );
+			wp_enqueue_script( "jquery_ui_new", Portfolio_Gallery()->plugin_url()."/assets/js/jquery-ui.js", false );
 			wp_enqueue_script( "simple_slider_js", Portfolio_Gallery()->plugin_url().'/assets/js/simple-slider.js', false );
 			wp_enqueue_script( 'param_block2', Portfolio_Gallery()->plugin_url()."/assets/js/jscolor.js");
             wp_localize_script( 'portfolio_gallery_admin_js', 'imagesUrl', PORTFOLIO_GALLERY_IMAGES_URL );

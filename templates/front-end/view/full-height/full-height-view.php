@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								case 'image': ?>
 									<a href="<?php echo esc_url( $imgurl[0] ); ?>"
 									   class=" portfolio-group<?php echo $group_key; ?> "
-									   title="<?php echo esc_attr( $row->name ); ?>">
+									   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo $group_key;?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
 										     src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
@@ -120,7 +120,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 									<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?>"
-									   title="<?php echo esc_attr( $row->name ); ?>">
+									   title="<?php echo esc_attr( $row->name ); ?>"data-groupID="<?php echo $group_key;?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
 										     src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg"/>
@@ -135,7 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									?>
 									<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 									   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-									   title="<?php echo esc_attr( $row->name ); ?>">
+									   title="<?php echo esc_attr( $row->name ); ?>"data-groupID="<?php echo $group_key;?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     src="<?php echo esc_attr( $imgsrc ); ?>"/>
 										<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
@@ -173,7 +173,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											case 'image':
 												?>
 												<a href="<?php echo esc_url( $img ); ?>"
-												   class=" portfolio-group<?php echo $group_key; ?> "><img
+												   class=" portfolio-group<?php echo $group_key; ?> "data-groupID="<?php echo $group_key;?>"><img
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $portfolio_gallery_get_options['portfolio_gallery_ht_view1_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
@@ -181,7 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> "
-												   title="<?php echo $row->name; ?>" style="position:relative">
+												   title="<?php echo $row->name; ?>" style="position:relative"data-groupID="<?php echo $group_key;?>">
 													<img
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
 													<div class="play-icon youtube-icon"></div>
@@ -196,7 +196,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
 												   title="<?php echo esc_attr( $row->name ); ?>"
-												   style="position:relative">
+												   style="position:relative"data-groupID="<?php echo $group_key;?>">
 													<img src="<?php echo esc_attr( $imgsrc ); ?>"
 													     alt="<?php echo esc_attr( $row->name ); ?>"/>
 													<div class="play-icon vimeo-icon"></div>
@@ -233,7 +233,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											case 'image':
 												?>
 												<a href="<?php echo esc_url( $img ); ?>"
-												   class=" portfolio-group<?php echo $group_key; ?> "><img
+												   class=" portfolio-group<?php echo $group_key; ?> "data-groupID="<?php echo $group_key;?>"><img
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $portfolio_gallery_get_options['portfolio_gallery_ht_view1_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
@@ -242,7 +242,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> "
 												   title="<?php echo esc_attr( $row->name ); ?>"
-												   style="position:relative">
+												   style="position:relative"data-groupID="<?php echo $group_key;?>">
 													<img
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
 													<div class="play-icon youtube-icon"></div>
@@ -256,7 +256,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 												$imgsrc = $hash[0]['thumbnail_large']; ?>
 												<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-												   title="<?php echo $row->name; ?>" style="position:relative">
+												   title="<?php echo $row->name; ?>" style="position:relative" data-groupID="<?php echo $group_key;?>">
 													<img src="<?php echo esc_attr( $imgsrc ); ?>"
 													     alt="<?php echo esc_attr( $row->name ); ?>"/>
 													<div class="play-icon vimeo-icon"></div>

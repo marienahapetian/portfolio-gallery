@@ -1,4 +1,4 @@
-﻿=== Portfolio ===
+﻿﻿=== Portfolio ===
 Contributors: Huge-IT
 Donate link: http://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
