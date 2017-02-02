@@ -105,8 +105,8 @@ class Portfolio_Gallery_Frontend_Scripts {
 			wp_enqueue_script( 'jquery.elastislide-js' );
 			wp_register_script( 'jquery.hoverdir-js', plugins_url( '../assets/js/jquery.hoverdir.js', __FILE__ ), array( 'jquery' ), '1.0.0', false );
 			wp_enqueue_script( 'jquery.hoverdir-js' );
-			wp_register_script( 'elastic_grid-js', plugins_url( '../assets/js/elastic_grid.js', __FILE__ ), array( 'jquery' ), '1.3.0', false );
-			wp_enqueue_script( 'elastic_grid-js' );
+			wp_register_script( 'portfolio-gallery-elastic_grid-js', plugins_url( '../assets/js/elastic_grid.js', __FILE__ ), array( 'jquery' ), '1.3.0', false );
+			wp_enqueue_script( 'portfolio-gallery-elastic_grid-js' );
 		}
 	}
 
@@ -342,6 +342,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 			$lightbox_options['portfolio_gallery_watermark_container_bg_color'] = 'rgba(' . $r . ',' . $g . ',' . $b . ',' . $titleopacity . ')';
 			wp_localize_script( 'portfolio-resp-lightbox-js', 'portfolio_resp_lightbox_obj', $lightbox_options );
 			wp_localize_script( 'portfolio-custom-js', 'is_watermark', $portfolio_param['portfolio_gallery_lightbox_watermark'] );
+			wp_localize_script( 'portfolio-resp-lightbox-js', 'portfolioGalleryDisableRightClickLightbox', get_option( 'portfolio_gallery_disable_right_click' ) );
 		}
 
 		wp_localize_script( 'portfolio-custom-js', 'portfolio_lightbox_type', get_option('portfolio_gallery_lightbox_type') );
@@ -349,5 +350,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_localize_script( 'front-end-js-' . $view_slug, 'images_obj_' . $id, $images_obj );
 		wp_localize_script( 'elastic_grid-js', 'show_filter_all_text', $portfolio_param['portfolio_gallery_ht_view7_show_all_filter_button'] );
 		wp_localize_script( 'elastic_grid-js', 'elements_margin', $portfolio_param['portfolio_gallery_ht_view7_element_margin'] );
+		wp_localize_script( 'portfolio-custom-js', 'portfolioGalleryDisableRightClick', get_option( 'portfolio_gallery_disable_right_click' ) );
+		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'portfolioGalleryDisableRightClickElastic', get_option( 'portfolio_gallery_disable_right_click' ) );
 	}
 }

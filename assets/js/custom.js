@@ -8,11 +8,16 @@ function portfolioGalleryIsotope(elem,option){
     }
 }
 jQuery(document).ready(function () {
-    jQuery('.portfolio-gallery-content img').each(function () {
-        jQuery(this).bind('contextmenu',function () {
+    if (portfolioGalleryDisableRightClick == 'on') {
+        jQuery('.portfolio-gallery-content img').each(function () {
+            jQuery(this).bind('contextmenu', function () {
+                return false;
+            });
+        });
+        jQuery('#pcolorbox').bind('contextmenu', '#pcboxLoadedContent img', function () {
             return false;
         });
-    });
+    }
     jQuery('.portfolio-gallery-content').each(function(){
         var portfolioId = jQuery(this).attr('data-portfolio-id');
         if(portfolio_lightbox_type == 'old_type') {

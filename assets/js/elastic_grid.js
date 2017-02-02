@@ -658,6 +658,11 @@ jQuery(function() {
                         }
                         // ObjUl.addClass("og-grid-small");
                         ObjUl.addClass("elastislide-list");
+                        if(portfolioGalleryDisableRightClickElastic == 'on') {
+                            ObjUl.find('img').bind('contextmenu', function () {
+                                return false;
+                            });
+                        }
                         ObjUl.elastislide();
                         var carousel = jQuery('<div class="elastislide-wrapper elastislide-horizontal"></div>');
                         carousel.append(ObjUl).find('.related_photo').bind('click', function(){
@@ -739,6 +744,11 @@ jQuery(function() {
                                 self.$fullimage.find( 'img' ).remove();
                                 self.$largeImg = $img.fadeIn( 350 );
                                 self.$fullimage.append( self.$largeImg );
+                                if(portfolioGalleryDisableRightClickElastic == 'on') {
+                                    self.$largeImg.bind('contextmenu', function () {
+                                        return false;
+                                    });
+                                }
                             }
 
                             self.setHeights();

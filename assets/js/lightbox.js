@@ -396,11 +396,13 @@
             'height': $object.settings.height
         });
 
-        setTimeout(function () {
-            $('.rwd-container').bind('contextmenu', function () {
-                return false;
-            });
-        }, 50);
+        if(portfolioGalleryDisableRightClickLightbox == 'on') {
+            setTimeout(function () {
+                $('.rwd-container').bind('contextmenu', function () {
+                    return false;
+                });
+            }, 50);
+        }
 
     };
 
