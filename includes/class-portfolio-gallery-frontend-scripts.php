@@ -29,13 +29,13 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_register_style( 'style2-os-css', plugins_url( '../assets/style/style2-os.css', __FILE__ ) );
 		wp_enqueue_style( 'style2-os-css' );
 
-		if ( $general_options['portfolio_gallery_lightbox_type'] == 'old_type' ) {
+		if ( get_option('portfolio_gallery_lightbox_type') == 'old_type' ) {
 			wp_register_style( 'lightbox-css', plugins_url( '../assets/style/lightbox.css', __FILE__ ) );
 			wp_enqueue_style( 'lightbox-css' );
 
 			wp_register_style( 'portfolio_gallery_colorbox_css', untrailingslashit( Portfolio_Gallery()->plugin_url() ) . '/assets/style/colorbox-' . $general_options['portfolio_gallery_light_box_style'] . '.css' );
 			wp_enqueue_style( 'portfolio_gallery_colorbox_css' );
-		} elseif ( $general_options['portfolio_gallery_lightbox_type'] == 'new_type' ) {
+		} elseif ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
 			wp_register_style( 'portfolio_gallery_resp_lightbox_css', untrailingslashit( Portfolio_Gallery()->plugin_url() ) . '/assets/style/responsive_lightbox.css' );
 			wp_enqueue_style( 'portfolio_gallery_resp_lightbox_css' );
 		}
@@ -64,10 +64,10 @@ class Portfolio_Gallery_Frontend_Scripts {
 		if ( ! wp_script_is( 'jquery' ) ) {
 			wp_enqueue_script( 'jquery' );
 		}
-		if ( $general_options['portfolio_gallery_lightbox_type'] == 'old_type' ) {
+		if ( get_option('portfolio_gallery_lightbox_type') == 'old_type' ) {
 			wp_register_script( 'jquery.pcolorbox-js', plugins_url( '../assets/js/jquery.colorbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jquery.pcolorbox-js' );
-		} elseif ( $general_options['portfolio_gallery_lightbox_type'] == 'new_type' ) {
+		} elseif ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
 			wp_register_script( 'portfolio-resp-lightbox-js', plugins_url( '../assets/js/lightbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'portfolio-resp-lightbox-js' );
 
@@ -334,9 +334,9 @@ class Portfolio_Gallery_Frontend_Scripts {
 			'portfolio_gallery_lightbox_watermark_img_src_new'         => $portfolio_param['portfolio_gallery_lightbox_watermark_img_src_new'],
 		);
 
-		if ( $portfolio_param['portfolio_gallery_lightbox_type'] == 'old_type' ) {
+		if ( get_option('portfolio_gallery_lightbox_type') == 'old_type' ) {
 			wp_localize_script( 'jquery.pcolorbox-js', 'lightbox_obj', $lightbox );
-		} elseif ( $portfolio_param['portfolio_gallery_lightbox_type'] == 'new_type' ) {
+		} elseif ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
 			list( $r, $g, $b ) = array_map( 'hexdec', str_split( $portfolio_param['portfolio_gallery_lightbox_watermark_containerBackground'], 2 ) );
 			$titleopacity                                                       = $portfolio_param["portfolio_gallery_lightbox_watermark_containerOpacity"] / 100;
 			$lightbox_options['portfolio_gallery_watermark_container_bg_color'] = 'rgba(' . $r . ',' . $g . ',' . $b . ',' . $titleopacity . ')';
