@@ -348,8 +348,8 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_localize_script( 'portfolio-custom-js', 'portfolio_lightbox_type', get_option('portfolio_gallery_lightbox_type') );
 		wp_localize_script( 'front-end-js-' . $view_slug, 'param_obj', $portfolio_param );
 		wp_localize_script( 'front-end-js-' . $view_slug, 'images_obj_' . $id, $images_obj );
-		wp_localize_script( 'elastic_grid-js', 'show_filter_all_text', $portfolio_param['portfolio_gallery_ht_view7_show_all_filter_button'] );
-		wp_localize_script( 'elastic_grid-js', 'elements_margin', $portfolio_param['portfolio_gallery_ht_view7_element_margin'] );
+		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'show_filter_all_text', $portfolio_param['portfolio_gallery_ht_view7_show_all_filter_button'] );
+		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'elements_margin', $portfolio_param['portfolio_gallery_ht_view7_element_margin'] );
 		wp_localize_script( 'portfolio-custom-js', 'portfolioGalleryDisableRightClick', get_option( 'portfolio_gallery_disable_right_click' ) );
 		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'portfolioGalleryDisableRightClickElastic', get_option( 'portfolio_gallery_disable_right_click' ) );
 	}

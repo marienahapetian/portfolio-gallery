@@ -9,7 +9,7 @@ function portfolioGalleryIsotope(elem,option){
 }
 jQuery(document).ready(function () {
     if (portfolioGalleryDisableRightClick == 'on') {
-        jQuery('.portfolio-gallery-content img').each(function () {
+        jQuery('.portfolio-gallery-content img, ul[id^="huge_it_portfolio_popup_list_"] img').each(function () {
             jQuery(this).bind('contextmenu', function () {
                 return false;
             });
