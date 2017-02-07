@@ -86,7 +86,11 @@ jQuery(document).ready(function () {
                 group_count++;
             });
             for (var i = 1; i <= group_count; i++) {
+
                 jQuery(".portfolio-group" + i + "-" + portfolioId + " > img").addClass(watermark_class).attr('data-src', '');
+                var imgsrc = jQuery(".portfolio-group" + i + "-" + portfolioId + " > img").parent().attr('href');
+                jQuery(".portfolio-group" + i + "-" + portfolioId + " > img").attr('data-imgsrc', imgsrc);
+
                 jQuery(".portfolio-group" + i + "-" + portfolioId).addClass('portfolio_responsive_lightbox');
                 if(!jQuery('.huge_it_portfolio_container').hasClass('view-toggle-up-down') || !jQuery('.huge_it_portfolio_container').hasClass('view-full-height') || !jQuery('.huge_it_portfolio_container').hasClass('view-full-width') || !jQuery('.portfolio-gallery-content').hasClass('view-content-slider')) {
                     jQuery(".portfolio-group" + i + "-" + portfolioId).lightbox();

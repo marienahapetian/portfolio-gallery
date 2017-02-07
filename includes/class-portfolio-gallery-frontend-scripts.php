@@ -286,14 +286,14 @@ class Portfolio_Gallery_Frontend_Scripts {
 
 		$lightbox_options = array(
 			'portfolio_gallery_lightbox_slideAnimationType'            => $portfolio_param['portfolio_gallery_lightbox_slideAnimationType'],
-			'portfolio_gallery_lightbox_lightboxView'                  => $portfolio_param['portfolio_gallery_lightbox_lightboxView'],
-			'portfolio_gallery_lightbox_speed_new'                     => $portfolio_param['portfolio_gallery_lightbox_speed_new'],
+			'portfolio_gallery_lightbox_lightboxView'                  => get_option('portfolio_gallery_lightbox_lightboxView'),
+			'portfolio_gallery_lightbox_speed_new'                     => get_option('portfolio_gallery_lightbox_speed_new'),
 			'portfolio_gallery_lightbox_width_new'                     => $portfolio_param['portfolio_gallery_lightbox_width_new'],
 			'portfolio_gallery_lightbox_height_new'                    => $portfolio_param['portfolio_gallery_lightbox_height_new'],
 			'portfolio_gallery_lightbox_videoMaxWidth'                 => $portfolio_param['portfolio_gallery_lightbox_videoMaxWidth'],
 			'portfolio_gallery_lightbox_overlayDuration'               => $portfolio_param['portfolio_gallery_lightbox_overlayDuration'],
-			'portfolio_gallery_lightbox_overlayClose_new'              => $portfolio_param['portfolio_gallery_lightbox_overlayClose_new'],
-			'portfolio_gallery_lightbox_loop_new'                      => $portfolio_param['portfolio_gallery_lightbox_loop_new'],
+			'portfolio_gallery_lightbox_overlayClose_new'              => get_option('portfolio_gallery_lightbox_overlayClose_new'),
+			'portfolio_gallery_lightbox_loop_new'                      => get_option('portfolio_gallery_lightbox_loop_new'),
 			'portfolio_gallery_lightbox_escKey_new'                    => $portfolio_param['portfolio_gallery_lightbox_escKey_new'],
 			'portfolio_gallery_lightbox_keyPress_new'                  => $portfolio_param['portfolio_gallery_lightbox_keyPress_new'],
 			'portfolio_gallery_lightbox_arrows'                        => $portfolio_param['portfolio_gallery_lightbox_arrows'],

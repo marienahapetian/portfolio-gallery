@@ -1108,7 +1108,7 @@
         };
 
         imageData = {
-            imgurl: $elem.src
+            imgurl: $elem.dataset.imgsrc
         };
 
         var defer = $.Deferred();
@@ -1219,8 +1219,8 @@
                     $wmHeight = data.$wmObject.height;
                 }
                 else{
-                    $wmWidth = $settings.containerWidth,
-                        $wmHeight = (jQuery('img#huge_it_watermark_img_sample').prop('naturalHeight')*$wmWidth)/jQuery('img#huge_it_watermark_img_sample').prop('naturalWidth');
+                    $wmWidth = $settings.containerWidth;
+                    $wmHeight = (jQuery('img#huge_it_watermark_img_sample').prop('naturalHeight')*$wmWidth)/jQuery('img#huge_it_watermark_img_sample').prop('naturalWidth');
                 }
 
                 switch ($settings.position) {
