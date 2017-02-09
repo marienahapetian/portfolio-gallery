@@ -31,7 +31,7 @@ class Portfolio_Gallery_Admin_Assets {
 		if( in_array($hook, Portfolio_Gallery()->admin->pages ) ){
 			wp_enqueue_media();
 			wp_enqueue_script( "portfolio_gallery_admin_js", Portfolio_Gallery()->plugin_url()."/assets/js/admin.js", false );
-			wp_enqueue_script( "jquery_ui_new", Portfolio_Gallery()->plugin_url()."/assets/js/jquery-ui.js", false );
+			wp_enqueue_script( "jquery-ui-core" );
 			wp_enqueue_script( "simple_slider_js", Portfolio_Gallery()->plugin_url().'/assets/js/simple-slider.js', false );
 			wp_enqueue_script( 'param_block2', Portfolio_Gallery()->plugin_url()."/assets/js/jscolor.js");
             wp_localize_script( 'portfolio_gallery_admin_js', 'imagesUrl', PORTFOLIO_GALLERY_IMAGES_URL );
