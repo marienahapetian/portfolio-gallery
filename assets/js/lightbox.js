@@ -5,7 +5,6 @@
             portfolio_resp_lightbox_obj[index] = value == "true";
     });
 
-
     var groupID = '1-1';
 
     jQuery('body a').on('click', function(e){
@@ -14,8 +13,8 @@
 
     });
     jQuery('body img').on('click', function(e){
+        e.preventDefault();
         groupID = jQuery(this).parents('a').attr('data-groupID');
-        console.log(groupID);
         jQuery(this).lightbox();
 
     });
@@ -42,7 +41,11 @@
         this.$item = '';
         this.$cont = '';
         if(jQuery('.huge_it_portfolio_container').hasClass('view-toggle-up-down') || jQuery('.huge_it_portfolio_container').hasClass('view-full-height') || jQuery('.huge_it_portfolio_container').hasClass('view-full-width') || jQuery('.portfolio-gallery-content').hasClass('view-content-slider')) {
+            if (window.location.hash.indexOf('rlightbox') > 0) {
+                groupID = window.location.hash.split('rlightbox=')[1].substr(0,3);
+            }
             this.$items = this.$body.find('a.portfolio-group' + groupID);
+
         } else {
             this.$items = this.$body.find('a.portfolio_responsive_lightbox');
         }
@@ -93,17 +96,17 @@
         watermark: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_watermark,
         socialSharing: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_socialSharing,
         share: {
-            facebookButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_facebookButton,
-            twitterButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_twitterButton,
-            googleplusButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_googleplusButton,
-            pinterestButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_pinterestButton,
-            linkedinButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_linkedinButton,
-            tumblrButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_tumblrButton,
-            redditButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_redditButton,
-            bufferButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_bufferButton,
-            diggButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_diggButton,
-            vkButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_vkButton,
-            yummlyButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_yummlyButton
+            facebookButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_facebookButton===true,
+            twitterButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_twitterButton===true,
+            googleplusButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_googleplusButton===true,
+            pinterestButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_pinterestButton===true,
+            linkedinButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_linkedinButton===true,
+            tumblrButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_tumblrButton===true,
+            redditButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_redditButton===true,
+            bufferButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_bufferButton===true,
+            diggButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_diggButton===true,
+            vkButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_vkButton===true,
+            yummlyButton: portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_yummlyButton===true
         }
     };
 
@@ -116,7 +119,7 @@
 
         ($object.settings.watermark && $('.watermark').watermark());
 
-        if ($hash.indexOf('lightbox&') > 0) {
+        if ($hash.indexOf('rlightbox') > 0) {
             $object.index = parseInt($hash.split('&slide=')[1], 10) - 1;
 
             $object.$body.addClass('rwd-share');
@@ -549,7 +552,7 @@
     Lightbox.prototype.changeHash = function (index) {
         var $object = this;
 
-        (($object.settings.socialSharing) && (window.location.hash = '/lightbox&slide=' + (index + 1)));
+        (($object.settings.socialSharing) && (window.location.hash = '/rlightbox=' + groupID + '&slide=' + (index + 1)));
     };
 
     Lightbox.prototype.loadContent = function (index, rec, delay) {
@@ -560,25 +563,31 @@
 
         function isImg() {
             src = $object.$items.eq(index).attr('href');
+
             return src.match(/\.(jpg|png|gif)\b/);
         }
 
         if ($object.settings.watermark) {
+
             if (isImg()) {
-                src = $object.$items.eq(index).find('img').attr('data-src');
+                if(performance.navigation.type === 1 && !jQuery('.huge_it_portfolio_container').hasClass('view-lightbox-gallery') && this.settings.socialSharing){
+                    src = $object.$items.eq(index).attr('href');
+                } else {
+                    src = $object.$items.eq(index).find('img').attr('data-src');
+                }
             }
         } else {
             src = $object.$items.eq(index).attr('href');
         }
 
-
         isVideo = $object.isVideo(src, index);
+
         if (!$object.$item.eq(index).hasClass($object.settings.classPrefix + 'loaded')) {
             if (isVideo) {
                 $object.$item.eq(index).prepend('<div class="' + this.settings.classPrefix + 'video-cont "><div class="' + this.settings.classPrefix + 'video"></div></div>');
                 $object.$element.trigger('hasVideo.rwd-container', [index, src]);
             } else {
-                $object.$item.eq(index).prepend('<div class="' + this.settings.classPrefix + 'img-wrap"><img class="' + this.settings.classPrefix + 'object ' + $object.settings.classPrefix + 'image watermark" src="' + src + '" /></div>');
+                $object.$item.eq(index).prepend('<div class="rwd-img-wrap"><img class="rwd-object rwd-image watermark" src="' + src + '" /></div>');
             }
 
             $object.$element.trigger('onAferAppendSlide.rwd-container', [index]);
@@ -1285,6 +1294,7 @@
         };
 
         img.src = data.imgurl;
+
     };
 
     $.fn['watermark'] = function () {
