@@ -120,7 +120,7 @@ jQuery(document).ready(function () {
 			var videoIndex = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('.image-container li').length;
 			var allUrls = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val();
 			var iframeVideoSrc = response.iframe_video_src;
-			allUrls += iframeVideoSrc+';';
+			allUrls += videoUrl+';';
 			var imageUrl = response.image_url;
 			var videoType = response.video_type;
 			jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val(allUrls);
