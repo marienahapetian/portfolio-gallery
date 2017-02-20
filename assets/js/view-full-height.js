@@ -61,7 +61,7 @@ function Portfolio_Gallery_Full_Height(id) {
         };
         portfolioGalleryIsotope(_this.container);
         portfolioGalleryIsotope(_this.container,options);
-        _this.container.find('img').on('load', function () {console.log(55);
+        _this.container.find('img').on('load', function () {
             portfolioGalleryIsotope(_this.container,'layout');
         });
     };

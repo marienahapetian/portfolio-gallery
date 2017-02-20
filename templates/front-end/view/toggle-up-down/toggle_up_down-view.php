@@ -9,15 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $portfolioShowFiltering == 'on' ) {
 	echo 'filteringActive';
 } ?>"
-         data-portfolio-id="<?php echo $portfolioID; ?>"
-         data-image-behaviour="<?php echo $portfolio_gallery_get_options['portfolio_gallery_port_natural_size_toggle']; ?>">
+         data-portfolio-id="<?php echo esc_attr($portfolioID); ?>"
+         data-image-behaviour="<?php echo esc_attr($portfolio_gallery_get_options['portfolio_gallery_port_natural_size_toggle']); ?>">
 	<div id="huge-it-container-loading-overlay_<?php echo $portfolioID; ?>"></div>
 	<?php if ( ( $sortingFloatToggle == 'left' && $filteringFloatToggle == 'left' ) || ( $sortingFloatToggle == 'right' && $filteringFloatToggle == 'right' ) ) { ?>
 	<div id="huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>">
 		<?php } ?>
 		<?php if ( $portfolioShowSorting == "on" ) { ?>
 			<div id="huge_it_portfolio_options_<?php echo $portfolioID; ?>" 
-			     data-sorting-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_float"]; ?>">
+			     data-sorting-position="<?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_float"]); ?>">
 				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_default"] != ''):?>
 					<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
@@ -55,7 +55,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 		<?php }
 		if ( $portfolioShowFiltering == "on" ) { ?>
 			<div id="huge_it_portfolio_filters_<?php echo $portfolioID; ?>"
-			     data-filtering-position="<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view0_filtering_float"]; ?>">
+			     data-filtering-position="<?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_filtering_float"]); ?>">
 				<ul>
 					<li rel="*"><a><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view0_cat_all"]; ?></a></li>
 					<?php
@@ -76,7 +76,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 	</div>
 <?php } ?>
 	<div id="huge_it_portfolio_container_<?php echo $portfolioID; ?>"
-	     data-show-loading="<?php echo $portfolioShowLoading; ?>" data-show-center="<?php echo $portfolioposition; ?>"
+	     data-show-loading="<?php echo esc_attr($portfolioShowLoading); ?>"
+		 data-show-center="<?php echo esc_attr($portfolioposition); ?>"
 	     class="huge_it_portfolio_container super-list variable-sizes clearfix view-<?php echo $view_slug;?>" <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_float"] == "top" && $portfolio_gallery_get_options["portfolio_gallery_ht_view0_filtering_float"] == "top" ) {
 		echo "style='clear: both;'";
 	} ?>>
@@ -108,7 +109,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 									<a href="<?php echo esc_url( $imgurl[0] ); ?>"
 									   class="portfolio-group<?php if ( $lighboxable == "lighboxable" ) {
 										   echo $group_key;
-									   } ?>" title="<?php echo $row->name; ?>">
+									   } ?>" title="<?php echo $row->name; ?>" data-groupID="<?php echo esc_attr($group_key);?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
 										     src="<?php if($portfolio_gallery_get_options['portfolio_gallery_port_natural_size_toggle'] == 'resize') echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array( $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width'], $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_height']), false ) );
@@ -121,7 +122,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 									<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 									   class="huge_it_portfolio_item pyoutube portfolio-group<?php if ( $lighboxable == "lighboxable" ) {
 										   echo $group_key;
-									   } ?> " title="<?php echo $row->name; ?>">
+									   } ?> " title="<?php echo $row->name; ?>" data-groupID="<?php echo esc_attr($group_key);?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     id="wd-cl-img<?php echo $key; ?>"
 										     src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg"/>
@@ -137,7 +138,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 									<a href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
 									   class="huge_it_portfolio_item pvimeo portfolio-group<?php if ( $lighboxable == "lighboxable" ) {
 										   echo $group_key;
-									   } ?> " title="<?php echo esc_attr( $row->name ); ?>">
+									   } ?> " title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key);?>">
 										<img alt="<?php echo esc_attr( $row->name ); ?>"
 										     src="<?php echo esc_attr( $imgsrc ); ?>"/>
 										<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
@@ -175,7 +176,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 											case 'image':
 												?>
 												<a href="<?php echo $img; ?>"
-												   class=" portfolio-group<?php echo $group_key; ?> "><img
+												   class=" portfolio-group<?php echo $group_key; ?> " data-groupID="<?php echo esc_attr($group_key);?>"><img
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, $portfolio_gallery_get_options['portfolio_gallery_ht_view0_thumbs_width'], true ) ); ?>"></a>
 												<?php
 												break;
@@ -183,7 +184,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
 												   class="huge_it_portfolio_item pyoutube portfolio-group<?php echo $group_key; ?> "
-												   style="position:relative">
+												   style="position:relative" data-groupID="<?php echo esc_attr($group_key);?>">
 													<img
 														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
 													<div class="play-icon youtube-icon"></div>
@@ -198,7 +199,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 												<a class="huge_it_portfolio_item pvimeo portfolio-group<?php echo $group_key; ?> "
 												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
 												   title="<?php echo $row->name; ?>"
-												   style="position:relative">
+												   style="position:relative" data-groupID="<?php echo esc_attr($group_key);?>">
 													<img src="<?php echo $imgsrc; ?>"
 													     alt="<?php echo $row->name; ?>"/>
 													<div class="play-icon vimeo-icon"></div>

@@ -284,6 +284,8 @@ GROUP BY " . $wpdb->prefix . "huge_itportfolio_images.portfolio_id ";
 			array( 'id' => $id )
 		);
 
+		update_option( 'portfolio_gallery_disable_right_click', sanitize_text_field( $_POST['disable_right_click'] ) );
+
 		$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios WHERE id = %d", $id );
 		$row   = $wpdb->get_row( $query );
 

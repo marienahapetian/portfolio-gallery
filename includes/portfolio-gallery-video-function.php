@@ -20,7 +20,7 @@ if ( ! function_exists( 'youtube_or_vimeo_portfolio' ) ) {
 		} elseif ( strpos( $url, 'vimeo' ) !== false ) {
 			$explode = explode( "/", $url );
 			$end     = end( $explode );
-			if ( strlen( $end ) == 8 || strlen( $end ) == 9 ) {
+			if ( strlen( $end ) == 7 || strlen( $end ) == 8 || strlen( $end ) == 9 ) {
 				return 'vimeo';
 			}
 		}

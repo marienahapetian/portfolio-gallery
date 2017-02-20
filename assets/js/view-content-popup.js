@@ -191,7 +191,7 @@ function Portfolio_Gallery_Content_Popup(id) {
     };
     _this.rightChange = function(){
         var height = jQuery(window).height();
-        var num = jQuery(this).find("a").attr("href").replace('#', '');console.log(_this.popupList.find('.pupup-element.active .image-block iframe').length);
+        var num = jQuery(this).find("a").attr("href").replace('#', '');
         if(_this.popupList.find('.pupup-element.active .image-block iframe').length) {
             var videoSrc = _this.popupList.find('.pupup-element.active .image-block iframe').attr('src');
             videoSrc = videoSrc.replace('autoplay=1', 'autoplay=0');
@@ -276,7 +276,6 @@ function Portfolio_Gallery_Content_Popup(id) {
             }
         } else {
             setTimeout(function () {
-                console.log(jQuery('.pupup-element.active .image-block img').height(),jQuery('.pupup-element.active .image-block').height());
                 if (jQuery('.pupup-element.active .image-block img').height() > jQuery('.pupup-element.active .image-block').height()) {
                     jQuery('.pupup-element.active .popup-wrapper').css('overflow-y', 'auto');
                 }

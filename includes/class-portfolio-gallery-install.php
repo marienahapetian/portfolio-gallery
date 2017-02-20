@@ -152,6 +152,14 @@ INSERT INTO
 				array('id' => 1)
 			);
 		}
+		
+		if( !get_option( 'portfolio_gallery_lightbox_type' ) ) {
+			update_option( 'portfolio_gallery_lightbox_type', 'old_type' );
+		}
+
+        if ( ! get_option( 'portfolio_gallery_disable_right_click' ) ) {
+            update_option( 'portfolio_gallery_disable_right_click', 'off' );
+        }
 	}
 }
 

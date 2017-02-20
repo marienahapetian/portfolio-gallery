@@ -6,6 +6,22 @@ var portfoliosListNameChange = function (e) {
     document.getElementById("huge_it_portfolio_name").value = e.value;
 };
 jQuery(document).ready(function () {
+	jQuery('#lightbox_type input').change(function () {
+		jQuery('#lightbox_type input').parent().removeClass('active');
+		jQuery(this).parent().addClass('active');
+		if(jQuery(this).val() == 'old_type'){
+			jQuery('#lightbox-options-list').addClass('active');
+			jQuery('#new-lightbox-options-list').removeClass('active');
+		}
+		else{
+			jQuery('#lightbox-options-list').removeClass('active');
+			jQuery('#new-lightbox-options-list').addClass('active');
+		}
+		jQuery('#lightbox_type input').prop('checked',false);
+		if(!jQuery(this).prop('checked')){
+			jQuery(this).prop('checked',true);
+		}
+	});
 	var setTimeoutConst;
 	jQuery('body').on('mouseenter','ul#images-list > li img',function () {
 		var onHoverPreview = jQuery('#img_hover_preview').prop('checked');
@@ -104,7 +120,7 @@ jQuery(document).ready(function () {
 			var videoIndex = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('.image-container li').length;
 			var allUrls = jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val();
 			var iframeVideoSrc = response.iframe_video_src;
-			allUrls += iframeVideoSrc+';';
+			allUrls += videoUrl+';';
 			var imageUrl = response.image_url;
 			var videoType = response.video_type;
 			jQuery('li[data-portfolio-item-id="'+portfolioItemId+'"]').find('input.all-urls').val(allUrls);
