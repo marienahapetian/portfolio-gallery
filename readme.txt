@@ -1,12 +1,12 @@
-﻿﻿=== Portfolio ===
+﻿=== Portfolio ===
 Contributors: Huge-IT
-Donate link: http://huge-it.com/portfolio-gallery/
+Donate link: https://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
 Requires at least: 3.0.1
-Tested up to: 4.7.1
-Stable tag: 2.2.9
+Tested up to: 4.7.2
+Stable tag: 2.3.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, video portfolio gallery of just a gallery with single images.
 
@@ -14,11 +14,12 @@ Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, 
 
 **Portfolio - Gallery Portfolio**
 
-* [Wordpress Portfolio Gallery](http://huge-it.com/portfolio-gallery/)
-* [Portfolio Gallery Demo](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/)
-* [Portfolio Gallery FAQ](http://huge-it.com/wordpress-portfolio-gallery-faq/)
-* [Portfolio Gallery User Manual](http://huge-it.com/wordpress-portfolio-gallery-user-manual/)
-* [Portfolio Gallery Support](http://huge-it.com/contact-us/)
+* [Wordpress Portfolio Gallery](https://huge-it.com/portfolio-gallery/)
+* [Portfolio Gallery Demo](https://huge-it.com/wordpress-plugins-portfolio-gallery-demo/)
+* [Portfolio Gallery FAQ](https://huge-it.com/wordpress-portfolio-gallery-faq/)
+* [Portfolio Gallery User Manual](https://huge-it.com/wordpress-portfolio-gallery-user-manual/)
+* [Portfolio Gallery Support](https://huge-it.com/contact-us/)
+* [Portfolio Gallery Forum](https://huge-it.com/forums/forum/wordpress/wordpress-portfolio-gallery/)
 * [Portfolio Gallery Github Project](https://github.com/Huge-IT/portfolio-gallery)
 
 https://www.youtube.com/watch?v=uq6Cw3ou-gM
@@ -43,10 +44,10 @@ And how is this power and flexibility possible? Because the Portfolio plugin is 
 *  **Unlimited portfolios**, with unlimited projects, each with unlimited images, videos, or other content
 *  **Images as well as videos** from other sites, like YouTube and Vimeo
 *  **Auto-generated shortcodes** for easy embedding
-*  **Portfolio-specific widgets** available right from the Widgets admin panel
-*  **Optional sorting buttons** to sort by date or title, ascending or descending, in random order, or default
-*  **Seven presentation layouts** with their own animation effects
-*  **Fully responsive design** for perfect performance across devices and screen sizes
+*  **Portfolio-specific widgets** available right from the Widgets admin panel.
+*  **Optional sorting buttons** to sort by date or title, ascending or descending, in random order, or default.
+*  **Seven presentation layouts** with their own animation effects.
+*  **Fully responsive design** for perfect performance across devices and screen sizes.
 
 
 **Pro Features (license)**
@@ -196,33 +197,33 @@ The main image size can be changed from portfolio gallery General Options for pr
 
 *   **Elastic Grid**
 
-Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
+Upgrade to [WordPress Portfolio Gallery Pro](https://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
 
 > #### Demos 
 >
->[Blocks Toggle Up/Down Portfolio Gallery Demo](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper)
+>[Blocks Toggle Up/Down Portfolio Gallery Demo](https://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper)
 >
->[Full-Height Blocks Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-2-full-height-block/#plugin_demo_wrapper)
+>[Full-Height Blocks Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-2-full-height-block/#plugin_demo_wrapper)
 >
->[Gallery / Content-Popup Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper)
+>[Gallery / Content-Popup Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper)
 >
->[Full-Width Blocks Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper)
+>[Full-Width Blocks Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper)
 >
->[FAQ Toggle Up/Down Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-5-faq-toggle-updown/#plugin_demo_wrapper)
+>[FAQ Toggle Up/Down Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-5-faq-toggle-updown/#plugin_demo_wrapper)
 >
->[Content Slider Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper)
+>[Content Slider Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper)
 >
->[Lightbox Gallery Portfolio Gallery Demo](http://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper)
+>[Lightbox Gallery Portfolio Gallery Demo](https://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper)
 
 > #### FAQ & User Manual
 >
->[FAQ](http://huge-it.com/wordpress-portfolio-gallery-faq/)
+>[FAQ](https://huge-it.com/wordpress-portfolio-gallery-faq/)
 >
->[User Manual](http://huge-it.com/wordpress-portfolio-gallery-user-manual/)
+>[User Manual](https://huge-it.com/wordpress-portfolio-gallery-user-manual/)
 
-Upgrade to [WordPress Portfolio / Gallery Pro](http://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
+Upgrade to [WordPress Portfolio / Gallery Pro](https://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
 
-If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Installation ==
 
@@ -271,26 +272,26 @@ Every time you try to change Zip file of Portfolio plugin with another zip file 
 
 If the installation of Portfolio Pro version didn’t open the Pro options, just delete and install it again
 
-If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Screenshots ==
 
-1.  [WordPress Portfolio Gallery view 1](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
-12.  [WordPress Portfolio Gallery view 1](http://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
-2.  [WordPress Portfolio Gallery view 2](http://huge-it.com/wordpress-portfolio-gallery-demo-2-full-height-block/#plugin_demo_wrapper) - Full-Height Blocks
-3.  [WordPress Portfolio Gallery view 3](http://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper) - Gallery
-4.  [WordPress Portfolio Gallery view 3.2](http://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper) - Gallery / Content-Popup
-5.  [WordPress Portfolio Gallery view 4](http://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper) - Full-Width Blocks
-52.  [WordPress Portfolio Gallery view 4](http://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper) - Full-Width Blocks
-6.  [WordPress Portfolio Gallery view 5](http://huge-it.com/wordpress-portfolio-gallery-demo-5-faq-toggle-updown/#plugin_demo_wrapper) - FAQ Toggle Up/Down
-7.  [WordPress Portfolio Gallery view 6](http://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper) - Content Slider
-8.  [WordPress Portfolio Gallery view 7](http://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox - Gallery
-9.  [WordPress Portfolio Gallery view 7.2](http://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox / Gallery - popup
-10.  [WordPress Portfolio Gallery](http://wordpress.org/plugins/portfolio-gallery/) - Admin page  
-11.  [WordPress Portfolio Gallery](http://wordpress.org/plugins/portfolio-gallery/) - Admin page  
-12.  [WordPress Portfolio Gallery](http://wordpress.org/plugins/portfolio-gallery/) - Admin page  
-13.  [WordPress Portfolio Gallery](http://wordpress.org/plugins/portfolio-gallery/) - Admin page  
-14.  [WordPress Portfolio Gallery](http://wordpress.org/plugins/portfolio-gallery/) - Lightbox options
+1.  [WordPress Portfolio Gallery view 1](https://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
+12.  [WordPress Portfolio Gallery view 1](https://huge-it.com/wordpress-plugins-portfolio-gallery-demo/#plugin_demo_wrapper) - Blocks Toggle Up/Down
+2.  [WordPress Portfolio Gallery view 2](https://huge-it.com/wordpress-portfolio-gallery-demo-2-full-height-block/#plugin_demo_wrapper) - Full-Height Blocks
+3.  [WordPress Portfolio Gallery view 3](https://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper) - Gallery
+4.  [WordPress Portfolio Gallery view 3.2](https://huge-it.com/wordpress-portfolio-gallery-demo-3-gallery-content-popup/#plugin_demo_wrapper) - Gallery / Content-Popup
+5.  [WordPress Portfolio Gallery view 4](https://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper) - Full-Width Blocks
+52.  [WordPress Portfolio Gallery view 4](https://huge-it.com/wordpress-portfolio-gallery-demo-4-full-width-block/#plugin_demo_wrapper) - Full-Width Blocks
+6.  [WordPress Portfolio Gallery view 5](https://huge-it.com/wordpress-portfolio-gallery-demo-5-faq-toggle-updown/#plugin_demo_wrapper) - FAQ Toggle Up/Down
+7.  [WordPress Portfolio Gallery view 6](https://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper) - Content Slider
+8.  [WordPress Portfolio Gallery view 7](https://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox - Gallery
+9.  [WordPress Portfolio Gallery view 7.2](https://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox / Gallery - popup
+10.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
+11.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
+12.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
+13.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
+14.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Lightbox options
 
 == Frequently Asked Questions ==
 
@@ -445,16 +446,20 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 *  Portfolio Loading Icon is good in those cases when you have big sets of images you can select one of beautiful loading icons while your portfolio images are loading.
 
 
-If you think, that you found a bug in our [WordPress Portfolio Gallery](http://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.3.0 =
+
+* 1) Added a new more advanced and modern lightbox.
+* 2) We have added a new option called Image Protection, disabling image save.
 
 = 2.2.9 =
 
 * 1) Added auto-loader
 * 2) Fixed the conflict with Photo Gallery plugin
 * 3) Added demo links to galleries in the back-end of the plugin
-
 
 = 2.2.8 =
 
@@ -892,7 +897,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 * Usage. Here you will see the shortcode for the created portfolio gallery. You can add the shortcode to the page or post where you want the images or videos to be displayed. In addition you can find the shortcode icon width each post and page within its TinyMCE editor and can click on it, select the portfolio gallery and insert the shortcode.
 * Template Usage. If you want to use for a custom location with the theme, you can copy and paste the provided code.
 
-**Upgrade to [WordPress Portfolio Gallery Pro](http://huge-it.com/portfolio-gallery/) to add some features:**
+**Upgrade to [WordPress Portfolio Gallery Pro](https://huge-it.com/portfolio-gallery/) to add some features:**
 
 ### General Options
 
@@ -1168,7 +1173,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](http://h
 **Inserting the Portfolio gallery into the Post or Page.**
 
 You should use the automatically generated code into the the Post or Page. The shortcodes takes the following form:
-[huge_it_portfolio id=N] , where N is the number ID of the created [WordPress Portfolio gallery](http://huge-it.com/portfolio-gallery).
+[huge_it_portfolio id=N] , where N is the number ID of the created [WordPress Portfolio gallery](https://huge-it.com/portfolio-gallery).
 
 Inserting the Portfolio gallery into the template.
 
