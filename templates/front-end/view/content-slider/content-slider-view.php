@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<div id="p-main-slider_<?php echo $portfolioID; ?>"
+<div id="p-main-slider_<?php echo esc_attr($portfolioID); ?>"
      class="portfolio-gallery-content p-main-slider liquid-slider view-<?php echo $view_slug; ?>"
      data-pause-hover="<?php echo esc_attr($portfolio[0]->pause_on_hover); ?>"
      data-autoslide="<?php echo esc_attr($portfolio[0]->autoslide); ?>"
@@ -25,15 +25,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 		$result     = substr( $descnohtml, 0, 50 );
 		?>
 		<div class="slider-content">
-			<div class="slider-content-wrapper slide_number<?php echo $group_key1; ?>">
-				<div class="image-block_<?php echo $portfolioID; ?>">
+			<div class="slider-content-wrapper slide_number<?php echo esc_attr($group_key1); ?>">
+				<div class="image-block_<?php echo esc_attr($portfolioID); ?>">
 					<?php
 					if ( $row->image_url != ';' ) {
 						switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {
 							case 'image':
 
 								?>
-								<a class="portfolio-group<?php echo $group_key1; ?> portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>"
+								<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
 								   href="<?php echo esc_url( $imgurl[0] ); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img
 										alt="<?php echo esc_attr( $row->name ); ?>" class="main-image"
@@ -46,11 +46,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 							case 'youtube':
 								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 								<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
-								   class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?> add-H-relative add-H-block"
+								   class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?> add-H-relative add-H-block"
 								   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>">
-									<img class="main-image"
-										src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
-									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+									<img class="main-image" alt="<?php echo esc_attr($row->name); ?>"
+										src="//img.youtube.com/vi/<?php echo esc_attr($videourl[0]); ?>/mqdefault.jpg">
+									<div class="play-icon <?php echo esc_attr($videourl[1]); ?>-icon"></div>
 								</a>
 								<?php
 								break;
@@ -59,12 +59,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 								$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 								$imgsrc = $hash[0]['thumbnail_large'];
 								?>
-								<a class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>   add-H-relative add-H-block"
-								   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?>"
-								   title="<?php echo $row->name; ?>" data-groupID="<?php echo esc_attr($group_key1);?>">
+								<a class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>   add-H-relative add-H-block"
+								   href="http://player.vimeo.com/video/<?php echo esc_attr($videourl[0]); ?>"
+								   title="<?php echo esc_attr($row->name); ?>" data-groupID="<?php echo esc_attr($group_key1);?>">
 									<img src="<?php echo esc_attr( $imgsrc ); ?>" class="main-image"
 									     alt="<?php echo esc_attr( $row->name ); ?>"/>
-									<div class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+									<div class="play-icon <?php echo esc_attr($videourl[1]); ?>-icon"></div>
 								</a>
 								<?php break;
 						}
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view5_show_thumbs"] ) { ?>
 						<div>
-							<ul class="thumbs-list_<?php echo $portfolioID; ?>">
+							<ul class="thumbs-list_<?php echo esc_attr($portfolioID); ?>">
 								<?php
 								array_shift( $imgurl );
 								foreach ( $imgurl as $key => $img ) {
@@ -84,8 +84,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 										case 'image':
 											?>
 											<li>
-												<a class="portfolio-group<?php echo $group_key1; ?> portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>"
-												   href="<?php echo esc_url( $img ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img
+												<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
+												   href="<?php echo esc_url( $img ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view5_thumbs_width'],
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view5_thumbs_height']
@@ -96,12 +96,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 										case 'youtube':
 											$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 											<li>
-												<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
-												   class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>  add-H-relative" data-groupID="<?php echo esc_attr($group_key1);?>">
-													<img
-														src="//img.youtube.com/vi/<?php echo $videourl[0]; ?>/mqdefault.jpg">
+												<a href="https://www.youtube.com/embed/<?php echo esc_attr($videourl[0]); ?>"
+												   class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>  add-H-relative" data-groupID="<?php echo esc_attr($group_key1);?>">
+													<img alt="<?php echo esc_attr($row->name); ?>"
+														src="//img.youtube.com/vi/<?php echo esc_attr($videourl[0]); ?>/mqdefault.jpg">
 													<div
-														class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+														class="play-icon <?php echo esc_attr($videourl[1]); ?>-icon"></div>
 												</a>
 											</li>
 											<?php
@@ -111,14 +111,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 											$hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 											$imgsrc = $hash[0]['thumbnail_large']; ?>
 											<li>
-												<a class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo $portfolioID; ?>_<?php echo $group_key1; ?>  add-H-relative"
-												   href="http://player.vimeo.com/video/<?php echo $videourl[0]; ?> "
+												<a class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>  add-H-relative"
+												   href="http://player.vimeo.com/video/<?php echo esc_attr($videourl[0]); ?> "
 												   title="<?php echo esc_attr( $row->name ); ?>"
 												   style="position:relative" data-groupID="<?php echo esc_attr($group_key1);?>">
 													<img src="<?php echo esc_attr( $imgsrc ); ?>"
 													     alt="<?php echo esc_attr( $row->name ); ?>"/>
 													<div
-														class="play-icon <?php echo $videourl[1]; ?>-icon"></div>
+														class="play-icon <?php echo esc_attr($videourl[1]); ?>-icon"></div>
 												</a>
 											</li>
 											<?php
@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php } ?>
 				</div>
 				<div class="right-block">
-					<div><h2 class="title"><?php echo $row->name; ?></h2></div>
+					<div><h2 class="title"><?php echo esc_attr($row->name); ?></h2></div>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view5_show_description"] == 'on' ) { ?>
 						<div class="description"><?php echo $row->description; ?></div><?php } ?>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view5_show_linkbutton"] == 'on' && $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_text"] != '' && $link != '' ) { ?>
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<a class=""
 							   href="<?php echo esc_url( $link ); ?>" <?php if ( $row->link_target == "on" ) {
 								echo 'target="_blank"';
-							} ?>><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_text"]; ?></a>
+							} ?>><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_text"]); ?></a>
 						</div>
 					<?php } ?>
 				</div>

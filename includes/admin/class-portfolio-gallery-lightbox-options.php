@@ -40,7 +40,7 @@ class Portfolio_Gallery_Lightbox_Options {
 	public function save_options() {
 		if ( !isset( $_REQUEST['portfolio_gallery_nonce_save_lightbox_options'] ) || ! wp_verify_nonce( $_REQUEST['portfolio_gallery_nonce_save_lightbox_options'], 'portfolio_gallery_nonce_save_lightbox_options' ) ) {
 			wp_die( 'Security check fail' );
-		}var_dump($_POST['params']);
+		}
 		if ( isset( $_POST['params'] ) ) {
 			$params = array_map('sanitize_text_field',( $_POST['params'] ));
 			foreach ( $params as $name => $value ) {

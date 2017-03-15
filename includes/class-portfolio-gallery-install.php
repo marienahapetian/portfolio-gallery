@@ -13,13 +13,26 @@ class Portfolio_Gallery_Install {
      * This check is done on all requests and runs if the versions do not match.
      */
     public static function check_version() {
+
+
         if(get_option( 'portfolio_gallery_version' ) !== Portfolio_Gallery()->version ){
+
             self::install();
             update_option( 'portfolio_gallery_version',Portfolio_Gallery()->version );
         }
     }
 
     public static function install_options() {
+
+        if( !get_option( 'portfolio_gallery_lightbox_type' ) ) {
+            if (!get_option( 'portfolio_gallery_version' )) {
+                update_option( 'portfolio_gallery_lightbox_type', 'new_type' );
+            }
+            else {
+                update_option( 'portfolio_gallery_lightbox_type', 'old_type' );
+            }
+        }
+
         if( !get_option( 'portfolio_gallery_admin_image_hover_preview' ) ) {
             update_option( 'portfolio_gallery_admin_image_hover_preview', 'on' );
             update_option( 'portfolio_gallery_version', '2.2.0' );
@@ -41,7 +54,22 @@ class Portfolio_Gallery_Install {
                 $wpdb->query($query);
             }
         }
+        global $wpdb;
+        $query = "SELECT ht_show_filtering FROM ".$wpdb->prefix."huge_itportfolio_portfolios WHERE id=1";
+        $ht_show_filtering = $wpdb->get_var($query);
+        if( $ht_show_filtering != 'on'){
+            $wpdb->update(
+                $wpdb->prefix."huge_itportfolio_portfolios",
+                array('ht_show_filtering' => 'off'),
+                array('id' => 1)
+            );
+        }
+
+        if ( ! get_option( 'portfolio_gallery_disable_right_click' ) ) {
+            update_option( 'portfolio_gallery_disable_right_click', 'off' );
+        }
     }
+
 
     /**
      * Install Portfolio Gallery.
@@ -50,9 +78,14 @@ class Portfolio_Gallery_Install {
         if (!defined('PORTFOLIO_GALLERY_INSTALLING')) {
             define('PORTFOLIO_GALLERY_INSTALLING', true);
         }
+
         self::create_tables();
+        if(!get_option( 'portfolio_gallery_version' ) ){
+            update_option( 'portfolio_gallery_lightbox_type', 'new_type' );
+        }
         // Flush rules after install
         self::install_options();
+
         do_action('portfolio_gallery_installed');
     }
 
@@ -141,26 +174,5 @@ INSERT INTO
         }
     }
 
-	public static function db_update(){
-		global $wpdb;
-		$query = "SELECT ht_show_filtering FROM ".$wpdb->prefix."huge_itportfolio_portfolios WHERE id=1";
-		$ht_show_filtering = $wpdb->get_var($query);
-		if( $ht_show_filtering != 'on'){
-			$wpdb->update(
-				$wpdb->prefix."huge_itportfolio_portfolios",
-				array('ht_show_filtering' => 'off'),
-				array('id' => 1)
-			);
-		}
-		
-		if( !get_option( 'portfolio_gallery_lightbox_type' ) ) {
-			update_option( 'portfolio_gallery_lightbox_type', 'old_type' );
-		}
 
-        if ( ! get_option( 'portfolio_gallery_disable_right_click' ) ) {
-            update_option( 'portfolio_gallery_disable_right_click', 'off' );
-        }
-	}
 }
-
-Portfolio_Gallery_Install::init();

@@ -177,6 +177,8 @@ final class Portfolio_Gallery {
 		// Before init action.
 		do_action( 'before_portfolio_gallery_init' );
 
+        Portfolio_Gallery_Install::init();
+
 		$this->template_loader = new Portfolio_Gallery_Template_Loader();
 
 		if ( $this->is_request( 'admin' ) ) {

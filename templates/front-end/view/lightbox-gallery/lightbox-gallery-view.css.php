@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     height: 100%;
 }
 /***</add>***/
-.portelement_<?php echo $portfolioID; ?> {
+.portelement_<?php echo esc_html($portfolioID); ?> {
     max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']; ?>px;
     width: 100%;
     margin:0 0 10px 0;
@@ -31,17 +31,17 @@ if ( ! defined( 'ABSPATH' ) ) {
     overflow:hidden;
 }
 
-.portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> {
+.portelement_<?php echo esc_html($portfolioID); ?> .image-block_<?php echo esc_html($portfolioID); ?> {
     position:relative;
     max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']; ?>px;
     width:100%;
 }
-.portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> a {
+.portelement_<?php echo esc_html($portfolioID); ?> .image-block_<?php echo esc_html($portfolioID); ?> a {
     border:none;
     display: block;
     cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
 }
-.portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> img {
+.portelement_<?php echo esc_html($portfolioID); ?> .image-block_<?php echo esc_html($portfolioID); ?> img {
     margin:0 !important;
     padding:0 !important;
     max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']; ?>px !important;
@@ -52,11 +52,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 
-.portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> img:hover {
+.portelement_<?php echo esc_html($portfolioID); ?> .image-block_<?php echo esc_html($portfolioID); ?> img:hover {
     cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
 }
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> {
+.portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> {
     position:absolute;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -75,10 +75,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     transition: bottom 0.3s ease-out 0.1s;
 }
 
-.portelement_<?php echo $portfolioID; ?>:hover .title-block_<?php echo $portfolioID; ?> {bottom:0;}
+.portelement_<?php echo esc_html($portfolioID); ?>:hover .title-block_<?php echo esc_html($portfolioID); ?> {bottom:0;}
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:link, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:visited, 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> {
+.portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a, .portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a:link, .portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a:visited, 
+.portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> {
     margin:0;
     padding:0 1% 0 2%;
     text-decoration:none;
@@ -95,13 +95,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:hover, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:focus, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:active, 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?>:hover {
+.portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a:hover, .portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a:focus, .portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?> a:active, 
+.portelement_<?php echo esc_html($portfolioID); ?> .title-block_<?php echo esc_html($portfolioID); ?>:hover {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_hover_color"];?>;
     text-decoration:none;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> {
     position: relative;
     overflow: hidden;
 <?php   if($sortingFloatLgal != 'top'){
@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     margin-bottom: 10px;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul {
     margin: 0 !important;
     padding: 0 !important;
     list-style: none;
@@ -136,7 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul {
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden;
@@ -146,7 +146,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     width: 100%;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li {
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_radius"];?>px;
     list-style-type: none;
     margin: 0 !important;
@@ -161,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li a {
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_background_color"];?> !important;
     font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_font_size"];?>px !important;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_font_color"];?> !important;
@@ -174,13 +174,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a:hover {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li a:hover {
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_hover_background_color"];?> !important;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_hover_font_color"];?> !important;
     cursor: pointer;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> {
     float: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filtering_float"]; ?>;
     position: relative;
 <?php   if($filteringFloatLgal != 'top'){
@@ -203,7 +203,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li {
     list-style-type: none;
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_radius"];?>px;
 <?php
@@ -214,7 +214,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a {
     font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_font_size"];?>px !important;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_font_color"];?> !important;
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_background_color"];?> !important;
@@ -224,27 +224,27 @@ if ( ! defined( 'ABSPATH' ) ) {
     text-decoration: none;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?>  ul li a:hover {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?>  ul li a:hover {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_font_color"];?> !important;
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_background_color"];?> !important;
     cursor: pointer
 }
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li.active a,
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li.active a:link,
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li.active a:visited,
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?>  ul li.active a:hover,
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?>  ul li.active a:focus,
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?>  ul li.active a:active {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li.active a,
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li.active a:link,
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li.active a:visited,
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?>  ul li.active a:hover,
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?>  ul li.active a:focus,
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?>  ul li.active a:active {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_font_color"];?> !important;
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_background_color"];?> !important;
     cursor: pointer;
 }
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> section {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> section {
     position:relative;
     display:block;
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_container_<?php echo $portfolioID; ?> {
+#huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_container_<?php echo esc_html($portfolioID); ?> {
     width: 79%;
     max-width: 100%;
 <?php if(($sortingFloatLgal == "left" && $filteringFloatLgal == "right") || ($sortingFloatLgal == "right" && $filteringFloatLgal == "left"))
@@ -265,54 +265,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 @media screen and (max-width: 768px) {
 
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:link,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:visited {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:link,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:visited {
         font-size: 2vw !important;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li a {
         font-size:2vw !important;
     }
 
 }
 @media screen and (max-width: 480px) {
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> {
         float: left;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> #sort-by{
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> #sort-by{
         float: left;
         width: 100% !important;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> #port-sort-direction{
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> #port-sort-direction{
         float: left;
         width: 100% !important;
         position: relative;
         padding-left: 31% !important;
         right: 31%;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:link,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:visited {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:link,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:visited {
         font-size: 3vw !important;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li a {
         line-height: 3vw;
         font-size:3vw !important;
     }
 }
 @media screen and (max-width: 420px) {
 
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:link,
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li a:visited {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:link,
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_filters_<?php echo esc_html($portfolioID); ?> ul li a:visited {
         font-size: 4vw !important;
     }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
+    #huge_it_portfolio_content_<?php echo esc_html($portfolioID); ?> #huge_it_portfolio_options_<?php echo esc_html($portfolioID); ?> ul li a {
         font-size:4vw !important;
     }
 }
 @media screen and (max-width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']+40; ?>px) {
-    .portelement_<?php echo $portfolioID; ?>  {
+    .portelement_<?php echo esc_html($portfolioID); ?>  {
         width:98%;
         margin: 1% !important;
         float: left;
@@ -320,11 +320,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         outline:none;
         border:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_color']; ?>px solid #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view0_element_border_color']; ?>;
     }
-    .wd-portfolio-panel_<?php echo $portfolioID; ?> {
+    .wd-portfolio-panel_<?php echo esc_html($portfolioID); ?> {
         width: 100% !important;
     }
 }
-#huge-it-container-loading-overlay_<?php echo $portfolioID; ?> {
+#huge-it-container-loading-overlay_<?php echo esc_html($portfolioID); ?> {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -334,7 +334,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     background-size: 60px auto;
 <?php if($portfolioShowLoading != 'on') echo 'display:none'; ?>
 }
-#huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?> {
+#huge_it_portfolio_options_and_filters_<?php echo esc_html($portfolioID); ?> {
     position: relative;
     float: left;
     width: 20%;

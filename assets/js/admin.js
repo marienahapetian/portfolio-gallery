@@ -390,7 +390,7 @@ jQuery(document).ready(function () {
 			}
 		},
 		change: function (event, ui) {
-			var start_pos = ui.item.data('start_pos');console.log(start_pos);
+			var start_pos = ui.item.data('start_pos');
 			var index = ui.placeholder.index();
 			if (start_pos < index + 2) {
 				jQuery('#images-list > li:nth-child(' + index + ')').addClass('highlights');

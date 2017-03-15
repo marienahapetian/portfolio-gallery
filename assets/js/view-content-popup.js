@@ -307,11 +307,21 @@ function Portfolio_Gallery_Content_Popup(id) {
             left_block.find('iframe').attr('src', add_src);
         else
             left_block.html('<iframe src="' + add_src + '" frameborder allowfullscreen></iframe> ');
+        _this.popupList.find('.popup-wrapper .image-block iframe').css('opacity',0);
+        _this.popupList.find('.popup-wrapper .image-block iframe').load(function () {
+
+
+            _this.popupList.find('.popup-wrapper .image-block iframe').height( _this.popupList.find('.popup-wrapper .image-block ').width() * 9/16);
+            _this.popupList.find('.popup-wrapper .image-block iframe').css('opacity',1);
+
+        })
 
         return false;
     };
     _this.resizeEvent = function(){
         _this.showCenter();
+        _this.popupList.find('.popup-wrapper .image-block iframe').height( _this.popupList.find('.popup-wrapper .image-block ').width() * 9/16);
+
         var loadInterval = setInterval(function(){
             portfolioGalleryIsotope(_this.container,'layout');
         },100);
