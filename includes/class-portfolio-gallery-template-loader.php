@@ -13,7 +13,7 @@ class Portfolio_Gallery_Template_Loader {
 	 * @param $title
 	 */
 	public function load_front_end( $images, $portfolio_gallery_get_options, $portfolio ){
-        $portfolioID             = $portfolio[0]->id;
+        $portfolioID             = absint($portfolio[0]->id);
         $portfolioeffect         = $portfolio[0]->portfolio_list_effects_s;
         $portfolioposition       = $portfolio[0]->sl_position;
         $portfolioCats           = $portfolio[0]->categories;
