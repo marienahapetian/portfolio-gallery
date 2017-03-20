@@ -4,7 +4,7 @@
 Plugin Name: Portfolio
 Plugin URI: https://huge-it.com/portfolio-gallery
 Description: Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, video portfolio gallery of just a gallery with single images.
-Version: 2.3.0
+Version: 2.3.1
 Author: Huge IT
 Author URI: https://huge-it.com/
 License: GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html
@@ -26,7 +26,7 @@ final class Portfolio_Gallery {
 	 * Version of plugin
 	 * @var float
 	 */
-	public $version = '2.3.0';
+	public $version = '2.3.1';
 
 	/**
 	 * Instance of Portfolio_Gallery_Admin class to manage admin
