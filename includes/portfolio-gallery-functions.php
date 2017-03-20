@@ -565,6 +565,7 @@ function portfolio_gallery_get_image_id( $image_url ) {
 	return $attachment;
 }
 
+
 /**
  * Get image url by image src, width, height
  *
@@ -574,8 +575,11 @@ function portfolio_gallery_get_image_id( $image_url ) {
  *
  * @return false|string
  */
+
+
 function portfolio_gallery_get_image_by_sizes_and_src( $image_src, $image_sizes, $is_thumbnail ) {
 	$is_attachment = portfolio_gallery_get_image_id( $image_src );
+
 	$is_readable   = is_readable( $image_src );
 	if ( $is_readable ) {
 		$img_sizes  = getimagesize( $image_src );
@@ -627,5 +631,5 @@ function portfolio_gallery_get_image_by_sizes_and_src( $image_src, $image_sizes,
 		}
 	}
 
-	return $image_url;
+    return $image_url;
 }

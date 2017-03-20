@@ -320,7 +320,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
     width:100% !important;
     height:95%;
     display:block;
-    min-height:325px;
+
 
 }
 

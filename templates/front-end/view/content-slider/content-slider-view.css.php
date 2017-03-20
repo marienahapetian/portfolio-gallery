@@ -204,4 +204,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         clear:both;
     }
 }
+@media only screen and (max-width: 2000px) and (min-width: 500px) {
+    #p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .image-block_<?php echo $portfolioID; ?>,#p-main-slider_<?php echo $portfolioID; ?> .slider-content-wrapper .right-block {
+        width:100%;
+        display:block;
+        float:none;
+        clear:both;
+    }
 </style>

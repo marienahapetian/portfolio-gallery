@@ -873,6 +873,11 @@ jQuery(function() {
 
             },
             positionPreview : function() {
+                this.height = winsize.height - this.$item.data( 'height' ) - marginExpanded;
+
+                if(this.height < settings.minHeight){
+                    this.height = settings.minHeight;
+                }
 
                 // scroll page
                 // case 1 : preview height + item height fits in window´s height

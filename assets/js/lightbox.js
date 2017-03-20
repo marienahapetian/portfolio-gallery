@@ -12,7 +12,7 @@
         jQuery(this).lightbox();
 
     });
-    jQuery('body img').on('click', function(e){
+    jQuery('.portfolio-gallery-content img').on('click', function(e){
         e.preventDefault();
         groupID = jQuery(this).parents('a').attr('data-groupID');
         jQuery(this).lightbox();
