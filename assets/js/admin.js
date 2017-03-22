@@ -299,7 +299,8 @@ jQuery(document).ready(function () {
 		return false;
 	});
 	jQuery('.huge-it-newuploader .button').click(function (e) {
-		var send_attachment_bkp = wp.media.editor.send.attachment;
+		e.preventDefault();
+        var send_attachment_bkp = wp.media.editor.send.attachment;
 		var button = jQuery(this);
 		var id = button.attr('id').replace('_button', '');
 		var _custom_media = true;
