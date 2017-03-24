@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php } ?>
 				</div>
 				<div class="right-block">
-					<div><h2 class="title"><?php echo esc_attr($row->name); ?></h2></div>
+					<div><h2 class="title"><?php echo $row->name; ?></h2></div>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view5_show_description"] == 'on' ) { ?>
 						<div class="description"><?php echo $row->description; ?></div><?php } ?>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view5_show_linkbutton"] == 'on' && $portfolio_gallery_get_options["portfolio_gallery_ht_view5_linkbutton_text"] != '' && $link != '' ) { ?>

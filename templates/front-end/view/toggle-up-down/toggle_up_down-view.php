@@ -154,7 +154,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					</div>
 					<div class="title-block title-block_<?php echo esc_attr($portfolioID); ?>">
 						<h3 title="<?php echo esc_attr( $row->name ); ?>"
-						    class="title"><?php echo esc_attr($row->name); ?></h3>
+						    class="title"><?php echo $row->name; ?></h3>
 						<div class="open-close-button"></div>
 					</div>
 				</div>
@@ -217,7 +217,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					if ( $portfolio_gallery_get_options['portfolio_gallery_ht_view0_show_description'] == 'on' && $row->description != '') {
 						?>
 						<div class="description-block_<?php echo esc_attr($portfolioID); ?>">
-							<p><?php echo esc_attr($row->description); ?></p>
+							<p><?php echo $row->description; ?></p>
 						</div>
 					<?php }
 					$imgurl = explode( ";", $row->image_url );

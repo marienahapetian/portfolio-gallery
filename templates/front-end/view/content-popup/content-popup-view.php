@@ -135,7 +135,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 				</div>
 				<?php if( $row->name != ''  ||  $row->sl_url != '' ): ?>
 				<div class="title-block_<?php echo $portfolioID; ?>">
-					<h3 title="<?php echo esc_attr( $row->name ); ?>"><?php echo esc_attr($row->name); ?></h3>
+					<h3 title="<?php echo esc_attr( $row->name ); ?>"><?php echo $row->name; ?></h3>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_show_linkbutton"] == 'on' && $link != '' ) { ?>
 						<div class="button-block"><a
 								href="<?php echo esc_url( $row->sl_url ); ?>" <?php if ( $row->link_target == "on" ) {

@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							echo 'target="_blank"';
 						} ?> title="<?php echo esc_attr( $row->name ); ?>">
 							<?php endif; ?>
-							<?php echo esc_attr($row->name); ?>
+							<?php echo $row->name; ?>
 							<?php if ( $link != '' ): ?>
 						</a>
 					<?php endif; ?>
