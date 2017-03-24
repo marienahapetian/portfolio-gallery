@@ -337,6 +337,26 @@
             $inner.css('transition-duration', this.settings.speed + 'ms');
         }
 
+        switch($object.settings.lightboxView){
+            case 'view1':
+            case 'view2':
+            case 'view3':
+                var $h = 92,
+                    $t = 47;
+
+                $inner.css({
+                    height: 'calc(100% - ' + $h + 'px)',
+                    top: $t + 'px'
+                });
+                break;
+            case 'view4':
+                $inner.css({
+                    height: 'calc(100% - 92px)',
+                    top: '45px'
+                });
+                break;
+        }
+
         $object.objects.overlay.addClass('in');
 
         setTimeout(function () {
