@@ -92,7 +92,7 @@ if ($portfolioShowFiltering == 'on') {
                     echo str_replace(" ", "_", $catForFilterValue) . " ";
                 } ?> " data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
                 <div class="title-block title-block_<?php echo esc_attr($portfolioID); ?>">
-                    <h3 title="<?php echo esc_attr($row->name); ?>"
+                    <h3 title="<?php echo $row->name; ?>"
                         class="title"><?php echo $row->name; ?></h3>
                     <div class="open-close-button"></div>
                 </div>
@@ -102,7 +102,7 @@ if ($portfolioShowFiltering == 'on') {
                     if ($portfolio_gallery_get_options['portfolio_gallery_ht_view4_show_description'] == 'on' && $row->description != '') {
                         ?>
                         <div class="description-block_<?php echo esc_attr($portfolioID); ?>">
-                            <p><?php echo esc_attr($row->description); ?></p>
+                            <p><?php echo $row->description; ?></p>
                         </div>
                     <?php }
                     if (isset($portfolio_gallery_get_options['portfolio_gallery_ht_view4_show_thumbs']) && $portfolio_gallery_get_options['portfolio_gallery_ht_view4_show_thumbs'] == 'on' and $portfolio_gallery_get_options['portfolio_gallery_ht_view4_thumbs_position'] == "after") {

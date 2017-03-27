@@ -214,12 +214,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="right-block">
 					<?php if ( $row->name != '' ) { ?>
 					<div class="title-block_<?php echo esc_attr( $portfolioID); ?>">
-						<h3><?php echo esc_attr($row->name); ?></h3></div><?php } ?>
+						<h3><?php echo $row->name; ?></h3></div><?php } ?>
 					<?php
 					if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view3_show_description"] == 'on' ) {
 						if ( $row->description != '' ) { ?>
 							<div class="description-block_<?php echo esc_attr($portfolioID); ?>">
-								<p><?php echo esc_attr( $row->description ); ?></p></div>
+								<p><?php echo $row->description ; ?></p></div>
 						<?php } ?>
 					<?php }
 
