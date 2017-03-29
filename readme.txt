@@ -1,10 +1,10 @@
-﻿=== Portfolio ===
+﻿=== Portfolio Gallery ===
 Contributors: Huge-IT
 Donate link: https://huge-it.com/portfolio-gallery/
-Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, filtrable portfolio, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
+Tags: portfolio, filterable portfolio, images portfolio, portfolio gallery, portfolio plugin, responsive portfolio, wordpress portfolio, wp portfolio, wordpress portfolio plugin, sortable portfolio, project portfolio,
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -449,6 +449,14 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.3.2 =
+
+* 1) Fixed the issue in Contnt Slider view with narrow themes, where the images were stretched to the page. 
+* 2)  Fixed the bug with description being dissipated where video is added for the second time.
+* 3) We have fixed the overlay in general options.
+* 4) We have added an option Image Title option for Content Popup (Pro).
+* 5) Fixed the issue with tags in the description, where empty symbols were displayed when description were added by tags.
 
 = 2.3.1 =
 
