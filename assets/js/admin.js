@@ -298,31 +298,43 @@ jQuery(document).ready(function () {
 		wp.media.editor.open(button);
 		return false;
 	});
-	jQuery('.huge-it-newuploader .button').click(function (e) {
-		e.preventDefault();
-        var send_attachment_bkp = wp.media.editor.send.attachment;
-		var button = jQuery(this);
-		var id = button.attr('id').replace('_button', '');
-		var _custom_media = true;
-		jQuery("#" + id).val('');
-		wp.media.editor.send.attachment = function (props, attachment) {
-			if (_custom_media) {
-				jQuery("#" + id).val(attachment.url + ';;;' + jQuery("#" + id).val());
-				jQuery("#save-buttom").click();
-			} else {
-				return _orig_send_attachment.apply(this, [props, attachment]);
-			}
-		}
-		wp.media.editor.open(button);
-		return false;
-	});
+    var custom_uploader;
+    jQuery('.huge-it-newuploader .button').click(function(e) {
+        e.preventDefault();
+        var button = jQuery(this);
+        var id = button.attr('id').replace('_button', '');
+        //If the uploader object has already been created, reopen the dialog
+        if (custom_uploader) {
+            custom_uploader.open();
+            return;
+        }
+        //Extend the wp.media object
+        custom_uploader = wp.media.frames.file_frame = wp.media({
+            title: 'Choose file',
+            button: {
+                text: 'Choose file'
+            },
+            multiple: true
+        });
+        var attachments;
+        //When a file is selected, grab the URL and set it as the text field's value
+        custom_uploader.on('select', function() {
+            attachments = custom_uploader.state().get('selection').toJSON();
+            for(var key in attachments){
+                jQuery("#"+id).val(attachments[key].url+';;;'+jQuery("#"+id).val());
+            }
+            jQuery("#save-buttom").click();
+        });
+        custom_uploader.open();
+    });
 
 	jQuery(".wp-media-buttons-icon").click(function () {
 		jQuery(".media-menu .media-menu-item").css("display", "none");
 		jQuery(".media-menu-item:first").css("display", "block");
 		jQuery(".separator").next().css("display", "none");
 		jQuery('.attachment-filters').val('image').trigger('change');
-		jQuery(".attachment-filters").css("display", "none");
+        jQuery(".attachment-filters").css("display", "block");
+        jQuery("select#media-attachment-date-filters").val("all");
 	});
 	jQuery('.widget-images-list .add-image-box').hover(function () {
 		jQuery(this).find('.add-thumb-project').css('display', 'none');

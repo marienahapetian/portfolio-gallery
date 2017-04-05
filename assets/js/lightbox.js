@@ -7,7 +7,7 @@
 
     var groupID = '1-1';
 
-    jQuery('body a').on('click', function(e){
+    jQuery('.portfolio-gallery-content  a').on('click', function(e){
         groupID = jQuery(this).attr('data-groupID');
         jQuery(this).lightbox();
 
