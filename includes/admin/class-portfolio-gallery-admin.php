@@ -367,7 +367,7 @@ class Portfolio_Gallery_Admin {
 				$portfolios_list = "";
 				foreach ( $portfolios as $key => $portfolio ) {
 					$new_portfolio = "('";
-					$new_portfolio .= $portfolio->name . "','" . $last_key . "','" . $portfolio->description . "','" . $portfolio->image_url . "','" .
+					$new_portfolio .= esc_sql($portfolio->name) . "','" . $last_key . "','" . esc_sql($portfolio->description) . "','" . $portfolio->image_url . "','" .
 						$portfolio->sl_url . "','" . $portfolio->sl_type . "','" . $portfolio->link_target . "','" . $portfolio->ordering . "','" .
 						$portfolio->published . "','" . $portfolio->published_in_sl_width . "','" . $portfolio->category . "')";
 					$portfolios_list .= $new_portfolio . ",";
