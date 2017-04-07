@@ -68,6 +68,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 			wp_register_script( 'jquery.pcolorbox-js', plugins_url( '../assets/js/jquery.colorbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jquery.pcolorbox-js' );
 		} elseif ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
+            if ($view_slug !== 'faq') {
 			wp_register_script( 'portfolio-resp-lightbox-js', plugins_url( '../assets/js/lightbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'portfolio-resp-lightbox-js' );
 
@@ -76,7 +77,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 
 			wp_register_script( 'froogaloop2-min-js', plugins_url( '../assets/js/froogaloop2.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'froogaloop2-min-js' );
-		}
+		}}
 
 		wp_register_script( 'hugeitmicro-min-js', plugins_url( '../assets/js/jquery.hugeitmicro.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 		wp_enqueue_script( 'hugeitmicro-min-js' );
