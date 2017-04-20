@@ -1,7 +1,7 @@
 "use strict";
-jQuery.each(param_obj, function (index, value) {
+jQuery.each(portfolio_param_obj, function (index, value) {
     if (!isNaN(value)) {
-        param_obj[index] = parseInt(value);
+        portfolio_param_obj[index] = parseInt(value);
     }
 });
 
@@ -13,8 +13,8 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockHeight = param_obj.portfolio_gallery_ht_view0_block_height;
-    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view0_block_width;
+    _this.defaultBlockHeight = portfolio_param_obj.portfolio_gallery_ht_view0_block_height;
+    _this.defaultBlockWidth = portfolio_param_obj.portfolio_gallery_ht_view0_block_width;
     _this.optionSets = _this.optionsBlock.find('.option-set');
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -31,7 +31,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 15 + param_obj.portfolio_gallery_ht_view0_element_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 15 + portfolio_param_obj.portfolio_gallery_ht_view0_element_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 15
@@ -78,7 +78,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 15 + param_obj.portfolio_gallery_ht_view0_element_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 15 + portfolio_param_obj.portfolio_gallery_ht_view0_element_border_width * 2;
             var enterycontent = _this.content.width();
             var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;
@@ -151,10 +151,10 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         jQuery(this).parents('.portelement').find('.wd-portfolio-panel > div').each(function () {
             strheight += parseInt(jQuery(this).outerHeight()) + 10;
         });
-        strheight += _this.defaultBlockHeight + 20 + 2 * param_obj.portfolio_gallery_ht_view0_element_border_width + param_obj.portfolio_gallery_ht_view0_title_font_size;
+        strheight += _this.defaultBlockHeight + 20 + 2 * portfolio_param_obj.portfolio_gallery_ht_view0_element_border_width + portfolio_param_obj.portfolio_gallery_ht_view0_title_font_size;
         if (jQuery(this).parents('.portelement').hasClass("large")) {
             jQuery(this).parents('.portelement').animate({
-                height: _this.defaultBlockHeight + 20 + 2*param_obj.portfolio_gallery_ht_view0_element_border_width+param_obj.portfolio_gallery_ht_view0_title_font_size
+                height: _this.defaultBlockHeight + 20 + 2*portfolio_param_obj.portfolio_gallery_ht_view0_element_border_width+portfolio_param_obj.portfolio_gallery_ht_view0_title_font_size
             }, 300, function () {
                 jQuery(this).removeClass('large');
                 portfolioGalleryIsotope(_this.container,'layout');
@@ -166,7 +166,7 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
         jQuery(this).parents('.portelement').addClass('large');
 
         portfolioGalleryIsotope(_this.container,'layout');
-        jQuery(this).parents('.portelement').css({height: _this.defaultBlockHeight + 45 + 2 * param_obj.portfolio_gallery_ht_view0_element_border_width + param_obj.portfolio_gallery_ht_view0_title_font_size + "px"});
+        jQuery(this).parents('.portelement').css({height: _this.defaultBlockHeight + 45 + 2 * portfolio_param_obj.portfolio_gallery_ht_view0_element_border_width + portfolio_param_obj.portfolio_gallery_ht_view0_title_font_size + "px"});
 
         jQuery(this).parents('.portelement').animate({
             height: strheight + "px"

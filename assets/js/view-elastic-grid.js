@@ -1,7 +1,7 @@
 "use strict";
-jQuery.each(param_obj, function (index, value) {
+jQuery.each(portfolio_param_obj, function (index, value) {
     if (!isNaN(value)) {
-        param_obj[index] = parseInt(value);
+        portfolio_param_obj[index] = parseInt(value);
     }
 });
 
@@ -14,11 +14,11 @@ function Portfolio_Gallery_Elastic_Grid(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.imageBehaviour = _this.container.data('image-behaviour') == 'crop';
-    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view7_element_width;
-    _this.defaultBlockHeight = param_obj.portfolio_gallery_ht_view7_element_height;
+    _this.defaultBlockWidth = portfolio_param_obj.portfolio_gallery_ht_view7_element_width;
+    _this.defaultBlockHeight = portfolio_param_obj.portfolio_gallery_ht_view7_element_height;
     _this.filterButton = _this.filtersBlock.find('ul li');
-    _this.hoverEffect = param_obj.portfolio_gallery_ht_view7_element_hover_effect == 'true';
-    _this.hoverEffectInverse = param_obj.portfolio_gallery_ht_view7_hover_effect_inverse == 'true';
+    _this.hoverEffect = portfolio_param_obj.portfolio_gallery_ht_view7_element_hover_effect == 'true';
+    _this.hoverEffectInverse = portfolio_param_obj.portfolio_gallery_ht_view7_hover_effect_inverse == 'true';
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
         ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
@@ -28,13 +28,13 @@ function Portfolio_Gallery_Elastic_Grid(id) {
     _this.documentReady = function () {
         jQuery(window).on("elastic-grid:ready",function(){
             _this.container.elastic_grid({
-                'showAllText' : param_obj.portfolio_gallery_ht_view7_filter_all_text,
-                'filterEffect': param_obj.portfolio_gallery_ht_view7_filter_effect, // moveup, scaleup, fallperspective, fly, flip, helix , popup
+                'showAllText' : portfolio_param_obj.portfolio_gallery_ht_view7_filter_all_text,
+                'filterEffect': portfolio_param_obj.portfolio_gallery_ht_view7_filter_effect, // moveup, scaleup, fallperspective, fly, flip, helix , popup
                 'hoverDirection': _this.hoverEffect,
-                'hoverDelay': param_obj.portfolio_gallery_ht_view7_hover_effect_delay,
+                'hoverDelay': portfolio_param_obj.portfolio_gallery_ht_view7_hover_effect_delay,
                 'hoverInverse': _this.hoverEffectInverse,
-                'expandingSpeed': param_obj.portfolio_gallery_ht_view7_expanding_speed,
-                'expandingHeight': param_obj.portfolio_gallery_ht_view7_expand_block_height,
+                'expandingSpeed': portfolio_param_obj.portfolio_gallery_ht_view7_expanding_speed,
+                'expandingHeight': portfolio_param_obj.portfolio_gallery_ht_view7_expand_block_height,
                 'items' : window[index]
             });
         });

@@ -426,6 +426,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         font-size:4vw !important;
     }
 }
+
+@media screen and (max-width: 765px) {
+    #huge_it_portfolio_content_<?php echo $portfolioID; ?> .right-block {
+        float: left !important;
+        width: 100% !important;
+
+    }
+}
 #huge-it-container-loading-overlay_<?php echo $portfolioID; ?> {
     width: 100%;
     height: 100%;

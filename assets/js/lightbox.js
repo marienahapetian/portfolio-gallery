@@ -1,4 +1,5 @@
 (function ($) {
+
     'use strict';
     jQuery.each(portfolio_resp_lightbox_obj, function(index, value) {
         if(value.indexOf('true')>-1 || value.indexOf('false')>-1)
@@ -9,26 +10,26 @@
 
     jQuery('.portfolio-gallery-content  a').on('click', function(e){
         groupID = jQuery(this).attr('data-groupID');
-        jQuery(this).lightbox();
+        jQuery(this).lightboxPortfolio();
 
     });
     jQuery('.portfolio-gallery-content img').on('click', function(e){
         e.preventDefault();
         groupID = jQuery(this).parents('a').attr('data-groupID');
-        jQuery(this).lightbox();
+        jQuery(this).lightboxPortfolio();
 
     });
-    jQuery('.open-close-button, .title').on('click', function(){
+    jQuery(' .portfolio-gallery-content .open-close-button, .portfolio-gallery-content .title').on('click', function(){
         groupID = jQuery(this).parent().parent().find('a').attr('data-groupID');
-        jQuery(this).lightbox();
+        jQuery(this).lightboxPortfolio();
     });
-    jQuery('.title-block').on('click', function(){
+    jQuery('.portfolio-gallery-content .title-block').on('click', function(){
         groupID = jQuery(this).parent().find('a').attr('data-groupID');
-        jQuery(this).lightbox();
+        jQuery(this).lightboxPortfolio();
     });
-    jQuery('.play-icon').on('click', function(){
+    jQuery(' .portfolio-gallery-content .play-icon').on('click', function(){
         groupID = jQuery(this).parent().attr('data-groupID');
-        jQuery(this).lightbox();
+        jQuery(this).lightboxPortfolio();
     });
 
     function Lightbox(element, options) {
@@ -159,7 +160,7 @@
 
         $object.structure();
 
-        $object.videoModul['video'] = new $.fn.lightbox.videoModul['video']($object.el);
+        $object.videoModul['video'] = new $.fn.lightboxPortfolio.videoModul['video']($object.el);
 
         $object.slide(index, false, false);
 
@@ -986,16 +987,16 @@
 
         window.scrollTo(0, $object.$_y_);
     };
-
-    $.fn.lightbox = function (options) {
-        return this.each(function () {
+    console.log();
+    $.fn.lightboxPortfolio = function (options) {
+              return this.each(function () {
             if (!$.data(this, 'lightbox')) {
                 $.data(this, 'lightbox', new Lightbox(this, options));
             }
         });
     };
 
-    $.fn.lightbox.videoModul = {};
+    $.fn.lightboxPortfolio.videoModul = {};
 
     var Video = function (element) {
 
@@ -1093,7 +1094,7 @@
         return video;
     };
 
-    $.fn.lightbox.videoModul.video = Video;
+    $.fn.lightboxPortfolio.videoModul.video = Video;
 
     var WaterMark = function (element) {
         this.element = element;

@@ -160,7 +160,7 @@ final class Portfolio_Gallery {
 	 * Include required core files used in front end
 	 */
 	public function frontend_includes(){
-
+        include_once( 'includes/admin/portfolio-gallery-admin-functions.php' );
 	}
 
 	/**
