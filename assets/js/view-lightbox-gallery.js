@@ -1,7 +1,7 @@
 "use strict";
-jQuery.each(param_obj, function (index, value) {
+jQuery.each(portfolio_param_obj, function (index, value) {
     if (!isNaN(value)) {
-        param_obj[index] = parseInt(value);
+        portfolio_param_obj[index] = parseInt(value);
     }
 });
 
@@ -13,7 +13,7 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
     _this.element = _this.container.find('.portelement');
-    _this.defaultBlockWidth = param_obj.portfolio_gallery_ht_view6_width;
+    _this.defaultBlockWidth = portfolio_param_obj.portfolio_gallery_ht_view6_width;
     _this.optionSets = _this.optionsBlock.find('.option-set'),
     _this.optionLinks = _this.optionSets.find('a');
     _this.sortBy = _this.optionsBlock.find('#sort-by');
@@ -27,7 +27,7 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 10 + param_obj.portfolio_gallery_ht_view6_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 10 + portfolio_param_obj.portfolio_gallery_ht_view6_border_width * 2,
             },
             masonryHorizontal: {
                 rowHeight: 300 + 10
@@ -77,7 +77,7 @@ function Portfolio_Gallery_Lightbox_Glalery(id) {
     _this.showCenter = function () {
         if (_this.isCentered) {
             var count = _this.element.length;
-            var elementwidth = _this.defaultBlockWidth + 10 + param_obj.portfolio_gallery_ht_view6_border_width * 2;
+            var elementwidth = _this.defaultBlockWidth + 10 + portfolio_param_obj.portfolio_gallery_ht_view6_border_width * 2;
             var enterycontent = _this.content.width();
             var whole = Math.floor(enterycontent / elementwidth);
             if (whole > count) whole = count;

@@ -1,7 +1,7 @@
 "use strict";
-jQuery.each(param_obj, function (index, value) {
+jQuery.each(portfolio_param_obj, function (index, value) {
     if (!isNaN(value)) {
-        param_obj[index] = parseInt(value);
+        portfolio_param_obj[index] = parseInt(value);
     }
 });
 

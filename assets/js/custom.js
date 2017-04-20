@@ -93,20 +93,21 @@ jQuery(document).ready(function () {
 
                 jQuery(".portfolio-group" + i + "-" + portfolioId).addClass('portfolio_responsive_lightbox');
                 if(!jQuery('.huge_it_portfolio_container').hasClass('view-toggle-up-down') || !jQuery('.huge_it_portfolio_container').hasClass('view-full-height') || !jQuery('.huge_it_portfolio_container').hasClass('view-full-width') || !jQuery('.portfolio-gallery-content').hasClass('view-content-slider')) {
-                    jQuery(".portfolio-group" + i + "-" + portfolioId).lightbox();
+                    jQuery(".portfolio-group" + i + "-" + portfolioId).lightboxPortfolio();
                 }
             }
             jQuery(".portfolio-lightbox-group" + portfolioId + " > img").addClass(watermark_class).attr('data-src', '');
             jQuery(".portfolio-lightbox-group" + portfolioId).addClass('portfolio_responsive_lightbox');
-            jQuery(".portfolio-lightbox-group" + portfolioId).removeClass('cboxElement').lightbox();
+            jQuery(".portfolio-lightbox-group" + portfolioId).removeClass('cboxElement').lightboxPortfolio();
+
             var group_count_slider = 0;
             jQuery(".slider-content").each(function () {
                 group_count_slider++;
             });
-            jQuery(".portfolio-group-slider" + i).removeClass('cboxElement').addClass('portfolio_responsive_lightbox').lightbox();
+            jQuery(".portfolio-group-slider" + i).removeClass('cboxElement').addClass('portfolio_responsive_lightbox').lightboxPortfolio();
             for (var i = 1; i <= group_count_slider; i++) {
                 jQuery(".portfolio-group-slider_" + portfolioId + "_" + i + " > img").addClass(watermark_class).attr('data-src', '');
-                jQuery(".portfolio-group-slider_" + portfolioId + "_" + i).removeClass('cboxElement').addClass('portfolio_responsive_lightbox').lightbox();
+                jQuery(".portfolio-group-slider_" + portfolioId + "_" + i).removeClass('cboxElement').addClass('portfolio_responsive_lightbox').lightboxPortfolio();
                 jQuery("#p-main-slider_" + portfolioId + " .clone  a").removeClass();
 
             }
