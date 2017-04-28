@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								?>
 								<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
-								   href="<?php echo esc_url( $imgurl[0] ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($imgurl[0]); ?>"
+								   href="<?php echo esc_url( $imgurl[0] ); ?>" data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img
 										alt="<?php echo esc_attr( $row->name ); ?>" class="main-image"
                                         data-title=" <?php echo portfolio_gallery_get_image_title($imgurl[0]); ?>"
@@ -47,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							case 'youtube':
 								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 								<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
+                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?> add-H-relative add-H-block"
 								   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>">
 									<img class="main-image" alt="<?php echo esc_attr($row->name); ?>"
@@ -62,6 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								?>
 								<a class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>   add-H-relative add-H-block"
 								   href="http://player.vimeo.com/video/<?php echo esc_attr($videourl[0]); ?>"
+                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   title="<?php echo esc_attr($row->name); ?>" data-groupID="<?php echo esc_attr($group_key1);?>">
 									<img src="<?php echo esc_attr( $imgsrc ); ?>" class="main-image"
 									     alt="<?php echo esc_attr( $row->name ); ?>"/>
@@ -86,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											?>
 											<li>
 												<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
-												   href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($img); ?>"
+												   href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo esc_attr( $row->description ); ?>"
                                                    data-groupID="<?php echo esc_attr($group_key1);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
                                                     data-title=" <?php echo portfolio_gallery_get_image_title($img); ?>"
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
@@ -100,6 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											$videourl = portfolio_gallery_get_video_id_from_url( $img ); ?>
 											<li>
 												<a href="https://www.youtube.com/embed/<?php echo esc_attr($videourl[0]); ?>"
+                                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 												   class="portfolio-group<?php echo $group_key1; ?> huge_it_portfolio_item pyoutube portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>  add-H-relative" data-groupID="<?php echo esc_attr($group_key1);?>">
 													<img alt="<?php echo esc_attr($row->name); ?>"
 														src="//img.youtube.com/vi/<?php echo esc_attr($videourl[0]); ?>/mqdefault.jpg">
@@ -116,6 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<li>
 												<a class="portfolio-group<?php echo esc_attr($group_key1); ?> huge_it_portfolio_item pvimeo portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>  add-H-relative"
 												   href="http://player.vimeo.com/video/<?php echo esc_attr($videourl[0]); ?> "
+                                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 												   title="<?php echo esc_attr( $row->name ); ?>"
 												   style="position:relative" data-groupID="<?php echo esc_attr($group_key1);?>">
 													<img src="<?php echo esc_attr( $imgsrc ); ?>"

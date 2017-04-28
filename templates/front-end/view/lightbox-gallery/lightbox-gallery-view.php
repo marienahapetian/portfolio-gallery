@@ -106,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							case 'image': ?>
 								<a href="<?php echo esc_attr( $imgurl[0] ); ?>"
 								   class=" portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
-                                   data-description=" <?php echo portfolio_gallery_get_image_description($imgurl[0]); ?>"
+                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>">
 									<img alt="<?php echo esc_attr( $row->name ); ?>"
 									     id="wd-cl-img<?php echo esc_attr($key); ?>"
@@ -122,6 +122,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								$videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
 								<a href="https://www.youtube.com/embed/<?php echo $videourl[0]; ?>"
+                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   class="huge_it_portfolio_item pyoutube  portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>">
 									<img alt="<?php echo esc_attr( $row->name ); ?>"
@@ -137,6 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								$imgsrc = $hash[0]['thumbnail_large']; ?>
 								<a class="huge_it_portfolio_item pvimeo  portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
 								   href="http://player.vimeo.com/video/<?php echo esc_attr($videourl[0]); ?>"
+                                   data-description=" <?php echo esc_attr( $row->description ); ?>"
 								   title="<?php echo esc_attr($row->name); ?>">
 									<img src="<?php echo esc_attr( $imgsrc ); ?>"
 									     alt="<?php echo esc_attr( $row->name ); ?>"/>

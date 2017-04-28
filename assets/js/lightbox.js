@@ -573,13 +573,10 @@
 
 
         $currentElement = this.$items.eq(index);
-        if (this.settings.lightboxView === 'view5' || this.settings.lightboxView === 'view6') {
-            $title=$currentElement.find('img').data('title') || '' ;
-        }else {
-            $title = $currentElement.find('img').attr('alt') ||
-                $currentElement.find('img').attr('title') ||
-                this.settings.defaultTitle || '';
-        }
+        $title = $currentElement.find('img').attr('alt') ||
+            $currentElement.find('img').attr('title') ||
+            this.settings.defaultTitle || '';
+
 
         this.$cont.find('.' + this.settings.classPrefix + 'title').html('<div class="rwd-title-text">'+$title+'</div>');
 
