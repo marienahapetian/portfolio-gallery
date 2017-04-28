@@ -107,9 +107,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 									?>
 									<a href="<?php echo esc_url( $imgurl[0] ); ?>"
 									   class=" portfolio-group<?php echo esc_attr($group_key); ?>"
+                                       data-description=" <?php echo portfolio_gallery_get_image_description($imgurl[0]); ?>"
 									   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key);?>"><img
 											alt="<?php echo esc_attr( $row->name ); ?>"
 											id="wd-cl-img<?php echo esc_attr($key); ?>"
+                                            data-title=" <?php echo portfolio_gallery_get_image_title($imgurl[0]); ?>"
 											src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
 												$portfolio_gallery_get_options['portfolio_gallery_ht_view3_mainimage_width'],
 												''
@@ -163,8 +165,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 									switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $img ) ) {
 										case 'image':
 											?>
-											<li><a href="<?php echo esc_url( $img ); ?>"
+											<li><a href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($img); ?>"
 											       class=" portfolio-group<?php echo esc_attr($group_key); ?> " data-groupID="<?php echo esc_attr($group_key);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
+                                                  data-title=" <?php echo portfolio_gallery_get_image_title($img); ?>"
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_width'],
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_height']

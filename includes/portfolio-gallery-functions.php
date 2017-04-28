@@ -565,6 +565,19 @@ function portfolio_gallery_get_image_id( $image_url ) {
 	return $attachment;
 }
 
+function portfolio_gallery_get_image_title( $image_url ) {
+
+    global $wpdb;
+    $attachmentTitle = $wpdb->get_var( $wpdb->prepare( "SELECT post_title FROM " . $wpdb->prefix . "posts WHERE guid=%s",$image_url ) );
+    return $attachmentTitle;
+}
+
+
+function portfolio_gallery_get_image_description( $image_url ) {
+    global $wpdb;
+    $desc = $wpdb->get_var($wpdb->prepare("SELECT `post_content` FROM " . $wpdb->prefix . "posts WHERE guid=%s", $image_url));
+    return $desc;
+}
 
 /**
  * Get image url by image src, width, height

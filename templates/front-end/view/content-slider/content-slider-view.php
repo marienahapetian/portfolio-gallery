@@ -34,9 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								?>
 								<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
-								   href="<?php echo esc_url( $imgurl[0] ); ?>"
+								   href="<?php echo esc_url( $imgurl[0] ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($imgurl[0]); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img
 										alt="<?php echo esc_attr( $row->name ); ?>" class="main-image"
+                                        data-title=" <?php echo portfolio_gallery_get_image_title($imgurl[0]); ?>"
 										src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
 											$portfolio_gallery_get_options['portfolio_gallery_ht_view5_main_image_width'],
 											''
@@ -85,7 +86,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 											?>
 											<li>
 												<a class="portfolio-group<?php echo esc_attr($group_key1); ?> portfolio-group-slider_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($group_key1); ?>"
-												   href="<?php echo esc_url( $img ); ?>" data-groupID="<?php echo esc_attr($group_key1);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
+												   href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($img); ?>"
+                                                   data-groupID="<?php echo esc_attr($group_key1);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
+                                                    data-title=" <?php echo portfolio_gallery_get_image_title($img); ?>"
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view5_thumbs_width'],
 															$portfolio_gallery_get_options['portfolio_gallery_ht_view5_thumbs_height']

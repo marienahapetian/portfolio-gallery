@@ -106,9 +106,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 							case 'image': ?>
 								<a href="<?php echo esc_attr( $imgurl[0] ); ?>"
 								   class=" portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
+                                   data-description=" <?php echo portfolio_gallery_get_image_description($imgurl[0]); ?>"
 								   title="<?php echo esc_attr( $row->name ); ?>">
 									<img alt="<?php echo esc_attr( $row->name ); ?>"
 									     id="wd-cl-img<?php echo esc_attr($key); ?>"
+                                         data-title=" <?php echo portfolio_gallery_get_image_title($imgurl[0]); ?>"
 									     src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $imgurl[0], array(
 										     $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width'],
 										     ''
