@@ -167,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $img ) ) {
 										case 'image':
 											?>
-											<li><a href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo portfolio_gallery_get_image_description($img); ?>"
+											<li><a href="<?php echo esc_url( $img ); ?>" data-description=" <?php echo esc_attr( $row->description ); ?>"
 											       class=" portfolio-group<?php echo esc_attr($group_key); ?> " data-groupID="<?php echo esc_attr($group_key);?>"><img alt="<?php echo esc_attr( $row->name ); ?>"
                                                   data-title=" <?php echo portfolio_gallery_get_image_title($img); ?>"
 														src="<?php echo esc_url( portfolio_gallery_get_image_by_sizes_and_src( $img, array(
