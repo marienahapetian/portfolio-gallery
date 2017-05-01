@@ -202,13 +202,15 @@
     Lightbox.prototype.structure = function () {
 
         var $object = this, list = '', controls = '',i,
-            subHtmlCont1 = '', subHtmlCont2 = '',
+            subHtmlCont1 = '', subHtmlCont2 = '',subHtmlCont3 = '',
             close1 = '', close2 = '', socialIcons = '',
             template, $arrows, $next, $prev,
-            $_next, $_prev, $close_bg, $download_bg;
+            $_next, $_prev, $close_bg, $download_bg,$download_bg_, $contInner, $view;
+
+        $view = (this.settings.lightboxView === 'view6') ? 'rwd-view6' : '';
 
         this.$body.append(
-            this.objects.overlay = $('<div class="' + this.settings.classPrefix + 'overlay"></div>')
+            this.objects.overlay = $('<div class="' + this.settings.classPrefix + 'overlay ' + $view + '"></div>')
         );
         this.objects.overlay.css('transition-duration', this.settings.overlayDuration + 'ms');
 
@@ -267,6 +269,25 @@
                 subHtmlCont2 = '<div class="' + this.settings.classPrefix + 'title"></div>';
                 close1 = '<span class="' + this.settings.classPrefix + 'close ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
                 break;
+            case 'view5':
+            case 'view6':
+                $_next = '<svg class="next_bg" width="22px" height="44px" fill="#999" x="0px" y="0px"' +
+                    'viewBox="0 0 40 70" style="enable-background:new 0 0 40 70;" xml:space="preserve">' +
+                    '<path id="XMLID_2_" class="st0" d="M3.3,1.5L1.8,2.9l31.8,31.8c0.5,0.5,0.5,0.9,0,1.4L1.8,67.9l1.5,1.4c0.3,0.5,0.9,0.5,1.4,0' +
+                    'l33.2-33.2c0.3-0.5,0.3-0.9,0-1.4L4.7,1.5C4.3,1,3.6,1,3.3,1.5L3.3,1.5z"/>' +
+                    '</svg>';
+                $_prev = '<svg class="prev_bg" width="22px" height="44px" fill="#999" x="0px" y="0px"' +
+                    'viewBox="0 0 40 70" style="enable-background:new 0 0 40 70;" xml:space="preserve">' +
+                    '<path id="XMLID_2_" class="st0" d="M37.1,68.9l1.5-1.4L6.8,35.7c-0.3-0.5-0.3-0.9,0-1.4L38.6,2.5l-1.5-1.4c-0.3-0.5-0.9-0.5-1.2,0' +
+                    'L2.5,34.3c-0.3,0.5-0.3,0.9,0,1.4l33.4,33.2C36.2,69.4,36.8,69.4,37.1,68.9L37.1,68.9z"/>' +
+                    '</svg>';
+                $close_bg = '<svg class="close_bg" width="16px" height="16px" fill="#999" viewBox="-341 343.4 15.6 15.6">' +
+                    '<path d="M-332.1,351.2l6.5-6.5c0.3-0.3,0.3-0.8,0-1.1s-0.8-0.3-1.1,0l-6.5,6.5l-6.5-6.5c-0.3-0.3-0.8-0.3-1.1,0s-0.3,0.8,0,1.1l6.5,6.5l-6.5,6.5c-0.3,0.3-0.3,0.8,0,1.1c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2l6.5-6.5l6.5,6.5c0.1,0.1,0.3,0.2,0.5,0.2s0.4-0.1,0.5-0.2c0.3-0.3,0.3-0.8,0-1.1L-332.1,351.2z"/>' +
+                    '</svg>';
+                subHtmlCont3 += '<div class="' + this.settings.classPrefix + 'title"></div>';
+                subHtmlCont3 += '<div class="' + this.settings.classPrefix + 'description"></div>';
+                close1 = '<span class="' + this.settings.classPrefix + 'close ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
+                break;
         }
 
         if (this.settings.arrows && this.$items.length > 1) {
@@ -276,13 +297,16 @@
                 '</div>';
         }
 
-        if (this.settings.socialSharing) {
+        if (this.settings.socialSharing && (this.settings.lightboxView !== 'view5' || this.settings.lightboxView !== 'view6')) {
             socialIcons = '<div class="' + this.settings.classPrefix + 'socialIcons"><button class="shareLook">share</button></div>';
         }
+        $contInner = (this.settings.lightboxView === 'view5' || this.settings.lightboxView === 'view6') ? '<div class="contInner">' + subHtmlCont3 + '</div>' : '';
+        var arrowHE = (this.settings.lightboxView !== 'view2' && this.settings.lightboxView !== 'view3') ? this.settings.arrowsHoverEffect : '';
 
         template = '<div class="' + this.settings.classPrefix + 'cont ">' +
-            '<div class="rwd-container rwd-' + this.settings.lightboxView + '">' +
+            '<div class="rwd-container rwd-' + this.settings.lightboxView + ' rwd-arrows_hover_effect-' + arrowHE + '">' +
             '<div class="cont-inner">' + list + '</div>' +
+            $contInner +
             '<div class="' + this.settings.classPrefix + 'toolbar group">' +
             close1 + subHtmlCont2 +
             '</div>' +
@@ -356,6 +380,36 @@
                     top: '45px'
                 });
                 break;
+            case 'view5':
+                var $w = Math.abs(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh) + 'px', $l;
+
+                if(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh < 0){
+                    $l = Math.abs(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh);
+                    jQuery('.cont-inner').css({
+                        width: 'calc(60% - ' + $w + ')',
+                        left:  $l + 'px'
+                    });
+                } else {
+                    jQuery('.cont-inner').css({
+                        width: 'calc(60% - ' + $w + ')'
+                    });
+                }
+                break;
+            case 'view6':
+                var $w_ = Math.abs(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh) + 'px', $l_;
+
+                if(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh < 0){
+                    $l_ = Math.abs(portfolio_resp_lightbox_obj.portfolio_gallery_lightbox_imageshadowh);
+                    jQuery('.cont-inner').css({
+                        width: 'calc(80% - ' + $w_ + ')',
+                        left:  $l_ + 'px'
+                    });
+                } else {
+                    jQuery('.cont-inner').css({
+                        width: 'calc(80% - ' + $w_ + ')'
+                    });
+                }
+                break;
         }
 
         $object.objects.overlay.addClass('in');
@@ -368,6 +422,13 @@
             $download_bg = '<svg class="download_bg" width="20px" height="20px" stroke="#999" fill="#999"  viewBox="-328 330.3 41.7 41.7" >' +
                 '<path class="st0" d="M-296.4,352.1c0.4-0.4,0.4-1.1,0-1.6c-0.4-0.4-1.1-0.4-1.6,0l-8,8V332c0-0.6-0.5-1.1-1.1-1.1c-0.6,0-1.1,0.5-1.1,1.1v26.5l-8-8c-0.4-0.4-1.2-0.4-1.6,0c-0.4,0.4-0.4,1.1,0,1.6l10,10c0.4,0.4,1.1,0.4,1.6,0L-296.4,352.1zM-288.5,359.4c0-0.6,0.5-1.1,1.1-1.1c0.6,0,1.1,0.5,1.1,1.1v10.9c0,0.6-0.5,1.1-1.1,1.1h-39.5c-0.6,0-1.1-0.5-1.1-1.1v-10.9c0-0.6,0.5-1.1,1.1-1.1c0.6,0,1.1,0.5,1.1,1.1v9.8h37.2V359.4z"/>' +
                 '</svg>';
+            $download_bg_ = '<svg class="download_bg" width="36px" height="34px" stroke="#999" fill="#999" x="0px" y="0px"' +
+                'viewBox="0 0 90 90" style="enable-background:new 0 0 90 90;" xml:space="preserve">' +
+                '<path id="XMLID_2_" class="st0" d="M61.3,31.8L45.5,47.7c-0.2,0.2-0.5,0.2-0.7,0l-16-15.9c-0.2-0.2-0.2-0.5,0-0.7l2.1-2.1l12.6,12.6' +
+                'V7.4c0-0.9,0.7-1.7,1.7-1.7s1.8,0.8,1.8,1.7v34l12.2-12.3l2.1,2.1C61.5,31.3,61.5,31.6,61.3,31.8L61.3,31.8z"/>' +
+                '<path id="XMLID_3_" class="st0" d="M25.6,50.7L25.6,50.7h38.7c1.6,0,2.8,1.2,2.8,2.7v1.5c0,1.6-1.2,2.9-2.8,2.9H25.6' +
+                'c-1.5,0-2.8-1.3-2.8-2.9v-1.5C22.9,51.9,24.1,50.7,25.6,50.7L25.6,50.7z"/>' +
+                '</svg>';
             switch (this.settings.lightboxView) {
                 case 'view1':
                 default:
@@ -378,6 +439,10 @@
                     break;
                 case 'view4':
                     $('<a id="' + $object.settings.classPrefix + 'download" target="_blank" download class="' + this.settings.classPrefix + 'download ' + $object.settings.classPrefix + 'icon">' + $download_bg + '</a>').insertBefore($('.rwd-title'));;
+                    break;
+                case 'view5':
+                case 'view6':
+                    $('.rwd-toolbar').append('<a id="' + $object.settings.classPrefix + 'download" target="_blank" download class="' + this.settings.classPrefix + 'download ' + $object.settings.classPrefix + 'icon">' + $download_bg_ + '</a>');
                     break;
             }
         }
@@ -490,6 +555,10 @@
                 case 'view4':
                     $('.' + this.settings.classPrefix + 'bar').append('<div class="barCont"></div>').append(this.objects.counter = $('<div id="' + this.settings.idPrefix + 'counter"></div>'));
                     break;
+                case 'view5':
+                case 'view6':
+                    $('.contInner').append(this.objects.counter = $('<div id="' + this.settings.idPrefix + 'counter"></div>'));
+                    break;
             }
 
             this.objects.counter.append(
@@ -502,10 +571,12 @@
     Lightbox.prototype.setTitle = function (index) {
         var $object = this, $title, $currentElement;
 
+
         $currentElement = this.$items.eq(index);
         $title = $currentElement.find('img').attr('alt') ||
             $currentElement.find('img').attr('title') ||
             this.settings.defaultTitle || '';
+
 
         this.$cont.find('.' + this.settings.classPrefix + 'title').html('<div class="rwd-title-text">'+$title+'</div>');
 
@@ -517,7 +588,14 @@
                 this.$cont.find('.' + this.settings.classPrefix + 'title').show();
         }
     };
+    Lightbox.prototype.setDescription = function (index) {
+        var $object = this, $description, $currentElement;
 
+        $currentElement = this.$items.eq(index);
+        $description = $currentElement.attr('data-description') || '';
+
+        this.$cont.find('.' + this.settings.classPrefix + 'description').html('<div class="rwd-description-text" title="' + $description + '">' + $description + '</div>');
+    };
     Lightbox.prototype.preload = function (index) {
         for (var i = 1; i <= this.settings.preload; i++) {
             if (i >= this.$items.length - index) {
@@ -553,7 +631,12 @@
         shareButtons += $object.settings.share.yummlyButton ? '<li><a title="Yummly" id="rwd-share-yummly" target="_blank"></a></li>' : '';
         shareButtons += '</ul>';
 
-        $('.' + this.settings.classPrefix + 'socialIcons').append(shareButtons);
+        if (this.settings.lightboxView === 'view5' || this.settings.lightboxView === 'view6') {
+            $('.contInner').append(shareButtons);
+        } else {
+            $('.' + this.settings.classPrefix + 'socialIcons').append(shareButtons);
+        }
+
 
         setTimeout(function () {
             $('#rwd-share-facebook').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + (encodeURIComponent(window.location.href)));
@@ -674,7 +757,11 @@
         setTimeout(function () {
             $object.setTitle(index);
         }, time);
-
+        if ($object.settings.lightboxView === 'view5' || $object.settings.lightboxView === 'view6') {
+            setTimeout(function () {
+                $object.setDescription(index);
+            }, time);
+        }
         this.arrowDisable(index);
 
 
