@@ -1,16 +1,18 @@
-﻿=== Photo Gallery - Portfolio Gallery ===
-Contributors: Huge-IT, galleryteam
+﻿=== Portfolio Gallery - Photo Gallery ===
+Contributors: Huge-IT
 Donate link: https://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, portfolio gallery, responsive portfolio, wordpress portfolio plugin,
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 2.3.3
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Gallery - Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, video portfolio gallery of just a gallery with single images
 
 == Description ==
+
+https://www.youtube.com/watch?v=uq6Cw3ou-gM
 
 **Portfolio - Gallery Portfolio**
 
@@ -19,10 +21,10 @@ Gallery - Portfolio Gallery is a great plugin for adding specialized portfolio g
 * [Portfolio Gallery FAQ](https://huge-it.com/wordpress-portfolio-gallery-faq/)
 * [Portfolio Gallery User Manual](https://huge-it.com/wordpress-portfolio-gallery-user-manual/)
 * [Portfolio Gallery Support](https://huge-it.com/contact-us/)
-* [Portfolio Gallery Forum](https://huge-it.com/forums/forum/wordpress/wordpress-portfolio-gallery/)
+* [Portfolio Gallery Forum](https://wordpress.org/support/plugin/portfolio-gallery)
 * [Portfolio Gallery Github Project](https://github.com/Huge-IT/portfolio-gallery)
 
-https://www.youtube.com/watch?v=uq6Cw3ou-gM
+
 
 Show off your portfolio, work and experience to prospective clients and employers with Huge-IT Portfolio.
 
@@ -197,6 +199,14 @@ The main image size can be changed from portfolio gallery General Options for pr
 
 *   **Elastic Grid**
 
+Elastic Grid is the new view of our gallery plugin. This Portfolio Gallery view will look so beautiful and catchy for your visitors. Imagine a grey shadow square which moves with your mouse on your gallery.
+
+Change the colors of your shadow square to suit the gallery perfectly to your website.
+
+If you have title on your images they will show up when hovering on the gallery images. Click on the images of your gallery and a popup window will appear displaying the tumbnail images the title description of the gallery and a View More button.
+
+Your images will look very cosy in your portfolio gallery.You will have an ability to change your gallery at this view to all the possible colors and edit the options.
+
 Upgrade to [WordPress Portfolio Gallery Pro](https://huge-it.com/portfolio-gallery) to Customizable Styles and Colors.
 
 > #### Demos 
@@ -225,16 +235,15 @@ Upgrade to [WordPress Portfolio / Gallery Pro](https://huge-it.com/portfolio-gal
 
 If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
-== Installation ==
+== Installation ==    
 
-###Thank you for your interest in Portfolio Gallery plugin.
+#### Thank you for your interest in Portfolio Gallery plugin.
 
-Installation of Portfolio Gallery needs minimum requirements, which are: WordPress 3.0+,  PHP 5.x and MySQL 5.x.
+### Installation of Portfolio Gallery needs minimum requirements, which are: WordPress 3.0+,  PHP 5.x and MySQL 5.x.
 
 **Uploading Portfolio Gallery in WordPress Dashboard**
 
 The most simple way to add Portfolio Gallery in WordPress website follows:
-
 
 After getting the Zip file of the portfolio plugin from Huge-IT website, or from the Portfolio Gallery page in WordPress, once clicked on Download Free version you get a Zip file.
 
@@ -270,9 +279,7 @@ Now you can set your Portfolio Gallery options, images or videos and use our Por
 
 Every time you try to change Zip file of Portfolio plugin with another zip file of the same Portfolio plugin you need to delete the previous one. While deleting the plugin, database will still keep the projects which you have created in Portfolio, and transfer them into new Portfolio gallery file.
 
-If the installation of Portfolio Pro version didn’t open the Pro options, just delete and install it again
-
-If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If the installation of Portfolio Pro version didn’t open the Pro options, just delete and install it again.
 
 == Screenshots ==
 
@@ -449,6 +456,15 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.4.0 =
+
+* 1) We have made code optimization that was causing issues with the new lightbox. 
+* 2) WE have fixed the issue with full width view not appearing responsive on mobile 
+* 3) We have fixed the Fatal Error issue that had been reported in forums multiple times and required to be fixed, when was caused with the update of very old versions of the plugin. Empty function was called on front end that brought fatal error to some suers.
+* 4) We have changed our display name of the plugin back to company name to follow guidelines.
+* 5) We have added 2 new lightbox styles number 5,6 allowing to view video galleries by new views and looks.
+* 6) We have updated the logo and the banner with the full description of options of the plugin.
 
 = 2.3.3 =
 
