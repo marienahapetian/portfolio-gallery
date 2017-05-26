@@ -44,6 +44,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <li>
                             <a href="#portfolio-view-options-7"><?php echo __( 'Elastic Grid', 'portfolio-gallery' ); ?></a>
                         </li>
+                        <li>
+                            <a href="#portfolio-view-options-8"><?php echo __( 'Store View', 'portfolio-gallery' ); ?></a>
+                        </li>
                     </ul>
                     <ul class="options-block" id="portfolio-view-tabs-contents">
                         <div class="portfolio_options_grey_overlay"></div>
@@ -3863,6 +3866,429 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                     </div>
                                                 </li>
+                        <li id="portfolio-view-options-8">
+                            <div style="margin-top: 0px">
+                                <h3><?php echo __( ' Thumbnail Styles', 'portfolio-gallery' ); ?></h3>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_width"><?php echo __( 'Thumbnail Width', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_width]"
+                                           id="ht_view8_width"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_width']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_height"><?php echo __( 'Thumbnail Height', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_height]"
+                                           id="ht_view8_height"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_height']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_border_color"><?php echo __( 'Thumbnail Border Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_border_color]" type="text"
+                                           class="color" id="ht_view8_border_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_border_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_border_width"><?php echo __( 'Thumbnail Border Width', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_border_width]"
+                                           id="ht_view8_border_width"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_border_width']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_border_radius"><?php echo __( 'Thumbnail Border Radius', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_border_radius]"
+                                           id="ht_view8_border_radius"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_border_radius']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_title_font_size"><?php echo __( 'Title Font Size', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_title_font_size]"
+                                           id="ht_view8_title_font_size"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_font_size']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_title_font_color"><?php echo __( 'Title Font Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_title_font_color]" type="text"
+                                           class="color" id="ht_view8_title_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_font_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_title_font_hover_color"><?php echo __( 'Title Font Hover Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_title_font_hover_color]" type="text"
+                                           class="color" id="ht_view8_title_font_hover_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_font_hover_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_title_background_color"><?php echo __( 'Title Background Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_title_background_color]" type="text"
+                                           class="color" id="ht_view8_title_background_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_background_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_hide_title"><?php echo __( 'Hide Title', 'portfolio-gallery' ); ?></label>
+                                    <input type="hidden" value="off"
+                                           name="params[portfolio_gallery_ht_view8_hide_title]">
+                                    <input type="checkbox"
+                                           id="ht_view8_hide_title" <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_hide_title'] == 'on' ) {
+                                        echo 'checked="checked"';
+                                    } ?> name="params[portfolio_gallery_ht_view8_hide_title]" value="on"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_title_background_transparency"><?php echo __( 'Title Background Transparency', 'portfolio-gallery' ); ?></label>
+                                    <div class="slider-container">
+                                        <input name="params[portfolio_gallery_ht_view8_title_background_transparency]"
+                                               id="ht_view8_title_background_transparency" data-slider-highlight="true"
+                                               data-slider-values="0,10,20,30,40,50,60,70,80,90,100" type="text"
+                                               data-slider="true"
+                                               value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_background_transparency']; ?>"/>
+                                        <span><?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_background_transparency']; ?>
+                                            %</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 0px;">
+                                <h3><?php echo __( 'Image Title and Description', 'portfolio-gallery' ); ?></h3>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_font_size"><?php echo __( 'Image Title Font Size', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_image_title_font_size]"
+                                           id="ht_view8_font_size"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_image_title_font_size']; ?>"
+                                    />
+                                    <span>px</span>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_font_color"><?php echo __( 'Image Title Font Color', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_image_title_font_color]"
+                                           id="ht_view8_font_color"   class="color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_image_title_font_color']; ?>"
+                                           size="10"   />
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_desc_font_size"><?php echo __( 'Image Description Font Size', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_desc_font_size]"
+                                           id="ht_view8_desc_font_size"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_desc_font_size']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div>
+                                    <label
+                                            for="ht_view8_desc_font_color"><?php echo __( 'Image Description Font Color', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_desc_font_color]"
+                                           id="ht_view8_desc_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_desc_font_color']; ?>"
+                                           class="color"/>
+
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <h3><?php echo __( 'Sorting styles', 'portfolio-gallery' ); ?></h3>
+                                <div class="" style="display: none;">
+                                    <label for="ht_view8_show_sorting"
+                                           style="display: none;"><?php echo __( 'Show Sorting', 'portfolio-gallery' ); ?></label>
+                                    <input type="hidden" value="off"
+                                           name="params[portfolio_gallery_ht_view8_show_sorting]"/>
+                                    <input type="checkbox"
+                                           id="ht_view8_show_sorting" <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_show_sorting'] == 'on' ) {
+                                        echo 'checked="checked"';
+                                    } ?> name="params[portfolio_gallery_ht_view8_show_sorting]" value="on"/>
+                                </div>
+
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sortbutton_font_size"><?php echo __( 'Sort Button Font Size', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_sortbutton_font_size]"
+                                           id="ht_view8_sortbutton_font_size"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_font_size']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sortbutton_font_color"><?php echo __( 'Sort Button Font Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sortbutton_font_color]" type="text"
+                                           class="color" id="ht_view8_sortbutton_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_font_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sortbutton_hover_font_color"><?php echo __( 'Sort Button Font Hover Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sortbutton_hover_font_color]"
+                                           type="text" class="color" id="ht_view8_sortbutton_hover_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_hover_font_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sortbutton_background_color"><?php echo __( 'Sort Button Background Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sortbutton_background_color]"
+                                           type="text" class="color" id="ht_view8_sortbutton_background_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_background_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sortbutton_hover_background_color"><?php echo __( 'Sort Button Background Hover Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sortbutton_hover_background_color]"
+                                           type="text" class="color" id="ht_view8_sortbutton_hover_background_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_hover_background_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="" style="display: none;">
+                                    <label
+                                            for="ht_view8_sortbutton_border_width"><?php echo __( 'Sort Button Border Width', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_sortbutton_border_width]"
+                                           id="ht_view8_sortbutton_border_width"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_border_width']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div style="display: none;">
+                                    <input name="params[portfolio_gallery_ht_view8_sortbutton_border_color]" type="text"
+                                           class="color" id="ht_view8_sortbutton_border_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_border_color']; ?>"
+                                           size="10"/>
+                                    <label
+                                            for="ht_view8_sortbutton_border_color"><?php echo __( 'Sort Button Border Color', 'portfolio-gallery' ); ?></label>
+                                </div>
+
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sortbutton_border_padding"><?php echo __( 'Sort Button Padding', 'portfolio-gallery' ); ?></label>
+                                    <input type="text"
+                                           name="params[portfolio_gallery_ht_view8_sortbutton_border_padding]"
+                                           id="ht_view8_sortbutton_border_padding"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_border_padding']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div style="display: none;">
+                                    <label
+                                            for="ht_view8_sortbutton_margin"><?php echo __( 'Sort Button Margins', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_sortbutton_margin]"
+                                           id="ht_view8_sortbutton_margin"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_margin']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sorting_float"><?php echo __( 'Sort block Position', 'portfolio-gallery' ); ?></label>
+                                    <select id="ht_view8_sorting_float"
+                                            name="params[portfolio_gallery_ht_view8_sorting_float]">
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_float'] == 'left' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="left"><?php echo __( 'Left', 'portfolio-gallery' ); ?></option>
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_float'] == 'right' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="right"><?php echo __( 'Right', 'portfolio-gallery' ); ?></option>
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_float'] == 'top' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="top"><?php echo __( 'Top', 'portfolio-gallery' ); ?></option>
+                                    </select>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_default]" type="text"
+                                           id="ht_view8_sorting_name_by_default"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_default'] ); ?>"
+                                           size="10" class="text"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sorting_name_by_id"><?php echo __( 'Sorting By Date Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_id]" type="text"
+                                           id="ht_view8_sorting_name_by_id"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_id'] ); ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sorting_name_by_name"><?php echo __( 'Sorting By Title Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_name]" type="text"
+                                           id="ht_view8_sorting_name_by_name"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_name'] ); ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sorting_name_by_random"><?php echo __( 'Random Sorting Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_random]" type="text"
+                                           id="ht_view8_sorting_name_by_random"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_random'] ); ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_sorting_name_by_asc"><?php echo __( 'Ascending Sorting Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_asc]" type="text"
+                                           id="ht_view8_sorting_name_by_asc"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_asc'] ); ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_sorting_name_by_desc"><?php echo __( 'Descending Sorting Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_sorting_name_by_desc]" type="text"
+                                           id="ht_view8_sorting_name_by_desc"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_desc'] ); ?>"
+                                           size="10"/>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: -350px">
+                                <h3><?php echo __( 'Category styles', 'portfolio-gallery' ); ?></h3>
+                                <div style="display: none;">
+                                    <label for="ht_view8_show_filtering"
+                                           style="display: none;"><?php echo __( 'Show Filtering', 'portfolio-gallery' ); ?></label>
+                                    <input type="hidden" value="off"
+                                           name="params[portfolio_gallery_ht_view8_show_filtering]"/>
+                                    <input type="checkbox"
+                                           id="ht_view8_show_filtering" <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_show_filtering'] == 'on' ) {
+                                        echo 'checked="checked"';
+                                    } ?> name="params[portfolio_gallery_ht_view8_show_filtering]" value="on"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_cat_all"><?php echo __( 'Show All Button Name', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_cat_all]"
+                                           id="ht_view8_cat_all"
+                                           value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_cat_all'] ); ?>"
+                                           class="text"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_filterbutton_font_size"><?php echo __( 'Filter Button Font Size', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_filterbutton_font_size]"
+                                           id="ht_view8_filterbutton_font_size"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_font_size']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_filterbutton_font_color"><?php echo __( 'Filter Button Font Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_filterbutton_font_color]" type="text"
+                                           class="color" id="ht_view8_filterbutton_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_font_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_filterbutton_hover_font_color"><?php echo __( 'Filter Button Font Hover Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_filterbutton_hover_font_color]"
+                                           type="text" class="color" id="ht_view8_filterbutton_hover_font_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_hover_font_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_filterbutton_background_color"><?php echo __( 'Filter Button Background Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_filterbutton_background_color]"
+                                           type="text" class="color" id="ht_view8_filterbutton_background_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_background_color']; ?>"
+                                           size="10"/>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_filterbutton_hover_background_color"><?php echo __( 'Filter Button Background Hover Color', 'portfolio-gallery' ); ?></label>
+                                    <input name="params[portfolio_gallery_ht_view8_filterbutton_hover_background_color]"
+                                           type="text" class="color" id="ht_view8_filterbutton_hover_background_color"
+                                           value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_hover_background_color']; ?>"
+                                           size="10"/>
+                                </div>
+
+                                <div class="" style="display: none;">
+                                    <label
+                                            for="ht_view8_filterbutton_border_width"><?php echo __( 'Filter Button Border Width', 'portfolio-gallery' ); ?></label>
+                                    <input type="text"
+                                           name="params[portfolio_gallery_ht_view8_filterbutton_border_width]"
+                                           id="ht_view8_filterbutton_border_width"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_width']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+
+                                <div class="">
+                                    <label
+                                            for="ht_view8_filterbutton_border_radius"><?php echo __( 'Filter Button Border Radius', 'portfolio-gallery' ); ?></label>
+                                    <input type="text"
+                                           name="params[portfolio_gallery_ht_view8_filterbutton_border_radius]"
+                                           id="ht_view8_filterbutton_border_radius"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_radius']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="has-background">
+                                    <label
+                                            for="ht_view8_filterbutton_border_padding"><?php echo __( 'Filter Button Padding', 'portfolio-gallery' ); ?></label>
+                                    <input type="text"
+                                           name="params[portfolio_gallery_ht_view8_filterbutton_border_padding]"
+                                           id="ht_view8_filterbutton_border_padding"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_padding']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div style="display: none;">
+                                    <label
+                                            for="ht_view8_filterbutton_margin"><?php echo __( 'Filter Button Margins', 'portfolio-gallery' ); ?></label>
+                                    <input type="text" name="params[portfolio_gallery_ht_view8_filterbutton_margin]"
+                                           id="ht_view8_filterbutton_margin"
+                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_margin']; ?>"
+                                           class="text"/>
+                                    <span>px</span>
+                                </div>
+                                <div class="">
+                                    <label
+                                            for="ht_view8_filtering_float"><?php echo __( 'Filter block Position', 'portfolio-gallery' ); ?></label>
+                                    <select id="ht_view8_filtering_float"
+                                            name="params[portfolio_gallery_ht_view8_filtering_float]">
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filtering_float'] == 'left' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="left"><?php echo __( 'Left', 'portfolio-gallery' ); ?></option>
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filtering_float'] == 'right' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="right"><?php echo __( 'Right', 'portfolio-gallery' ); ?></option>
+                                        <option <?php if ( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filtering_float'] == 'top' ) {
+                                            echo 'selected="selected"';
+                                        } ?> value="top"><?php echo __( 'Top', 'portfolio-gallery' ); ?></option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </li>
                                             </ul>
 
                                             <div id="post-body-footer">

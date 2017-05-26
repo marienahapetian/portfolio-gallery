@@ -511,7 +511,50 @@ function portfolio_gallery_get_default_general_options() {
 		'portfolio_gallery_lightbox_watermark_opacity'                          => '70',
 		'portfolio_gallery_lightbox_watermark_margin'                           => '10',
 		'portfolio_gallery_lightbox_watermark_img_src_new'                      => PORTFOLIO_GALLERY_IMAGES_URL . '/admin_images/No-image-found.jpg',
-		'portfolio_gallery_lightbox_type'                                       => 'new_type'
+		'portfolio_gallery_lightbox_type'                                       => 'new_type',
+        'portfolio_gallery_ht_view8_title_font_size'                            => '16',
+        'portfolio_gallery_ht_view8_title_font_color'                           => '0074A2',
+        'portfolio_gallery_ht_view8_title_font_hover_color'                     => '2EA2CD',
+        'portfolio_gallery_ht_view8_title_background_color'                     => '000000',
+        'portfolio_gallery_ht_view8_hide_title'                                 => 'off',
+        'portfolio_gallery_ht_view8_title_background_transparency'              => '80',
+        'portfolio_gallery_ht_view8_border_width'                               => '0',
+        'portfolio_gallery_ht_view8_element_background_color'                   => 'f9f9f9',
+        'portfolio_gallery_ht_view8_border_color'                               => 'eeeeee',
+        'portfolio_gallery_ht_view8_border_radius'                              => '0',
+        'portfolio_gallery_ht_view8_width'                                      => '275',
+        'portfolio_gallery_ht_view8_height'                                     => '230',
+        'portfolio_gallery_ht_view8_image_title_font_size'                      => '18',
+        'portfolio_gallery_ht_view8_image_title_font_color'                     => '0074A2',
+        'portfolio_gallery_ht_view8_desc_font_size'                             => '14',
+        'portfolio_gallery_ht_view8_desc_font_color'                            => '0074A2',
+        'portfolio_gallery_ht_view8_show_sorting'                               => 'on',
+        'portfolio_gallery_ht_view8_sortbutton_font_size'                       => '14',
+        'portfolio_gallery_ht_view8_sortbutton_font_color'                      => '555555',
+        'portfolio_gallery_ht_view8_sortbutton_hover_font_color'                => 'ffffff',
+        'portfolio_gallery_ht_view8_sortbutton_background_color'                => 'F7F7F7',
+        'portfolio_gallery_ht_view8_sortbutton_hover_background_color'          => 'FF3845',
+        'portfolio_gallery_ht_view8_sortbutton_border_width'                    => '0',
+        'portfolio_gallery_ht_view8_sortbutton_border_padding'                  => '3',
+        'portfolio_gallery_ht_view8_sorting_float'                              => 'top',
+        'portfolio_gallery_ht_view8_sorting_name_by_default'                    => 'Default',
+        'portfolio_gallery_ht_view8_sorting_name_by_id'                         => 'Date',
+        'portfolio_gallery_ht_view8_sorting_name_by_name'                       => 'Title',
+        'portfolio_gallery_ht_view8_sorting_name_by_random'                     => 'Random',
+        'portfolio_gallery_ht_view8_sorting_name_by_asc'                        => 'Ascending',
+        'portfolio_gallery_ht_view8_sorting_name_by_desc'                       => 'Descending',
+        'portfolio_gallery_ht_view8_cat_all'                                    => 'all',
+        'portfolio_gallery_ht_view8_show_filtering'                             => 'on',
+        'portfolio_gallery_ht_view8_filterbutton_font_size'                     => '14',
+        'portfolio_gallery_ht_view8_filterbutton_font_color'                    => '555555',
+        'portfolio_gallery_ht_view8_filterbutton_hover_font_color'              => 'ffffff',
+        'portfolio_gallery_ht_view8_filterbutton_background_color'              => 'F7F7F7',
+        'portfolio_gallery_ht_view8_filterbutton_hover_background_color'        => 'FF3845',
+        'portfolio_gallery_ht_view8_filterbutton_width'                         => '180',
+        'portfolio_gallery_ht_view8_filterbutton_border_radius'                 => '0',
+        'portfolio_gallery_ht_view8_filterbutton_border_padding'                => '3',
+        'portfolio_gallery_ht_view8_filterbutton_margin'                        => '',
+        'portfolio_gallery_ht_view8_filtering_float'                            => 'left',
 	);
 
 	return $portfolio_gallery_default__params;
@@ -546,6 +589,9 @@ function portfolio_gallery_get_view_slag_by_id( $id ) {
 		case 7:
 			$slug = 'elastic-grid';
 			break;
+        case 8:
+            $slug = 'store';
+            break;
 	}
 
 	return $slug;

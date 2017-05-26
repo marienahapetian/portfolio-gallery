@@ -125,6 +125,21 @@ class Portfolio_Gallery_Template_Loader {
 				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.php';
 				require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'elastic-grid'.DIRECTORY_SEPARATOR.'elastic-grid-view.css.php';
 				break;
+            case 8:
+                if ( $portfolioShowSorting == 'on' ) {
+                    $sortingFloatLgal = $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_float"];
+                } else {
+                    $sortingFloatLgal = '';
+                }
+                if ( $portfolioShowFiltering == 'on' ) {
+                    $filteringFloatLgal = $portfolio_gallery_get_options["portfolio_gallery_ht_view8_filtering_float"];
+                } else {
+                    $filteringFloatLgal = '';
+                }
+                $view_slug = portfolio_gallery_get_view_slag_by_id( $portfolioID );
+                require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'store-view'.DIRECTORY_SEPARATOR.'store-view.php';
+                require PORTFOLIO_GALLERY_TEMPLATES_PATH.DIRECTORY_SEPARATOR.'front-end'.DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR.'store-view'.DIRECTORY_SEPARATOR.'store-view.css.php';
+                break;
 		}
 	}
 }

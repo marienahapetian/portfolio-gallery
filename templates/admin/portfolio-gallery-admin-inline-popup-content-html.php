@@ -72,6 +72,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<option <?php if ( $row->portfolio_list_effects_s == '7' ) {
 					echo 'selected';
 				} ?> value="7"><?php echo __( 'Elastic Grid', 'portfolio-gallery' ); ?></option>
+                <option <?php if ( $row->portfolio_list_effects_s == '8' ) {
+                    echo 'selected';
+                } ?> value="8"><?php echo __( 'Store View', 'portfolio-gallery' ); ?></option>
 			</select>
 		</li>
 		<li class="allowIsotope">

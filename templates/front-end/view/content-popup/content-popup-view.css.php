@@ -318,7 +318,7 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> .popup-wrapper_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> iframe  {
     width:100% !important;
-    height:95%;
+    height:95%!important;
     display:block;
 
 
