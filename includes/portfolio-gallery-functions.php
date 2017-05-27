@@ -523,7 +523,6 @@ function portfolio_gallery_get_default_general_options() {
         'portfolio_gallery_ht_view8_border_color'                               => 'eeeeee',
         'portfolio_gallery_ht_view8_border_radius'                              => '0',
         'portfolio_gallery_ht_view8_width'                                      => '275',
-        'portfolio_gallery_ht_view8_height'                                     => '230',
         'portfolio_gallery_ht_view8_image_title_font_size'                      => '18',
         'portfolio_gallery_ht_view8_image_title_font_color'                     => '0074A2',
         'portfolio_gallery_ht_view8_desc_font_size'                             => '14',

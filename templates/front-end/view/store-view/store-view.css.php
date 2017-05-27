@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> {
     position:relative;
     width:100%;
-    height:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view8_height']; ?>px !important;
+    height:auto;
 }
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> a {
     border:none;
@@ -52,8 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     display:block;
     border-radius: 0 !important;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
-    height:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view8_height']; ?>px !important;
-
+    height:auto;
 }
 
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> img:hover {

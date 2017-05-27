@@ -3878,15 +3878,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            class="text"/>
                                     <span>px</span>
                                 </div>
-                                <div class="has-background">
-                                    <label
-                                            for="ht_view8_height"><?php echo __( 'Thumbnail Height', 'portfolio-gallery' ); ?></label>
-                                    <input type="text" name="params[portfolio_gallery_ht_view8_height]"
-                                           id="ht_view8_height"
-                                           value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_height']; ?>"
-                                           class="text"/>
-                                    <span>px</span>
-                                </div>
                                 <div>
                                     <label
                                             for="ht_view8_border_color"><?php echo __( 'Thumbnail Border Color', 'portfolio-gallery' ); ?></label>
