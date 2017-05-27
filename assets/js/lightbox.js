@@ -1074,7 +1074,6 @@
 
         window.scrollTo(0, $object.$_y_);
     };
-    console.log();
     $.fn.lightboxPortfolio = function (options) {
               return this.each(function () {
             if (!$.data(this, 'lightbox')) {

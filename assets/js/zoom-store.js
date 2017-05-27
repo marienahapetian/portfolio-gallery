@@ -7,7 +7,9 @@
             portfolio_store_zoom_obj[index] = value == "true";
     });
 
-
+    jQuery('.huge_it_main-image-carousel .main-icon').on('click', function(e){
+        jQuery(this).parent().find('a').click().click();
+    });
     jQuery('.huge_it_main-carousel-wrapper img').on('click', function(e){
         e.preventDefault();
         jQuery(this).lightboxPortfolioStore();
@@ -745,29 +747,29 @@
         return support();
     };
 
-    // Lightbox.prototype.isVideo = function (src, index) {
-    //     var youtube, vimeo, dailymotion;
-    //
-    //     if(src.indexOf('youtu') !== -1){
-    //         youtube = src.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/);
-    //     }
-    //     vimeo = src.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
-    //     dailymotion = src.match(/^.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/);
-    //
-    //     if (youtube) {
-    //         return {
-    //             youtube: youtube
-    //         };
-    //     } else if (vimeo) {
-    //         return {
-    //             vimeo: vimeo
-    //         };
-    //     } else if (dailymotion) {
-    //         return {
-    //             dailymotion: dailymotion
-    //         };
-    //     }
-    // };
+    Lightbox.prototype.isVideo = function (src, index) {
+        var youtube, vimeo, dailymotion;
+
+        if(src.indexOf('youtu') !== -1){
+            youtube = src.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/);
+        }
+        vimeo = src.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
+        dailymotion = src.match(/^.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/);
+
+        if (youtube) {
+            return {
+                youtube: youtube
+            };
+        } else if (vimeo) {
+            return {
+                vimeo: vimeo
+            };
+        } else if (dailymotion) {
+            return {
+                dailymotion: dailymotion
+            };
+        }
+    };
 
     Lightbox.prototype.counter = function () {
         if (this.settings.showCounter) {
@@ -908,9 +910,10 @@
             src = $object.$items.eq(index).attr('href');
         }
 
-        // isVideo = $object.isVideo(src, index);
+        isVideo = $object.isVideo(src, index);
         if (!$object.$item.eq(index).hasClass($object.settings.classPrefix + 'loaded')) {
             if (isVideo) {
+                $object.$item.eq(index).addClass('is_video');
                 $object.$item.eq(index).prepend('<div class="' + this.settings.classPrefix + 'video-cont "><div class="' + this.settings.classPrefix + 'video"></div></div>');
                 $object.$element.trigger('hasVideo.rwd-container', [index, src]);
             } else {
@@ -1291,6 +1294,21 @@
                 scrollZoom: true
             });
         }
+
+        setTimeout(function(){
+            $('.rwd-item').each(function(){
+                if($(this).hasClass('is_video')){
+                    if($('.thumb_icon').eq($(this).index()).parent().find('img').attr('src').indexOf('youtube') !== -1){
+                        $('.thumb_icon').eq($(this).index()).addClass('play-icon').addClass('youtube-icon');
+                    }
+
+                    if($('.thumb_icon').eq($(this).index()).parent().find('img').attr('src').indexOf('vimeo') !== -1){
+                        $('.thumb_icon').eq($(this).index()).addClass('play-icon').addClass('vimeo-icon');
+                    }
+                }
+            });
+        }, 500);
+
     };
 
     Lightbox.prototype.goToNextSlide = function (fromSlide) {
@@ -1332,17 +1350,17 @@
                         $style = $(this).attr('style');
 
                     $(this).attr('style', $style.substr(0, $index));
-                //
-                //     if(portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe !== 'frame_8'){
-                //     $(this).css({
-                //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 95 95 90 stretch stretch'
-                //     });
-                // } else {
-                //     $(this).css({
-                //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 123 85 129 stretch stretch'
-                //     });
-                // }
-            }
+                    //
+                    //     if(portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe !== 'frame_8'){
+                    //     $(this).css({
+                    //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 95 95 90 stretch stretch'
+                    //     });
+                    // } else {
+                    //     $(this).css({
+                    //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 123 85 129 stretch stretch'
+                    //     });
+                    // }
+                }
             });
         }
     };
@@ -1744,15 +1762,6 @@
 
             var src;
             src = $object.dataL.$items.eq(index).attr('href');
-
-            // var isVideo = $object.dataL.isVideo(src, index) || {};
-            // if (isVideo.youtube || isVideo.vimeo || isVideo.dailymotion) {
-            //     $object.dataL.$cont.addClass($object.dataL.modulSettings.classPrefix + 'hide-download');
-            //     $object.dataL.$cont.addClass($object.dataL.modulSettings.classPrefix + 'hide-actual-size');
-            //     $object.dataL.$cont.addClass($object.dataL.modulSettings.classPrefix + 'hide-fullwidth');
-            //     $object.dataL.$cont.addClass($object.dataL.modulSettings.classPrefix + 'hide-zoom-in');
-            //     $object.dataL.$cont.addClass($object.dataL.modulSettings.classPrefix + 'hide-zoom-out');
-            // }
 
         });
 
@@ -2534,24 +2543,13 @@
         $object.$thumbCont.css('width', $object.dataL.modulSettings.thumbsHeight + 'px');
 
         function getThumb(src, thumb, index) {
-            //var isVideo = $object.dataL.isVideo(src, index) || {};
             var thumbImg;
             var vimeoId = '';
 
-           /* if (isVideo.youtube || isVideo.vimeo || isVideo.dailymotion) {
-                if (isVideo.youtube) {
-                    thumbImg = '//img.youtube.com/vi/' + isVideo.youtube[7] + '/1.jpg';
-                } else if (isVideo.vimeo) {
-                    thumbImg = '//i.vimeocdn.com/video/error_100x75.jpg';
-                    vimeoId = isVideo.vimeo[1];
-                } else if (isVideo.dailymotion) {
-                    thumbImg = '//www.dailymotion.com/thumbnail/video/' + isVideo.dailymotion[2];
-                }
-            } else {*/
-                thumbImg = thumb;
-           // }
+            thumbImg = thumb;
 
-            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="rwd-thumb-item" style="height:' + $object.dataL.modulSettings.thumbsWidth + 'px; margin-right: ' + $object.dataL.modulSettings.thumbMargin + 'px"><img src="' + thumbImg + '" /></div>';
+
+            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="rwd-thumb-item" style="height:' + $object.dataL.modulSettings.thumbsWidth + 'px; margin-right: ' + $object.dataL.modulSettings.thumbMargin + 'px"><img src="' + thumbImg + '" /><div class="thumb_icon"></div></div>';
             vimeoId = '';
         }
 

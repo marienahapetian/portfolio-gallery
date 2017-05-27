@@ -5,9 +5,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <style>
-
-    /***For Lifgtbox Gallery view***/
-
+.play-icon.youtube-icon  {
+    background: url(<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.youtube.png';?>) center center no-repeat;
+    background-size: 30% 30%;
+}
+.play-icon.vimeo-icon  {
+    background: url(<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.vimeo.png';?>) center center no-repeat;
+    background-size: 30% 30%;
+}
+.play-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.play-icon:hover{
+    cursor:pointer;
+}
 /***</add>***/
 .portelement_<?php echo $portfolioID; ?> {
     max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view8_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view8_border_width']; ?>px;
@@ -65,12 +80,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$titleopacity=$portfolio_gallery_get_options["portfolio_gallery_ht_view8_title_background_transparency"]/100;
 				echo 'rgba('.$r.','.$g.','.$b.','.$titleopacity.')  !important';
 	?>;
-    <?php
+<?php
 
 
-    if ($portfolio_gallery_get_options['portfolio_gallery_ht_view8_hide_title']=="on")
-        echo "display:none !important;"
-    ?>
+if ($portfolio_gallery_get_options['portfolio_gallery_ht_view8_hide_title']=="on")
+    echo "display:none !important;"
+?>
 }
 
 
@@ -171,7 +186,7 @@ li.huge_it_thumbnail
 }
 img.huge_it_thumbnail-image
 {
-/*    width: 100%;*/
+    /*    width: 100%;*/
     height: 67px;
     cursor: pointer;
     padding: 4px;
@@ -234,7 +249,7 @@ img.huge_it_thumbnail-image
     .huge_it_container-title {  font-size: 3vw !important;width: 100% !important;}
     .huge_it_container-title { width: 100% !important;}
     .huge_it_main-carousel-wrapper{width: 75%!important;position: absolute !important;margin-top: 30% !important;margin-left:25% !important;}
-    .huge_it_thumbnail-wrapper{ width: 20%;margin-t op: 0 !important;}
+    .huge_it_thumbnail-wrapper{ width: 20%;margin-top: 0 !important;}
 }
 @media screen and (min-width: 411px) and (max-width: 485px){
     .huge_it_container-imagery{
@@ -254,7 +269,25 @@ img.huge_it_thumbnail-image
     .huge_it_main-carousel-wrapper{width: 65%!important;position: absolute !important;margin-top: 10% !important;margin-left:25% !important;}
     .huge_it_thumbnail-wrapper{ width: 20%;margin-top: 0 !important;}
 }
-    #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
+
+@media screen and (min-width: 524px) and (max-width: 562px){
+    .huge_it_container-imagery{
+        width:100% !important;}
+    .huge_it_container-details{  font-size: 3vw !important;width: 100%!important; }
+    .huge_it_container-title {  font-size: 3vw !important;width: 100% !important;}
+    .huge_it_container-title { width: 100% !important;}
+    .huge_it_main-carousel-wrapper{width: 50%!important;position: absolute !important;margin-top: 10% !important;margin-left:25% !important;}
+    .huge_it_thumbnail-wrapper{ width: 20%;margin-top: 0 !important;}
+}
+
+@media screen and (min-width: 563px) and (max-width: 725px){
+    .huge_it_main-carousel-wrapper{width: 70%!important;}
+}
+
+@media screen and (min-width: 768px) and (max-width: 894px){
+    .huge_it_main-carousel-wrapper{width: 70%!important;margin-top: 50% !important;}
+}
+#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
 <?php

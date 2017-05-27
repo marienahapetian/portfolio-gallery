@@ -7,18 +7,6 @@ var portfoliosListNameChange = function (e) {
 };
 jQuery(document).ready(function () {
 
-    jQuery('#portfolio_effects_list').change(function (){
-
-        if(jQuery(this).val() == 8)
-        {
-            jQuery('.add-video-slide.thickbox').css('visibility','hidden');
-        }
-        else {
-            jQuery('.add-video-slide.thickbox').css('visibility','visible');
-        }
-
-    });
-
 	jQuery('#lightbox_type input').change(function () {
 		jQuery('#lightbox_type input').parent().removeClass('active');
 		jQuery(this).parent().addClass('active');

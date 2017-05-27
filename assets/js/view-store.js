@@ -16,7 +16,8 @@ function Portfolio_Gallery_Store(id) {
     _this.thumbnail_li=_this.container.find('.huge_it_thumbnail-carousel ul li');
     _this.element = _this.container.find('.portelement');
     _this.defaultBlockWidth= portfolio_param_obj.portfolio_gallery_ht_view8_width;
-    _this.thumbnail_image=_this.container.find('.huge_it_thumbnail-carousel ul li a ');
+    _this.thumbnail_link=_this.container.find('.huge_it_thumbnail-carousel ul li a ');
+    _this.thumbnail_img=_this.container.find('.huge_it_thumbnail-carousel ul li img');
     _this.main_image=_this.container.find('.huge_it_main-image-carousel img ');
     _this.next_button=_this.container.find('.huge_it_thumbnail-next-button');
     _this.prev_button=_this.container.find('.huge_it_thumbnail-prev-button');
@@ -31,6 +32,7 @@ function Portfolio_Gallery_Store(id) {
     _this.optionsBlock = _this.container.parent().find('div[id^="huge_it_portfolio_options_"]');
     _this.filtersBlock = _this.container.parent().find('div[id^="huge_it_portfolio_filters_"]');
     _this.content = _this.container.parent();
+    _this.thumbail_icone=_this.container.find('.thumbnail-icon');
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
         ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
@@ -40,7 +42,7 @@ function Portfolio_Gallery_Store(id) {
         var options = {
             itemSelector: _this.element,
             masonry: {
-                columnWidth: _this.defaultBlockWidth + 15 + portfolio_param_obj.portfolio_gallery_ht_view8_border_width * 2,
+                columnWidth: _this.defaultBlockWidth + 15 + portfolio_param_obj.portfolio_gallery_ht_view8_border_width * 2
             },
             masonryHorizontal: {
                 rowHeight: 300 + 15
@@ -170,7 +172,7 @@ function Portfolio_Gallery_Store(id) {
 
     this.init();
 
-    _this.thumbnail_image.each(function () {
+    _this.thumbnail_link.each(function () {
         if(jQuery(this).hasClass('responsive_lightbox' ))
         {
             jQuery(this).removeClass('responsive_lightbox' );
@@ -178,21 +180,94 @@ function Portfolio_Gallery_Store(id) {
 
     });
 
-    _this.thumbnail_image.each(function () {
+    _this.thumbnail_link.each(function () {
         jQuery(this).click(function (e) {
             e.preventDefault();
+
+            _this.thumbnail_link.each(function(){
+                if(!jQuery(this).hasClass('p_responsive_lightbox')){
+                    jQuery(this).addClass('p_responsive_lightbox');
+                }
+            });
+
+            jQuery(this).removeClass('p_responsive_lightbox');
+
+            if(jQuery('.main-icon').hasClass('main-you-icon')){
+                jQuery('.main-icon').removeClass('youtube-icon').removeClass('main-you-icon');
+            }
+            if(jQuery('.main-icon').hasClass('main-vim-icon')){
+                jQuery('.main-icon').removeClass('vimeo-icon').removeClass('main-vim-icon');
+            }
             var thumb_src = jQuery(this).attr('href');
             _this.main_image.attr("src", thumb_src);
             _this.main_image.parent().attr("href", thumb_src);
 
         });
     });
+
+    jQuery('.thumb-you-icon').each(function () {
+        jQuery(this).click(function (e) {
+
+            _this.thumbnail_link.each(function(){
+                if(!jQuery(this).hasClass('p_responsive_lightbox')){
+                    jQuery(this).addClass('p_responsive_lightbox');
+                }
+            });
+
+            jQuery(this).parent().find('a').removeClass('p_responsive_lightbox');
+
+
+            if(!jQuery('.main-icon').hasClass('main-you-icon')){
+                jQuery('.main-icon')
+                    .removeClass('vimeo-icon').removeClass('main-vim-icon')
+                    .addClass('youtube-icon').addClass('main-you-icon');
+            } else {
+                jQuery('.main-icon').css('display', 'block');
+            }
+
+
+            var thumb_href =  jQuery(this).data('href');
+            var thumb_src =  jQuery(this).data('src');
+            _this.main_image.attr("src", thumb_src);
+            _this.main_image.parent().attr("href", thumb_href);
+
+        });
+    });
+
+    jQuery('.thumb-vimeo-icon').each(function () {
+        jQuery(this).click(function (e) {
+
+            _this.thumbnail_link.each(function(){
+                if(!jQuery(this).hasClass('p_responsive_lightbox')){
+                    jQuery(this).addClass('p_responsive_lightbox');
+                }
+            });
+
+            jQuery(this).parent().find('a').removeClass('p_responsive_lightbox');
+
+            if(!jQuery('.main-icon').hasClass('main-vim-icon')){
+                jQuery('.main-icon')
+                    .removeClass('youtube-icon').removeClass('main-you-icon')
+                    .addClass('vimeo-icon').addClass('main-vim-icon');
+            } else {
+                jQuery('.main-icon').css('display', 'block');
+            }
+
+
+            var thumb_href =  jQuery(this).data('href');
+            var thumb_src =  jQuery(this).data('src');
+            _this.main_image.attr("src", thumb_src);
+            _this.main_image.parent().attr("href", thumb_href);
+
+        });
+    });
+
+
     var position = 0;
     var count = _this.thumbnail_li.length;
     var height=  _this.thumbnail_li.height();
     var n = 1;  var k = 1;
-    // var count =1;
-    // var position = 0;
+
     _this.next_button.on('click', function () {
 
 
@@ -200,25 +275,6 @@ function Portfolio_Gallery_Store(id) {
             jQuery(this).scrollTop(0).find('li:first').before(jQuery('li:last', this));
         });
 
-        // if (n > count - 5) {
-        //     n = 1;
-        //     _this.thumbnail_ul.css('transform', 'translate3d(0px, -' + ( n * (height + 4) ) + 'px, 0px)');
-        //     n++;
-        //
-        // }
-        // else
-        //     if (n <= count - 5) {
-        //     _this.thumbnail_ul.css('transform', 'translate3d(0px, -' + ( n * (height + 4) ) + 'px, 0px)');
-        //     n++;
-        // }
-
-
-     //
-     // //   _this.thumbnail_ul.css('margin-top',  (height + 4) + 'px');
-     //
-     //    position = Math.max(position - height * count, -height * (countLi - count));
-     //
-     //    _this.thumbnail_ul.css('margin-top', position + 'px');
     });
 
     _this.prev_button.on('click', function () {
@@ -227,36 +283,19 @@ function Portfolio_Gallery_Store(id) {
             jQuery(this).scrollTop(0).find('li:last').after(jQuery('li:first', this));
         });
 
-
-        // if (k > count - 5) {
-        //     k = 1;
-        //     if (k <= count - 5) {
-        //         _this.thumbnail_ul.css('transform', 'translate3d(0px, -' + ( k * ( height + 4 )) + 'px, 0px)');
-        //         k++;
-        //     }
-        // }
-        // else
-        // if (k <= count - 5) {
-        //     _this.thumbnail_ul.css('transform', 'translate3d(0px, -' + ( k * (height + 4 )) + 'px, 0px)');
-        //     k++;
-        // }
-
-
-      //  _this.thumbnail_ul.css('margin-bottom',  (height + 4) + 'px');
-      //
-      //   position = Math.min(position + height * count, 0);
-      //   _this.thumbnail_ul.css('margin-bottom', position + 'px');
     });
 
 
 }
-    var portfolios=[];
+var portfolios=[];
 jQuery(document).ready(function () {
-
-
     jQuery(".view-store").each(function (i) {
         var id = jQuery(this).attr('id');
         portfolios[i]  = new Portfolio_Gallery_Store(id);
     });
+});
+
+jQuery(window).load(function(){
+    jQuery('.huge_it_thumbnail a').eq(0).removeClass('p_responsive_lightbox');
 });
 
