@@ -120,6 +120,7 @@ if ($portfolio_gallery_get_options['portfolio_gallery_ht_view8_hide_title']=="on
     max-width: 1080px;
     margin: 0 auto;
     overflow: auto;
+    width:100% !important;
 }
 
 .huge_it_thumbnail-wrapper
