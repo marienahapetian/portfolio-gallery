@@ -158,7 +158,7 @@ a#rwd-share-yummly:hover{background:url('../../images/share(1).png');background-
 .rwd-view6 {background: white}
 .rwd-view5 .cont-inner, .rwd-view6 .cont-inner{width: 60% !important;left:20% !important;}
 @media screen and (max-width: 1024px){
-    .rwd-view5 .cont-inner, .rwd-view6 .cont-inner{width: 80% !important;height:60% !important; float:right;}
+    .rwd-view5 .cont-inner, .rwd-view6 .cont-inner{width: 80% !important;height:60% !important; float:right;top:10% !important;}
     .rwd-view5 .rwd-toolbar, .rwd-view6 .rwd-toolbar {width:100%;left:0}
     .rwd-bar .rwd-icon, .rwd-toolbar .rwd-icon{width:45px}
     .rwd-view5 .rwd-share-buttons, .rwd-view6 .rwd-share-buttons{top:65px;left:10px}
@@ -328,12 +328,22 @@ a#rwd-share-yummly:hover{background:url('../../images/share(1).png');background-
 .rwd-container .huge_it_icon-arrow_up:hover{cursor: pointer;}
 .rwd-container .huge_it_icon-arrow_down:hover{cursor: pointer;}
 
-@media only screen  and (max-width: 420px) {
+
+@media only screen  and (min-width: 319px)  and (max-width: 480px ){
+
+    .rwd-thumb-cont{
+        max-width: 70px !important;
+        left:10px;
+    }
     .rwd-view6 .cont-inner {
         width: 100% !important;
-        margin-left: 7%!important;
+        left: 8%!important;
         top: 30%!important;
         height:40% !important;
     }
-
+    .rwd-cont .rwd-item{
+        width: 72%;
+        height: 100%;
+        left: 17%;
+    }
 }

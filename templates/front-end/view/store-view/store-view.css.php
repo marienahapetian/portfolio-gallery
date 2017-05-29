@@ -281,7 +281,7 @@ img.huge_it_thumbnail-image
 }
 
 @media screen and (min-width: 563px) and (max-width: 725px){
-    .huge_it_main-carousel-wrapper{width: 70%!important;}
+    .huge_it_main-carousel-wrapper{width: 70%!important;margin-top: 5%;}
 }
 
 @media screen and (min-width: 768px) and (max-width: 894px){

@@ -43,9 +43,9 @@ if(isset($_GET['single_prod_id'])){
                                 <li class="huge_it_thumbnail" style="display: block">
 
                                 <?php
+
                                 switch (portfolio_gallery_youtube_or_vimeo_portfolio($value)) {
                                     case 'image': ?>
-
                                         <a class="not_open p_responsive_lightbox"
                                            href="<?php echo esc_attr($value); ?>">
                                             <img class="huge_it_thumbnail-image"
@@ -106,7 +106,10 @@ if(isset($_GET['single_prod_id'])){
                                 <a class="p_responsive_lightbox" href="<?php echo esc_attr($imgurl[0]); ?> ">
                                     <img class="huge_it_product-image first-image "
                                          src="<?php echo esc_attr($imgurl[0]); ?> ">
+
                                 </a>
+                                <div class="main-icon play-icon youtube-icon main-you-icon" style="display: none"></div>
+
                                 <?php
                                 break;
                             case 'youtube':
@@ -123,10 +126,10 @@ if(isset($_GET['single_prod_id'])){
                                 $hash = unserialize(wp_remote_fopen("http://vimeo.com/api/v2/video/" . $videourl[0] . ".php"));
                                 $imgsrc = $hash[0]['thumbnail_large'];
                                 ?>
-                                <a class="p_responsive_lightbox"  href="https://vimeo.com/<?php echo esc_attr($videourl[0]); ?>">
+                                <a class="p_responsive_lightbox "  href="https://vimeo.com/<?php echo esc_attr($videourl[0]); ?>">
                                     <img class="huge_it_product-image first-image vimeo-img"
                                          src="<?php echo esc_attr($imgsrc); ?>"/></a>
-                                <div class=" main-icon play-icon vimeo-icon main-vim-icon"></div>
+                                <div class=" main-icon play-icon vimeo-icon main-vim-icon"> </div>
                                 <?php break;
 
                         } ?>
@@ -309,12 +312,13 @@ if(isset($_GET['single_prod_id'])){
 
                     <?php if ( $row->name != "" ) { ?>
                         <div class="title-block_<?php echo esc_attr($portfolioID); ?>">
-                            <a href="<?php echo  esc_attr($link); ?>" target="_blank"
-                               title="<?php echo esc_attr( $row->name ); ?>">
+                            <a <?php if ($link!=''){?>  href="<?php echo  esc_attr($link); ?>" target="_blank" <?php } else { ?>
+                                href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
+
+                            <?php } ?>
+                                    title="<?php echo esc_attr( $row->name ); ?>">
                                 <?php echo  $row->name; ?>
-                                <?php if ( $link != '' ): ?>
                             </a>
-                            <?php endif; ?>
                         </div>
                     <?php } ?>
                 </div>
