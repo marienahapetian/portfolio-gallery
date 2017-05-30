@@ -296,6 +296,12 @@ jQuery(document).ready(function () {
 });
 
 jQuery(window).load(function(){
+    jQuery('a.huge_it_portfolio_item').each(function () {
+        if(jQuery(this).hasClass('portfolio_responsive_lightbox'))
+        {
+            jQuery(this).removeClass('portfolio_responsive_lightbox')
+        }
+    });
     jQuery('.huge_it_thumbnail a').eq(0).removeClass('p_responsive_lightbox');
 });
 

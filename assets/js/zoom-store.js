@@ -334,7 +334,7 @@
                 if(this.settings.showTitle){
                     subHtmlCont1 = '<div class="' + this.settings.classPrefix + 'title"></div>';
                 }
-                close1 = '<span class="' + this.settings.classPrefix + 'close ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
+                close1 = '<span class="' + this.settings.classPrefix + 'close_zoom ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
                 break;
             case 'view2':
                 $_next = '<svg class="next_bg" width="22px" height="22px" fill="#999" viewBox="-123 125.2 451.8 451.8" >' +
@@ -398,7 +398,7 @@
                 if(this.settings.showDesc){
                     subHtmlCont3 += '<div class="' + this.settings.classPrefix + 'description"></div>';
                 }
-                close1 = ' <span class="' + this.settings.classPrefix + 'close ' + $object.settings.classPrefix + 'icon"> '  +$close_bg + '</span>';
+                close1 = ' <span class="' + this.settings.classPrefix + 'close_zoom ' + $object.settings.classPrefix + 'icon"> '  +$close_bg + '</span>';
                 break;
         }
 
@@ -429,29 +429,6 @@
             '</div>' +
             '</div>';
 
-        // switch($object.settings.openCloseType[0]){
-        //     case 'open_1':
-        //     case 'open_2':
-        //     case 'open_3':
-        //     case 'open_4':
-        //     case 'open_5':
-        //     case 'open_1_r':
-        //     case 'open_2_r':
-        //     case 'open_3_r':
-        //     case 'open_4_r':
-        //     case 'open_5_r':
-        //         setTimeout(function(){
-        //             $object.$cont.addClass('rwd-visible');
-        //             $('.rwd-container').addClass($object.settings.openCloseType[0]);
-        //         }, 0);
-        //         break;
-        //     default:
-        //         $('.rwd-container').addClass($object.settings.openCloseType[0]);
-        //         setTimeout(function () {
-        //             $object.$cont.addClass('rwd-visible');
-        //         }, this.settings.overlayDuration);
-        //         break;
-        // }
 
         if ($object.settings.socialSharing) {
             setTimeout(function () {
@@ -952,23 +929,6 @@
             }
         }
 
-        // if(portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe !== 'frame_0'){
-        //     $('.rwd-image').css({
-        //         borderColor: '#f4be52',
-        //         borderStyle: 'inset',
-        //         borderWidth: '60px'
-        //     });
-        //     if(portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe !== 'frame_8'){
-        //         $('.rwd-image').css({
-        //             borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 95 95 90 stretch stretch'
-        //         });
-        //     } else {
-        //         $('.rwd-image').css({
-        //             borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 123 85 129 stretch stretch'
-        //         });
-        //     }
-        // }
-
         function _hexToRGBA() {
             var hex, opacity, bigint, r, g, b;
             hex = portfolio_store_zoom_obj.portfolio_gallery_lightbox_imagebordercolor;
@@ -1149,12 +1109,7 @@
                 youtubeP, vimeoP, dailymotionP,
                 $arr = [];
 
-            // youtubeN = nextSrc.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/);
-            // vimeoN = nextSrc.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
-            // dailymotionN = nextSrc.match(/^.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/);
-            // youtubeP = prevSrc.match(/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/);
-            // vimeoP = prevSrc.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
-            // dailymotionP = prevSrc.match(/^.+dailymotion.com\/(video|hub)\/([^_]+)[^#]*(#video=([^_&]+))?/);
+
 
             if (youtubeN || vimeoN || dailymotionN) {
                 if (youtubeN) {
@@ -1350,16 +1305,7 @@
                         $style = $(this).attr('style');
 
                     $(this).attr('style', $style.substr(0, $index));
-                    //
-                    //     if(portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe !== 'frame_8'){
-                    //     $(this).css({
-                    //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 95 95 90 stretch stretch'
-                    //     });
-                    // } else {
-                    //     $(this).css({
-                    //         borderImage: 'url("' + hugeit_resp_lightbox_plugins_url + portfolio_store_zoom_obj.portfolio_gallery_lightbox_imageframe + '.png") 90 123 85 129 stretch stretch'
-                    //     });
-                    // }
+
                 }
             });
         }
@@ -1586,28 +1532,6 @@
 
         var $object = this, $time;
 
-        // $('.rwd-container').removeClass(this.settings.openCloseType[0]).addClass(this.settings.openCloseType[1]);
-
-        // switch(this.settings.openCloseType[1]){
-        //     case 'close_1':
-        //     case 'close_1_r':
-        //         $time = 1000;
-        //         break;
-        //     case 'close_2':
-        //     case 'close_2_r':
-        //         $time = 300;
-        //         break;
-        //     case 'close_3':
-        //     case 'close_4':
-        //     case 'close_3_r':
-        //     case 'close_4_r':
-        //         $time = 340;
-        //         break;
-        //     case 'close_5':
-        //     case 'close_5_r':
-        //         $time = 250;
-        //         break;
-        // }
 
         $time = 150;
         $('html, body').on('mousewheel', function(){
@@ -2892,10 +2816,6 @@
             canvas.width = $imgWidth;
             canvas.height = $imgHeight;
 
-            /*if (data.type === 'jpeg') {
-             context.fillStyle = '#ffffff';
-             context.fillRect(0, 0, $imgWidth, $imgHeight);
-             }*/
 
             context.drawImage(this, 0, 0, $imgWidth, $imgHeight);
 

@@ -243,7 +243,7 @@ if(isset($_GET['single_prod_id'])){
                 $catForFilter = explode( ",", $row->category );
                 ?>
                 <div
-                        class="portelement portelement_<?php echo esc_attr($portfolioID); ?> portfolio-lightbox <?php foreach ( $catForFilter as $catForFilterValue ) {
+                        class="portelement portelement_<?php echo esc_attr($portfolioID); ?> <?php foreach ( $catForFilter as $catForFilterValue ) {
                             echo str_replace( " ", "_", $catForFilterValue ) . " ";
                         } ?> " tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
                     <p style="display: none;" class="id"><?php echo esc_attr($row->id); ?></p>
@@ -261,7 +261,6 @@ if(isset($_GET['single_prod_id'])){
                             switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {
                                 case 'image': ?>
                                     <a href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
-                                       class=" portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
                                        data-description="<?php echo esc_attr( $row->description ); ?>"
                                        title="<?php echo esc_attr( $row->name ); ?>">
                                         <img alt="<?php echo esc_attr( $row->name ); ?>"
@@ -279,7 +278,7 @@ if(isset($_GET['single_prod_id'])){
                                     $videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
                                     <a  href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
                                         data-description=" <?php echo esc_attr( $row->description ); ?>"
-                                        class="huge_it_portfolio_item pyoutube  portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
+                                        class="huge_it_portfolio_item pyoutube  "
                                         title="<?php echo esc_attr( $row->name ); ?>">
                                         <img alt="<?php echo esc_attr( $row->name ); ?>"
                                              id="wd-cl-img<?php echo esc_attr($key); ?>"
@@ -292,7 +291,7 @@ if(isset($_GET['single_prod_id'])){
                                     $videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] );
                                     $hash = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
                                     $imgsrc = $hash[0]['thumbnail_large']; ?>
-                                    <a class="huge_it_portfolio_item pvimeo  portfolio-lightbox-group<?php echo esc_attr($portfolioID); ?>"
+                                    <a class="huge_it_portfolio_item pvimeo  "
                                        href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
                                        data-description=" <?php echo esc_attr( $row->description ); ?>"
                                        title="<?php echo esc_attr($row->name); ?>">

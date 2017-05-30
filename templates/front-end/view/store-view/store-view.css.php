@@ -222,7 +222,7 @@ img.huge_it_thumbnail-image
 }
 .huge_it_main-carousel-wrapper
 {
-    width: 76%;
+    width: 73%;
     float: left;
     position: relative;
 }
