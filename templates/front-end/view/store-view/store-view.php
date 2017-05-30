@@ -2,8 +2,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-if(isset($_GET['single_prod_id'])){
+if(isset($_GET['single_prod_id']) && isset($_GET['portfolio_id']) &&  $portfolioID==$_GET['portfolio_id'] ){
+
     $id = $_GET['single_prod_id'];
+    $portfolio_ID=$_GET['portfolio_id'];
     global $wpdb;
     $query = $wpdb->prepare("SELECT `name`,`description` FROM " . $wpdb->prefix . "huge_itportfolio_images where `id`=%d", $id);
     $result = $wpdb->get_results($query);
@@ -12,13 +14,13 @@ if(isset($_GET['single_prod_id'])){
         $name=$value->name;
         $description= $value->description;
     }
-    $query = $wpdb->prepare("SELECT `image_url` FROM " . $wpdb->prefix . "huge_itportfolio_images where `id`=%d", $id);
+    $query = $wpdb->prepare("SELECT `image_url` FROM " . $wpdb->prefix . "huge_itportfolio_images where `id`=%d and `portfolio_id`=%d", $id,$portfolio_ID);
     $imgurlArray=$wpdb->get_var($query);
     $imgurl = explode( ";", $imgurlArray);
     $imgCount= count($imgurl);
 
     ?>
-    <div id="huge_it_product_<?php echo esc_attr($id); ?>" class=" huge_it_product view-store ">
+    <div id="huge_it_product_<?php echo esc_attr($portfolioID); ?>_<?php echo esc_attr($id); ?>" class=" huge_it_product view-store ">
         <div id="huge_it_main-product">
             <div class="huge_it_container-title">
 
@@ -43,7 +45,6 @@ if(isset($_GET['single_prod_id'])){
                                 <li class="huge_it_thumbnail" style="display: block">
 
                                 <?php
-
                                 switch (portfolio_gallery_youtube_or_vimeo_portfolio($value)) {
                                     case 'image': ?>
                                         <a class="not_open p_responsive_lightbox"
@@ -106,7 +107,6 @@ if(isset($_GET['single_prod_id'])){
                                 <a class="p_responsive_lightbox" href="<?php echo esc_attr($imgurl[0]); ?> ">
                                     <img class="huge_it_product-image first-image "
                                          src="<?php echo esc_attr($imgurl[0]); ?> ">
-
                                 </a>
                                 <div class="main-icon play-icon youtube-icon main-you-icon" style="display: none"></div>
 
@@ -126,10 +126,10 @@ if(isset($_GET['single_prod_id'])){
                                 $hash = unserialize(wp_remote_fopen("http://vimeo.com/api/v2/video/" . $videourl[0] . ".php"));
                                 $imgsrc = $hash[0]['thumbnail_large'];
                                 ?>
-                                <a class="p_responsive_lightbox "  href="https://vimeo.com/<?php echo esc_attr($videourl[0]); ?>">
+                                <a class="p_responsive_lightbox"  href="https://vimeo.com/<?php echo esc_attr($videourl[0]); ?>">
                                     <img class="huge_it_product-image first-image vimeo-img"
                                          src="<?php echo esc_attr($imgsrc); ?>"/></a>
-                                <div class=" main-icon play-icon vimeo-icon main-vim-icon"> </div>
+                                <div class=" main-icon play-icon vimeo-icon main-vim-icon"></div>
                                 <?php break;
 
                         } ?>
@@ -152,6 +152,7 @@ if(isset($_GET['single_prod_id'])){
 
 
     <?php
+
 } else {
 
     ?>
@@ -243,7 +244,7 @@ if(isset($_GET['single_prod_id'])){
                 $catForFilter = explode( ",", $row->category );
                 ?>
                 <div
-                        class="portelement portelement_<?php echo esc_attr($portfolioID); ?> <?php foreach ( $catForFilter as $catForFilterValue ) {
+                        class="portelement portelement_<?php echo esc_attr($portfolioID); ?>  <?php foreach ( $catForFilter as $catForFilterValue ) {
                             echo str_replace( " ", "_", $catForFilterValue ) . " ";
                         } ?> " tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
                     <p style="display: none;" class="id"><?php echo esc_attr($row->id); ?></p>
@@ -252,9 +253,9 @@ if(isset($_GET['single_prod_id'])){
                         ?>
                         <?php $imgurl = explode( ";", $row->image_url ); ?>
                         <?php
-                        if (strpos(get_permalink(),'/?') !== false) { $product_page_link = get_permalink()."&single_prod_id=$row->id"; }
-                        else  if (strpos(get_permalink(),'/') !== false) { $product_page_link = get_permalink()."?single_prod_id=$row->id"; }
-                        else { $product_page_link = get_permalink()."/?single_prod_id=$row->id"; }
+                        if (strpos(get_permalink(),'/?') !== false) { $product_page_link = get_permalink()."&single_prod_id=$row->id&portfolio_id=$portfolioID"; }
+                        else  if (strpos(get_permalink(),'/') !== false) { $product_page_link = get_permalink()."?single_prod_id=$row->id&portfolio_id=$portfolioID"; }
+                        else { $product_page_link = get_permalink()."/?single_prod_id=$row->id&portfolio_id=$portfolioID"; }
                         ?>
                         <?php
                         if ( $row->image_url != ';' ) {
@@ -278,7 +279,7 @@ if(isset($_GET['single_prod_id'])){
                                     $videourl = portfolio_gallery_get_video_id_from_url( $imgurl[0] ); ?>
                                     <a  href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
                                         data-description=" <?php echo esc_attr( $row->description ); ?>"
-                                        class="huge_it_portfolio_item pyoutube  "
+                                        class="huge_it_portfolio_item pyoutube "
                                         title="<?php echo esc_attr( $row->name ); ?>">
                                         <img alt="<?php echo esc_attr( $row->name ); ?>"
                                              id="wd-cl-img<?php echo esc_attr($key); ?>"
