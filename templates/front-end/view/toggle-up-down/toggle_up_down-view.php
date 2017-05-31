@@ -18,35 +18,35 @@ if ( $portfolioShowFiltering == 'on' ) {
 		<?php if ( $portfolioShowSorting == "on" ) { ?>
 			<div id="huge_it_portfolio_options_<?php echo esc_attr($portfolioID); ?>"
 			     data-sorting-position="<?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_float"]); ?>">
-				<ul id="sort-by" class="option-set clearfix" data-option-key="sortBy">
+				<ul  class="sort-by-button-group clearfix" >
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_default"] != ''):?>
 					<li><a href="#sortBy=original-order" data-option-value="original-order" class="selected"
 					       data><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_default"]); ?></a></li>
                                         <?php endif;?>
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_id"] != ''):?>
-					<li><a href="#sortBy=id"
-					       data-option-value="id"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_id"]); ?></a>
+					<li><a href="#sortBy=load_date"
+					       data-option-value="load_date"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_id"]); ?></a>
 					</li>
                                         <?php endif;?>
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_name"] != ''):?>
-					<li><a href="#sortBy=symbol"
-					       data-option-value="symbol"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_name"]); ?></a>
+					<li><a href="#sortBy=name"
+					       data-option-value="name"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_name"]); ?></a>
 					</li>
                                         <?php endif;?>
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_random"] != ''):?>
-					<li id="shuffle"><a
+					<li id="shuffle"><a data-option-value="random"
 							href='#shuffle'><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_random"]); ?></a>
 					</li>
                                         <?php endif;?>
 				</ul>
-				<ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
+				<ul id="port-sort-direction" class="option-set clearfix" >
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_asc"] != ''):?>
-					<li><a href="#sortAscending=true" data-option-value="true"
+					<li><a href="#sortAscending=true" data-option-value="true" data-option-key="number"
 					       class="selected"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_asc"]); ?></a>
 					</li>
                                         <?php endif;?>
                                         <?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_desc"] != ''):?>
-					<li><a href="#sortAscending=false"
+					<li><a href="#sortAscending=false" data-option-key="number"
 					       data-option-value="false"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view0_sorting_name_by_desc"]); ?></a>
 					</li>
                                         <?php endif;?>
@@ -99,6 +99,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 				class="portelement portelement_<?php echo esc_attr($portfolioID); ?> colorbox_grouping <?php foreach ( $catForFilter as $catForFilterValue ) {
 					echo str_replace( " ", "_", $catForFilterValue ) . " ";
 				} ?>" data-symbol="<?php echo esc_attr($row->name); ?>" data-category="alkaline-earth">
+                <p style="display:none;" class="load_date"><?php echo esc_attr( $row->huge_it_loadDate ); ?></p>
+                <p style="display:none;" class="number"><?php echo esc_attr($row->id ); ?></p>
 				<div class="default-block_<?php echo esc_attr($portfolioID); ?> <?php echo esc_attr($lighboxable); ?>" style="<?php if( $row->name == '' && count($imgurl) < 3 && $imgurl[1] =='' && $row->description == '' && $link == '') echo "height:".$portfolio_gallery_get_options['portfolio_gallery_ht_view0_block_height']."px !important;";?>">
 					<div class="image-block image-block_<?php echo esc_attr($portfolioID); ?>  add-H-relative">
 						<?php $imgurl = explode( ";", $row->image_url ); ?>
@@ -156,7 +158,7 @@ if ( $portfolioShowFiltering == 'on' ) {
 					</div>
 					<div class="title-block title-block_<?php echo esc_attr($portfolioID); ?>">
 						<h3 title="<?php echo esc_attr( $row->name ); ?>"
-						    class="title"><?php echo $row->name; ?></h3>
+						    class="title name"><?php echo $row->name; ?></h3>
 						<div class="open-close-button"></div>
 					</div>
 				</div>

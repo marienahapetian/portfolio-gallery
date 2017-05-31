@@ -178,29 +178,29 @@ if(isset($_GET['single_prod_id']) && isset($_GET['portfolio_id']) &&  $portfolio
                                    data><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_default"]); ?></a></li>
                         <?php endif; ?>
                         <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_id"] != '' ): ?>
-                            <li><a href="#sortBy=id"
-                                   data-option-value="id"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_id"]); ?></a>
+                            <li><a href="#sortBy=load_date"
+                                   data-option-value="load_date"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_id"]); ?></a>
                             </li>
                         <?php endif; ?>
                         <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_name"] != '' ): ?>
-                            <li><a href="#sortBy=symbol"
-                                   data-option-value="symbol"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_name"]); ?></a>
+                            <li><a href="#sortBy=name"
+                                   data-option-value="name"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_name"]); ?></a>
                             </li>
                         <?php endif; ?>
                         <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_random"] != '' ): ?>
-                            <li id="shuffle"><a
+                            <li id="shuffle"><a data-option-value="random"
                                         href='#shuffle'><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_random"]); ?></a>
                             </li>
                         <?php endif; ?>
                     </ul>
-                    <ul id="port-sort-direction" class="option-set clearfix" data-option-key="sortAscending">
+                    <ul id="port-sort-direction" class="option-set clearfix" >
                         <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_asc"] != '' ): ?>
-                            <li><a href="#sortAscending=true" data-option-value="true"
+                            <li><a href="#sortAscending=true" data-option-value="true" data-option-key="number"
                                    class="selected"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_asc"]); ?></a>
                             </li>
                         <?php endif; ?>
                         <?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_desc"] != '' ): ?>
-                            <li><a href="#sortAscending=false"
+                            <li><a href="#sortAscending=false" data-option-key="number"
                                    data-option-value="false"><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view8_sorting_name_by_desc"]); ?></a>
                             </li>
                         <?php endif; ?>
@@ -247,6 +247,8 @@ if(isset($_GET['single_prod_id']) && isset($_GET['portfolio_id']) &&  $portfolio
                         class="portelement portelement_<?php echo esc_attr($portfolioID); ?>  <?php foreach ( $catForFilter as $catForFilterValue ) {
                             echo str_replace( " ", "_", $catForFilterValue ) . " ";
                         } ?> " tabindex="0" data-symbol="<?php echo $row->name; ?>" data-category="alkaline-earth">
+                    <p style="display:none;" class="load_date"><?php echo esc_attr( $row->huge_it_loadDate ); ?></p>
+                    <p style="display:none;" class="number"><?php echo esc_attr($row->id ); ?></p>
                     <p style="display: none;" class="id"><?php echo esc_attr($row->id); ?></p>
                     <div class="image-block_<?php echo esc_attr($portfolioID); ?>">
                         <?php //echo $row->id;
@@ -312,6 +314,7 @@ if(isset($_GET['single_prod_id']) && isset($_GET['portfolio_id']) &&  $portfolio
 
                     <?php if ( $row->name != "" ) { ?>
                         <div class="title-block_<?php echo esc_attr($portfolioID); ?>">
+                            <h3 class="name"  ><?php echo $row->name; ?></h3>
                             <a <?php if ($link!=''){?>  href="<?php echo  esc_attr($link); ?>" target="_blank" <?php } else { ?>
                                 href="<?php echo  $product_page_link; ?>"  <?php if ( $row->link_target == "on" ) { echo 'target="_blank"'; } ?>
 

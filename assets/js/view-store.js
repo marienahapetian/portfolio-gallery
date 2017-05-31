@@ -109,34 +109,24 @@ function Portfolio_Gallery_Store(id) {
             });
         }
     };
-
-    _this.optionsClick = function () {
-        var $this = jQuery(this);
-
-        if ($this.hasClass('selected')) {
-            return false;
+    var $grid = _this.container.hugeitmicro({
+        getSortData: {
+            name: '.name',
+            load_date: '.load_date ',
+            number:'.number parseInt'
         }
-        var $optionSet = $this.parents('.option-set');
-        $optionSet.find('.selected').removeClass('selected');
-        $this.addClass('selected');
+    });
+    jQuery('.sort-by-button-group').on( 'click', 'a', function() {
+        var sortByValue = jQuery(this).attr('data-option-value');
+        $grid.hugeitmicro({ sortBy: sortByValue });
 
+    });
+    jQuery('.option-set').on( 'click', 'a', function() {
+        var sortByKey = jQuery(this).attr('data-option-key');
+        var sortByValue = jQuery(this).attr('data-option-value');
+        $grid.hugeitmicro({ sortBy:sortByKey ,sortAscending: sortByValue === 'true' });
+    });
 
-        var options = {},
-            key = $optionSet.attr('data-option-key'),
-            value = $this.attr('data-option-value');
-
-        value = value === 'false' ? false : value;
-        options[key] = value;
-        if (key === 'layoutMode' && typeof changeLayoutMode === 'function') {
-
-            changeLayoutMode($this, options)
-        } else {
-
-            portfolioGalleryIsotope(_this.container,options);
-        }
-
-        return false;
-    };
     _this.randomClick = function () {
         portfolioGalleryIsotope(_this.container,'shuffle');
         _this.sortBy.find('.selected').removeClass('selected');
