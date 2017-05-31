@@ -334,7 +334,7 @@
                 if(this.settings.showTitle){
                     subHtmlCont1 = '<div class="' + this.settings.classPrefix + 'title"></div>';
                 }
-                close1 = '<span class="' + this.settings.classPrefix + 'close_zoom ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
+                close1 = '<span class="' + this.settings.classPrefix + 'close ' + $object.settings.classPrefix + 'icon">' + $close_bg + '</span>';
                 break;
             case 'view2':
                 $_next = '<svg class="next_bg" width="22px" height="22px" fill="#999" viewBox="-123 125.2 451.8 451.8" >' +
@@ -398,7 +398,7 @@
                 if(this.settings.showDesc){
                     subHtmlCont3 += '<div class="' + this.settings.classPrefix + 'description"></div>';
                 }
-                close1 = ' <span class="' + this.settings.classPrefix + 'close_zoom ' + $object.settings.classPrefix + 'icon"> '  +$close_bg + '</span>';
+                close1 = ' <span class="' + this.settings.classPrefix + 'close-zoom  ' + $object.settings.classPrefix + 'icon"> '  +$close_bg + '</span>';
                 break;
         }
 
@@ -428,6 +428,7 @@
             close2 + subHtmlCont1 + socialIcons + '</div>' +
             '</div>' +
             '</div>';
+
 
 
         if ($object.settings.socialSharing) {
@@ -928,6 +929,8 @@
                 $object.preload(index);
             }
         }
+
+
 
         function _hexToRGBA() {
             var hex, opacity, bigint, r, g, b;
@@ -1503,7 +1506,7 @@
 
         var $object = this, mousedown = false;
 
-        this.$cont.find('.' + $object.settings.classPrefix + 'close svg').on('click.rwd-container', function () {
+        this.$cont.find('.' + $object.settings.classPrefix + 'close-zoom svg').on('click.rwd-container', function () {
             $object.destroy();
         });
 
@@ -1531,6 +1534,7 @@
     Lightbox.prototype.destroy = function (d) {
 
         var $object = this, $time;
+
 
 
         $time = 150;
@@ -2816,6 +2820,10 @@
             canvas.width = $imgWidth;
             canvas.height = $imgHeight;
 
+            /*if (data.type === 'jpeg') {
+             context.fillStyle = '#ffffff';
+             context.fillRect(0, 0, $imgWidth, $imgHeight);
+             }*/
 
             context.drawImage(this, 0, 0, $imgWidth, $imgHeight);
 
