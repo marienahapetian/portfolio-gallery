@@ -75,7 +75,7 @@
     width: 100%;
 }
 .col a:hover {
-    background-color: #ff4444;
+    box-shadow:none;
 }
 /*  gridING  */
 .grid:before,
