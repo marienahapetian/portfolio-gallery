@@ -33,8 +33,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 						</li>
 					<?php endif; ?>
 					<?php if ( $portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_random"] != '' ): ?>
-						<li id="shuffle"><a data-option-value="random"
-								href='#shuffle'><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_random"]); ?></a>
+						<li id="random"><a data-option-value="random"
+								href='#random'><?php echo esc_attr($portfolio_gallery_get_options["portfolio_gallery_ht_view2_sorting_name_by_random"]); ?></a>
 						</li>
 					<?php endif; ?>
 				</ul>
@@ -93,7 +93,8 @@ if ( $portfolioShowFiltering == 'on' ) {
 			     data-category="alkaline-earth">
                 <p style="display:none;" class="load_date"><?php echo esc_attr( $row->huge_it_loadDate ); ?></p>
                 <p style="display:none;" class="number"><?php echo esc_attr($row->id ); ?></p>
-				<div class="image-block image-block_<?php echo esc_attr($portfolioID); ?>">
+                <p style="display:none;" class="random"><?php echo esc_attr($row->id ); ?></p>
+                <div class="image-block image-block_<?php echo esc_attr($portfolioID); ?>">
 					<?php $imgurl = explode( ";", $row->image_url ); ?>
 					<?php if ( $row->image_url != ';' ) {
 						switch ( portfolio_gallery_youtube_or_vimeo_portfolio( $imgurl[0] ) ) {

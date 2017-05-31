@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 if(isset($_GET['single_prod_id']) && isset($_GET['portfolio_id']) &&  $portfolioID==$_GET['portfolio_id'] ){
 
-    $id = $_GET['single_prod_id'];
-    $portfolio_ID=$_GET['portfolio_id'];
+    $id = absint($_GET['single_prod_id']);
+    $portfolio_ID=absint($_GET['portfolio_id']);
     global $wpdb;
     $query = $wpdb->prepare("SELECT `name`,`description` FROM " . $wpdb->prefix . "huge_itportfolio_images where `id`=%d", $id);
     $result = $wpdb->get_results($query);

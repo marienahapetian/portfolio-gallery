@@ -331,6 +331,7 @@ function Portfolio_Gallery_Content_Popup(id) {
         getSortData: {
             name: '.name',
             load_date: '.load_date ',
+            random: '.random ',
             number:'.number parseInt'
         }
     });
@@ -345,12 +346,12 @@ function Portfolio_Gallery_Content_Popup(id) {
         $grid.hugeitmicro({ sortBy:sortByKey ,sortAscending: sortByValue === 'true' });
     });
 
-    _this.randomClick = function () {
-        portfolioGalleryIsotope(_this.container,'shuffle');
-        _this.sortBy.find('.selected').removeClass('selected');
-        _this.sortBy.find('[data-option-value="random"]').addClass('selected');
-        return false;
-    };
+    // _this.randomClick = function () {
+    //     portfolioGalleryIsotope(_this.container,'shuffle');
+    //     _this.sortBy.find('.selected').removeClass('selected');
+    //     _this.sortBy.find('[data-option-value="random"]').addClass('selected');
+    //     return false;
+    // };
     _this.filtersClick = function () {
         _this.filterButton.each(function () {
             jQuery(this).removeClass('active');
