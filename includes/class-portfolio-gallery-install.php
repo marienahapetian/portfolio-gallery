@@ -172,6 +172,12 @@ INSERT INTO
 		        )
 	        );
         }
+        $table_name=$wpdb->prefix ."huge_itportfolio_images";
+        $row = $wpdb->get_results(  "SELECT `huge_it_loadDate` FROM `".$table_name ."`");
+        if(empty($row)){
+            $query="ALTER TABLE `".$table_name."` ADD `huge_it_loadDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ";
+            $wpdb->query($query);
+        }
     }
 
 

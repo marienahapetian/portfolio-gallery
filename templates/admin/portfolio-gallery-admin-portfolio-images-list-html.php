@@ -518,10 +518,15 @@ $id                 = intval( $_GET['id'] );
 											<option <?php if ( $row->portfolio_list_effects_s == '6' ) {
 												echo 'selected';
 											} ?>
-												value="6"><?php echo __( 'Lightbox-Gallery', 'portfolio-gallery' ); ?></option><option <?php if ( $row->portfolio_list_effects_s == '7' ) {
+												value="6"><?php echo __( 'Lightbox-Gallery', 'portfolio-gallery' ); ?></option>
+                                            <option <?php if ( $row->portfolio_list_effects_s == '7' ) {
 												echo 'selected';
 											} ?>
 												value="7"><?php echo __( 'Elastic Grid', 'portfolio-gallery' ); ?></option>
+                                            <option <?php if ( $row->portfolio_list_effects_s == '8' ) {
+                                                echo 'selected';
+                                            } ?>
+                                                    value="8"><?php echo __( 'Store View', 'portfolio-gallery' ); ?></option>
 										</select>
 									</li>
 

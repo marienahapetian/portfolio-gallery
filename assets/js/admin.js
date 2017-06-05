@@ -6,6 +6,7 @@ var portfoliosListNameChange = function (e) {
     document.getElementById("huge_it_portfolio_name").value = e.value;
 };
 jQuery(document).ready(function () {
+
 	jQuery('#lightbox_type input').change(function () {
 		jQuery('#lightbox_type input').parent().removeClass('active');
 		jQuery(this).parent().addClass('active');

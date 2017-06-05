@@ -22,7 +22,6 @@ jQuery(document).ready(function(){
             });
 
             jQuery('#auto_slide_on').change(function () {
-                alert(5);
                 if (jQuery('#auto_slide_on').prop('checked') == false) {
                     jQuery('#auto_slide_on').val('off');
                 }

@@ -52,6 +52,10 @@ class Portfolio_Gallery_Frontend_Scripts {
 			wp_register_style( 'elastic-grid-css', plugins_url( '../assets/style/elastic_grid.css', __FILE__ ) );
 			wp_enqueue_style( 'elastic-grid-css' );
 		}
+        if ( $portfolio_view == '8' ) {
+            wp_register_style( 'portfolio-gallery-store-view-zoom-css', plugins_url( '../assets/style/zoom-store.css', __FILE__ ) );
+            wp_enqueue_style( 'portfolio-gallery-store-view-zoom-css' );
+        }
 	}
 
 	/**
@@ -68,7 +72,7 @@ class Portfolio_Gallery_Frontend_Scripts {
 			wp_register_script( 'jquery.pcolorbox-js', plugins_url( '../assets/js/jquery.colorbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'jquery.pcolorbox-js' );
 		} elseif ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
-            if ($view_slug !== 'faq') {
+            if ($view_slug !== 'faq' &&   $view_slug !== 'store') {
 			wp_register_script( 'portfolio-resp-lightbox-js', plugins_url( '../assets/js/lightbox.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 			wp_enqueue_script( 'portfolio-resp-lightbox-js' );
 
@@ -109,6 +113,16 @@ class Portfolio_Gallery_Frontend_Scripts {
 			wp_register_script( 'portfolio-gallery-elastic_grid-js', plugins_url( '../assets/js/elastic_grid.js', __FILE__ ), array( 'jquery' ), '1.3.0', false );
 			wp_enqueue_script( 'portfolio-gallery-elastic_grid-js' );
 		}
+        if ( $portfolio_view == '8' ) {
+            wp_register_script( 'store-zoom-js', plugins_url( '../assets/js/zoom-store.js', __FILE__ ), array( 'jquery' ), '1.0.0', false );
+            wp_enqueue_script( 'store-zoom-js' );
+
+            wp_register_script('mousewheel-min-js', plugins_url('../assets/js/mousewheel.min.js', __FILE__), array('jquery'), '1.0.0', true);
+            wp_enqueue_script('mousewheel-min-js');
+
+            wp_register_script('froogaloop2-min-js', plugins_url('../assets/js/froogaloop2.min.js', __FILE__), array('jquery'), '1.0.0', true);
+            wp_enqueue_script('froogaloop2-min-js');
+        }
 	}
 
 	public function localize_scripts( $id ) {
@@ -353,5 +367,9 @@ class Portfolio_Gallery_Frontend_Scripts {
 		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'elements_margin', $portfolio_param['portfolio_gallery_ht_view7_element_margin'] );
 		wp_localize_script( 'portfolio-custom-js', 'portfolioGalleryDisableRightClick', get_option( 'portfolio_gallery_disable_right_click' ) );
 		wp_localize_script( 'portfolio-gallery-elastic_grid-js', 'portfolioGalleryDisableRightClickElastic', get_option( 'portfolio_gallery_disable_right_click' ) );
+        if ( $view_slug == 'store' )
+        {
+            wp_localize_script( 'store-zoom-js', 'portfolio_store_zoom_obj', $lightbox_options );
+        }
 	}
 }
