@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, portfolio gallery, responsive portfolio, wordpress portfolio plugin,
 Requires at least: 3.0.1
-Tested up to: 4.7.3
-Stable tag: 2.4.0
+Tested up to: 4.7.5
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -456,6 +456,10 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.4.1 =
+
+* We have added a new view called Shop View allowing to create beautiful online shop view.
 
 = 2.4.0 =
 
