@@ -1224,4 +1224,5 @@ To do so you should insert the following shorcode:
 
     <?php echo do_shortcode([huge_it_portfolio id=N]); ?>
 
+
 Where N is the number ID of the created Portfolio gallery.

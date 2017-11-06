@@ -540,13 +540,8 @@
 
 			this.isSliding = true;
 
-            var mobileTranslation = 0;
-            if (window.matchMedia('(max-width:768px)').matches) {
-                mobileTranslation = 75;
-            }
-
 			var self = this,
-				translation = this.translation || mobileTranslation,
+				translation = this.translation || 0,
 				// width/height of an item ( <li> )
 				itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
 				// total width/height of the <ul>
