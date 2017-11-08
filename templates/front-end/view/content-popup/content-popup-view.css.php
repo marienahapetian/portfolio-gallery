@@ -318,14 +318,8 @@ section#huge_it_portfolio_content_<?php echo $portfolioID; ?> {
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> .popup-wrapper_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> iframe  {
     width:100% !important;
-<<<<<<< HEAD
+    height:60% !important;
     display:block;
-=======
-    height:95%!important;
-    display:block;
-
-
->>>>>>> 5859f2d7f189c674c4939d70a6bcc792a26dc8a2
 }
 
 #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> .heading-navigation_<?php echo $portfolioID; ?> .left-change, #huge_it_portfolio_popup_list_<?php echo $portfolioID; ?> .heading-navigation_<?php echo $portfolioID; ?> .right-change{

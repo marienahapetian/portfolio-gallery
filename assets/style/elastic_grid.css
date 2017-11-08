@@ -116,6 +116,7 @@ section[id^="huge_it_portfolio_content_"] *:before {
 	height: 100%;
 	overflow: hidden;
 	position: relative;
+	box-sizing: border-box;
 }
 
 .og-details .infosep {
