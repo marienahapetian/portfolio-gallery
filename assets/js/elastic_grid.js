@@ -780,7 +780,6 @@ jQuery(function() {
 
                 var self = this,
                     onEndFn = function() {
-                    console.log('ttt');
                         if( support ) {
                             jQuery( this ).off( transEndEventName );
                         }
@@ -824,7 +823,6 @@ jQuery(function() {
 
                 var self = this,
                     onEndFn = function() {
-                        console.log('mmm');
                         if( support ) {
                             self.$item.off( transEndEventName );
                         }
@@ -857,7 +855,6 @@ jQuery(function() {
 
                 var self = this,
                     onEndFn = function() {
-                        console.log('fff');
                         if( support ) {
                             self.$item.off( transEndEventName );
                         }
