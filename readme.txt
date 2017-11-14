@@ -3,12 +3,12 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, portfolio gallery, responsive portfolio, wordpress portfolio plugin,
 Requires at least: 3.0.1
-Tested up to: 4.7.5
+Tested up to: 4.8.1
 Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Gallery - Portfolio Gallery is a great plugin for adding specialized portfolio galleriey, video portfolio gallery of just a gallery with single images
+Gallery - Portfolio Gallery is a great plugin for adding specialized portfolio galleries, video portfolio gallery of just a gallery with single images
 
 == Description ==
 
@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=uq6Cw3ou-gM
 
 **Portfolio - Gallery Portfolio**
 
-* [Wordpress Portfolio Gallery](https://huge-it.com/portfolio-gallery/)
+* [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery/)
 * [Portfolio Gallery Demo](https://huge-it.com/wordpress-plugins-portfolio-gallery-demo/)
 * [Portfolio Gallery FAQ](https://huge-it.com/wordpress-portfolio-gallery-faq/)
 * [Portfolio Gallery User Manual](https://huge-it.com/wordpress-portfolio-gallery-user-manual/)
@@ -131,7 +131,7 @@ The all images/videos of portfolio gallery project become large and open with po
 
 Arrow-down has already become a cross which close the text back. If the pictures are under each other, the opened text moves other images/video thumbnail of the portfolio gallery project toward. Simple and compact.
 
-Regarding the backend of portfolio gallery Blocks Toggle Up/Down view, there is a General Options allowing users to customize portfolio gallery Blocks Toggle view according to their taste. Thumbnail Images can be hidden due to unticking Show Thumbnails from General Options section of Portfolio Gallery.
+Regarding the backend of portfolio gallery Blocks Toggle Up/Down view, there is a General Options allowing users to customize portfolio gallery Blocks Toggle view according to their taste. Thumbnail Images can be hidden due to unpicking Show Thumbnails from General Options section of Portfolio Gallery.
 
 *   **Full-Height Blocks**
 
@@ -203,7 +203,7 @@ Elastic Grid is the new view of our gallery plugin. This Portfolio Gallery view 
 
 Change the colors of your shadow square to suit the gallery perfectly to your website.
 
-If you have title on your images they will show up when hovering on the gallery images. Click on the images of your gallery and a popup window will appear displaying the tumbnail images the title description of the gallery and a View More button.
+If you have title on your images they will show up when hovering on the gallery images. Click on the images of your gallery and a popup window will appear displaying the thumbnail images the title description of the gallery and a View More button.
 
 Your images will look very cosy in your portfolio gallery.You will have an ability to change your gallery at this view to all the possible colors and edit the options.
 
@@ -465,7 +465,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 
 * 1) We have made code optimization that was causing issues with the new lightbox. 
 * 2) WE have fixed the issue with full width view not appearing responsive on mobile 
-* 3) We have fixed the Fatal Error issue that had been reported in forums multiple times and required to be fixed, when was caused with the update of very old versions of the plugin. Empty function was called on front end that brought fatal error to some suers.
+* 3) We have fixed the Fatal Error issue that had been reported in forums multiple times and required to be fixed, when was caused with the update of very old versions of the plugin. Empty function was called on front end that brought fatal error to some users.
 * 4) We have changed our display name of the plugin back to company name to follow guidelines.
 * 5) We have added 2 new lightbox styles number 5,6 allowing to view video galleries by new views and looks.
 * 6) We have updated the logo and the banner with the full description of options of the plugin.
@@ -480,7 +480,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 
 = 2.3.2 =
 
-* 1) Fixed the issue in Contnt Slider view with narrow themes, where the images were stretched to the page. 
+* 1) Fixed the issue in Content Slider view with narrow themes, where the images were stretched to the page. 
 * 2)  Fixed the bug with description being dissipated where video is added for the second time.
 * 3) We have fixed the overlay in general options.
 * 4) We have added an option Image Title option for Content Popup (Pro).
@@ -490,7 +490,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 
 * 1) We have added escapes in the Lite and Pro versions of the plugin to make it more secure.
 * 2) Fixed the bug of a new type lightbox where the title appeared on one project only.
-* 3) Fixed the bug, where a fresh instalation did not connect the lightbox to Portfolios.
+* 3) Fixed the bug, where a fresh installation did not connect the lightbox to Portfolios.
 
 = 2.3.0 =
 
@@ -590,7 +590,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 * 11) Added nonces for all _POST, _GET requests
 
 = 2.0.77 =
-*  Added credits and attribution in the source code refering the original authors.
+*  Added credits and attribution in the source code referring the original authors.
 
 = 2.0.76 =
 *  Some bugs fixed.
@@ -905,7 +905,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 *  Bug fixed.
 
 = 1.1.3 =
-*  Plugin has been updated to new Wordpress uploader.
+*  Plugin has been updated to new WordPress uploader.
 
 = 1.1.2 =
 *  Bug fixed.
@@ -922,7 +922,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 = 1.1.0 =
 *  The lightbox has been changed from old one to new and better.
 
-==Wordpress Adding a Portfolio Gallery==
+==WordPress Adding a Portfolio Gallery==
 
 ### Adding a Portfolio Gallery.
 
@@ -1031,7 +1031,7 @@ If you think, that you found a bug in our [WordPress Portfolio Gallery](https://
 * Element Width. Set element width in pixels.
 * Element Height. Set element height in pixels.
 * Element Background Color. Determine the background color for element.
-* Element Border Width. Set pborder width for the element.
+* Element Border Width. Set p border width for the element.
 * Element Border Color. Select element border color.
 * Element's Image Overlay Color. Set overlay color for the element image.
 * Element's Image Overlay Transparency. Determine transparency level of the overlay.
@@ -1223,5 +1223,6 @@ The shortcode can be easily inserted into a template/theme which corresponds to 
 To do so you should insert the following shorcode:
 
     <?php echo do_shortcode([huge_it_portfolio id=N]); ?>
+
 
 Where N is the number ID of the created Portfolio gallery.
