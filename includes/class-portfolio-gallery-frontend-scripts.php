@@ -270,10 +270,10 @@ class Portfolio_Gallery_Frontend_Scripts {
 					$big_img  = "https://www.youtube.com/embed/" . $videourl[0];
 				} elseif ( portfolio_gallery_youtube_or_vimeo_portfolio( $thumbnail ) == 'vimeo' ) {
 					$videourl = portfolio_gallery_get_video_id_from_url( $thumbnail );
-					$hash     = unserialize( wp_remote_fopen( "http://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
+					$hash     = unserialize( wp_remote_fopen( "https://vimeo.com/api/v2/video/" . $videourl[0] . ".php" ) );
 					$smal_img = esc_url( $hash[0]['thumbnail_large'] );
 					$videourl = portfolio_gallery_get_video_id_from_url( $thumbnail );
-					$big_img  = "http://player.vimeo.com/video/" . $videourl[0];
+					$big_img  = "https://player.vimeo.com/video/" . $videourl[0];
 				}
 				array_push( $thumbs, $smal_img );
 				array_push( $larg_images, $big_img );
