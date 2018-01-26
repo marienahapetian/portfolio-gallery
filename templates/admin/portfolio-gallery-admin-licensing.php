@@ -71,8 +71,8 @@ $license = array(
         After the purchasing the commercial version folllo this steps
     </p>
     <ul class="steps">
-        <li>Deactivate Huge IT Forms Plugin</li>
-        <li>Delete Huge IT Forms</li>
+        <li>Deactivate Huge-IT Forms Plugin</li>
+        <li>Delete Huge-IT Forms</li>
         <li>Install the downloaded commercial version of the plugin</li>
     </ul>
     <a href="https://huge-it.com/portfolio-gallery/" target="_blank">Purchase a License</a>

@@ -285,7 +285,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view0_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view0_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view0_sorting_name_by_default]" type="text"
                                                                    id="ht_view0_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view0_sorting_name_by_default'] ); ?>"
@@ -1027,7 +1027,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view1_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view1_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view1_sorting_name_by_default]" type="text"
                                                                    id="ht_view1_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view1_sorting_name_by_default'] ); ?>"
@@ -1384,7 +1384,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view2_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view2_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view2_sorting_name_by_default]" type="text"
                                                                    id="ht_view2_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view2_sorting_name_by_default'] ); ?>"
@@ -2012,7 +2012,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view3_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view3_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view3_sorting_name_by_default]" type="text"
                                                                    id="ht_view3_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view3_sorting_name_by_default'] ); ?>"
@@ -2472,7 +2472,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view4_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view4_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view4_sorting_name_by_default]" type="text"
                                                                    id="ht_view4_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view4_sorting_name_by_default'] ); ?>"
@@ -3142,7 +3142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
-                                                                    for="ht_view6_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                                                    for="ht_view6_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view6_sorting_name_by_default]" type="text"
                                                                    id="ht_view6_sorting_name_by_default"
                                                                    value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sorting_name_by_default'] ); ?>"
@@ -3444,7 +3444,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                             <h3><?php echo __( 'Expand Options', 'portfolio-gallery' ); ?></h3>
                                                             <div class="has-background">
                                                                 <label
-                                                                        for="portfolio_gallery_ht_view7_expanding_speed"><?php echo __( 'Expending Speed', 'portfolio-gallery' ); ?></label>
+                                                                        for="portfolio_gallery_ht_view7_expanding_speed"><?php echo __( 'Expanding Speed', 'portfolio-gallery' ); ?></label>
                                                                 <input type="text" name="params[portfolio_gallery_ht_view7_expanding_speed]"
                                                                        id="portfolio_gallery_ht_view7_expanding_speed"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expanding_speed']; ?>"
@@ -3453,7 +3453,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                             </div>
                                                             <div >
                                                                 <label
-                                                                        for="portfolio_gallery_ht_view7_expand_block_height"><?php echo __( 'Expend Block Height', 'portfolio-gallery' ); ?></label>
+                                                                        for="portfolio_gallery_ht_view7_expand_block_height"><?php echo __( 'Expand Block Height', 'portfolio-gallery' ); ?></label>
                                                                 <input type="text" name="params[portfolio_gallery_ht_view7_expand_block_height]"
                                                                        id="portfolio_gallery_ht_view7_expand_block_height"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_block_height']; ?>"
@@ -3462,7 +3462,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
-                                                                        for="portfolio_gallery_ht_view7_expand_width"><?php echo __( 'Expend Block Width', 'portfolio-gallery' ); ?></label>
+                                                                        for="portfolio_gallery_ht_view7_expand_width"><?php echo __( 'Expand Block Width', 'portfolio-gallery' ); ?></label>
                                                                 <input type="text" name="params[portfolio_gallery_ht_view7_expand_width]"
                                                                        id="portfolio_gallery_ht_view7_expand_width"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_width']; ?>"
@@ -3539,7 +3539,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                     <option
                                                                             value="scaleup" <?php selected( $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_effect'], 'scaleup' ); ?> ><?php echo __( 'Scaleup', 'portfolio-gallery' ); ?></option>
                                                                     <option
-                                                                            value="fallperspective" <?php selected( $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_effect'], 'fallperspective' ); ?> ><?php echo __( 'Fallperspective', 'portfolio-gallery' ); ?></option>
+                                                                            value="fallperspective" <?php selected( $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_effect'], 'fallperspective' ); ?> ><?php echo __( 'Fall Perspective', 'portfolio-gallery' ); ?></option>
                                                                     <option
                                                                             value="fly" <?php selected( $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_effect'], 'fly' ); ?> ><?php echo __( 'Fly', 'portfolio-gallery' ); ?></option>
                                                                     <option
@@ -4111,7 +4111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </div>
                                 <div class="has-background">
                                     <label
-                                            for="ht_view8_sorting_name_by_default"><?php echo __( 'Sort By Default Bottom Name', 'portfolio-gallery' ); ?></label>
+                                            for="ht_view8_sorting_name_by_default"><?php echo __( 'Sort By Default Button Name', 'portfolio-gallery' ); ?></label>
                                     <input name="params[portfolio_gallery_ht_view8_sorting_name_by_default]" type="text"
                                            id="ht_view8_sorting_name_by_default"
                                            value="<?php echo esc_attr( $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sorting_name_by_default'] ); ?>"
