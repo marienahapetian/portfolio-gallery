@@ -100,7 +100,7 @@
 		<div class="plugin">
 			<div class="image-block princing-table"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"></a></div>
 			<div class="info-block">
-				<h2><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><?php _e('Princing Table', 'portfolio-gallery' ); ?></a></h2>
+				<h2><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><?php _e('Pricing Table', 'portfolio-gallery' ); ?></a></h2>
 				<p><?php _e('Sell your products and services using 120 stunning pricing table themes and use more advanced options to design them.', 'portfolio-gallery' ); ?></p>
 				<a href="http://huge-it.com/wordpress-pricing-table-builder/" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
 			</div>
@@ -125,7 +125,7 @@
 			<div class="image-block builder"><a href="http://huge-it.com/wordpress-price-table-builder" target="_blank"></a></div>
 			<div class="info-block">
 				<h2><a href="http://huge-it.com/wordpress-price-table-builder" target="_blank"><?php _e('Price Table Builder', 'portfolio-gallery' ); ?></a></h2>
-				<p>Access full customization list of Pricing Table Builder and change every corner of it, by customizing to your needs.</p>
+				<p><?php _e('Access full customization list of Pricing Table Builder and change every corner of it, by customizing to your needs.','portfolio-gallery');?></p>
 				<a href="http://huge-it.com/wordpress-price-table-builder" class="view" target="_blank"><?php _e('View Plugin', 'portfolio-gallery' ); ?></a>
 			</div>
 		</div>

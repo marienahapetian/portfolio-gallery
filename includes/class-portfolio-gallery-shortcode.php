@@ -82,7 +82,7 @@ class Portfolio_Gallery_Shortcode {
 
 		$container_id = 'huge_it_portfolio';
 
-		$title = __( 'Select Huge IT Portfolio Gallery to insert into post', 'portfolio-gallery' );
+		$title = __( 'Select Huge-IT Portfolio Gallery to insert into post', 'portfolio-gallery' );
 
 		$button_text = __( 'Add Portfolio Gallery', 'portfolio-gallery' );
 

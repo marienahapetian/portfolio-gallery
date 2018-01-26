@@ -421,7 +421,7 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 
 = How to add Portfolio plugin into WordPress page or post? =
 
-*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend.
+*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge-IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend.
 
 
 = Is there any slideshow in Portfolio Gallery plugin? =
