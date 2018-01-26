@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div id="poststuff">
 		<div id="post-body-content" class="portfolio-options">
 			<p class="pro_info">
-				These features are available in the Professional version of the plugin only.
+				<?php _e('These features are available in the Professional version of the plugin only.','portfolio-gallery');?>
 				<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary">Enable</a>
 			</p>
             <?php $path_site = esc_attr(PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images');
@@ -1955,7 +1955,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_sortbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_sortbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view3_sortbutton_border_color]" type="text"
@@ -1973,7 +1973,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_sortbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_sortbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -1983,7 +1983,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_sortbutton_border_padding"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_sortbutton_border_padding']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <label
@@ -1992,7 +1992,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_sortbutton_margin"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_sortbutton_margin']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -2088,7 +2088,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_filterbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_filterbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2130,7 +2130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_filterbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_filterbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view3_filterbutton_border_color]"
@@ -2148,7 +2148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_filterbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_filterbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -2158,7 +2158,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_filterbutton_border_padding"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_filterbutton_border_padding']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <label
@@ -2167,7 +2167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_filterbutton_margin"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_filterbutton_margin']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -2245,7 +2245,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view3_linkbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_linkbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2292,7 +2292,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_block_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_block_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2309,7 +2309,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_element_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_element_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2329,7 +2329,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_title_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_title_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2374,7 +2374,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_sortbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_sortbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -2415,7 +2415,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_sortbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_sortbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view4_sortbutton_border_color]" type="text"
@@ -2433,7 +2433,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_sortbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_sortbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -2452,7 +2452,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_sortbutton_margin"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_sortbutton_margin']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -2589,7 +2589,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_filterbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_filterbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view4_filterbutton_border_color]"
@@ -2607,7 +2607,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_filterbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_filterbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -2617,7 +2617,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_filterbutton_border_padding"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_filterbutton_border_padding']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <label
@@ -2626,7 +2626,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_filterbutton_margin"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_filterbutton_margin']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -2674,7 +2674,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_linkbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_linkbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2729,7 +2729,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view4_description_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view4_description_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -2789,7 +2789,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_main_image_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_main_image_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2808,7 +2808,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_thumbs_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_thumbs_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2817,11 +2817,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_thumbs_height"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_thumbs_height']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                     </div>
                                                     <div style="margin-top:-30px;">
-                                                        <h3>Title</h3>
+                                                        <h3><?php _e('Title','portfolio-gallery');?></h3>
                                                         <div class="has-background">
                                                             <label
                                                                     for="ht_view5_title_font_size"><?php echo __( 'Title Font Size', 'portfolio-gallery' ); ?></label>
@@ -2829,7 +2829,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_title_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_title_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2859,7 +2859,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_description_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_description_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -2897,7 +2897,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view5_linkbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view5_linkbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2944,7 +2944,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_title_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_title_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -2994,7 +2994,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div>
                                                             <label
@@ -3003,7 +3003,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -3020,7 +3020,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                     </div>
 
@@ -3044,7 +3044,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_sortbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sortbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -3085,7 +3085,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_sortbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sortbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view6_sortbutton_border_color]" type="text"
@@ -3103,7 +3103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_sortbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sortbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -3113,7 +3113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_sortbutton_border_padding"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sortbutton_border_padding']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <label
@@ -3122,7 +3122,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_sortbutton_margin"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_sortbutton_margin']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -3217,7 +3217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_filterbutton_font_size"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_filterbutton_font_size']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="">
                                                             <label
@@ -3260,7 +3260,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_filterbutton_border_width"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_filterbutton_border_width']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <input name="params[portfolio_gallery_ht_view6_filterbutton_border_color]"
@@ -3278,7 +3278,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_filterbutton_border_radius"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_filterbutton_border_radius']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div class="has-background">
                                                             <label
@@ -3288,7 +3288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    id="ht_view6_filterbutton_border_padding"
                                                                    value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view6_filterbutton_border_padding']; ?>"
                                                                    class="text"/>
-                                                            <span>px</span>
+                                                            <span><?php _e('px','portfolio-gallery');?></span>
                                                         </div>
                                                         <div style="display: none;">
                                                             <label
@@ -3345,7 +3345,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_width"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_width']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div class="has-background">
                                                             <div class="has-background">
                                                                 <label
@@ -3354,7 +3354,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_height"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_height']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div>
                                                                 <label
@@ -3363,7 +3363,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_margin"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_margin']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3403,7 +3403,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_border_width"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_border_width']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3426,7 +3426,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_hover_effect_delay"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_hover_effect_delay']; ?>"
                                                                        class="text"/>
-                                                                <span>ms</span>
+                                                                <span><?php _e('ms','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3449,7 +3449,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_expanding_speed"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expanding_speed']; ?>"
                                                                        class="text"/>
-                                                                <span>ms</span>
+                                                                <span><?php _e('ms','portfolio-gallery');?></span>
                                                             </div>
                                                             <div >
                                                                 <label
@@ -3458,7 +3458,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_expand_block_height"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_block_height']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3503,7 +3503,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_expand_block_title_font_size"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_block_title_font_size']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                         </div>
                                                         <div>
@@ -3606,7 +3606,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_filter_button_padding"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_button_padding']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3626,7 +3626,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_filter_button_radius"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_filter_button_radius']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -3641,7 +3641,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_title_font_size"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_title_font_size']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div>
                                                                 <label
@@ -3678,7 +3678,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_title_border_width"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_title_border_width']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3696,7 +3696,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_title_margin_top"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_title_margin_top']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3706,7 +3706,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_element_title_padding_top_bottom"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_element_title_padding_top_bottom']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                         </div>
                                                         <div >
@@ -3719,7 +3719,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_expand_block_description_font_size"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_block_description_font_size']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div>
                                                                 <label
@@ -3770,7 +3770,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_thumbnail_width"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_thumbnail_width']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div>
                                                                 <label
@@ -3780,7 +3780,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_thumbnail_height"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_thumbnail_height']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3822,7 +3822,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                        id="portfolio_gallery_ht_view7_expand_block_button_font_size"
                                                                        value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view7_expand_block_button_font_size']; ?>"
                                                                        class="text"/>
-                                                                <span>px</span>
+                                                                <span><?php _e('px','portfolio-gallery');?></span>
                                                             </div>
                                                             <div class="has-background">
                                                                 <label
@@ -3893,7 +3893,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_border_width"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_border_width']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="has-background">
                                     <label
@@ -3902,7 +3902,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_border_radius"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_border_radius']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="has-background">
                                     <label
@@ -3911,7 +3911,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_title_font_size"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_title_font_size']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div>
                                     <label
@@ -3988,7 +3988,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_desc_font_size"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_desc_font_size']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div>
                                     <label
@@ -4022,7 +4022,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_sortbutton_font_size"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_font_size']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="">
                                     <label
@@ -4063,7 +4063,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_sortbutton_border_width"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_border_width']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div style="display: none;">
                                     <input name="params[portfolio_gallery_ht_view8_sortbutton_border_color]" type="text"
@@ -4082,7 +4082,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_sortbutton_border_padding"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_border_padding']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div style="display: none;">
                                     <label
@@ -4091,7 +4091,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_sortbutton_margin"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_sortbutton_margin']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="">
                                     <label
@@ -4186,7 +4186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_filterbutton_font_size"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_font_size']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="">
                                     <label
@@ -4229,7 +4229,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_filterbutton_border_width"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_width']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
 
                                 <div class="">
@@ -4240,7 +4240,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_filterbutton_border_radius"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_radius']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="has-background">
                                     <label
@@ -4250,7 +4250,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_filterbutton_border_padding"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_border_padding']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div style="display: none;">
                                     <label
@@ -4259,7 +4259,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                            id="ht_view8_filterbutton_margin"
                                            value="<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view8_filterbutton_margin']; ?>"
                                            class="text"/>
-                                    <span>px</span>
+                                    <span><?php _e('px','portfolio-gallery');?></span>
                                 </div>
                                 <div class="">
                                     <label

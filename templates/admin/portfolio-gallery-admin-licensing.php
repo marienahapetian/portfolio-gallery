@@ -54,26 +54,26 @@ $license = array(
                 </div>
                 <?= $val["title"] ?>
             </div>
-            <p><?= $val["text"] ?></p>
+            <p><?php _e($val["text"],'portfolio-gallery');?></p>
             <div class="col-footer">
-                <a href="https://huge-it.com/portfolio-gallery/" class="a-upgrate">Upgrade</a>
+                <a href="https://huge-it.com/portfolio-gallery/" class="a-upgrate"><?php _e('Upgrade','portfolio-gallery');?></a>
             </div>
         </div>
     <?php } ?>
 </div>
 <div class="license-footer">
     <p class="footer-text">
-        You are using the Lite version of the Forms Plugin for WordPress. If you want to get more awesome options,
+        <?php _e('You are using the Lite version of the Forms Plugin for WordPress. If you want to get more awesome options,
         advanced features, settings to customize every area of the plugin, then check out the Full License plugin.
-        The full version of the plugin is available in 3 different packages of one-time payment.
+        The full version of the plugin is available in 3 different packages of one-time payment.','portfolio-gallery');?>
     </p>
     <p class="this-steps max-width">
-        After the purchasing the commercial version folllo this steps
+        <?php _e('After the purchasing the commercial version folllo this steps','portfolio-gallery');?>
     </p>
     <ul class="steps">
-        <li>Deactivate Huge-IT Forms Plugin</li>
-        <li>Delete Huge-IT Forms</li>
-        <li>Install the downloaded commercial version of the plugin</li>
+        <li><?php _e('Deactivate Huge-IT Portfolio Gallery Plugin','portfolio-gallery');?></li>
+        <li><?php _e('Delete Huge-IT Portfolio Gallery','portfolio-gallery');?></li>
+        <li><?php _e('Install the downloaded commercial version of the plugin','portfolio-gallery');?></li>
     </ul>
-    <a href="https://huge-it.com/portfolio-gallery/" target="_blank">Purchase a License</a>
+    <a href="https://huge-it.com/portfolio-gallery/" target="_blank"><?php _e('Purchase a License','portfolio-gallery');?></a>
 </div>

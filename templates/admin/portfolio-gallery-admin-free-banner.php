@@ -8,9 +8,9 @@ if (!defined('ABSPATH')) {
     <img class="manual_icon"
          src="<?php echo esc_attr(PORTFOLIO_GALLERY_IMAGES_URL . '/admin_images/icon-user-manual.png'); ?>"
          alt="user manual"/>
-    <p class="usermanual_text">If you have any difficulties in using the options, Follow the link to <a
-                href="http://huge-it.com/wordpress-portfolio-gallery-user-manual/" target="_blank">User Manual</a></p>
-    <a class="get_full_version" href="http://huge-it.com/portfolio-gallery/" target="_blank">GET THE FULL VERSION</a>
+    <p class="usermanual_text"><?php _e('If you have any difficulties in using the options, Follow the link to ','portfolio-gallery');?><a
+                href="http://huge-it.com/wordpress-portfolio-gallery-user-manual/" target="_blank"><?php _e('User Manual','portfolio-gallery');?></a></p>
+    <a class="get_full_version" href="http://huge-it.com/portfolio-gallery/" target="_blank"><?php _e('GET THE FULL VERSION','portfolio-gallery');?></a>
     <a href="http://huge-it.com" target="_blank"><img class="huge_it_logo"
                                                       src="<?php echo esc_attr(PORTFOLIO_GALLERY_IMAGES_URL . '/admin_images/Huge-It-logo.png'); ?>"/></a>
     <div style="clear: both;"></div>
@@ -21,12 +21,12 @@ if (!defined('ABSPATH')) {
         <a target="_blank" class="yt" href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q"></a>
     </div>
     <div class="hg_view_plugins_block">
-        <a target="_blank" href="https://wordpress.org/support/plugin/portfolio-gallery/reviews/">Rate Us</a>
-        <a target="_blank" href="https://demo.huge-it.com/wordpress-plugins-portfolio-elastic-grid">Full Demo</a>
-        <a target="_blank" href="http://huge-it.com/wordpress-portfolio-gallery-faq//">FAQ</a>
-        <a target="_blank" href="https://wordpress.org/support/plugin/portfolio-gallery">Contact Us</a>
+        <a target="_blank" href="https://wordpress.org/support/plugin/portfolio-gallery/reviews/"><?php _e('Rate Us','portfolio-gallery');?></a>
+        <a target="_blank" href="https://demo.huge-it.com/wordpress-plugins-portfolio-elastic-grid"><?php _e('Full Demo','portfolio-gallery');?></a>
+        <a target="_blank" href="http://huge-it.com/wordpress-portfolio-gallery-faq//"><?php _e('FAQ','portfolio-gallery');?></a>
+        <a target="_blank" href="https://wordpress.org/support/plugin/portfolio-gallery"><?php _e('Contact Us','portfolio-gallery');?></a>
     </div>
-    <div class="description_text"><p>This is the Lite version of the plugin. Click "GET THE FULL VERSION" for more
-            advanced options and customization possibilities. We appreciate your attention and cooperation.</p></div>
+    <div class="description_text"><p><?php _e('This is the Lite version of the plugin. Click "GET THE FULL VERSION" for more
+            advanced options and customization possibilities. We appreciate your attention and cooperation.','portfolio-gallery');?></p></div>
     <div style="clear: both;"></div>
 </div>

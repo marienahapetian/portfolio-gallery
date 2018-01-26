@@ -144,7 +144,7 @@ $id                 = intval( $_GET['id'] );
 																		       value="Edit"/>
 																	</a>
 																	<a href="#remove" title="<?php echo $i; ?>"
-																	   class="remove-image">remove</a>
+																	   class="remove-image"><?php _e('remove','portfolio-gallery');?></a>
 																</li>
 																<?php
 															} else { ?>
@@ -160,7 +160,7 @@ $id                 = intval( $_GET['id'] );
 																	<input type="button" class="edit-image" id=""
 																	       value="Edit"/>
 																	<a href="#remove" title="<?php echo $i; ?>"
-																	   class="remove-image">remove</a>
+																	   class="remove-image"><?php _e('remove','portfolio-gallery');?></a>
 																</li>
 																<?php
 															}
@@ -317,7 +317,7 @@ $id                 = intval( $_GET['id'] );
 																		       value="Edit"/>
 																	</a>
 																	<a href="#remove" title="<?php echo $i; ?>"
-																	   class="remove-image">remove</a>
+																	   class="remove-image"><?php _e('remove','portfolio-gallery');?></a>
 																</li>
 																<?php
 															else : ?>
@@ -331,7 +331,7 @@ $id                 = intval( $_GET['id'] );
 																	<input type="button" class="edit-image" id=""
 																	       value="Edit"/>
 																	<a href="#remove" title="<?php echo $i; ?>"
-																	   class="remove-image">remove</a>
+																	   class="remove-image"><?php _e('remove','portfolio-gallery');?></a>
 																</li>
 																<?php
 															endif;
@@ -410,7 +410,7 @@ $id                 = intval( $_GET['id'] );
 													</div>
 													<div class="category-container">
 														<strong><?php echo __( 'Select Categories', 'portfolio-gallery' ); ?></strong>
-														<em>(<?php echo __( 'Press Ctrl And Select multiple', 'portfolio-gallery' ); ?>
+														<em>(<?php echo __( 'Press Ctrl And Select multiply', 'portfolio-gallery' ); ?>
 															)</em>
 														<select id="multipleSelect" multiple="multiple" disabled>
 															<?php
@@ -550,11 +550,11 @@ $id                 = intval( $_GET['id'] );
 										<select id="slider_effect" disabled style="width:103px">
 											<option <?php if ( $row->sl_position == 'off' ) {
 												echo 'selected';
-											} ?> value="off">Off
+											} ?> value="off"><?php _e('Off','portfolio-gallery');?>
 											</option>
 											<option <?php if ( $row->sl_position == 'on' ) {
 												echo 'selected';
-											} ?> value="on">On
+											} ?> value="on"><?php _e('On','portfolio-gallery');?>
 											</option>
 										</select>
 										<a class="portfolio-pro-link probuttonlink"
@@ -585,11 +585,11 @@ $id                 = intval( $_GET['id'] );
 										<select name="disable_right_click" id="disable_right_click">
 											<option <?php if ( get_option( 'portfolio_gallery_disable_right_click' ) == 'off' ) {
 												echo 'selected';
-											} ?> value="off">Off
+											} ?> value="off"><?php _e('Off','portfolio-gallery');?>
 											</option>
 											<option <?php if ( get_option( 'portfolio_gallery_disable_right_click' ) == 'on' ) {
 												echo 'selected';
-											} ?> value="on">On
+											} ?> value="on"><?php _e('On','portfolio-gallery');?>
 											</option>
 
 										</select>

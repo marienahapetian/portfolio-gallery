@@ -19,6 +19,15 @@ function Portfolio_Gallery_Elastic_Grid(id) {
     _this.filterButton = _this.filtersBlock.find('ul li');
     _this.hoverEffect = portfolio_param_obj.portfolio_gallery_ht_view7_element_hover_effect == 'true';
     _this.hoverEffectInverse = portfolio_param_obj.portfolio_gallery_ht_view7_hover_effect_inverse == 'true';
+
+    _this.windowLocation = window.location.href;
+    _this.originLocation = window.location.href;
+    if( _this.windowLocation.indexOf('hg_filter_') > -1 ){
+        var windowLocArray = _this.windowLocation.split('hg_filter_');
+        _this.originLocation = windowLocArray[0];
+        _this.activeFilter = windowLocArray[1];
+    }
+
     if (_this.container.data('show-center') == 'on' && ( ( !_this.content.hasClass('sortingActive') && !_this.content.hasClass('filteringActive') )
         || ( _this.optionsBlock.data('sorting-position') == 'top' && _this.filtersBlock.data('filtering-position') == 'top' ) ||
         ( _this.optionsBlock.data('sorting-position') == 'top' && !_this.content.hasClass('filteringActive') ) || ( !_this.content.hasClass('sortingActive') && _this.filtersBlock.data('filtering-position') == 'top' ) )) {
@@ -90,6 +99,11 @@ function Portfolio_Gallery_Elastic_Grid(id) {
                     jQuery(this).css('border','none');
                 }
             });
+
+
+            if(typeof _this.activeFilter != 'undefined'){
+                _this.filtersBlock.find('a.filter[data-filter=".'+_this.activeFilter+'"]').trigger('click');
+            }
         });
     };
 

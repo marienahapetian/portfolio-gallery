@@ -10,7 +10,7 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 	<div style="margin-left: -20px;position: relative" id="poststuff">
 		<p class="pro_info">
 			<?php _e('These features are available in the Professional version of the plugin only.', 'portfolio-gallery' ); ?>
-			<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary">Enable</a>
+			<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary"><?php _e('Enable','portfolio-gallery');?></a>
 		</p>
 		<form
 			action="admin.php?page=Options_portfolio_lightbox_styles&task=save&portfolio_gallery_nonce_save_lightbox_options=<?php echo $lightbox_options_nonce; ?>"
@@ -19,7 +19,7 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 				<li class="<?php if ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
 					echo "active";
 				} ?>">
-					<label for="new_type">New Type</label>
+					<label for="new_type"><?php _e('New Type','portfolio-gallery');?></label>
 					<input type="checkbox" name="params[portfolio_gallery_lightbox_type]"
 						   id="new_type" <?php if ( get_option('portfolio_gallery_lightbox_type') == 'new_type' ) {
 						echo 'checked';
@@ -52,13 +52,13 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 		} ?>">
 			<div class="portfolio_lightbox_options_grey_overlay"></div>
 			<div class="lightbox-options-block">
-				<h3>General Options</h3>
+				<h3><?php _e('General Options','portfolio-gallery');?></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_lightboxView">Lightbox style
+					<label for="portfolio_gallery_lightbox_lightboxView"><?php _e('Lightbox style','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -84,25 +84,25 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					</select>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_speed_new">Lightbox open speed
+					<label for="portfolio_gallery_lightbox_speed_new"><?php _e('Lightbox open speed','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set lightbox opening speed</p>
+								<p><?php _e('Set lightbox opening speed','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
 					<input type="number" name="params[portfolio_gallery_lightbox_speed_new]" id="portfolio_gallery_lightbox_speed_new"
 						   value="<?php echo get_option('portfolio_gallery_lightbox_speed_new'); ?>"
 						   class="text">
-					<span>ms</span>
+					<span><?php _e('ms','portfolio-gallery');?></span>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_overlayClose_new">Overlay close
+					<label for="portfolio_gallery_lightbox_overlayClose_new"><?php _e('Overlay close','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Check to enable close by Esc key.</p>
+								<p><?php _e('Check to enable close by Esc key.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -113,11 +113,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					} ?> name="params[portfolio_gallery_lightbox_overlayClose_new]" value="true"/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_style">Loop content
+					<label for="portfolio_gallery_lightbox_style"><?php _e('Loop content','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Check to enable repeating images after one cycle.</p>
+								<p><?php _e('Check to enable repeating images after one cycle.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -130,14 +130,14 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 			</div>
 		</form>
 			<div class="lightbox-options-block portfolio_lightbox_options_grey_overlay">
-				<h3>Dimensions<img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
+				<h3><?php _e('Dimensions','portfolio-gallery');?><img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
 								   class="portfolio_gallery_lightbox_pro_logo"></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_width_new">Lightbox Width
+					<label for="portfolio_gallery_lightbox_width_new"><?php _e('Lightbox Width','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the width of the popup in percentages.</p>
+								<p><?php _e('Set the width of the popup in percentages.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -147,11 +147,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					<span>%</span>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_height_new">Lightbox Height
+					<label for="portfolio_gallery_lightbox_height_new"><?php _e('Lightbox Height','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the height of the popup in percentages.</p>
+								<p><?php _e('Set the height of the popup in percentages.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -161,29 +161,29 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					<span>%</span>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_videoMaxWidth">Lightbox Video maximum width
+					<label for="portfolio_gallery_lightbox_videoMaxWidth"><?php _e('Lightbox Video maximum width','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the maximum width of the popup in pixels, the height will be fixed automatically.</p>
+								<p><?php _e('Set the maximum width of the popup in pixels, the height will be fixed automatically.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
 					<input type="number"
 						   value="<?php echo $portfolio_defaultoptions['portfolio_gallery_lightbox_videoMaxWidth']; ?>"
 						   class="text">
-					<span>px</span>
+					<span><?php _e('px','portfolio-gallery');?></span>
 				</div>
 			</div>
 			<div class="lightbox-options-block portfolio_lightbox_options_grey_overlay">
-				<h3>Slideshow<img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
+				<h3><?php _e('Slideshow','portfolio-gallery');?><img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
 								  class="portfolio_gallery_lightbox_pro_logo"></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_slideshow_new">Slideshow
+					<label for="portfolio_gallery_lightbox_slideshow_new"><?php _e('Slideshow','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the width of popup</p>
+								<p><?php _e('Set the width of popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -194,11 +194,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					} ?> name="params[portfolio_gallery_lightbox_slideshow_new]" value="true"/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_slideshow_auto_new">Slideshow auto start
+					<label for="portfolio_gallery_lightbox_slideshow_auto_new"><?php _e('Slideshow auto start','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the width of popup</p>
+								<p><?php _e('Set the width of popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -209,11 +209,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					} ?> name="params[portfolio_gallery_lightbox_slideshow_auto_new]" value="true"/>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_slideshow_speed_new">Slideshow interval
+					<label for="portfolio_gallery_lightbox_slideshow_speed_new"><?php _e('Slideshow interval','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the height of popup</p>
+								<p><?php _e('Set the height of popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -221,18 +221,18 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_slideshow_speed_new"
 						   value="<?php echo $portfolio_defaultoptions['portfolio_gallery_lightbox_slideshow_speed_new']; ?>"
 						   class="text">
-					<span>ms</span>
+					<span><?php _e('ms','portfolio-gallery');?></span>
 				</div>
 			</div>
 			<div class="lightbox-options-block portfolio_lightbox_options_grey_overlay" style=" margin-top: -150px;">
-				<h3>Advanced Options<img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
+				<h3><?php _e('Advanced Options','portfolio-gallery');?><img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
 										 class="portfolio_gallery_lightbox_pro_logo"></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_style">EscKey close
+					<label for="portfolio_gallery_lightbox_style"><?php _e('EscKey close','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -240,11 +240,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_escKey_new"/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_keyPress_new">Keyboard navigation
+					<label for="portfolio_gallery_lightbox_keyPress_new"><?php _e('Keyboard navigation','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -252,11 +252,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_keyPress_new"/>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_arrows">Show Arrows
+					<label for="portfolio_gallery_lightbox_arrows"><?php _e('Show Arrows','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -264,11 +264,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_arrows" checked/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_mouseWheel">Mouse Wheel Navigaion
+					<label for="portfolio_gallery_lightbox_mouseWheel"><?php _e('Mouse Wheel Navigaion','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -276,11 +276,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_mouseWheel" />
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_download">Show Download Button
+					<label for="portfolio_gallery_lightbox_download"><?php _e('Show Download Button','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -288,11 +288,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_download" />
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_showCounter">Show Counter
+					<label for="portfolio_gallery_lightbox_showCounter"><?php _e('Show Counter','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -300,11 +300,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_showCounter" />
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_sequence_info">Sequence Info text
+					<label for="portfolio_gallery_lightbox_sequence_info"><?php _e('Sequence Info text','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -319,54 +319,54 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					XX
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_slideAnimationType">Transition type
+					<label for="portfolio_gallery_lightbox_slideAnimationType"><?php _e('Transition type','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
 					<select id="portfolio_gallery_lightbox_slideAnimationType" >
 						<option <?php selected( 'effect_1', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_1">Effect 1
+							value="effect_1"><?php _e('Effect','portfolio-gallery');?> 1
 						</option>
 						<option <?php selected( 'effect_2', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_2">Effect 2
+							value="effect_2"><?php _e('Effect','portfolio-gallery');?> 2
 						</option>
 						<option <?php selected( 'effect_3', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_3">Effect 3
+							value="effect_3"><?php _e('Effect','portfolio-gallery');?> 3
 						</option>
 						<option <?php selected( 'effect_4', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_4">Effect 4
+							value="effect_4"><?php _e('Effect','portfolio-gallery');?> 4
 						</option>
 						<option <?php selected( 'effect_5', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_5">Effect 5
+							value="effect_5"><?php _e('Effect','portfolio-gallery');?> 5
 						</option>
 						<option <?php selected( 'effect_6', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_6">Effect 6
+							value="effect_6"><?php _e('Effect','portfolio-gallery');?> 6
 						</option>
 						<option <?php selected( 'effect_7', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_7">Effect 7
+							value="effect_7"><?php _e('Effect','portfolio-gallery');?> 7
 						</option>
 						<option <?php selected( 'effect_8', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_8">Effect 8
+							value="effect_8"><?php _e('Effect','portfolio-gallery');?> 8
 						</option>
 						<option <?php selected( 'effect_9', $portfolio_defaultoptions['portfolio_gallery_lightbox_slideAnimationType'] ); ?>
-							value="effect_9">Effect 9
+							value="effect_9"><?php _e('Effect','portfolio-gallery');?> 9
 						</option>
 					</select>
 				</div>
 			</div>
 			<div class="lightbox-options-block portfolio_lightbox_options_grey_overlay">
-				<h3>Lightbox Watermark styles<img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
+				<h3><?php _e('Lightbox Watermark styles','portfolio-gallery');?><img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
 												  class="portfolio_gallery_lightbox_pro_logo"></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_watermark">Watermark
+					<label for="portfolio_gallery_lightbox_watermark"><?php _e('Watermark','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the width of popup</p>
+								<p><?php _e('Set the width of popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -374,11 +374,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_watermark"  />
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_watermark_text">Watermark Text
+					<label for="portfolio_gallery_lightbox_watermark_text"><?php _e('Watermark Text','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -387,11 +387,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   class="text">
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_watermark_textColor">Watermark Text Color
+					<label for="portfolio_gallery_lightbox_watermark_textColor"><?php _e('Watermark Text Color','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -400,11 +400,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   size="10"/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_watermark_textFontSize">Watermark Text Font Size
+					<label for="portfolio_gallery_lightbox_watermark_textFontSize"><?php _e('Watermark Text Font Size','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -412,14 +412,14 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_watermark_textFontSize"
 						   value="<?php echo $portfolio_defaultoptions['portfolio_gallery_lightbox_watermark_textFontSize']; ?>"
 						   class="text">
-					<span>px</span>
+					<span><?php _e('px','portfolio-gallery');?></span>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_watermark_containerBackground">Watermark Background Color
+					<label for="portfolio_gallery_lightbox_watermark_containerBackground"><?php _e('Watermark Background Color','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -428,11 +428,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   size="10"/>
 				</div>
 				<div>
-					<label for="portfolio_gallery_lightbox_watermark_containerOpacity">Watermark Background Opacity
+					<label for="portfolio_gallery_lightbox_watermark_containerOpacity"><?php _e('Watermark Background Opacity','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -445,11 +445,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					</div>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_watermark_containerWidth">Watermark Width
+					<label for="portfolio_gallery_lightbox_watermark_containerWidth"><?php _e('Watermark Width','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -457,14 +457,14 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_watermark_containerWidth"
 						   value="<?php echo $portfolio_defaultoptions['portfolio_gallery_lightbox_watermark_containerWidth']; ?>"
 						   class="text">
-					<span>px</span>
+					<span><?php _e('px','portfolio-gallery');?></span>
 				</div>
 				<div class="has-height">
-					<label for="portfolio_gallery_lightbox_watermark_containerWidth">Watermark Position
+					<label for="portfolio_gallery_lightbox_watermark_containerWidth"><?php _e('Watermark Position','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -518,11 +518,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					</div>
 				</div>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_watermark_margin">Watermark Margin
+					<label for="portfolio_gallery_lightbox_watermark_margin"><?php _e('Watermark Margin','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -530,14 +530,14 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						   id="portfolio_gallery_lightbox_watermark_margin"
 						   value="<?php echo $portfolio_defaultoptions['portfolio_gallery_lightbox_watermark_margin']; ?>"
 						   class="text">
-					<span>px</span>
+					<span><?php _e('px','portfolio-gallery');?></span>
 				</div>
 				<div class="has-background" style="display: none">
-					<label for="portfolio_gallery_lightbox_watermark_opacity">Watermark Text Opacity
+					<label for="portfolio_gallery_lightbox_watermark_opacity"><?php _e('Watermark Text Opacity','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -549,11 +549,11 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 					</div>
 				</div>
 				<div style="height:auto;">
-					<label for="watermark_image_btn">Select Watermark Image
+					<label for="watermark_image_btn"><?php _e('Select Watermark Image','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the image of Lightbox watermark.</p>
+								<p><?php _e('Set the image of Lightbox watermark.','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -566,25 +566,25 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 				</div>
 			</div>
 			<div class="lightbox-options-block portfolio_lightbox_options_grey_overlay" style="margin-top: -400px;">
-				<h3>Social Share Buttons<img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
+				<h3><?php _e('Social Share Buttons','portfolio-gallery');?><img src="<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/portfolio-pro-icon.png'; ?>"
 											 class="portfolio_gallery_lightbox_pro_logo"></h3>
 				<div class="has-background">
-					<label for="portfolio_gallery_lightbox_socialSharing">Social Share Buttons
+					<label for="portfolio_gallery_lightbox_socialSharing"><?php _e('Social Share Buttons','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Set the width of popup</p>
+								<p><?php _e('Set the width of popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
 					<input type="checkbox"  id="portfolio_gallery_lightbox_socialSharing"  />
 				</div>
 				<div class="social-buttons-list">
-					<label>Social Share Buttons List
+					<label><?php _e('Social Share Buttons List','portfolio-gallery');?>
 						<div class="help">?
 							<div class="help-block">
 								<span class="pnt"></span>
-								<p>Choose the style of your popup</p>
+								<p><?php _e('Choose the style of your popup','portfolio-gallery');?></p>
 							</div>
 						</div>
 					</label>
@@ -592,28 +592,28 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 						<table>
 							<tr>
 								<td>
-									<label for="portfolio_gallery_lightbox_facebookButton">Facebook
+									<label for="portfolio_gallery_lightbox_facebookButton"><?php _e('Facebook','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_facebookButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_facebookButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_twitterButton">Twitter
+									<label for="portfolio_gallery_lightbox_twitterButton"><?php _e('Twitter','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_twitterButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_twitterButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_googleplusButton">Google Plus
+									<label for="portfolio_gallery_lightbox_googleplusButton"><?php _e('Google Plus','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_googleplusButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_googleplusButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_pinterestButton">Pinterest
+									<label for="portfolio_gallery_lightbox_pinterestButton"><?php _e('Pinterest','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_pinterestButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_pinterestButton'] == 'true' ) {
 											echo 'checked="checked"';
@@ -622,28 +622,28 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 							</tr>
 							<tr>
 								<td>
-									<label for="portfolio_gallery_lightbox_linkedinButton">Linkedin
+									<label for="portfolio_gallery_lightbox_linkedinButton"><?php _e('Linkedin','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_linkedinButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_linkedinButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_tumblrButton">Tumblr
+									<label for="portfolio_gallery_lightbox_tumblrButton"><?php _e('Tumblr','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_tumblrButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_tumblrButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_redditButton">Reddit
+									<label for="portfolio_gallery_lightbox_redditButton"><?php _e('Reddit','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_redditButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_redditButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_bufferButton">Buffer
+									<label for="portfolio_gallery_lightbox_bufferButton"><?php _e('Buffer','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_bufferButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_bufferButton'] == 'true' ) {
 											echo 'checked="checked"';
@@ -652,21 +652,21 @@ $portfolio_defaultoptions = portfolio_gallery_get_default_general_options();
 							</tr>
 							<tr>
 								<td>
-									<label for="portfolio_gallery_lightbox_vkButton">Vkontakte
+									<label for="portfolio_gallery_lightbox_vkButton"><?php _e('Vkontakte','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_vkButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_vkButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_yummlyButton">Yumly
+									<label for="portfolio_gallery_lightbox_yummlyButton"><?php _e('Yumly','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_yummlyButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_yummlyButton'] == 'true' ) {
 											echo 'checked="checked"';
 										} ?>  value="true"/></label>
 								</td>
 								<td>
-									<label for="portfolio_gallery_lightbox_diggButton">Digg
+									<label for="portfolio_gallery_lightbox_diggButton"><?php _e('Digg','portfolio-gallery');?>
 										<input type="checkbox"
 											   id="portfolio_gallery_lightbox_diggButton" <?php if ( $portfolio_defaultoptions['portfolio_gallery_lightbox_diggButton'] == 'true' ) {
 											echo 'checked="checked"';

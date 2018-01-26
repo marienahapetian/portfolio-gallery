@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/portfolio-gallery/
 Tags: portfolio, filterable portfolio, portfolio gallery, responsive portfolio, wordpress portfolio plugin,
 Requires at least: 3.0.1
-Tested up to: 4.8.1
-Stable tag: 2.4.1
+Tested up to: 4.9.1
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,6 @@ https://www.youtube.com/watch?v=uq6Cw3ou-gM
 * [Portfolio Gallery Support](https://huge-it.com/contact-us/)
 * [Portfolio Gallery Forum](https://wordpress.org/support/plugin/portfolio-gallery)
 * [Portfolio Gallery Github Project](https://github.com/Huge-IT/portfolio-gallery)
-
 
 
 Show off your portfolio, work and experience to prospective clients and employers with Huge-IT Portfolio.
@@ -294,6 +293,8 @@ If the installation of Portfolio Pro version didn’t open the Pro options, just
 7.  [WordPress Portfolio Gallery view 6](https://huge-it.com/wordpress-portfolio-gallery-demo-6-content-slider/#plugin_demo_wrapper) - Content Slider
 8.  [WordPress Portfolio Gallery view 7](https://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox - Gallery
 9.  [WordPress Portfolio Gallery view 7.2](https://huge-it.com/wordpress-portfolio-gallery-demo-7-lightbox-gallery/#plugin_demo_wrapper) - Lightbox / Gallery - popup
+92.  [WordPress Portfolio Gallery view 8](https://wordpress.org/plugins/portfolio-gallery/) - Elastic Grid
+93.  [WordPress Portfolio Gallery view 9](https://wordpress.org/plugins/portfolio-gallery/) - Store View
 10.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
 11.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
 12.  [WordPress Portfolio Gallery](https://wordpress.org/plugins/portfolio-gallery/) - Admin page  
@@ -420,7 +421,7 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 
 = How to add Portfolio plugin into WordPress page or post? =
 
-*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend.
+*  After creating your portfolio gallery copy the shortcode and paste it into your post/page. You can demonstrate your portfolio in widget section as well, open your Widgets, then among existing plugins click on Huge-IT Portfolio, select the place where you need to show portfolio, write a title, select your desired portfolio and press save button. See the result of your beautiful portfolio on your frontend.
 
 
 = Is there any slideshow in Portfolio Gallery plugin? =
@@ -456,6 +457,15 @@ Sometimes the zip file of Portfolio Gallery plugin can go to the junk/spam folde
 If you think, that you found a bug in our [WordPress Portfolio Gallery](https://huge-it.com/portfolio-gallery) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 2.4.2 =
+
+* 1) Image title functionality changed on gallery content popup
+* 2) Adjusted elastic grid categories ordering in front end
+* 3) Fixed content popup vimeo video is centering issue
+* 4) Fixed an issue which caused content popup youtube video to be resized and stretched 
+* 5) Fixed  content slider image resizing issue
+* 6) Fixed ssl issues
 
 = 2.4.1 =
 
@@ -1223,6 +1233,5 @@ The shortcode can be easily inserted into a template/theme which corresponds to 
 To do so you should insert the following shorcode:
 
     <?php echo do_shortcode([huge_it_portfolio id=N]); ?>
-
 
 Where N is the number ID of the created Portfolio gallery.

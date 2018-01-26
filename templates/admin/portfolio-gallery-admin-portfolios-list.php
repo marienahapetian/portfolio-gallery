@@ -18,7 +18,7 @@ global $wpdb;
 		<div id="portfolios-list-page">
 			<form method="post" onkeypress="doNothing()" action="admin.php?page=portfolios_huge_it_portfolio"
 			      id="admin_form" name="admin_form">
-				<h2>Huge-IT Portfolios
+				<h2><?php _e('Huge-IT Portfolios','portfolio-gallery');?>
 					<a onclick="window.location.href='<?php echo $add_new_portfolio_safe_link; ?>'"
 					   class="add-new-h2"><?php echo __( 'Add New Portfolio', 'portfolio-gallery' ); ?></a>
 				</h2>
@@ -32,7 +32,7 @@ global $wpdb;
 					}
 				}
 				$serch_fields = '<div class="alignleft actions"">
-				<label for="search_events_by_title" style="font-size:14px">Filter: </label>
+				<label for="search_events_by_title" style="font-size:14px">'.__('Filter','portfolio-gallery').': </label>
 					<input type="text" name="search_events_by_title" value="' . $serch_value . '" id="search_events_by_title" onchange="clear_search_texts()">
 			</div>
 			<div class="alignleft actions">

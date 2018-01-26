@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div id="huge_it_portfolio" style="display:none;" class="post-content">
-	<h3>Select Huge-IT Portfolio Gallery to insert into post</h3>
+	<h3><?php _e('Select Huge-IT Portfolio Gallery to insert into post','portfolio-gallery');?></h3>
 	<?php
 	global $wpdb;
 	$query        = "SELECT * FROM " . $wpdb->prefix . "huge_itportfolio_portfolios";
