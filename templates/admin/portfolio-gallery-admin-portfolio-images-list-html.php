@@ -410,7 +410,7 @@ $id                 = intval( $_GET['id'] );
 													</div>
 													<div class="category-container">
 														<strong><?php echo __( 'Select Categories', 'portfolio-gallery' ); ?></strong>
-														<em>(<?php echo __( 'Press Ctrl And Select multiply', 'portfolio-gallery' ); ?>
+														<em>(<?php echo __( 'Press Ctrl And Select multiple', 'portfolio-gallery' ); ?>
 															)</em>
 														<select id="multipleSelect" multiple="multiple" disabled>
 															<?php
