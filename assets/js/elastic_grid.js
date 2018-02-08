@@ -328,7 +328,7 @@ jQuery(function() {
             var filterVal = $this.attr('data-filter').slice(1);
             var count  = numOfItems;
             ulObject.find('li').each( function(i, el) {
-                classie.remove( el, 'hidden' );
+                // classie.remove( el, 'hidden' );
                 classie.remove( el, 'animate' );
                 if(!--count){
                     setTimeout( function() {
@@ -635,6 +635,7 @@ jQuery(function() {
 
                             ObjImg.addClass('related_photo');
                             if(i==0){
+                                ObjA.addClass('selectedA');
                                 ObjImg.addClass('selected');
                             }
                             ObjImg.attr("src", gthumbs[i]);
@@ -667,7 +668,9 @@ jQuery(function() {
                         var carousel = jQuery('<div class="elastislide-wrapper elastislide-horizontal"></div>');
                         carousel.append(ObjUl).find('.related_photo').bind('click', function(){
                             carousel.find('.selected').removeClass('selected');
+                            carousel.find('.selectedA').removeClass('selectedA');
                             jQuery(this).addClass('selected');
+                            jQuery(this).closest('a').addClass('selectedA');
                             $largePhoto = jQuery(this).data('large');
                             if(jQuery(this).data('large')) {
                                 self.$fullimage.find('img').fadeOut(500, function () {

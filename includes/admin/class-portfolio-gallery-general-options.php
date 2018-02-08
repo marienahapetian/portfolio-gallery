@@ -12,7 +12,7 @@ class Portfolio_Gallery_General_Options {
 	 * Loads General options page
 	 */
 	public function load_page(){
-		if ( isset( $_GET['page'] ) && $_GET['page'] == 'Options_portfolio_styles' ) {
+		if ( isset( $_GET['page'] ) && $_GET['page'] == 'options_portfolio_styles' ) {
             $this->show_page();
 		}
 	}

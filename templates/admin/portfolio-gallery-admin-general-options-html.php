@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div id="post-body-content" class="portfolio-options">
 			<p class="pro_info">
 				<?php _e('These features are available in the Professional version of the plugin only.','portfolio-gallery');?>
-				<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary">Enable</a>
+				<a href="http://huge-it.com/portfolio-gallery/" target="_blank" class="button button-primary"><?php _e('Enable','portfolio-gallery');?></a>
 			</p>
             <?php $path_site = esc_attr(PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images');
             $portfolio_gallery_get_option=portfolio_gallery_get_default_general_options();?>
-            <form action="admin.php?page=Options_portfolio_styles&task=save&portfolio_gallery_nonce_save_gen_options=<?php echo $portfolio_gallery_nonce_save_gen_options; ?>" method="post" id="adminForm"
+            <form action="admin.php?page=options_portfolio_styles&task=save" method="post" id="adminForm"
                   name="adminForm">
                 <div id="portfolio-options-list">
 
@@ -1817,6 +1817,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                         <div class="has-background">
                                                             <label
+                                                                    for="ht_view3_element_border_width"><?php echo __( 'Element Has Box Shadow', 'portfolio-gallery' ); ?></label>
+                                                            <input type="checkbox"
+                                                                   id="portfolio_gallery_ht_view3_element_box_shadow" <?php if ( isset($portfolio_gallery_get_option['portfolio_gallery_ht_view3_element_box_shadow'] ) && $portfolio_gallery_get_option['portfolio_gallery_ht_view3_element_box_shadow'] == 'on' ):?>checked="checked"<?php endif; ?>
+                                                                   name="params[portfolio_gallery_ht_view3_element_box_shadow]" value="on"/>
+                                                        </div>
+                                                        <div >
+                                                            <label
                                                                     for="ht_view3_element_border_width"><?php echo __( 'Element Border Width', 'portfolio-gallery' ); ?></label>
                                                             <input type="text" name="params[portfolio_gallery_ht_view3_element_border_width]"
                                                                    id="ht_view3_element_border_width"
@@ -1824,7 +1831,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    class="text"/>
                                                             <span>px</span>
                                                         </div>
-                                                        <div>
+                                                        <div class="has-background">
                                                             <label
                                                                     for="ht_view3_element_border_color"><?php echo __( 'Element Border Color', 'portfolio-gallery' ); ?></label>
                                                             <input name="params[portfolio_gallery_ht_view3_element_border_color]" type="text"
@@ -1832,7 +1839,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                    value="#<?php echo $portfolio_gallery_get_option['portfolio_gallery_ht_view3_element_border_color']; ?>"
                                                                    size="10"/>
                                                         </div>
-                                                        <div class="has-background">
+                                                        <div>
                                                             <label
                                                                     for="ht_view3_show_separator_lines"><?php echo __( 'Show Separator Lines', 'portfolio-gallery' ); ?></label>
                                                             <input type="hidden" value="off"
@@ -1895,7 +1902,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </div>
                                                     </div>
 
-                                                    <div style="margin-top:-80px;">
+                                                    <div style="margin-top:-30px;">
                                                         <h3><?php echo __( 'Sorting styles', 'portfolio-gallery' ); ?></h3>
                                                         <div class="" style="display: none;">
                                                             <label for="ht_view3_show_sorting"

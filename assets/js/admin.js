@@ -195,7 +195,7 @@ jQuery(document).ready(function () {
 		jQuery('#portfolio-view-tabs-contents > li').removeClass('active');
 		var liID=jQuery(this).attr('href');
 		jQuery(liID).addClass('active');
-		jQuery('#adminForm').attr('action',"admin.php?page=Options_portfolio_styles&task=save"+liID);
+		jQuery('#adminForm').attr('action',"admin.php?page=options_portfolio_styles&task=save"+liID);
 		return false;
 	});
 	jQuery(".close_free_banner").on("click",function(){

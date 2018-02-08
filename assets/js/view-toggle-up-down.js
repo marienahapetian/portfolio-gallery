@@ -99,7 +99,6 @@ function Portfolio_Gallery_Toggle_Up_Down(id) {
     _this.addEventListeners = function () {
         _this.optionLinks.on('click', _this.optionsClick);
         _this.optionsBlock.find('#shuffle a').on('click',_this.randomClick);
-        _this.titleBlock.on('click', _this.dropdownableClick);
         _this.dropdownable.on('click', _this.dropdownableClick);
         _this.filterButton.on('click', _this.filtersClick);
         jQuery(window).resize(_this.resizeEvent);

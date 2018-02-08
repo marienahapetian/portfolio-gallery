@@ -137,19 +137,25 @@ if (!defined('ABSPATH')) {
                              src="images/noimage.jpg"/>
                         <?php
                     } ?>
-                    <div class="image-overlay"><a title="<?php echo esc_attr($row->name); ?>"
-                                                  href="#<?php echo esc_attr($row->id); ?>"></a></div>
                 </div>
+
+                <?php if ($portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_show_linkbutton"] == 'on' && $link != '') { ?>
+                    <div class="button-block"><a
+                                href="<?php echo esc_url($row->sl_url); ?>" <?php if ($row->link_target == "on") {
+                            echo 'target="_blank"';
+                        } ?> ><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_linkbutton_text"]; ?></a>
+                    </div>
+                <?php } ?>
+
+                <div class="image-overlay">
+                    <a title="<?php echo esc_attr($row->name); ?>" href="#<?php echo esc_attr($row->id); ?>">
+                        <svg aria-hidden="true" data-prefix="fal" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16" style="font-size: 48px;"><path fill="currentColor" d="M508.5 481.6l-129-129c-2.3-2.3-5.3-3.5-8.5-3.5h-10.3C395 312 416 262.5 416 208 416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c54.5 0 104-21 141.1-55.2V371c0 3.2 1.3 6.2 3.5 8.5l129 129c4.7 4.7 12.3 4.7 17 0l9.9-9.9c4.7-4.7 4.7-12.3 0-17zM208 384c-97.3 0-176-78.7-176-176S110.7 32 208 32s176 78.7 176 176-78.7 176-176 176z" class=""></path></svg>
+                    </a>
+                </div>
+
                 <?php if ($row->name != '' || $row->sl_url != ''): ?>
                     <div class="title-block_<?php echo $portfolioID; ?>">
                         <h3 class="name" title="<?php echo esc_attr($row->name); ?>"><?php echo $row->name; ?></h3>
-                        <?php if ($portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_show_linkbutton"] == 'on' && $link != '') { ?>
-                            <div class="button-block"><a
-                                        href="<?php echo esc_url($row->sl_url); ?>" <?php if ($row->link_target == "on") {
-                                    echo 'target="_blank"';
-                                } ?> ><?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view2_element_linkbutton_text"]; ?></a>
-                            </div>
-                        <?php } ?>
                     </div>
                 <?php endif; ?>
             </div>
@@ -174,14 +180,23 @@ if (!defined('ABSPATH')) {
             echo str_replace(" ", "_", $catForFilterValue) . " ";
         } ?>" id="huge_it_portfolio_pupup_element_<?php echo esc_attr($row->id); ?>">
             <div class="heading-navigation heading-navigation_<?php echo esc_attr($portfolioID); ?>">
-                <div style="display: inline-block; float: left;">
-                    <div class="left-change"><a href="#<?php echo $changePopup - 1; ?>"
-                                                data-popupid="#<?php echo $row->id; ?>"><</a></div>
-                    <div class="right-change"><a href="#<?php echo $changePopup + 1; ?>"
-                                                 data-popupid="#<?php echo $row->id; ?>">></a></div>
+                <div style="display: inline-block; float: left; margin-left: calc(2% + 5px);">
+                    <div class="left-change">
+                        <a href="#<?php echo $changePopup - 1; ?>" data-popupid="#<?php echo $row->id; ?>">
+                            <svg aria-hidden="true" data-prefix="far" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-chevron-left fa-w-8" style="font-size: 48px;"><path fill="currentColor" d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z" class=""></path></svg>
+                        </a>
+                    </div>
+                    <div class="right-change">
+                        <a href="#<?php echo $changePopup + 1; ?>" data-popupid="#<?php echo $row->id; ?>">
+                            <svg aria-hidden="true" data-prefix="far" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-chevron-right fa-w-8" style="font-size: 48px;"><path fill="currentColor" d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z" class=""></path></svg>
+                        </a>
+                        </a>
+                    </div>
                 </div>
                 <?php $changePopup = $changePopup + 1; ?>
-                <a href="#close" class="close"></a>
+                <a href="#close" class="close">
+                    <svg aria-hidden="true" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-times fa-w-12" style="font-size: 48px;"><path fill="currentColor" d="M231.6 256l130.1-130.1c4.7-4.7 4.7-12.3 0-17l-22.6-22.6c-4.7-4.7-12.3-4.7-17 0L192 216.4 61.9 86.3c-4.7-4.7-12.3-4.7-17 0l-22.6 22.6c-4.7 4.7-4.7 12.3 0 17L152.4 256 22.3 386.1c-4.7 4.7-4.7 12.3 0 17l22.6 22.6c4.7 4.7 12.3 4.7 17 0L192 295.6l130.1 130.1c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17L231.6 256z" class=""></path></svg>
+                </a>
                 <div style="clear:both;"></div>
             </div>
             <div class="popup-wrapper popup-wrapper_<?php echo esc_attr($portfolioID); ?>">

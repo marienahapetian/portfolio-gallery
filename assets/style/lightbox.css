@@ -62,30 +62,6 @@
 #imageContainer>#hoverNav{ left: 0;}
 #hoverNav a{ outline: none;}
 
-#prevLink, #nextLink{
-	width: 49%;
-	height: 100%;
-	background: transparent url(../assets/images/blank.gif) no-repeat; /* Trick IE into showing hover */
-	display: block;
-	}
-#prevLink { left: 0; float: left;}
-#nextLink { right: 0; float: right;}
-#prevLink:hover, #prevLink:visited:hover { background: url(../assets/images/prev.gif) left 50% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(../assets/images/next.gif) right 50% no-repeat; }
-
-/*** START : next / previous text links ***/
-#nextLinkText, #prevLinkText{
-color: #FF9834;
-font-weight:bold;
-text-decoration: none;
-}
-#nextLinkText{
-padding-left: 20px;
-}
-#prevLinkText{
-padding-right: 20px;
-}
-/*** END : next / previous text links ***/
 /*** START : added padding when navbar is on top ***/
 
 .ontop #imageData {

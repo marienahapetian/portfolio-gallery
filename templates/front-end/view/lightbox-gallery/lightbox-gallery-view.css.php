@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <style>
-/***For Lifgtbox Gallery view***/
+    /***For Lifgtbox Gallery view***/
 .play-icon.youtube-icon  {
     background: url(<?php echo  PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/play.youtube.png';?>) center center no-repeat;
     background-size: 30% 30%;
@@ -22,18 +22,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 /***</add>***/
 .portelement_<?php echo $portfolioID; ?> {
-    max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']+2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']; ?>px;
+    max-width: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width'] + 2*$portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']; ?>px;
     width: 100%;
-    margin:0 0 10px 0;
+    margin: 0 0 13px 0;
     border:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width']; ?>px solid #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_color']; ?>;
     border-radius:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_radius']; ?>px;
     outline:none;
     overflow:hidden;
+
+<?php if($portfolio_gallery_get_options['portfolio_gallery_ht_view6_border_width'] || $portfolio_gallery_get_options['portfolio_gallery_ht_view6_box_shadow']) { ?>
+    padding: 6px;
+<?php } ?>
+
+<?php if(isset($portfolio_gallery_get_options['portfolio_gallery_ht_view6_box_shadow']) && isset($portfolio_gallery_get_options['portfolio_gallery_ht_view6_box_shadow'])=='on'){ ?>
+    box-shadow: 0px 1px 6.86px 0.14px rgba(1, 1, 1, 0.16);
+<?php } ?>
 }
 
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> {
     position:relative;
-    max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']; ?>px;
     width:100%;
 }
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> a {
@@ -44,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 .portelement_<?php echo $portfolioID; ?> .image-block_<?php echo $portfolioID; ?> img {
     margin:0 !important;
     padding:0 !important;
-    max-width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view6_width']; ?>px !important;
+    max-width: none !important;
     width: 100%;
     height:auto;
     display:block;
@@ -75,27 +82,32 @@ if ( ! defined( 'ABSPATH' ) ) {
     transition: bottom 0.3s ease-out 0.1s;
 }
 
-.portelement_<?php echo $portfolioID; ?>:hover .title-block_<?php echo $portfolioID; ?> {bottom:0;}
+.portelement_<?php echo $portfolioID; ?>:hover .title-block_<?php echo $portfolioID; ?> {
+    bottom:0;
+}
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:link, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:visited, 
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a,
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:link,
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:visited,
 .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> {
-    margin:0;
-    padding:0 1% 0 2%;
+    margin: 0;
+    padding: 0 1% 0 2%;
     text-decoration:none;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space:nowrap;
-    z-index:20;
+    z-index: 20;
     font-size: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_size"];?>px;
-    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_color"];?>;
-    font-weight:normal;
-    border: none;
-    box-shadow: none;
+    color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_color"];?>;
+    font-weight: normal;
+    text-align: right;
+    padding: 12px;
+    height: 42px;
 }
 
 
 
-.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:hover, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:focus, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:active, 
+.portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:hover, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:focus, .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?> a:active,
 .portelement_<?php echo $portfolioID; ?> .title-block_<?php echo $portfolioID; ?>:hover {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_title_font_hover_color"];?>;
     text-decoration:none;
@@ -104,27 +116,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 2px 4.7px 0.3px rgba(1, 1, 1, 0.24);
+    border-radius: 3px;
+    padding: 8px;
 <?php   if($sortingFloatLgal != 'top'){
-           echo 'float:'.$sortingFloatLgal.';';
-           echo  "max-width:180px;width:20%;display:inline-block;";
-           if($filteringFloatLgal == 'top') echo 'margin-top:40px;';
-           if($sortingFloatLgal == 'left') echo 'margin-right: 1%;';
-           else echo 'margin-left:1%;';
-       }
-       else {
-           if($portfolioposition == 'on' && ($filteringFloatLgal == 'top' || $filteringFloatLgal == '')) echo 'left:50%; transform:translateX(-50%);';
-           if($filteringFloatLgal == 'left') echo 'margin-left:calc( 185px + 1%);';
-           echo 'width: auto; margin-bottom: 5px;display:table;';
-       }
-       if(($sortingFloatLgal == 'left' && $filteringFloatLgal == 'left') || ($sortingFloatLgal == 'right' && $filteringFloatLgal == 'right')){
-           echo 'width: 100%;';
-       }
+       echo 'float:'.$sortingFloatLgal.';';
+       echo  "max-width:180px; width:19%; display:inline-block;";
+       if($filteringFloatLgal == 'top') echo 'margin-top: 58px;';
+       if($sortingFloatLgal == 'left') echo 'margin-right: 2%;';
+       else echo 'margin-left:2%;';
+   }
+   else {
+       if($portfolioposition == 'on' && ($filteringFloatLgal == 'top' || $filteringFloatLgal == '')) echo 'left:50%; transform:translateX(-50%);';
+       if($filteringFloatLgal == 'left') echo 'margin-left: 21%;';
+       echo 'width: auto; margin-bottom: 5px; display:table;';
+   }
+   if(($sortingFloatLgal == 'left' && $filteringFloatLgal == 'left') || ($sortingFloatLgal == 'right' && $filteringFloatLgal == 'right')){
+       echo 'width: 100%;';
+   }
 ?>
 
 <?php
     if($portfolioShowLoading == 'on') echo 'opacity: 0;';
 ?>
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul {
@@ -136,15 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 }
 
-#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden;
-<?php if($filteringFloatLgal == 'top') {
-  echo "float:left;margin-left:1%;";
-} ?>
-    width: 100%;
-}
+
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li {
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_radius"];?>px;
@@ -153,23 +161,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     padding: 0;
 <?php
     if($sortingFloatLgal == "top")
-    { echo "float:left !important;margin: 0 8px 4px 0 !important;"; }
-    if($sortingFloatLgal == "left" || $sortingFloatLgal == "right")
-    { echo 'border-bottom: 1px solid #ccc;'; }
-    else
-    { echo 'border: 1px solid #ccc;'; }
+    { echo "float:left !important;margin: 0 8px 0 0 !important;"; }
 ?>
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_background_color"];?> !important;
     font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_font_size"];?>px !important;
-    color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_font_color"];?> !important;
+    color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_font_color"];?> !important;
     text-decoration: none;
     cursor: pointer;
     margin: 0 !important;
     display: block;
-    padding:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_padding"];?>px;
+    padding:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_padding"];?>px <?php echo 2*$portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_padding"];?>px;
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_radius"];?>px;
 }
 
@@ -180,18 +184,25 @@ if ( ! defined( 'ABSPATH' ) ) {
     cursor: pointer;
 }
 
+
+
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> {
     float: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filtering_float"]; ?>;
     position: relative;
+    box-shadow: 0px 2px 4.7px 0.3px rgba(1, 1, 1, 0.24);
+    background: #fff;
+    padding: 8px;
+    border-radius: 3px;
+
 <?php   if($filteringFloatLgal != 'top'){
             echo 'float:'.$filteringFloatLgal.';';
-            echo  "max-width:180px;width:20%;display:inline-block;";
-            if($filteringFloatLgal == 'left') echo 'margin-right: 1%;';
-            else echo 'margin-left:1%;';
+            echo  "max-width:180px; width:19%; display:inline-block;";
+            if($filteringFloatLgal == 'left') echo 'margin-right: 2%;';
+            else echo 'margin-left: 2%;';
         }
         else {
             if($portfolioposition == 'on' && ($sortingFloatLgal == 'top' || $sortingFloatLgal == '')) echo 'left:50%; transform:translateX(-50%);';
-            echo 'width: auto; margin-bottom: 5px;display:table;';
+            echo 'width: auto; margin-bottom: 12px; display:table;';
         }
         if(($sortingFloatLgal == 'left' && $filteringFloatLgal == 'left') || ($sortingFloatLgal == 'right' && $filteringFloatLgal == 'right')){
             echo 'width: 100%;';
@@ -203,14 +214,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 }
 
+#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+<?php if($filteringFloatLgal == 'top') {
+  echo "float:left; margin-left:1%;";
+} ?>
+    width: 100%;
+}
+
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li {
     list-style-type: none;
-    border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_sortbutton_border_radius"];?>px;
+    border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_border_radius"];?>px;
+    margin-left: 0;
 <?php
-   if($filteringFloatLgal == "top") { echo "float:left !important;margin: 0 8px 4px 0 !important;"; }
-   if($filteringFloatLgal == "left" || $filteringFloatLgal == "right")
-   { echo 'border-bottom: 1px solid #ccc;'; }
-   else echo "border: 1px solid #ccc;";
+   if($filteringFloatLgal == "top") { echo "float:left !important;margin: 0 8px 0 0 !important;"; }
 ?>
 }
 
@@ -238,6 +257,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_font_color"];?> !important;
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view6_filterbutton_hover_background_color"];?> !important;
     cursor: pointer;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
 }
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> section {
     position:relative;
@@ -337,11 +357,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?> {
     position: relative;
     float: left;
-    width: 20%;
+    width: 19%;
     max-width: 180px;
     float:<?php echo $sortingFloatLgal; ?>;
-<?php if($sortingFloatLgal == 'left') echo 'margin-right: 1%;';
-    else echo 'margin-left:1%;';
+<?php if($sortingFloatLgal == 'left') echo 'margin-right: 2%;';
+    else echo 'margin-left:2%;';
 ?>
 }
 </style>

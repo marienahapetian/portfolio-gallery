@@ -31,13 +31,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 /***</add>***/
 .portelement_<?php echo $portfolioID; ?> {
     position: relative;
-    width: calc(96% - <?php echo 2*$portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_width']; ?>px);
-    margin:5px 0px 5px 0px;
-    padding:2%;
-    clear:both;
+    width: calc(100% - <?php echo 2*$portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_width']; ?>px);
+    margin: 5px 0px 30px 0px;
+    padding: 14px;
+    clear: both;
     overflow: hidden;
-    border:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_width']; ?>px solid #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_color']; ?>;
-    background:#<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_background_color']; ?>;
+    border: <?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_width']; ?>px solid #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_border_color']; ?>;
+    background: #<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_background_color']; ?>;
+    <?php if(isset($portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']) && $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']=='on' ):?>box-shadow: 0px 2px 4.7px 0.3px rgba(1, 1, 1, 0.24); <?php endif;?>
+
+}
+.portelement_<?php echo $portfolioID; ?> .main-image-block_<?php echo $portfolioID; ?>{
+    <?php if(isset($portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']) && $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']=='on' ):?>box-shadow: 0px 1px 3.92px 0.08px rgba(1, 1, 1, 0.16); <?php endif;?>
+}
+
+.portelement_<?php echo $portfolioID; ?> .thumbs-block li{
+    <?php if(isset($portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']) && $portfolio_gallery_get_options['portfolio_gallery_ht_view3_element_box_shadow']=='on' ):?>box-shadow: 0px 1px 6.86px 0.14px rgba(1, 1, 1, 0.16); <?php endif;?>
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> {
@@ -78,11 +87,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li {
-    margin:2px 3px 0px 2px;
-    padding:0px;
+    margin: 2px 8px 5px 2px;
+    padding: 0px;
     width:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_width']; ?>px;
     height:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_thumbs_height']; ?>px;
     float:left;
+}
+
+.portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li:nth-child(3n){
+    margin-right: 0;
+}
+.portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li:nth-child(3n+1){
+    margin-left: 0;
 }
 
 .portelement_<?php echo $portfolioID; ?> div.left-block_<?php echo $portfolioID; ?> .thumbs-block ul li a {
@@ -109,8 +125,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 .portelement_<?php echo $portfolioID; ?> div.right-block > div {
     width:100%;
-    padding-bottom:10px;
-    margin-top:10px;
+    padding-bottom: 7px;
+    margin-top: 12px;
+
 <?php if($portfolio_gallery_get_options['portfolio_gallery_ht_view3_show_separator_lines']=="on") {?>
     background:url('<?php echo PORTFOLIO_GALLERY_IMAGES_URL.'/admin_images/divider.line.png'; ?>') center bottom repeat-x;
 <?php } ?>
@@ -135,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 .portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?> p,.portelement_<?php echo $portfolioID; ?> div.right-block .description-block_<?php echo $portfolioID; ?>  {
     margin:0px;
-    padding:0px;
+    padding: 5px 0px 8px;
     font-size:<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_description_font_size']; ?>px;
     color:#<?php echo $portfolio_gallery_get_options['portfolio_gallery_ht_view3_description_color']; ?>;
     text-align: justify;
@@ -165,15 +182,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     position:relative;
 }
 
-.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a,.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:link,.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:visited {
+.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a,
+.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:link,
+.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:visited {
     position:relative;
     display:inline-block;
-    padding:6px 12px;
+    padding: 6.5px 12.5px;
+    border-radius: 3px;
     background:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_linkbutton_background_color"];?>;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_linkbutton_color"];?>;
     font-size:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_linkbutton_font_size"];?>px;
     text-decoration:none;
     border:none;
+    box-shadow: 0px 2px 3px 0px rgba(1, 1, 1, 0.2);
 }
 
 .portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:hover,.pupup-elemen.element div.right-block .button-block a:focus,.portelement_<?php echo $portfolioID; ?> div.right-block .button-block a:active {
@@ -185,16 +206,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 2px 4.7px 0.3px rgba(1, 1, 1, 0.24);
+    border-radius: 3px;
+    padding: 0 13px;
 <?php   if($sortingFloatFullWidth != 'top'){
+            echo "padding: 14px;";
             echo 'float:'.$sortingFloatFullWidth.';margin-top:5px;';
-            echo  "max-width:180px;width:20%;display:inline-block;";
-            if($filteringFloatFullWidth == 'top') echo 'margin-top:45px;';
-            if($sortingFloatFullWidth == 'left') echo 'margin-right: 1%;';
-            else echo 'margin-left:1%;';
-        }
-        else {
-            if($portfolioposition == 'on' && ($filteringFloatFullWidth == 'top' || $filteringFloatFullWidth == '')) echo 'left:50%; transform:translateX(-50%);';
-            if($filteringFloatFullWidth == 'left') echo 'margin-left:calc( 185px + 1%);';
+            echo  "max-width:180px; width:19%; display:inline-block;";
+            if($filteringFloatFullWidth == 'top') echo 'margin-top: 55px;';
+            if($sortingFloatFullWidth == 'left') echo 'margin-right: 2%;';
+            else echo 'margin-left:2%;';
+        } else {
+            if($portfolioposition == 'on' && ($filteringFloatFullWidth == 'top' || $filteringFloatFullWidth == '')){
+                echo 'left:50%; transform:translateX(-50%);';
+            }
+
+            if($filteringFloatFullWidth == 'left'){
+                echo 'margin-left: 21%;';
+            }
             echo 'width: auto; margin-bottom: 5px;display:table;';
         }
         if(($sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left') || ($sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right')){
@@ -219,34 +249,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul {
-    margin: 0px !important;
-    padding: 0px !important;
+<?php if($filteringFloatFullWidth != 'top') {
+    echo "padding: 14px !important;";
+} else {
+    echo "padding: 0 13px; ";
+} ?>
     overflow: hidden;
-<?php if($filteringFloatFullWidth == 'top') {
-    echo "float:left;margin-left:1%;";
-    } ?>
-    width: 100%;
+    margin-bottom: 0;
 }
 
-<?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_float"] == 'none') { ?>
+
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul {
-    float: left;
+<?php if($portfolio_gallery_get_options["portfolio_gallery_ht_view3_sorting_float"] == 'none') { ?> float: left; <?php } ?>
 }
-<?php } ?>
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li {
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_border_radius"];?>px;
     list-style-type: none;
     margin: 0px !important;
-    padding: 0;
-<?php
-    if($sortingFloatFullWidth == "top")
-    { echo "float:left !important;margin: 0px 8px 4px 0px !important;"; }
-    if($sortingFloatFullWidth == "left" || $sortingFloatFullWidth == "right")
-    { echo 'border-bottom: 1px solid #ccc;'; }
-    else
-    { echo 'border: 1px solid #ccc;'; }
-?>
+<?php if($sortingFloatFullWidth == "top"){
+    echo "float:left !important; padding: 5px;";
+} ?>
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li a {
@@ -258,7 +281,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     cursor: pointer;
     margin: 0px !important;
     display: block;
-    padding:<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_border_padding"];?>px;
+    padding: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_border_padding"];?>px;
 }
 
 /*#huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_options_<?php echo $portfolioID; ?> ul li:hover {
@@ -269,25 +292,34 @@ if ( ! defined( 'ABSPATH' ) ) {
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_hover_background_color"];?> !important;
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_hover_font_color"];?> !important;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> {
     position: relative;
     overflow: hidden;
-<?php   if($filteringFloatFullWidth != 'top'){
-            echo 'float:'.$filteringFloatFullWidth.';margin-top:5px;';
-            echo  "max-width:180px;width:20%;display:inline-block;";
-            if($filteringFloatFullWidth == 'left') echo 'margin-right: 1%;';
-            else echo 'margin-left:1%;';
+    box-shadow: 0px 2px 4.7px 0.3px rgba(1, 1, 1, 0.24);
+    border-radius: 3px;
+    margin-top: 5px;
+<?php
+    if($filteringFloatFullWidth != 'top'){
+        echo 'float:'.$filteringFloatFullWidth.';';
+        echo  "max-width:180px; width:19%; display:inline-block;";
+        if($filteringFloatFullWidth == 'left') {
+            echo 'margin-right: 2%;';
         }
-        else {
-            if($portfolioposition == 'on' && ($sortingFloatFullWidth == 'top' || $sortingFloatFullWidth == '')) echo 'left:50%; transform:translateX(-50%);';
-            if($sortingFloatFullWidth == 'left') echo 'margin-left:calc( 185px + 1%);';
-            echo 'width: auto; margin-bottom: 5px;display:table;';
+        else{
+            echo 'margin-left: 2%; width: 19%; ';
         }
-        if(($sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left') || ($sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right')){
-            echo 'width: 100%;';
-        }
+    } else {
+        if($portfolioposition == 'on' && ($sortingFloatFullWidth == 'top' || $sortingFloatFullWidth == '')) echo 'left:50%; transform:translateX(-50%);';
+        if($sortingFloatFullWidth == 'left') echo 'margin-left: 21%;';
+        echo 'width: auto; margin-bottom: 5px;display:table;';
+    }
+
+    if(($sortingFloatFullWidth == 'left' && $filteringFloatFullWidth == 'left') || ($sortingFloatFullWidth == 'right' && $filteringFloatFullWidth == 'right')){
+        echo 'width: 100%;';
+    }
 ?>
 
 <?php if ($portfolio_gallery_get_options["portfolio_gallery_ht_view2_show_sorting"] == 'off')
@@ -299,11 +331,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li {
     border-radius: <?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_sortbutton_border_radius"];?>px;
     list-style-type: none;
+    margin-left: 0;
 <?php
-    if($filteringFloatFullWidth == "top") { echo "float:left !important;margin: 0px 8px 4px 0px !important;"; }
-    if($filteringFloatFullWidth == "left" || $filteringFloatFullWidth == "right")
-    { echo 'border-bottom: 1px solid #ccc;'; }
-    else echo "border: 1px solid #ccc;";
+    if($filteringFloatFullWidth == "top") {
+        echo "float:left !important; padding: 5px;";
+    } elseif($filteringFloatFullWidth == "left" || $filteringFloatFullWidth == "right"){
+        //echo 'border-bottom: 1px solid #ccc;';
+    } else{
+         //echo "border: 1px solid #ccc;";
+    }
 ?>
 }
 
@@ -321,6 +357,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     color:#<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_filterbutton_hover_font_color"];?> !important;
     background-color: #<?php echo $portfolio_gallery_get_options["portfolio_gallery_ht_view3_filterbutton_hover_background_color"];?> !important;
     cursor: pointer;
+    border-radius: 3px;
 }
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li.active a,
 #huge_it_portfolio_content_<?php echo $portfolioID; ?> #huge_it_portfolio_filters_<?php echo $portfolioID; ?> ul li.active a:link,
@@ -434,6 +471,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     }
 }
+
 #huge-it-container-loading-overlay_<?php echo $portfolioID; ?> {
     width: 100%;
     height: 100%;
@@ -447,11 +485,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 #huge_it_portfolio_options_and_filters_<?php echo $portfolioID; ?>{
     position: relative;
     float: left;
-    width: 20%;
+    width: 19%;
     max-width: 180px;
     float:<?php echo $sortingFloatFullWidth; ?>;
-<?php if($sortingFloatFullWidth == 'left') echo 'margin-right: 1%;';
-    else echo 'margin-left:1%;';
+<?php if($sortingFloatFullWidth == 'left') echo 'margin-right: 2%;';
+    else echo 'margin-left: 2%;';
 ?>
 }
 </style>

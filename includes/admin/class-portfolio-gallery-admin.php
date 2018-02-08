@@ -80,7 +80,7 @@ class Portfolio_Gallery_Admin {
 			'load_portfolio_page'
 		) );
 
-		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'General Options', 'portfolio-gallery' ), __( 'General Options', 'portfolio-gallery' ), 'delete_pages', 'Options_portfolio_styles', array(
+		$this->pages[] = add_submenu_page( 'portfolios_huge_it_portfolio', __( 'General Options', 'portfolio-gallery' ), __( 'General Options', 'portfolio-gallery' ), 'delete_pages', 'options_portfolio_styles', array(
 			Portfolio_Gallery()->admin->general_options,
 			'load_page'
 		) );
